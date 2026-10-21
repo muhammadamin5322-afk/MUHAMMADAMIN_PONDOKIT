@@ -1,0 +1,241 @@
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-container {
+    text-align: center;
+
+    padding: 5px 0 80px;
+}
+
+.back-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #00695c,
+        #17629b
+    );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(0, 105, 92, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 105, 92, 0.25);
+}
+
+.back-button span {
+    font-size: 20px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #123d37;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 45px 20px;
+}
+
+.footer-content strong {
+    font-size: 16px;
+
+    letter-spacing: 1px;
+}
+
+.footer-content p {
+    color: #b9cfca;
+
+    font-size: 13px;
+
+    margin: 8px 0 15px;
+}
+
+.footer-content span {
+    color: #91aaa4;
+
+    font-size: 11px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        min-height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .intro {
+        margin-top: 55px;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr;
+
+        margin-bottom: 55px;
+    }
+
+    .flow {
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .flow-line {
+        width: 2px;
+
+        height: 25px;
+
+        flex: none;
+    }
+
+    .important-note {
+        padding: 28px 22px;
+    }
+}
+
+
+/* =========================
+   MOBILE TABLE
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .intro h2,
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .program-card {
+        padding: 25px 20px;
+    }
+
+    .table-wrapper {
+        background: transparent;
+
+        border: none;
+
+        box-shadow: none;
+
+        overflow: visible;
+    }
+
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        background: white;
+
+        border-radius: 16px;
+
+        margin-bottom: 18px;
+
+        padding: 15px;
+
+        box-shadow:
+            0 8px 25px rgba(24, 64, 56, 0.07);
+
+        border: 1px solid #e6eeeb;
+    }
+
+    td {
+        border: none;
+
+        padding: 10px 5px 10px 105px;
+
+        position: relative;
+
+        min-height: 45px;
+    }
+
+    td::before {
+        content: attr(data-label);
+
+        position: absolute;
+
+        left: 5px;
+
+        top: 10px;
+
+        width: 90px;
+
+        color: #7a8883;
+
+        font-size: 11px;
+
+        font-weight: 700;
+
+        text-transform: uppercase;
+    }
+
+    td:first-child {
+        width: auto;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .back-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+}

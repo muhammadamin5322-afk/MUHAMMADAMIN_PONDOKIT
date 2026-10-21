@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bimbingan Kedatangan | Pondok IT Indonesia</title>
+
+<style>
+:root {
+  --navy: #10243a;
+  --teal: #087f70;
+  --gold: #d6ad57;
+  --bg: #f3f6f8;
+  --text: #243244;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.65;
+}
+header {
+  background: var(--navy);
+  color: white;
+  padding: 18px 7%;
+  font-weight: bold;
+}
+header small {
+  display: block;
+  color: #d6e2eb;
+  font-weight: normal;
+}
+.hero {
+  background: linear-gradient(120deg, #10243a, #087f70);
+  color: white;
+  padding: 55px 7%;
+}
+.hero h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.15;
+  margin: 10px 0;
+}
+.hero p { max-width: 700px; color: #e2e8f0; }
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 28px 20px 50px;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 28px;
+}
+nav a {
+  background: white;
+  padding: 10px 13px;
+  border: 1px solid #dce5ec;
+  border-radius: 8px;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+section {
+  margin-bottom: 28px;
+  scroll-margin-top: 15px;
+}
+.panel {
+  background: white;
+  border: 1px solid #dce5ec;
+  border-radius: 14px;
+  padding: 22px;
+}
+h2 { color: var(--navy); margin-top: 0; }
+h3 { color: var(--teal); }
+.note {
+  background: #fff8e6;
+  border-left: 5px solid var(--gold);
+  padding: 14px 17px;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+button, .button {
+  cursor: pointer;
+  border: 0;
+  padding: 11px 15px;
+  border-radius: 8px;
+  background: var(--teal);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+.tab {
+  background: #edf2f5;
+  color: var(--navy);
+}
+.tab.active {
+  background: var(--navy);
+  color: white;
+}
+.program { display: none; }
+.program.active { display: block; }
+.checklist {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+}
+.checklist li {
+  border-bottom: 1px dashed #dce5ec;
+  padding: 8px 0;
+}
+.checklist input { accent-color: var(--teal); }
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.card {
+  border: 1px solid #dce5ec;
+  padding: 17px;
+  border-radius: 10px;
+}
+.card h3 { margin-top: 0; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+.step {
+  background: white;
+  border: 1px solid #dce5ec;
+  border-radius: 10px;
+  padding: 15px;
+}
+.step b { color: var(--teal); }
+.step h3 { font-size: 16px; }
+.form-card {
+  border: 1px solid #dce5ec;
+  border-radius: 10px;
+  padding: 18px;
+  background: white;
+}
+.form-card p { color: #64748b; }
+footer {
+  background: #0b1928;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 13px;
+}
+@media (max-width: 800px) {
+  .steps { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .columns, .checklist, .steps {
+    grid-template-columns: 1fr;
+  }
+  .hero { padding: 35px 20px; }
+  .container { padding: 20px 13px; }
+}
+@media print {
+  header, nav, .tabs, .no-print { display: none; }
+  .program { display: block !important; }
+  body { background: white; }
+  .panel, .card, .step { break-inside: avoid; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  PONDOK IT INDONESIA
+  <small>Taqwa – Profesional – Bermanfaat</small>
+</header>
+
+<div class="hero">
+  <p>PANDUAN CALON SANTRI DAN WALI SANTRI</p>
+  <h1>Bimbingan Kedatangan Santri</h1>
+  <p>
+    Panduan persiapan dokumen, barang bawaan, konfirmasi kedatangan,
+    dan proses penerimaan santri di Pondok IT Indonesia.
+  </p>
+  <button class="no-print" onclick="window.print()">
+    Cetak / Simpan PDF
+  </button>
+</div>
+
+<main class="container">
+
+<div class="note">
+  <strong>Perhatian:</strong>
+  Pastikan calon santri dan wali santri membaca seluruh panduan
+  sebelum berangkat. Persyaratan final mengikuti informasi resmi
+  dari panitia penerimaan masing-masing program.
+</div>
+
+<nav>
+  <a href="#dokumen">01. Dokumen</a>
+  <a href="#barang">02. Barang Bawaan</a>
+  <a href="#konfirmasi">03. Konfirmasi</a>
+  <a href="#alur">04. Alur Kedatangan</a>
+  <a href="#wali">05. Kontak Wali</a>
+</nav>
+
+<section id="dokumen">
+  <div class="panel">
+    <h2>1. Persiapan Berkas dan Dokumen</h2>
+    <p>Pilih program untuk melihat daftar persiapan dokumen.</p>
+
+    <div class="tabs">
+      <button class="tab active"
+        onclick="pilihProgram('pondok',this)">Pondok IT</button>
+      <button class="tab"
+        onclick="pilihProgram('rumah',this)">Rumah IT</button>
+      <button class="tab"
+        onclick="pilihProgram('sekolah',this)">Sekolah IT</button>
+    </div>
+
+    <div class="program active" id="pondok">
+      <h3>Dokumen Pondok IT</h3>
+      <p>Daftar awal yang perlu dipersiapkan:</p>
+      <ul class="checklist">
+        <li><label><input type="checkbox"> Fotokopi KTP atau identitas</label></li>
+        <li><label><input type="checkbox"> Fotokopi Kartu Keluarga</label></li>
+        <li><label><input type="checkbox"> Fotokopi ijazah terakhir/SKL</label></li>
+        <li><label><input type="checkbox"> Pas foto terbaru</label></li>
+        <li><label><input type="checkbox"> Formulir pendaftaran</label></li>
+        <li><label><input type="checkbox"> Bukti registrasi</label></li>
+        <li><label><input type="checkbox"> Dokumen pendukung jika diminta</label></li>
+        <li><label><input type="checkbox"> Berkas tambahan dari panitia</label></li>
+      </ul>
+    </div>
+
+    <div class="program" id="rumah">
+      <h3>Dokumen Rumah IT</h3>
+      <ul class="checklist">
+        <li><label><input type="checkbox"> Fotokopi KTP atau identitas</label></li>
+        <li><label><input type="checkbox"> Fotokopi Kartu Keluarga</label></li>
+        <li><label><input type="checkbox"> Fotokopi ijazah terakhir/SKL</label></li>
+        <li><label><input type="checkbox"> Pas foto terbaru</label></li>
+        <li><label><input type="checkbox"> Formulir pendaftaran Rumah IT</label></li>
+        <li><label><input type="checkbox"> Bukti registrasi/pembayaran</label></li>
+        <li><label><input type="checkbox"> Data kontak orang tua/wali</label></li>
+        <li><label><input type="checkbox"> Berkas tambahan dari admin</label></li>
+      </ul>
+    </div>
+
+    <div class="program" id="sekolah">
+      <h3>Dokumen Sekolah IT</h3>
+      <ul class="checklist">
+        <li><label><input type="checkbox"> Fotokopi akta kelahiran</label></li>
+        <li><label><input type="checkbox"> Fotokopi Kartu Keluarga</label></li>
+        <li><label><input type="checkbox"> Fotokopi KTP orang tua/wali</label></li>
+        <li><label><input type="checkbox"> Ijazah/SKL dan rapor sesuai jenjang</label></li>
+        <li><label><input type="checkbox"> Pas foto terbaru</label></li>
+        <li><label><input type="checkbox"> Formulir pendaftaran</label></li>
+        <li><label><input type="checkbox"> Dokumen perpindahan jika diperlukan</label></li>
+        <li><label><input type="checkbox"> Berkas tambahan dari admin</label></li>
+      </ul>
+    </div>
+
+    <div class="note">
+      Masukkan dokumen ke dalam map yang rapi dan tuliskan nama lengkap
+      calon santri. Ikuti ketentuan warna folder dari panitia jika ada.
+    </div>
+  </div>
+</section>
+
+<section id="barang">
+  <div class="panel">
+    <h2>2. Persiapan Barang Bawaan</h2>
+    <div class="columns">
+      <div class="card">
+        <h3>Pakaian dan kebutuhan pribadi</h3>
+        <ul>
+          <li>Pakaian harian yang sopan</li>
+          <li>Pakaian ibadah dan pakaian resmi</li>
+          <li>Pakaian tidur dan pakaian dalam</li>
+          <li>Sandal dan sepatu</li>
+          <li>Handuk, sabun, sampo, sikat dan pasta gigi</li>
+          <li>Perlengkapan mencuci pakaian</li>
+          <li>Kantong pakaian kotor</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Perlengkapan ibadah dan belajar</h3>
+        <ul>
+          <li>Al-Qur’an jika diperlukan</li>
+          <li>Perlengkapan shalat</li>
+          <li>Buku catatan dan alat tulis</li>
+          <li>Laptop dan charger sesuai program</li>
+          <li>Mouse atau headset jika dibutuhkan</li>
+          <li>Botol minum</li>
+          <li>Obat pribadi dengan keterangan penggunaan</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Hal yang perlu diperhatikan</h3>
+        <ul>
+          <li>Beri label nama pada barang.</li>
+          <li>Periksa kondisi laptop dan charger.</li>
+          <li>Laporkan obat pribadi kepada pengurus.</li>
+          <li>Bawa uang secukupnya.</li>
+          <li>Konfirmasikan kebutuhan khusus kepada admin.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Barang yang dilarang</h3>
+        <ul>
+          <li>Rokok dan vape.</li>
+          <li>Minuman keras dan zat terlarang.</li>
+          <li>Senjata tajam atau barang berbahaya.</li>
+          <li>Peralatan listrik tanpa izin.</li>
+          <li>Barang lain yang bertentangan dengan aturan pondok.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="konfirmasi">
+  <div class="panel">
+    <h2>3. Konfirmasi Kedatangan melalui Google Form</h2>
+    <p>
+      Calon santri atau wali santri wajib mengisi formulir konfirmasi
+      sebelum keberangkatan sesuai jadwal yang ditentukan panitia.
+    </p>
+    <div class="form-card">
+      <h3>Form Konfirmasi Kedatangan</h3>
+      <p>Siapkan informasi berikut sebelum mengisi formulir:</p>
+      <ul>
+        <li>Nama lengkap calon santri</li>
+        <li>Program yang diikuti</li>
+        <li>Nomor WhatsApp aktif</li>
+        <li>Tanggal dan perkiraan jam kedatangan</li>
+        <li>Moda transportasi dan jumlah pengantar</li>
+        <li>Kebutuhan penjemputan jika diperlukan</li>
+      </ul>
+      <!-- GANTI URL DI BAWAH DENGAN LINK GOOGLE FORM -->
+      <a class="button" href="https://forms.google.com/" target="_blank"
+         rel="noopener">Buka Google Form Konfirmasi</a>
+      <p><small>Catatan: ganti tautan di kode dengan Google Form resmi Pondok IT.</small></p>
+    </div>
+  </div>
+</section>
+
+<section id="alur">
+  <div class="panel">
+    <h2>4. Teknis Kedatangan di Lokasi</h2>
+    <p>Setibanya di lokasi, santri mengikuti urutan proses berikut.</p>
+    <div class="steps">
+      <div class="step">
+        <b>TAHAP 01</b>
+        <h3>Penjemputan / Penerimaan</h3>
+        <p>Hubungi petugas dan ikuti arahan menuju titik penerimaan.</p>
+      </div>
+      <div class="step">
+        <b>TAHAP 02</b>
+        <h3>Administrasi</h3>
+        <p>Verifikasi identitas, kelengkapan dokumen, dan administrasi.</p>
+      </div>
+      <div class="step">
+        <b>TAHAP 03</b>
+        <h3>Pemeriksaan Barang</h3>
+        <p>Barang bawaan diperiksa sesuai ketentuan pondok.</p>
+      </div>
+      <div class="step">
+        <b>TAHAP 04</b>
+        <h3>Penataan Kamar</h3>
+        <p>Santri diarahkan ke kamar dan menata barang pribadi.</p>
+      </div>
+      <div class="step">
+        <b>TAHAP 05</b>
+        <h3>Sosialisasi dan MOS</h3>
+        <p>Pengenalan aturan, jadwal, pengurus, dan kegiatan MOS.</p>
+      </div>
+    </div>
+    <div class="note" style="margin-top:18px">
+      Wali atau pengantar dimohon mengikuti arahan panitia dan menjaga
+      ketertiban selama proses penerimaan. Informasi waktu kedatangan
+      serta titik penjemputan akan disampaikan oleh panitia.
+    </div>
+  </div>
+</section>
+
+<section id="wali">
+  <div class="panel">
+    <h2>5. Pengisian Google Form Kontak Wali Santri</h2>
+    <p>
+      Setiap santri wajib memastikan data orang tua atau wali telah
+      diisi dengan benar agar komunikasi pendidikan dan keadaan darurat
+      dapat ditangani dengan baik.
+    </p>
+    <div class="form-card">
+      <h3>Data yang perlu disiapkan</h3>
+      <ul>
+        <li>Nama lengkap orang tua/wali</li>
+        <li>Hubungan dengan santri</li>
+        <li>Nomor WhatsApp utama yang aktif</li>
+        <li>Nomor kontak darurat alternatif</li>
+        <li>Alamat domisili lengkap</li>
+        <li>Nama dan nomor orang yang dapat dihubungi saat darurat</li>
+      </ul>
+      <!-- GANTI URL DI BAWAH DENGAN LINK GOOGLE FORM -->
+      <a class="button" href="https://forms.google.com/" target="_blank"
+         rel="noopener">Buka Form Kontak Wali Santri</a>
+      <p><small>Ganti tautan dengan Google Form resmi kontak wali santri.</small></p>
+    </div>
+  </div>
+</section>
+
+<div class="panel">
+  <h2>Penutup</h2>
+  Mohon seluruh calon santri dan wali santri mempersiapkan kedatangan
+  dengan baik, membawa dokumen yang diperlukan, serta mengikuti arahan
+  resmi panitia Pondok IT Indonesia.
+</div>
+
+</main>
+
+<footer>
+  <strong>PONDOK IT INDONESIA</strong><br>
+  Taqwa – Profesional – Bermanfaat<br><br>
+  Kalangan, Gegunung, Tirtohargo, Kretek, Yogyakarta 55772
+</footer>
+
+<script>
+function pilihProgram(id, tombol) {
+  document.querySelectorAll('.program').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  document.querySelectorAll('.tab').forEach(function(el) {
+    el.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  tombol.classList.add('active');
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
