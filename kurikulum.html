@@ -1,524 +1,1322 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-            <link rel="stylesheet" href="kurikulum.css"> 
-
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="id">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Kurikulum pendidikan Pondok IT Indonesia yang memadukan keterampilan IT, pendidikan agama, dan pembentukan karakter.">
+<title>Kurikulum Pendidikan | Pondok IT Indonesia</title>
 
-    <meta charset="UTF-8">
+<style>
+:root {
+    --dark: #15132e;
+    --dark-2: #211d47;
+    --purple: #7965e8;
+    --purple-light: #eeeaff;
+    --blue: #3978ed;
+    --blue-light: #eaf2ff;
+    --orange: #e69b48;
+    --orange-light: #fff3e3;
+    --teal: #21a99a;
+    --teal-light: #e3f8f4;
+    --gold: #f2ce79;
+    --text: #252943;
+    --muted: #747990;
+    --line: #e8e9f0;
+    --bg: #f7f7fc;
+    --white: #ffffff;
+}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <title>
-        Kurikulum Pendidikan | Pondok IT Indonesia
-    </title>
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
 
-    <!-- CSS GLOBAL -->
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
 
-    <!-- CSS KHUSUS PENDIDIKAN -->
-    <link
-        rel="stylesheet"
-        href="css/pendidikan.css"
-    >
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
+button {
+    font: inherit;
+}
+
+/* NAVIGASI */
+.navbar {
+    background: rgba(255,255,255,.96);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.nav-container {
+    width: min(1150px, 92%);
+    margin: auto;
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.brand-logo {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: white;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #7965e8, #3e55be);
+}
+
+.brand-name strong {
+    display: block;
+    color: var(--dark);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.brand-name small {
+    display: block;
+    font-size: 10px;
+    color: var(--muted);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.nav-links a {
+    font-size: 12px;
+    font-weight: 700;
+    color: #5d6078;
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--purple);
+}
+
+.nav-links .nav-button {
+    padding: 10px 15px;
+    background: var(--dark);
+    color: white;
+    border-radius: 8px;
+}
+
+.menu-toggle {
+    display: none;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(121,101,232,.35), transparent 35%),
+        radial-gradient(ellipse at 5% 100%, rgba(33,169,154,.19), transparent 35%),
+        linear-gradient(125deg, #131127, #211d47 65%, #292454);
+    color: white;
+    padding: 95px 0 110px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 50%;
+    right: -100px;
+    top: -160px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 50%;
+    right: -45px;
+    top: -105px;
+}
+
+.container {
+    width: min(1150px, 92%);
+    margin: auto;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 7px 13px;
+    border: 1px solid rgba(242,206,121,.4);
+    background: rgba(242,206,121,.08);
+    color: var(--gold);
+    border-radius: 30px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 23px;
+}
+
+.hero h1 {
+    font-size: clamp(37px, 5.5vw, 65px);
+    line-height: 1.12;
+    letter-spacing: -1.8px;
+    margin-bottom: 23px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #b8a8ff, #79d9d0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: #d0cee5;
+    font-size: 15px;
+    max-width: 650px;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 19px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.button-primary {
+    background: var(--purple);
+    color: white;
+}
+
+.button-primary:hover {
+    background: #6550d0;
+    transform: translateY(-2px);
+}
+
+.button-outline {
+    border: 1px solid rgba(255,255,255,.3);
+    color: white;
+}
+
+.button-outline:hover {
+    background: rgba(255,255,255,.08);
+}
+
+/* RINGKASAN PILAR */
+.pillar-overview {
+    position: relative;
+    z-index: 2;
+    margin-top: -40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.overview-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    padding: 26px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 12px 35px rgba(30,25,70,.06);
+}
+
+.overview-symbol {
+    flex-shrink: 0;
+    width: 58px;
+    height: 58px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.overview-it .overview-symbol {
+    background: var(--purple-light);
+    color: var(--purple);
+}
+
+.overview-religion .overview-symbol {
+    background: var(--teal-light);
+    color: #168c80;
+}
+
+.overview-card small {
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.overview-card h3 {
+    font-size: 20px;
+    color: var(--dark);
+    margin: 3px 0;
+}
+
+.overview-card p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* BAGIAN UMUM */
+.section {
+    padding-top: 82px;
+}
+
+.section-header {
+    max-width: 720px;
+    margin-bottom: 32px;
+}
+
+.section-kicker {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: var(--purple);
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    color: var(--dark);
+    font-size: clamp(27px, 3.5vw, 39px);
+    line-height: 1.3;
+    margin-bottom: 13px;
+    letter-spacing: -.7px;
+}
+
+.section-header p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* KURIKULUM IT */
+.track-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 21px;
+    align-items: stretch;
+}
+
+.track-card {
+    border-radius: 16px;
+    background: white;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(32,28,75,.08);
+}
+
+.track-header {
+    padding: 27px 25px 25px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.track-header::after {
+    content: "";
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    right: -35px;
+    top: -45px;
+}
+
+.digital .track-header {
+    background: linear-gradient(130deg, #5542b5, #8871ef);
+}
+
+.programmer .track-header {
+    background: linear-gradient(130deg, #2058bd, #5297fa);
+}
+
+.religion .track-header {
+    background: linear-gradient(130deg, #087e75, #35bca5);
+}
+
+.track-top {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.track-code {
+    font-size: 27px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.track-number {
+    border: 1px solid rgba(255,255,255,.35);
+    background: rgba(255,255,255,.1);
+    padding: 5px 9px;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.track-header h3 {
+    position: relative;
+    z-index: 1;
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.track-header p {
+    position: relative;
+    z-index: 1;
+    color: rgba(255,255,255,.82);
+    font-size: 11px;
+}
+
+.track-body {
+    padding: 23px 25px 26px;
+}
+
+.track-body h4 {
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+
+/* DAFTAR MATERI */
+.skill-list {
+    list-style: none;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eff0f5;
+}
+
+.skill-item:last-child {
+    border-bottom: none;
+}
+
+.skill-num {
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.digital .skill-num {
+    color: var(--purple);
+    background: var(--purple-light);
+}
+
+.programmer .skill-num {
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.religion .skill-num {
+    color: #138d80;
+    background: var(--teal-light);
+}
+
+.skill-item strong {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #353952;
+    font-weight: 700;
+}
+
+/* METODE PENDIDIKAN */
+.method-box {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    border-radius: 17px;
+    overflow: hidden;
+    background: var(--dark);
+    color: white;
+}
+
+.method-intro {
+    padding: 36px;
+    background:
+        radial-gradient(circle at 0% 100%, rgba(33,169,154,.25), transparent 45%),
+        linear-gradient(145deg, #1a1739, #2b2656);
+}
+
+.method-intro .section-kicker {
+    color: var(--gold);
+}
+
+.method-intro h3 {
+    font-size: 27px;
+    line-height: 1.35;
+    margin-bottom: 14px;
+}
+
+.method-intro p {
+    color: #d0cee5;
+    font-size: 13px;
+}
+
+.method-content {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-content: center;
+}
+
+.method-item {
+    padding: 20px;
+    border-radius: 11px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+}
+
+.method-item span {
+    display: block;
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.method-item h4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.method-item p {
+    font-size: 11px;
+    color: #c4c5dc;
+}
+
+/* KURIKULUM DETAIL */
+.detail-panel {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.detail-panel details {
+    border-bottom: 1px solid var(--line);
+}
+
+.detail-panel details:last-child {
+    border-bottom: none;
+}
+
+.detail-panel summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 21px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--dark);
+}
+
+.detail-panel summary::-webkit-details-marker {
+    display: none;
+}
+
+.summary-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.summary-code {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 9px;
+    background: var(--purple-light);
+    color: var(--purple);
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.detail-panel details:nth-child(2) .summary-code {
+    background: var(--blue-light);
+    color: var(--blue);
+}
+
+.detail-panel details:nth-child(3) .summary-code {
+    background: var(--teal-light);
+    color: #168c80;
+}
+
+.summary-plus {
+    font-size: 20px;
+    color: var(--muted);
+    transition: transform .2s;
+}
+
+.detail-panel details[open] .summary-plus {
+    transform: rotate(45deg);
+}
+
+.detail-content {
+    padding: 0 24px 24px 72px;
+}
+
+.detail-content p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.detail-tags span {
+    font-size: 11px;
+    padding: 7px 11px;
+    border-radius: 7px;
+    background: #f1efff;
+    color: #5b4ab2;
+}
+
+.detail-panel details:nth-child(2) .detail-tags span {
+    background: var(--blue-light);
+    color: #285bb1;
+}
+
+.detail-panel details:nth-child(3) .detail-tags span {
+    background: var(--teal-light);
+    color: #137c72;
+}
+
+/* CTA */
+.cta {
+    position: relative;
+    overflow: hidden;
+    margin-top: 80px;
+    border-radius: 17px;
+    padding: 43px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(121,101,232,.32), transparent 35%),
+        linear-gradient(120deg, #17142f, #30285f);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.cta-content {
+    max-width: 680px;
+}
+
+.cta small {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.cta h2 {
+    font-size: clamp(23px, 3vw, 32px);
+    line-height: 1.35;
+    margin: 10px 0;
+}
+
+.cta p {
+    font-size: 12px;
+    color: #d0cee5;
+}
+
+.cta .button {
+    background: white;
+    color: var(--dark);
+    flex-shrink: 0;
+}
+
+.cta .button:hover {
+    background: var(--gold);
+}
+
+/* KEMBALI */
+.back-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ddddea;
+    padding: 11px 18px;
+    border-radius: 8px;
+    color: #51556f;
+    background: white;
+    font-size: 12px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.back-button:hover {
+    color: var(--purple);
+    border-color: var(--purple);
+}
+
+/* FOOTER */
+footer {
+    margin-top: 80px;
+    background: #111025;
+    color: white;
+    padding: 33px 0;
+}
+
+.footer-inner {
+    width: min(1150px, 92%);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-inner strong {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.footer-inner p,
+.footer-inner span {
+    color: #a9a9c3;
+    font-size: 11px;
+}
+
+.footer-inner p {
+    margin-top: 4px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .track-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .religion {
+        grid-column: 1 / -1;
+    }
+
+    .method-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-container {
+        min-height: 66px;
+        flex-wrap: wrap;
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding-bottom: 8px;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 12px 4px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav-links .nav-button {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .hero {
+        padding: 68px 0 82px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .pillar-overview {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: -28px;
+    }
+
+    .overview-card {
+        padding: 19px;
+    }
+
+    .section {
+        padding-top: 60px;
+    }
+
+    .track-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .religion {
+        grid-column: auto;
+    }
+
+    .track-header {
+        padding: 23px;
+    }
+
+    .track-body {
+        padding: 21px 23px;
+    }
+
+    .method-intro {
+        padding: 27px;
+    }
+
+    .method-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .detail-panel summary {
+        padding: 17px;
+        font-size: 12px;
+    }
+
+    .detail-content {
+        padding: 0 17px 20px;
+    }
+
+    .cta {
+        margin-top: 60px;
+        padding: 28px 23px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: .01ms !important;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-<!-- =====================================================
-        HERO PENDIDIKAN
-===================================================== -->
-
-<section class="education-hero">
-
-    <div class="education-hero-container">
-
-        <span class="education-badge">
-            KURIKULUM PENDIDIKAN
-        </span>
-
-        <h1>
-
-            Membangun
-            <span>Skill & Agama.</span>
-
-        </h1>
-
-        <p>
-
-            Kurikulum Pondok IT, Rumah IT,
-            dan Sekolah IT memadukan
-            keterampilan teknologi dengan
-            pendidikan agama.
-
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-        PENGANTAR KURIKULUM
-===================================================== -->
-
-<section class="education-intro">
-
-    <div class="education-container">
-
-        <div class="education-intro-grid">
-
-
-            <div>
-
-                <span class="education-label">
-                    KONSEP PENDIDIKAN
-                </span>
-
-                <h2>
-
-                    Dua Bidang Utama
-                    <span>Dalam Pendidikan</span>
-
-                </h2>
-
+<!-- NAVIGASI -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="brand">
+            <div class="brand-logo">PIT</div>
+            <div class="brand-name">
+                <strong>PONDOK IT INDONESIA</strong>
+                <small>Taqwa – Profesional – Bermanfaat</small>
             </div>
-
-
-            <div>
-
-                <p>
-
-                    Kurikulum pendidikan Pondok IT,
-                    Rumah IT, dan Sekolah IT memiliki
-                    dua bidang utama yang berjalan
-                    secara beriringan.
-
-                </p>
-
-                <p>
-
-                    Bidang pertama adalah
-                    <strong>IT</strong>, untuk membangun
-                    keterampilan teknologi sesuai
-                    minat dan kemampuan santri.
-
-                    Bidang kedua adalah
-                    <strong>Agama</strong>,
-                    sebagai landasan atau pedoman
-                    kehidupan santri sebagai Hamba.
-
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- DUA BIDANG -->
-
-        <div class="education-pillars">
-
-
-            <div class="education-pillar it-pillar">
-
-                <div class="pillar-number">
-                    01
-                </div>
-
-                <div>
-
-                    <span>
-                        BIDANG UTAMA
-                    </span>
-
-                    <h3>
-                        IT/Teknologi
-                    </h3>
-
-                    <p>
-                        Mengembangkan keterampilan
-                        teknologi sesuai minat dan
-                        potensi santri.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="education-pillar religion-pillar">
-
-                <div class="pillar-number">
-                    02
-                </div>
-
-                <div>
-
-                    <span>
-                        LANDASAN
-                    </span>
-
-                    <h3>
-                        Agama
-                    </h3>
-
-                    <p>
-                        Membentuk santri yang
-                        berakhlak, berkarakter baik, memahami agama,
-                        taat dalam ibadah dan dekat dengan Al-Qur'an.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-        BIDANG IT
-===================================================== -->
-
-<section class="it-section">
-
-    <div class="education-container">
-
-
-        <div class="education-section-header">
-
-            <span class="education-label">
-                BIDANG IT
-            </span>
-
-            <h2>
-                Materi Ilmu Skill
-                <span>IT/Teknologi</span>
-            </h2>
-
-
-        </div>
-
-
-
-        <div class="it-track-grid">
-
-
-            <!-- =================================================
-                    BISNIS DIGITAL
-            ================================================== -->
-
-            <article class="it-track-card digital-card">
-
-                <div class="track-top">
-
-                    <div class="track-icon">
-                        BD
-                    </div>
-
-                    <span>
-                        JALUR 01
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Bisnis Digital
-                </h3>
-
-            
-
-
-                <div class="skill-list">
-
-                    <div class="skill-item">
-                        <span>01</span>
-                        <strong>
-                            Media Sosial Spesialis
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>02</span>
-                        <strong>
-                            Content Creator
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>03</span>
-                        <strong>
-                            Desain
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>04</span>
-                        <strong>
-                            Meta Ads
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>05</span>
-                        <strong>
-                            TikTok Affiliate
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>06</span>
-                        <strong>
-                            CS & Admin
-                        </strong>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =================================================
-                    PROGRAMMER
-            ================================================== -->
-
-            <article class="it-track-card programmer-card">
-
-                <div class="track-top">
-
-                    <div class="track-icon">
-                        PG
-                    </div>
-
-                    <span>
-                        JALUR 02
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Programmer
-                </h3>
-
-
-                <div class="skill-list">
-
-                    <div class="skill-item">
-                        <span>01</span>
-                        <strong>
-                            Dasar HTML
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>02</span>
-                        <strong>
-                            Dasar CSS
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>03</span>
-                        <strong>
-                            Frontend Development
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>04</span>
-                        <strong>
-                            Backend Development
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>05</span>
-                        <strong>
-                            Web Development
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>06</span>
-                        <strong>
-                            Mobile Development
-                        </strong>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-<!-- =================================================
-                    Agama 
-            ================================================== -->
-
-            <article class="it-track-card programmer-card">
-
-                <div class="track-top">
-
-                    <div class="track-icon">
-                        AG
-                    </div>
-
-                    <span>
-                        JALUR 03
-                    </span>
-
-                </div>
-
-
-                <h3>
-                    Agama 
-                </h3>
-
-
-                <div class="skill-list">
-
-                    <div class="skill-item">
-                        <span>01</span>
-                        <strong>
-                            Dasar Ilmu Fiqih
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>02</span>
-                        <strong>
-                            Dasar Ilmu Aqidah
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>03</span>
-                        <strong>
-                            Ilmu akhlaq dan Adab 
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>04</span>
-                        <strong>
-                            Ilmu Tadabbur Al Quran 
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>05</span>
-                        <strong>
-                            Ilmu Tahsin dan Tajwid Quran
-                        </strong>
-                    </div>
-
-                    <div class="skill-item">
-                        <span>06</span>
-                        <strong>
-                           Ilmu Karakter Leadership /Kepemimpinan
-                        </strong>
-                    </div>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-<
-
-
-
-<!-- =====================================================
-        CTA
-===================================================== -->
-
-<section class="education-cta">
-
-    <div class="education-cta-container">
-
-        <span>
-        
-        <h2>
-            Sudah Siap 
-            <strong>Mempelajari dan Menguasi semua ilmu di atas ?.</strong>
-        </h2>
-
-        <a
-            href="https://kurikulum-pendidikan-pit-rit.vercel.app/"
-            class="education-button"
-        >
-            Lihat Kurikulum Pendidikan yang lebih detail →
         </a>
 
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Buka navigasi"
+                aria-expanded="false">☰</button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html">Beranda</a>
+            <a href="#pilar">Konsep Pendidikan</a>
+            <a href="#kurikulum">Materi Kurikulum</a>
+            <a href="#detail">Detail Materi</a>
+            <a href="https://kurikulum-pendidikan-pit-rit.vercel.app/"
+               class="nav-button">Kurikulum Lengkap</a>
+        </div>
     </div>
+</nav>
 
-</section>
+<!-- HERO -->
+<header class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="hero-tag">KURIKULUM PENDIDIKAN</span>
 
-<!-- BACK BUTTON -->
-        <div class="back-container">
+            <h1>
+                Membangun Skill IT.<br>
+                <span>Menguatkan Fondasi Agama.</span>
+            </h1>
 
-            <a href="index.html" class="back-button">
-                <span>←</span>
-                Kembali ke Halaman Utama
-            </a>
+            <p>
+                Kurikulum Pondok IT, Rumah IT, dan Sekolah IT memadukan
+                keterampilan teknologi dengan pendidikan agama. Santri
+                dibekali ilmu sesuai jalur pembelajaran sekaligus
+                menjadikan agama sebagai pedoman dalam kehidupan.
+            </p>
 
+            <div class="hero-actions">
+                <a href="#kurikulum" class="button button-primary">
+                    Jelajahi Materi
+                </a>
+                <a href="#pilar" class="button button-outline">
+                    Konsep Pendidikan
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- DUA PILAR -->
+    <section class="pillar-overview" id="pilar">
+        <article class="overview-card overview-it">
+            <div class="overview-symbol">IT</div>
+            <div>
+                <small>BIDANG PERTAMA</small>
+                <h3>IT / Teknologi</h3>
+                <p>Mengembangkan keterampilan teknologi sesuai minat dan potensi santri.</p>
+            </div>
+        </article>
+
+        <article class="overview-card overview-religion">
+            <div class="overview-symbol">AG</div>
+            <div>
+                <small>BIDANG KEDUA</small>
+                <h3>Agama</h3>
+                <p>Membentuk santri yang berakhlak, taat beribadah, dan dekat dengan Al-Qur'an.</p>
+            </div>
+        </article>
+    </section>
+
+    <!-- KURIKULUM -->
+    <section class="section" id="kurikulum">
+        <div class="section-header">
+            <span class="section-kicker">PETA PEMBELAJARAN</span>
+            <h2>Tiga Bidang Utama Kurikulum</h2>
+            <p>
+                Materi pendidikan dikelompokkan menjadi tiga bidang
+                pembelajaran. Setiap bidang memiliki karakter dan
+                fokus materi yang berbeda.
+            </p>
         </div>
 
-    </main>
+        <div class="track-grid">
 
+            <!-- BISNIS DIGITAL -->
+            <article class="track-card digital">
+                <div class="track-header">
+                    <div class="track-top">
+                        <div class="track-code">BD</div>
+                        <span class="track-number">JALUR 01</span>
+                    </div>
+                    <h3>Bisnis Digital</h3>
+                    <p>Keterampilan pemasaran dan pengelolaan konten digital.</p>
+                </div>
 
-<!-- =====================================================
-        FOOTER
-===================================================== -->
+                <div class="track-body">
+                    <h4>Daftar Materi</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-num">01</span>
+                            <strong>Media Sosial Spesialis</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">02</span>
+                            <strong>Content Creator</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">03</span>
+                            <strong>Desain</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">04</span>
+                            <strong>Meta Ads</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">05</span>
+                            <strong>TikTok Affiliate</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">06</span>
+                            <strong>CS & Admin</strong>
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
+            <!-- PROGRAMMER -->
+            <article class="track-card programmer">
+                <div class="track-header">
+                    <div class="track-top">
+                        <div class="track-code">PG</div>
+                        <span class="track-number">JALUR 02</span>
+                    </div>
+                    <h3>Programmer</h3>
+                    <p>Keterampilan dasar hingga pengembangan aplikasi.</p>
+                </div>
+
+                <div class="track-body">
+                    <h4>Daftar Materi</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-num">01</span>
+                            <strong>Dasar HTML</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">02</span>
+                            <strong>Dasar CSS</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">03</span>
+                            <strong>Frontend Development</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">04</span>
+                            <strong>Backend Development</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">05</span>
+                            <strong>Web Development</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">06</span>
+                            <strong>Mobile Development</strong>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- AGAMA -->
+            <article class="track-card religion">
+                <div class="track-header">
+                    <div class="track-top">
+                        <div class="track-code">AG</div>
+                        <span class="track-number">JALUR 03</span>
+                    </div>
+                    <h3>Agama & Karakter</h3>
+                    <p>Fondasi keilmuan agama dan pembentukan karakter santri.</p>
+                </div>
+
+                <div class="track-body">
+                    <h4>Daftar Materi</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <span class="skill-num">01</span>
+                            <strong>Dasar Ilmu Fiqih</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">02</span>
+                            <strong>Dasar Ilmu Aqidah</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">03</span>
+                            <strong>Ilmu Akhlak dan Adab</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">04</span>
+                            <strong>Ilmu Tadabbur Al-Qur'an</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">05</span>
+                            <strong>Ilmu Tahsin dan Tajwid Al-Qur'an</strong>
+                        </li>
+                        <li class="skill-item">
+                            <span class="skill-num">06</span>
+                            <strong>Ilmu Karakter Leadership / Kepemimpinan</strong>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- PENDEKATAN PENDIDIKAN -->
+    <section class="section">
+        <div class="method-box">
+            <div class="method-intro">
+                <span class="section-kicker">ARAH PENDIDIKAN</span>
+                <h3>Keahlian Teknologi dengan Landasan Nilai Agama</h3>
+                <p>
+                    Pendidikan tidak hanya berfokus pada keterampilan
+                    teknis, tetapi juga pada pembentukan karakter dan
+                    pemahaman agama sebagai pedoman kehidupan santri.
+                </p>
+            </div>
+
+            <div class="method-content">
+                <div class="method-item">
+                    <span>01 / SKILL</span>
+                    <h4>Kompetensi IT</h4>
+                    <p>Mengembangkan kemampuan sesuai bidang Bisnis Digital atau Programmer.</p>
+                </div>
+
+                <div class="method-item">
+                    <span>02 / ILMU</span>
+                    <h4>Pemahaman Agama</h4>
+                    <p>Mempelajari fiqih, aqidah, akhlak, Al-Qur'an, dan tajwid.</p>
+                </div>
+
+                <div class="method-item">
+                    <span>03 / KARAKTER</span>
+                    <h4>Adab dan Akhlak</h4>
+                    <p>Menguatkan adab, akhlak, dan karakter dalam kehidupan sehari-hari.</p>
+                </div>
+
+                <div class="method-item">
+                    <span>04 / LEADERSHIP</span>
+                    <h4>Kepemimpinan</h4>
+                    <p>Mempelajari karakter kepemimpinan sebagai bagian dari pendidikan santri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAIL MATERI INTERAKTIF -->
+    <section class="section" id="detail">
+        <div class="section-header">
+            <span class="section-kicker">EKSPLORASI MATERI</span>
+            <h2>Kenali Setiap Bidang Lebih Dekat</h2>
+            <p>
+                Klik masing-masing bidang untuk melihat daftar materi
+                yang termasuk dalam kurikulum.
+            </p>
+        </div>
+
+        <div class="detail-panel">
+
+            <details>
+                <summary>
+                    <span class="summary-title">
+                        <span class="summary-code">BD</span>
+                        Bisnis Digital
+                    </span>
+                    <span class="summary-plus">+</span>
+                </summary>
+
+                <div class="detail-content">
+                    <p>Materi pembelajaran Bisnis Digital meliputi:</p>
+                    <div class="detail-tags">
+                        <span>Media Sosial Spesialis</span>
+                        <span>Content Creator</span>
+                        <span>Desain</span>
+                        <span>Meta Ads</span>
+                        <span>TikTok Affiliate</span>
+                        <span>CS & Admin</span>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <span class="summary-title">
+                        <span class="summary-code">PG</span>
+                        Programmer
+                    </span>
+                    <span class="summary-plus">+</span>
+                </summary>
+
+                <div class="detail-content">
+                    <p>Materi pembelajaran Programmer meliputi:</p>
+                    <div class="detail-tags">
+                        <span>Dasar HTML</span>
+                        <span>Dasar CSS</span>
+                        <span>Frontend Development</span>
+                        <span>Backend Development</span>
+                        <span>Web Development</span>
+                        <span>Mobile Development</span>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    <span class="summary-title">
+                        <span class="summary-code">AG</span>
+                        Agama & Karakter
+                    </span>
+                    <span class="summary-plus">+</span>
+                </summary>
+
+                <div class="detail-content">
+                    <p>Materi pembelajaran Agama dan Karakter meliputi:</p>
+                    <div class="detail-tags">
+                        <span>Dasar Ilmu Fiqih</span>
+                        <span>Dasar Ilmu Aqidah</span>
+                        <span>Akhlak dan Adab</span>
+                        <span>Tadabbur Al-Qur'an</span>
+                        <span>Tahsin dan Tajwid Al-Qur'an</span>
+                        <span>Leadership / Kepemimpinan</span>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-content">
+            <small>LANGKAH BERIKUTNYA</small>
+            <h2>Siap Mempelajari dan Menguasai Materi Kurikulum?</h2>
+            <p>
+                Pelajari kurikulum lebih detail untuk mengetahui
+                informasi pembelajaran Pondok IT, Rumah IT,
+                dan Sekolah IT.
+            </p>
+        </div>
+
+        <a href="https://kurikulum-pendidikan-pit-rit.vercel.app/"
+           class="button">
+            Lihat Kurikulum Lengkap →
+        </a>
+    </section>
+
+    <!-- KEMBALI KE BERANDA -->
+    <div class="back-container">
+        <a href="index.html" class="back-button">
+            ← Kembali ke Halaman Utama
+        </a>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
 <footer>
-
-    <p>
-        © 2026 Pondok IT Indonesia
-    </p>
-
+    <div class="footer-inner">
+        <div>
+            <strong>PONDOK IT INDONESIA</strong>
+            <p>Mencetak SDM IT yang Amanah, Kompeten, dan Mandiri.</p>
+        </div>
+        <span>© <span id="year"></span> Pondok IT Indonesia</span>
+    </div>
 </footer>
 
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-</body>
+menuToggle.addEventListener("click", function () {
+    const opened = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", opened);
+    menuToggle.textContent = opened ? "×" : "☰";
+});
 
-</html>
+document.querySelectorAll("#navLinks a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+    });
+});
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
 </body>
 </html>

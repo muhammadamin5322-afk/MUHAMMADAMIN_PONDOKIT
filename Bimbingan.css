@@ -1,0 +1,48 @@
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-container {
+    text-align: center;
+    padding: 5px 0 80px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #00695c,
+        #17629b
+    );
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px rgba(0, 105, 92, 0.18);
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 105, 92, 0.25);
+}
+
+.back-button span {
+    font-size: 20px
+    ;
+}

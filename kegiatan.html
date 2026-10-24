@@ -1,607 +1,1042 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-            <link rel="stylesheet" href="kegiatan.css"> 
-
-</head>
-<body>
-   <!DOCTYPE html>
 <html lang="id">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Kegiatan & Budaya Santri | Pondok IT Indonesia</title>
+<meta name="description" content="Jadwal kegiatan harian dan budaya pembiasaan santri Pondok IT Indonesia.">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+    --green: #075b46;
+    --green-dark: #063b30;
+    --green-light: #e9f5ef;
+    --gold: #d9ad54;
+    --cream: #fbfaf5;
+    --text: #26352f;
+    --muted: #6b7972;
+    --white: #ffffff;
+    --border: #e3eae5;
+    --shadow: 0 12px 35px rgba(10, 58, 43, .08);
+}
 
-    <title>Jadwal Kegiatan Santri | Pondok IT Indonesia</title>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="stylesheet"
-          href="css/kegiatan.css">
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* HEADER */
+
+.kegiatan-header {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 90% 10%, rgba(217,173,84,.19), transparent 35%),
+        linear-gradient(135deg, var(--green-dark), var(--green) 65%, #0d7054);
+    color: var(--white);
+    padding: 66px 22px 75px;
+}
+
+.kegiatan-header::after {
+    content: "";
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+    right: -130px;
+    bottom: -210px;
+    box-shadow: 0 0 0 35px rgba(255,255,255,.025),
+                0 0 0 70px rgba(255,255,255,.02);
+}
+
+.header-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1120px;
+    margin: auto;
+}
+
+.header-badge {
+    display: inline-block;
+    color: #f2d99e;
+    border: 1px solid rgba(242,217,158,.4);
+    background: rgba(255,255,255,.06);
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.kegiatan-header h1 {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.16;
+    letter-spacing: -1.3px;
+    max-width: 760px;
+    margin-bottom: 18px;
+}
+
+.kegiatan-header p {
+    max-width: 650px;
+    color: #d7e8df;
+    font-size: 16px;
+}
+
+.header-line {
+    width: 68px;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--gold);
+    margin-top: 27px;
+}
+
+/* NAVIGASI */
+
+.page-nav {
+    max-width: 1120px;
+    margin: -25px auto 0;
+    padding: 0 22px;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.nav-inner a {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green);
+    padding: 9px 13px;
+    border-radius: 6px;
+    transition: .2s ease;
+}
+
+.nav-inner a:hover {
+    background: var(--green-light);
+}
+
+.nav-inner .nav-home {
+    margin-left: auto;
+    background: var(--green);
+    color: white;
+}
+
+.nav-inner .nav-home:hover {
+    background: var(--green-dark);
+}
+
+/* LAYOUT */
+
+main {
+    max-width: 1164px;
+    margin: auto;
+    padding: 62px 22px 80px;
+}
+
+.section-block {
+    margin-bottom: 76px;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    display: block;
+    color: #a27b2f;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+.section-heading h2 {
+    font-size: clamp(25px, 3.5vw, 36px);
+    line-height: 1.3;
+    color: var(--green-dark);
+    letter-spacing: -.6px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    max-width: 730px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* INFORMASI PROGRAM */
+
+.schedule-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 19px 21px;
+}
+
+.info-card span {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.info-card strong {
+    color: var(--green-dark);
+    font-size: 15px;
+}
+
+/* TABEL JADWAL */
+
+.table-card {
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.table-title {
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.table-title h3 {
+    color: var(--green-dark);
+    font-size: 17px;
+}
+
+.table-title span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 690px;
+}
+
+.schedule-table thead {
+    background: var(--green);
+    color: white;
+}
+
+.schedule-table th {
+    text-align: left;
+    padding: 15px 17px;
+    font-size: 11px;
+    letter-spacing: .8px;
+    font-weight: 800;
+}
+
+.schedule-table td {
+    padding: 14px 17px;
+    border-bottom: 1px solid #edf1ee;
+    font-size: 13px;
+    vertical-align: top;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+    background: #f8fbf8;
+}
+
+.schedule-table tbody tr:hover {
+    background: #edf7f0;
+}
+
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.number-cell {
+    width: 65px;
+    color: #9b7a39;
+    font-weight: 800;
+}
+
+.time {
+    color: var(--green);
+    white-space: nowrap;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+}
+
+.location {
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+.schedule-note {
+    margin-top: 18px;
+    padding: 18px 20px;
+    background: #f5f0e3;
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+}
+
+.schedule-note strong {
+    display: block;
+    color: #745722;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.schedule-note p {
+    color: #6e6654;
+    font-size: 13px;
+}
+
+/* BUDAYA SANTRI */
+
+.habits-section {
+    position: relative;
+}
+
+.habits-intro {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 27px;
+}
+
+.habits-target {
+    flex-shrink: 0;
+    background: var(--green);
+    color: white;
+    padding: 13px 17px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.habits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.habit-card {
+    position: relative;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 23px;
+    box-shadow: 0 5px 20px rgba(10,58,43,.035);
+    transition: transform .2s ease, box-shadow .2s ease;
+    overflow: hidden;
+}
+
+.habit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.habit-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+}
+
+.habit-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    background: var(--green-light);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.habit-card h3 {
+    color: var(--green-dark);
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.habit-card p {
+    color: #65736b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.habit-target {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 6px 10px;
+    background: #f6f1e4;
+    color: #806126;
+    font-size: 11px;
+    line-height: 1.5;
+    font-weight: 800;
+    border-radius: 5px;
+}
+
+/* PRINSIP PEMBIASAAN */
+
+.habit-principle {
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 12px;
+    background: linear-gradient(125deg, var(--green-dark), var(--green));
+    color: white;
+}
+
+.habit-principle h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.habit-principle p {
+    max-width: 850px;
+    font-size: 13px;
+    color: #dcebe4;
+}
+
+/* CATATAN UMUM */
+
+.general-note {
+    padding: 22px 24px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-top: 28px;
+}
+
+.general-note h3 {
+    font-size: 15px;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+}
+
+.general-note p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* TOMBOL KEMBALI */
+
+.back-home {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.back-home a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    background: var(--green);
+    color: white;
+    padding: 13px 23px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: .2s ease;
+}
+
+.back-home a:hover {
+    background: var(--green-dark);
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 28px 20px;
+    text-align: center;
+    background: #042f26;
+    color: #c4d9ce;
+    font-size: 12px;
+}
+
+footer strong {
+    color: white;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    .habits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .schedule-info {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .info-card {
+        padding: 15px 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .kegiatan-header {
+        padding: 48px 20px 62px;
+    }
+
+    .kegiatan-header h1 {
+        font-size: 34px;
+    }
+
+    .kegiatan-header p {
+        font-size: 14px;
+    }
+
+    .page-nav {
+        padding: 0 14px;
+    }
+
+    .nav-inner {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .nav-inner a {
+        font-size: 11px;
+        padding: 8px 9px;
+    }
+
+    .nav-inner .nav-home {
+        margin-left: 0;
+    }
+
+    main {
+        padding: 45px 15px 58px;
+    }
+
+    .section-block {
+        margin-bottom: 55px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .habits-intro {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .habits-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .habit-card {
+        padding: 21px;
+    }
+
+    .table-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .schedule-table td,
+    .schedule-table th {
+        padding: 12px;
+    }
+
+    .habit-principle,
+    .general-note {
+        padding: 20px;
+    }
+}
+
+@media print {
+    .page-nav,
+    .back-home {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .table-card,
+    .habit-card {
+        box-shadow: none;
+        break-inside: avoid;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     HEADER
-====================================================== -->
-
+<!-- HEADER -->
 <header class="kegiatan-header">
-
     <div class="header-container">
-
-        <div class="header-badge">
-            PONDOK IT INDONESIA
-        </div>
-
-        <h1>
-            Jadwal Kegiatan Santri
-        </h1>
-
+        <div class="header-badge">PONDOK IT INDONESIA</div>
+        <h1>Kegiatan & Budaya Santri</h1>
         <p>
-            Jadwal kegiatan harian santri pendidikan
-            selama mengikuti pendidikan di Pondok IT Indonesia.
+            Membangun santri yang bertaqwa, disiplin, berkarakter,
+            profesional, dan bermanfaat melalui kegiatan harian
+            serta pembiasaan ibadah yang terarah.
         </p>
-
+        <div class="header-line"></div>
     </div>
-
 </header>
 
-
-
-<!-- =====================================================
-     JADWAL KEGIATAN
-====================================================== -->
+<!-- NAVIGASI -->
+<nav class="page-nav" aria-label="Navigasi halaman">
+    <div class="nav-inner">
+        <a href="#jadwal">Jadwal Harian</a>
+        <a href="#budaya">Budaya Santri</a>
+        <a href="#catatan">Catatan</a>
+        <a class="nav-home" href="index.html">Halaman Utama</a>
+    </div>
+</nav>
 
 <main>
 
-<section class="schedule-section">
-
-    <div class="schedule-container">
-
-
-        <!-- JUDUL -->
+    <!-- BAGIAN JADWAL -->
+    <section class="section-block" id="jadwal">
 
         <div class="section-heading">
-
-            <span>
-                KEGIATAN HARIAN
-            </span>
-
-            <h2>
-                Jadwal Kegiatan Harian Santri
-            </h2>
-
+            <span class="eyebrow">RUTINITAS PENDIDIKAN</span>
+            <h2>Jadwal Kegiatan Harian Santri</h2>
             <p>
-                Pendidikan Santri 1–3 Tahun
+                Agenda harian santri selama menjalani pendidikan,
+                pembinaan kepondokan, dan masa khidmat atau pengabdian
+                di Pondok IT Indonesia.
             </p>
-
         </div>
-
-
-
-        <!-- INFORMASI -->
 
         <div class="schedule-info">
-
-            <div>
-                <strong>
-                    Program
-                </strong>
-
-                <span>
-                    Pendidikan Santri 1–3 Tahun
-                </span>
+            <div class="info-card">
+                <span>Program</span>
+                <strong>Pendidikan Santri 1–3 Tahun</strong>
             </div>
 
-
-            <div>
-                <strong>
-                    Sistem
-                </strong>
-
-                <span>
-                    Pendidikan & Pembinaan
-                </span>
+            <div class="info-card">
+                <span>Sistem Pembinaan</span>
+                <strong>Pendidikan, Ibadah & Pengabdian</strong>
             </div>
 
-
-            <div>
-                <strong>
-                    Waktu
-                </strong>
-
-                <span>
-                    03:30 – 22:00
-                </span>
+            <div class="info-card">
+                <span>Rentang Kegiatan</span>
+                <strong>03.30–22.00 WIB</strong>
             </div>
-
         </div>
 
-
-
-        <!-- =================================================
-             TABEL
-        ================================================== -->
-
-        <div class="table-wrapper">
-
-            <table class="schedule-table">
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            NO
-                        </th>
-
-                        <th>
-                            WAKTU
-                        </th>
-
-                        <th>
-                            KEGIATAN
-                        </th>
-
-                        <th>
-                            LOKASI
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-
-                    <tr>
-
-                        <td>
-                            01
-                        </td>
-
-                        <td class="time">
-                            03:30–04:00
-                        </td>
-
-                        <td>
-                            Sholat Tahajud
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            02
-                        </td>
-
-                        <td class="time">
-                            04:00–05:00
-                        </td>
-
-                        <td>
-                            STW, ODOJ, Dzikir pagi
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            03
-                        </td>
-
-                        <td class="time">
-                            05:00–05:30
-                        </td>
-
-                        <td>
-                            Halaqoh Qur’an (Tahfidz)
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            04
-                        </td>
-
-                        <td class="time">
-                            05:30–06:00
-                        </td>
-
-                        <td>
-                            Bersih-bersih kamar , Kelas dan lingkungan Pondok
-                        </td>
-
-                        <td>
-                            Kamar
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            05
-                        </td>
-
-                        <td class="time">
-                            06:00–07:50
-                        </td>
-
-                        <td>
-                            Mandi, sarapan dan Dhuha
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            06
-                        </td>
-
-                        <td class="time">
-                            08:00–09:00
-                        </td>
-
-                        <td>
-                            Produktif Belajar Skill IT (Santri Pendidikan),
-                            Kerja (Santri Khitmat/Pengabdian)
-                        </td>
-
-                        <td>
-                            Kelas / Kantor
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            07
-                        </td>
-
-                        <td class="time">
-                            09:00–09:15
-                        </td>
-
-                        <td>
-                            Istirahat
-                        </td>
-
-                        <td>
-                            –
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            08
-                        </td>
-
-                        <td class="time">
-                            09:15–11:30
-                        </td>
-
-                        <td>
-                            Produktif Skill (Santri Pendidikan),
-                            Kerja (Santri Khitmat)
-                        </td>
-
-                        <td>
-                            Kelas / Kantor
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            09
-                        </td>
-
-                        <td class="time">
-                            11:30–13:00
-                        </td>
-
-                        <td>
-                            Istirahat, STW, Makan Siang
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            10
-                        </td>
-
-                        <td class="time">
-                            13:00–15:00
-                        </td>
-
-                        <td>
-                            Produktif Belajar Skill IT (Santri Pendidikan),
-                           Produktif  Kerja (Santri Khitmat/Pengabdian)
-                        </td>
-
-                        <td>
-                            Kelas / Kantor
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            11
-                        </td>
-
-                        <td class="time">
-                            15:00–15:40
-                        </td>
-
-                        <td>
-                            STW, Dzikir petang
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            12
-                        </td>
-
-                        <td class="time">
-                            15:20–16:20
-                        </td>
-
-                        <td>
-                            Kajian Ilmu Syar'i
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            13
-                        </td>
-
-                        <td class="time">
-                            16:20–17:30
-                        </td>
-
-                        <td>
-                            Olahraga sore, Flexibel
-                        </td>
-
-                        <td>
-                            Flexibel
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            14
-                        </td>
-
-                        <td class="time">
-                            18:00–19:30
-                        </td>
-
-                        <td>
-                            STW, Halaqoh Qur’an (Tahfidz)
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            15
-                        </td>
-
-                        <td class="time">
-                            19:30–19:50
-                        </td>
-
-                        <td>
-                            STW, ODOJ(Tilawah Quran 12 Lembar)
-                        </td>
-
-                        <td>
-                            Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            16
-                        </td>
-
-                        <td class="time">
-                            19:50–22:00
-                        </td>
-
-                        <td>
-                            Makan Malam, Evaluasi Malam
-                        </td>
-
-                        <td>
-                            Asrama / Masjid
-                        </td>
-
-                    </tr>
-
-
-
-                    <tr>
-
-                        <td>
-                            17
-                        </td>
-
-                        <td class="time">
-                            22:00–03:10
-                        </td>
-
-                        <td>
-                            Istirahat
-                        </td>
-
-                        <td>
-                            Asrama
-                        </td>
-
-                    </tr>
-
-
-                </tbody>
-
-            </table>
-
+        <div class="table-card">
+            <div class="table-title">
+                <h3>Agenda Kegiatan Harian</h3>
+                <span>17 agenda terjadwal</span>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>NO.</th>
+                            <th>WAKTU</th>
+                            <th>KEGIATAN</th>
+                            <th>LOKASI</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="number-cell">01</td>
+                            <td class="time">03.30–04.00</td>
+                            <td>Sholat Tahajud</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">02</td>
+                            <td class="time">04.00–05.00</td>
+                            <td>STW, ODOJ, Dzikir Pagi</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">03</td>
+                            <td class="time">05.00–05.30</td>
+                            <td>Halaqoh Qur’an (Tahfidz)</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">04</td>
+                            <td class="time">05.30–06.00</td>
+                            <td>Bersih-bersih kamar, kelas, dan lingkungan pondok</td>
+                            <td class="location">Kamar / Lingkungan</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">05</td>
+                            <td class="time">06.00–07.50</td>
+                            <td>Mandi, sarapan, dan Dhuha</td>
+                            <td class="location">Asrama / Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">06</td>
+                            <td class="time">08.00–09.00</td>
+                            <td>
+                                Produktif Belajar Skill IT (Santri Pendidikan),
+                                Kerja (Santri Khidmat/Pengabdian)
+                            </td>
+                            <td class="location">Kelas / Kantor</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">07</td>
+                            <td class="time">09.00–09.15</td>
+                            <td>Istirahat</td>
+                            <td class="location">-</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">08</td>
+                            <td class="time">09.15–11.30</td>
+                            <td>
+                                Produktif Skill IT (Santri Pendidikan),
+                                Kerja (Santri Khidmat)
+                            </td>
+                            <td class="location">Kelas / Kantor</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">09</td>
+                            <td class="time">11.30–13.00</td>
+                            <td>Istirahat, STW, dan Makan Siang</td>
+                            <td class="location">Masjid / Asrama</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">10</td>
+                            <td class="time">13.00–15.00</td>
+                            <td>
+                                Produktif Belajar Skill IT (Santri Pendidikan),
+                                Produktif Kerja (Santri Khidmat/Pengabdian)
+                            </td>
+                            <td class="location">Kelas / Kantor</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">11</td>
+                            <td class="time">15.00–15.40</td>
+                            <td>STW dan Dzikir Petang</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">12</td>
+                            <td class="time">15.20–16.20</td>
+                            <td>Kajian Ilmu Syar’i</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">13</td>
+                            <td class="time">16.20–17.30</td>
+                            <td>Olahraga Sore / Kegiatan Fleksibel</td>
+                            <td class="location">Fleksibel</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">14</td>
+                            <td class="time">18.00–19.30</td>
+                            <td>STW dan Halaqoh Qur’an (Tahfidz)</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">15</td>
+                            <td class="time">19.30–19.50</td>
+                            <td>STW dan ODOJ (Tilawah Qur’an 12 Lembar)</td>
+                            <td class="location">Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">16</td>
+                            <td class="time">19.50–22.00</td>
+                            <td>Makan Malam dan Evaluasi Malam</td>
+                            <td class="location">Asrama / Masjid</td>
+                        </tr>
+
+                        <tr>
+                            <td class="number-cell">17</td>
+                            <td class="time">22.00–03.10</td>
+                            <td>Istirahat</td>
+                            <td class="location">Asrama</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-
-
-        <!-- CATATAN -->
 
         <div class="schedule-note">
-
-            <strong>
-                Catatan
-            </strong>
-
+            <strong>Perhatian terhadap jadwal</strong>
             <p>
-                Jadwal kegiatan dapat menyesuaikan dengan
-                kebutuhan pendidikan, agenda kepondokan,
-                dan kondisi tertentu.
+                Jadwal kegiatan dapat menyesuaikan dengan kebutuhan
+                pendidikan, agenda kepondokan, waktu sholat, serta
+                kondisi tertentu. Koordinator kegiatan memastikan
+                pelaksanaan tetap terarah.
             </p>
+        </div>
+    </section>
+
+
+    <!-- BAGIAN BUDAYA SANTRI -->
+    <section class="section-block habits-section" id="budaya">
+
+        <div class="habits-intro">
+            <div class="section-heading">
+                <span class="eyebrow">PEMBIASAAN & PEMBENTUKAN KARAKTER</span>
+                <h2>Budaya / Habits Santri</h2>
+                <p>
+                    Kebiasaan yang dibangun secara konsisten untuk
+                    membentuk pribadi santri yang dekat dengan Allah,
+                    disiplin dalam ibadah, dan memiliki kepedulian sosial.
+                </p>
+            </div>
+
+            <div class="habits-target">
+                9 Budaya Utama Santri
+            </div>
+        </div>
+
+        <div class="habits-grid">
+
+            <article class="habit-card">
+                <div class="habit-number">01</div>
+                <h3>STW — Sholat Tepat Waktu</h3>
+                <p>
+                    Menjaga kehadiran dalam sholat Subuh, Zuhur, Asar,
+                    Magrib, dan Isya secara tepat waktu serta tanpa
+                    masbuk. Pelaksanaan dipantau secara rutin setiap pekan.
+                </p>
+                <span class="habit-target">
+                    Target kehadiran 90–100% per pekan
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">02</div>
+                <h3>Dzikir Pagi dan Petang</h3>
+                <p>
+                    Membiasakan membaca dzikir pagi setelah sholat
+                    Subuh dan dzikir petang pada waktu sore sebagai
+                    bagian dari rutinitas ibadah harian.
+                </p>
+                <span class="habit-target">
+                    Target: 2 kali sehari
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">03</div>
+                <h3>Puasa Senin–Kamis</h3>
+                <p>
+                    Membiasakan puasa sunnah setiap hari Senin dan
+                    Kamis untuk melatih kedisiplinan, pengendalian diri,
+                    dan kesungguhan dalam beribadah.
+                </p>
+                <span class="habit-target">
+                    Target: 2 hari setiap pekan
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">04</div>
+                <h3>Tilawah Al-Qur’an</h3>
+                <p>
+                    Membaca Al-Qur’an secara konsisten setiap hari.
+                    Tilawah dibiasakan sebanyak 2 lembar setiap selesai
+                    sholat fardhu agar bacaan menjadi rutinitas harian.
+                </p>
+                <span class="habit-target">
+                    Target: 1 juz per hari
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">05</div>
+                <h3>Memperbanyak Doa</h3>
+                <p>
+                    Membiasakan berdoa pada waktu-waktu yang diharapkan
+                    mustajab, di antaranya antara adzan dan iqamah,
+                    saat qiyamullail, hari Jumat, dan waktu lainnya.
+                </p>
+                <span class="habit-target">
+                    Target: rutin setiap hari
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">06</div>
+                <h3>Sholat Tahajud</h3>
+                <p>
+                    Melaksanakan sholat tahajud setiap malam sebagai
+                    pembiasaan ibadah malam, melatih kesungguhan,
+                    dan mendekatkan diri kepada Allah.
+                </p>
+                <span class="habit-target">
+                    Target: minimal 4 rakaat + 1 witir
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">07</div>
+                <h3>Sholat Dhuha</h3>
+                <p>
+                    Membiasakan sholat Dhuha pada pagi hari sebelum
+                    memulai aktivitas produktif, belajar skill IT,
+                    atau menjalankan tugas pengabdian.
+                </p>
+                <span class="habit-target">
+                    Target: minimal 4 rakaat setiap pagi
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">08</div>
+                <h3>Sholat Sunnah Rawatib</h3>
+                <p>
+                    Membiasakan sholat sunnah qabliyah dan ba’diyah
+                    yang mengiringi sholat fardhu sebagai bagian
+                    dari penguatan kualitas ibadah harian.
+                </p>
+                <span class="habit-target">
+                    Target: 12 rakaat setiap hari
+                </span>
+            </article>
+
+            <article class="habit-card">
+                <div class="habit-number">09</div>
+                <h3>Sedekah Harian</h3>
+                <p>
+                    Menanamkan kebiasaan berbagi dan kepedulian kepada
+                    sesama melalui sedekah rutin, sesuai kemampuan,
+                    sebagai latihan membangun karakter yang bermanfaat.
+                </p>
+                <span class="habit-target">
+                    Target: minimal Rp500 per hari
+                </span>
+            </article>
 
         </div>
 
-
-
-        <!-- =================================================
-             KEMBALI
-        ================================================== -->
-
-        <div class="back-home">
-
-            <a href="index.html">
-
-                ← Kembali ke Halaman Utama
-
-            </a>
-
+        <div class="habit-principle">
+            <h3>Dari Kebiasaan Menjadi Karakter</h3>
+            <p>
+                Budaya santri tidak berhenti pada daftar aktivitas.
+                Setiap kebiasaan diarahkan untuk membangun konsistensi,
+                tanggung jawab, kedisiplinan, ketaatan, dan kepedulian.
+                Pelaksanaan dibina serta dievaluasi secara berkala oleh
+                tim pembina dan wali kelas karakter.
+            </p>
         </div>
 
+    </section>
 
+
+    <!-- CATATAN -->
+    <section class="section-block" id="catatan">
+        <div class="section-heading">
+            <span class="eyebrow">KETENTUAN PELAKSANAAN</span>
+            <h2>Catatan Pembinaan Santri</h2>
+            <p>
+                Kegiatan dan budaya santri dilaksanakan dalam satu
+                sistem pembinaan yang saling mendukung.
+            </p>
+        </div>
+
+        <div class="general-note">
+            <h3>Evaluasi dan Penyesuaian</h3>
+            <p>
+                Pelaksanaan budaya santri dapat dipantau melalui
+                absensi, jurnal pembiasaan, laporan wali kelas,
+                dan evaluasi pekanan. Jadwal serta target pelaksanaan
+                dapat disesuaikan dengan kebijakan pendidikan
+                dan kondisi kepondokan.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- KEMBALI KE HALAMAN UTAMA -->
+    <div class="back-home">
+        <a href="index.html">← Kembali ke Halaman Utama</a>
     </div>
-
-</section>
 
 </main>
 
-
-
-<!-- FOOTER -->
-
 <footer>
-
     <p>
-        © 2026 Pondok IT Indonesia.
+        © 2026 <strong>Pondok IT Indonesia</strong>.
         Semua hak dilindungi.
     </p>
-
+    <p>Taqwa – Profesional – Bermanfaat</p>
 </footer>
 
-
-</body>
-
-</html> 
 </body>
 </html>

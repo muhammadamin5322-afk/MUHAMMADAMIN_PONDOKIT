@@ -1,344 +1,923 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Program.css"> 
+
+    <title>Program Pendidikan | Pondok IT Indonesia</title>
+    <meta name="description" content="Kenali tiga program pendidikan Pondok IT Indonesia: Pondok IT, Rumah IT, dan Sekolah IT.">
+
+    <style>
+        :root {
+            --navy: #102746;
+            --navy-dark: #09182e;
+            --blue: #244b78;
+            --gold: #d6ad62;
+            --cream: #f8f6f0;
+            --white: #ffffff;
+            --text: #26364a;
+            --muted: #697789;
+            --border: #e4e8ed;
+            --shadow: 0 15px 40px rgba(16, 39, 70, .09);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 25px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* HERO */
+
+        .program-hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(214,173,98,.2), transparent 28%),
+                linear-gradient(130deg, var(--navy-dark), var(--navy) 65%, #254b76);
+            color: white;
+            padding: 80px 22px 105px;
+        }
+
+        .hero-container {
+            max-width: 1120px;
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            color: #f0d8a8;
+            border: 1px solid rgba(214,173,98,.5);
+            padding: 7px 15px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 23px;
+        }
+
+        .program-hero h1 {
+            font-size: clamp(37px, 6vw, 65px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+            max-width: 760px;
+            margin-bottom: 21px;
+        }
+
+        .program-hero h1 span {
+            display: block;
+            color: var(--gold);
+        }
+
+        .program-hero p {
+            max-width: 650px;
+            font-size: 16px;
+            color: #d6e0ec;
+        }
+
+        .hero-line {
+            height: 4px;
+            width: 70px;
+            background: var(--gold);
+            margin-top: 29px;
+            border-radius: 5px;
+        }
+
+        .hero-decoration {
+            position: absolute;
+            width: 390px;
+            height: 390px;
+            right: -130px;
+            bottom: -260px;
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 40px rgba(255,255,255,.025),
+                0 0 0 80px rgba(255,255,255,.02);
+        }
+
+        /* NAVIGASI */
+
+        .program-nav {
+            position: relative;
+            z-index: 2;
+            max-width: 1120px;
+            padding: 0 22px;
+            margin: -28px auto 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 13px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-inner a {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            padding: 9px 13px;
+            border-radius: 5px;
+            transition: .2s;
+        }
+
+        .nav-inner a:hover {
+            background: #edf2f8;
+        }
+
+        .nav-inner .nav-home {
+            margin-left: auto;
+            background: var(--navy);
+            color: white;
+        }
+
+        .nav-inner .nav-home:hover {
+            background: var(--blue);
+        }
+
+        /* KONTEN UTAMA */
+
+        .program-section {
+            padding: 75px 22px 85px;
+        }
+
+        .program-container {
+            max-width: 1120px;
+            margin: auto;
+        }
+
+        .program-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 43px;
+        }
+
+        .program-label {
+            display: inline-block;
+            color: #9b752f;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .program-header h2 {
+            color: var(--navy);
+            font-size: clamp(28px, 4vw, 40px);
+            line-height: 1.25;
+            margin-bottom: 15px;
+        }
+
+        .program-header h2 span {
+            color: #a9823c;
+        }
+
+        .program-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* KARTU PROGRAM */
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+            align-items: stretch;
+        }
+
+        .program-card {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            overflow: hidden;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            box-shadow: 0 6px 22px rgba(16,39,70,.04);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+        }
+
+        .program-image {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 230px;
+            padding: 30px;
+            background: linear-gradient(145deg, #edf2f8, #f8f6f0);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pondok-card .program-image {
+            background: linear-gradient(145deg, #e9f2e9, #f8f6ef);
+        }
+
+        .rumah-card .program-image {
+            background: linear-gradient(145deg, #edf1fa, #f8f6f0);
+        }
+
+        .sekolah-card .program-image {
+            background: linear-gradient(145deg, #f5eddf, #faf8f2);
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 165px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .program-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 39px;
+            height: 39px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy);
+            color: white;
+            border: 2px solid rgba(255,255,255,.8);
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .program-card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 26px 24px 25px;
+        }
+
+        .program-type {
+            color: #9b752f;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.7px;
+            margin-bottom: 10px;
+        }
+
+        .program-card h3 {
+            font-size: 21px;
+            line-height: 1.35;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .program-duration {
+            display: inline-block;
+            align-self: flex-start;
+            background: #edf2f8;
+            color: var(--blue);
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 17px;
+        }
+
+        .program-card-content > p:not(.program-duration) {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .program-features {
+            margin: 0 0 22px;
+            padding: 15px 0 0;
+            border-top: 1px solid #edf0f3;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin-bottom: 9px;
+            font-size: 12px;
+            color: #526174;
+        }
+
+        .feature-mark {
+            flex-shrink: 0;
+            width: 17px;
+            height: 17px;
+            margin-top: 2px;
+            border-radius: 50%;
+            background: #e8f2eb;
+            color: #27754a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .program-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-top: auto;
+            padding: 13px 16px;
+            background: var(--navy);
+            color: white;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 800;
+            transition: background .2s, transform .2s;
+        }
+
+        .program-button:hover {
+            background: var(--blue);
+        }
+
+        .program-button span {
+            font-size: 19px;
+            line-height: 1;
+        }
+
+        /* PEMBEDA PROGRAM */
+
+        .comparison-section {
+            background: white;
+            padding: 68px 22px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .comparison-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .comparison-heading h2 {
+            font-size: clamp(25px, 4vw, 34px);
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .comparison-heading p {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .comparison-table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .comparison-table th {
+            background: var(--navy);
+            color: white;
+            padding: 15px;
+            font-size: 12px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+            color: #566477;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .comparison-table td:first-child {
+            color: var(--navy);
+            font-weight: 800;
+        }
+
+        /* CTA */
+
+        .program-cta {
+            padding: 70px 22px;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(214,173,98,.17), transparent 30%),
+                linear-gradient(130deg, var(--navy-dark), var(--navy));
+            color: white;
+        }
+
+        .cta-container {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .cta-container h2 {
+            font-size: clamp(26px, 4vw, 38px);
+            line-height: 1.3;
+            margin-bottom: 13px;
+        }
+
+        .cta-container h2 span {
+            color: var(--gold);
+        }
+
+        .cta-container p {
+            color: #d4deea;
+            font-size: 14px;
+            max-width: 650px;
+            margin: 0 auto 27px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gold);
+            color: var(--navy-dark);
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .cta-button:hover {
+            background: #f0d49a;
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            margin: 18px 0 0;
+            color: #e2eaf3;
+            font-size: 12px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            background: #061326;
+            color: #bdc9d7;
+            padding: 27px 18px;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer p + p {
+            margin-top: 4px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 950px) {
+            .program-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .program-card:last-child {
+                grid-column: 1 / -1;
+            }
+
+            .program-card:last-child .program-image img {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .program-hero {
+                padding: 55px 20px 75px;
+            }
+
+            .program-hero h1 {
+                font-size: 39px;
+            }
+
+            .program-hero p {
+                font-size: 14px;
+            }
+
+            .program-nav {
+                padding: 0 13px;
+            }
+
+            .nav-inner {
+                gap: 4px;
+                padding: 9px;
+            }
+
+            .nav-inner a {
+                padding: 8px 9px;
+                font-size: 11px;
+            }
+
+            .nav-inner .nav-home {
+                margin-left: 0;
+            }
+
+            .program-section {
+                padding: 53px 15px 60px;
+            }
+
+            .program-header {
+                margin-bottom: 28px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .program-card:last-child {
+                grid-column: auto;
+            }
+
+            .program-image {
+                min-height: 215px;
+            }
+
+            .program-card-content {
+                padding: 23px 21px;
+            }
+
+            .comparison-section {
+                padding: 50px 15px;
+            }
+
+            .program-cta {
+                padding: 55px 18px;
+            }
+        }
+    </style>
 </head>
-<body>
-    <!DOCTYPE html>
-
-<html lang="id">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Program Pendidikan | Pondok IT Indonesia
-    </title>
-
-    <!-- CSS GLOBAL -->
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
-    <!-- CSS KHUSUS PROGRAM -->
-
-    <link
-        rel="stylesheet"
-        href="css/program.css"
-    >
-
-</head>
-
 
 <body>
 
+<!-- HERO -->
+<header class="program-hero">
+    <div class="hero-decoration"></div>
 
-<!-- =====================================================
-        HERO PROGRAM
-===================================================== -->
-
-<section class="program-hero">
-
-    <div class="program-hero-glow"></div>
-
-    <div class="program-hero-container">
-
-        <span class="program-badge">
-            PROGRAM PENDIDIKAN
-        </span>
+    <div class="hero-container">
+        <span class="hero-badge">PROGRAM PENDIDIKAN</span>
 
         <h1>
-
-           3 PROGRAM
-            <span>Pendidikan</span>
-
+            Tiga Jalur
+            <span>Pendidikan IT</span>
         </h1>
 
+        <p>
+            Pilih jalur pendidikan yang sesuai dengan kebutuhan,
+            kondisi, dan tujuan masa depan. Pondok IT Indonesia
+            menghadirkan program beasiswa, pendidikan berbayar,
+            dan pendidikan formal berbasis Al-Qur’an, karakter,
+            serta keterampilan teknologi.
+        </p>
+
+        <div class="hero-line"></div>
     </div>
+</header>
 
-</section>
+<!-- NAVIGASI -->
+<nav class="program-nav" aria-label="Navigasi program">
+    <div class="nav-inner">
+        <a href="#daftar-program">Tiga Program</a>
+        <a href="#perbandingan">Perbandingan</a>
+        <a href="#pendaftaran">Pendaftaran</a>
+        <a class="nav-home" href="index.html">Halaman Utama</a>
+    </div>
+</nav>
 
-
-
-<!-- =====================================================
-        PROGRAM UTAMA
-===================================================== -->
-
-<section class="program-section">
-
+<!-- PROGRAM UTAMA -->
+<main>
+<section class="program-section" id="daftar-program">
     <div class="program-container">
 
-
         <div class="program-header">
-
-            <span class="program-label">
-                PROGRAM UTAMA
-            </span>
-
+            <span class="program-label">PROGRAM UTAMA</span>
             <h2>
-
-                Tiga Program
-                <span>Pendidikan</span>
-
+                Temukan Program
+                <span>yang Tepat</span>
             </h2>
-
-    
-
+            <p>
+                Tiga pilihan program dengan skema pendidikan
+                dan durasi yang berbeda. Pelajari karakteristik
+                masing-masing program sebelum melakukan pendaftaran.
+            </p>
         </div>
-
-
-
-        <!-- PROGRAM GRID -->
 
         <div class="program-grid">
 
-
-            <!-- =====================================
-                    PONDOK IT
-            ====================================== -->
-
+            <!-- PONDOK IT -->
             <article class="program-card pondok-card">
-
                 <div class="program-image">
-
+                    <!-- Ganti dengan lokasi gambar relatif di folder website -->
                     <img
-                        src="c:\Users\DELL\OneDrive\Dokumen\Profil Pondok IT _Muhammad Amin\gambar .program\logo pondok it.jpeg"
-                        alt="Program Pondok IT Indonesia"
+                        src="gambar .program/logo pondok it.jpeg"
+                        alt="gambar .program/logo pondok it.jpeg"
+                        loading="lazy"
+                        onerror="this.style.display='none';"
                     >
-
-                    <span class="program-number">
-                        01
-                    </span>
-
+                    <span class="program-number">01</span>
                 </div>
 
-
                 <div class="program-card-content">
+                    <span class="program-type">PROGRAM BEASISWA</span>
 
-                    <span class="program-type">
-                        PROGRAM 1
-                    </span>
-
-                    <h3>
-                        Pendidikan Biasiswa Pondok IT
-                    </h3>
+                    <h3>Pendidikan Beasiswa Pondok IT</h3>
 
                     <p class="program-duration">
-                        Program Pendidikan 3 Tahun
+                        Program 3 Tahun
                     </p>
 
                     <p>
-
-                        Pendidikan Gratis selama 3 Tahun , 1 Tahun pembelajaran lalu 2 tahun Pengabdian
-
+                        Program pendidikan dengan beasiswa selama
+                        tiga tahun, terdiri atas satu tahun masa
+                        pembelajaran dan dua tahun masa khidmat
+                        atau pengabdian.
                     </p>
-
-<div class="program-features">
-
-                    
-                    </div>
-
-
-                    <a
-                        href="Program.html Gambar Profil Pondok it/logo pondok it.jpeg"
-                        class="program-button"
-                    >
-                        Lihat Program
-                        <span>→</span>
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- =====================================
-                    RUMAH IT
-            ====================================== -->
-
-            <article class="program-card rumah-card">
-
-                <div class="program-image">
-
-                    <img
-    src="c:\Users\DELL\OneDrive\Dokumen\Profil Pondok IT _Muhammad Amin\gambar .program\1.png"
-    alt="Program Rumah IT Indonesia"
->
-
-                    <span class="program-number">
-                        02
-                    </span>
-
-                </div>
-
-
-                <div class="program-card-content">
-
-                    <span class="program-type">
-                        PROGRAM 2
-                    </span>
-
-                    <h3>
-                        Pendidikan Berbayar Rumah IT
-                    </h3>
-
-                    <p class="program-duration">
-                        Program Pendidikan 1 Tahun
-                    </p>
-
-                    <p>
-
-                        Pendidikan hanya 1 Tahun di masa pembelajaran tanpa adanya kewajiban pengabdian setelahnya 
-
-                    </p>
-
 
                     <div class="program-features">
-
-                        
-
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Beasiswa pendidikan selama 3 tahun</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>1 tahun pembelajaran</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>2 tahun khidmat atau pengabdian</span>
+                        </div>
                     </div>
 
-
-                    <a
-                        href="rumah-it.html"
-                        class="program-button"
-                    >
-                        Lihat Program
+                    <a href="pondok-it.html" class="program-button">
+                        <span style="font-size:12px">Lihat Program</span>
                         <span>→</span>
                     </a>
-
                 </div>
-
             </article>
 
-
-
-            <!-- =====================================
-                    SEKOLAH IT
-            ====================================== -->
-
-            <article class="program-card sekolah-card">
-
+            <!-- RUMAH IT -->
+            <article class="program-card rumah-card">
                 <div class="program-image">
-
                     <img
-                        src="c:\Users\DELL\OneDrive\Dokumen\Profil Pondok IT _Muhammad Amin\gambar .program\LOGO RUMAH IT.jpeg"
-                        alt="Program Sekolah IT Indonesia"
+                        src="gambar .program/1.png"
+                        alt="gambar .program/1.png"
+                        loading="lazy"
+                        onerror="this.style.display='none';"
                     >
-
-                    <span class="program-number">
-                        03
-                    </span>
-
+                    <span class="program-number">02</span>
                 </div>
 
+                <div class="program-card-content">
+                    <span class="program-type">PROGRAM BERBAYAR</span>
+
+                    <h3>Pendidikan Berbayar Rumah IT</h3>
+
+                    <p class="program-duration">
+                        Program 1 Tahun
+                    </p>
+
+                    <p>
+                        Program pendidikan berbayar dengan masa
+                        pembelajaran satu tahun. Program ini tidak
+                        memiliki kewajiban pengabdian setelah
+                        menyelesaikan masa pendidikan.
+                    </p>
+
+                    <div class="program-features">
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Masa pembelajaran 1 tahun</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Berbasis pendidikan dan keterampilan IT</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Tidak wajib menjalani pengabdian setelah lulus</span>
+                        </div>
+                    </div>
+
+                    <a href="rumah-it.html" class="program-button">
+                        <span style="font-size:12px">Lihat Program</span>
+                        <span>→</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- SEKOLAH IT -->
+            <article class="program-card sekolah-card">
+                <div class="program-image">
+                    <img
+                        src="gambar .program/LOGO RUMAH IT.jpeg"
+                        alt="gambar .program/LOGO RUMAH IT.jpeg"
+                        loading="lazy"
+                        onerror="this.style.display='none';"
+                    >
+                    <span class="program-number">03</span>
+                </div>
 
                 <div class="program-card-content">
+                    <span class="program-type">PROGRAM FORMAL</span>
 
-                    <span class="program-type">
-                        PROGRAM 3
-                    </span>
-
-                    <h3>
-                        Sekolah IT
-                    </h3>
+                    <h3>Sekolah IT</h3>
 
                     <p class="program-duration">
                         Pendidikan Formal
                     </p>
 
                     <p>
-
-                         Program pendidikan formal ,atau sekolah formal pada umumnya , dengan kelulusan SMA /sederajat, pendidikan mengikuti jenjang kelas yang telah ditempuh. ditambah pendidikan keagamaan dan skill IT.
-
+                        Program pendidikan formal dengan jenjang
+                        kelas sesuai pendidikan yang telah ditempuh.
+                        Pendidikan dilengkapi dengan pembelajaran
+                        keagamaan, pembinaan karakter, dan keterampilan IT.
                     </p>
 
-
                     <div class="program-features">
-
-                       
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Jenjang pendidikan formal</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Pembelajaran keagamaan dan karakter</span>
+                        </div>
+                        <div class="feature-row">
+                            <span class="feature-mark">✓</span>
+                            <span>Keterampilan IT sebagai bagian pendidikan</span>
+                        </div>
                     </div>
 
-
-                    <a
-                        href="sekolah-it.html"
-                        class="program-button"
-                    >
-                        Lihat Program
+                    <a href="sekolah-it.html" class="program-button">
+                        <span style="font-size:12px">Lihat Program</span>
                         <span>→</span>
                     </a>
-
                 </div>
-
             </article>
 
+        </div>
+    </div>
+</section>
 
+<!-- PERBANDINGAN PROGRAM -->
+<section class="comparison-section" id="perbandingan">
+    <div class="comparison-container">
+
+        <div class="comparison-heading">
+            <span class="program-label">KENALI PERBEDAANNYA</span>
+            <h2>Perbandingan Program</h2>
+            <p>
+                Ringkasan karakteristik setiap program pendidikan.
+            </p>
         </div>
 
+        <div class="comparison-table-wrap">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>Pondok IT</th>
+                        <th>Rumah IT</th>
+                        <th>Sekolah IT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jenis Program</td>
+                        <td>Beasiswa</td>
+                        <td>Berbayar</td>
+                        <td>Formal</td>
+                    </tr>
+                    <tr>
+                        <td>Durasi</td>
+                        <td>3 tahun</td>
+                        <td>1 tahun</td>
+                        <td>Sesuai jenjang pendidikan</td>
+                    </tr>
+                    <tr>
+                        <td>Masa Pembelajaran</td>
+                        <td>1 tahun</td>
+                        <td>1 tahun</td>
+                        <td>Sesuai jenjang yang ditempuh</td>
+                    </tr>
+                    <tr>
+                        <td>Pengabdian</td>
+                        <td>2 tahun</td>
+                        <td>Tidak diwajibkan setelah pendidikan</td>
+                        <td>Ketentuan mengikuti program</td>
+                    </tr>
+                    <tr>
+                        <td>Fokus</td>
+                        <td>Agama, karakter, dan skill IT</td>
+                        <td>Agama, karakter, dan skill IT</td>
+                        <td>Pendidikan formal, agama, karakter, dan IT</td>
+                    </tr>
+                    <tr>
+                        <td>Informasi Lanjut</td>
+                        <td><a href="gambar .program/logo pondok it.jpeg">Detail Pondok IT →</a></td>
+                        <td><a href="gambar .program/1.png">Detail Rumah IT →</a></td>
+                        <td><a href="gambar .program/LOGO RUMAH IT.jpeg">Detail Sekolah IT →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-
 </section>
 
-
-
-
-
-        
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-        CTA
-===================================================== -->
-
-<section class="program-cta">
-
+<!-- CTA PENDAFTARAN -->
+<section class="program-cta" id="pendaftaran">
     <div class="cta-container">
+        <h2>
+            Siapkan Langkah
+            <span>Masa Depanmu</span>
+        </h2>
 
-       
-        <a
-            href="pendaftaran.html"
-            class="cta-button"
-        >
-            Mulai Pendaftaran →
+        <p>
+            Pelajari persyaratan, biaya pendidikan, dan ketentuan
+            program yang dipilih sebelum memulai proses pendaftaran
+            di Pondok IT Indonesia.
+        </p>
+
+        <a href="pendaftaran.html" class="cta-button">
+            Mulai Pendaftaran <span>→</span>
         </a>
 
+        <br>
+
+        <a href="biaya.html" class="cta-secondary">
+            Lihat informasi biaya pendidikan
+        </a>
     </div>
-
 </section>
+</main>
 
-
-
-<!-- =====================================================
-        FOOTER
-===================================================== -->
-
+<!-- FOOTER -->
 <footer>
-
-    <p>
-        © 2026 Pondok IT Indonesia
-    </p>
-
+    <p>© 2026 <strong>Pondok IT Indonesia</strong>. Semua hak dilindungi.</p>
+    <p>Taqwa – Profesional – Bermanfaat</p>
 </footer>
 
-
-</body>
-
-</html>
 </body>
 </html>

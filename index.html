@@ -1,406 +1,1469 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-   <!DOCTYPE html>
-<html lang="id">
 
-<head>
+    <title>Pondok IT Indonesia | Al-Qur'an, Karakter & Teknologi</title>
 
-    <meta charset="UTF-8">
+    <meta name="description" content="Pondok IT Indonesia memadukan pendidikan Al-Qur'an, pembentukan karakter, dan keterampilan teknologi.">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Pondok IT Indonesia - Pendidikan Al-Qur'an, Teknologi, Karakter dan Kemandirian.">
-
-    <title>Pondok IT Indonesia | Technopreneur & Software Engineer Hafizh Qur'an</title>
-
-    <!-- GOOGLE FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-          rel="stylesheet">
+    <style>
+        :root {
+            --green: #075740;
+            --dark-green: #052e24;
+            --light-green: #eaf6ef;
+            --gold: #d8b66a;
+            --dark: #18352a;
+            --muted: #687a71;
+            --white: #ffffff;
+            --border: #e1ebe4;
+        }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.7;
+            background: #fff;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-label {
+            color: var(--green);
+            text-transform: uppercase;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.3;
+            letter-spacing: -1px;
+            color: var(--dark-green);
+        }
+
+        .section-desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin-top: 15px;
+            max-width: 700px;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            width: 47px;
+            height: 47px;
+            object-fit: contain;
+            border-radius: 9px;
+        }
+
+        .brand-name strong {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--dark-green);
+        }
+
+        .brand-name span {
+            display: block;
+            color: var(--green);
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: 800;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+        }
+
+        .nav-menu a {
+            font-size: 11px;
+            font-weight: 700;
+            color: #52665c;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--green);
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green);
+            color: white;
+            padding: 11px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            white-space: nowrap;
+            transition: .2s;
+        }
+
+        .nav-button:hover,
+        .button-primary:hover {
+            background: var(--dark-green);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--green);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                radial-gradient(circle at 85% 20%, #e4f3e8, transparent 32%),
+                linear-gradient(120deg, #f5faf6, #fff);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            min-height: 590px;
+            padding: 70px 0;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: white;
+            border: 1px solid #dcebe0;
+            color: var(--green);
+            padding: 8px 13px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-green);
+            font-size: clamp(38px, 4.6vw, 59px);
+            line-height: 1.15;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #0a8a60;
+        }
+
+        .hero-description {
+            margin-top: 22px;
+            color: var(--muted);
+            font-size: 14px;
+            max-width: 580px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .button-primary,
+        .button-secondary {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 19px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: white;
+        }
+
+        .button-secondary {
+            border: 1px solid #d5e5da;
+            color: var(--green);
+            background: white;
+        }
+
+        .button-secondary:hover {
+            border-color: var(--green);
+        }
+
+        .hero-motto {
+            margin-top: 28px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* AREA DUA LOGO */
+
+        .hero-visual {
+            position: relative;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-orbit {
+            width: 365px;
+            height: 365px;
+            max-width: 100%;
+            border-radius: 50%;
+            border: 1px solid #d7e9dc;
+            background: radial-gradient(circle, #e5f3e8 0%, #f7fbf8 60%, transparent 72%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-orbit::before {
+            content: "";
+            position: absolute;
+            inset: 22px;
+            border-radius: 50%;
+            border: 1px dashed #b9d7c3;
+        }
+
+        .logo-card {
+            position: relative;
+            z-index: 2;
+            width: 270px;
+            padding: 26px 19px;
+            background: linear-gradient(145deg, var(--green), var(--dark-green));
+            color: white;
+            border-radius: 22px;
+            box-shadow: 0 25px 60px rgba(5,46,36,.22);
+            text-align: center;
+        }
+
+        .logo-pair {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 17px;
+        }
+
+        .logo-box {
+            width: 91px;
+            height: 91px;
+            background: white;
+            border-radius: 13px;
+            padding: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-and {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 23px;
+            color: var(--gold);
+            font-weight: 800;
+        }
+
+        .logo-card h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .logo-card p {
+            color: #e4eede;
+            font-size: 9px;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .floating-label {
+            position: absolute;
+            z-index: 3;
+            background: white;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(5,46,36,.08);
+            padding: 11px 15px;
+            border-radius: 10px;
+            color: var(--dark-green);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .floating-one {
+            top: 45px;
+            left: 0;
+        }
+
+        .floating-two {
+            top: 90px;
+            right: -5px;
+        }
+
+        .floating-three {
+            bottom: 50px;
+            left: -10px;
+        }
+
+        .floating-four {
+            bottom: 15px;
+            right: 0;
+        }
+
+        .floating-label span {
+            display: block;
+            color: var(--muted);
+            font-size: 9px;
+            font-weight: 500;
+        }
+
+        /* STATISTIK */
+
+        .stats {
+            background: var(--dark-green);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 27px 0;
+        }
+
+        .stat {
+            padding: 5px 25px;
+            border-right: 1px solid rgba(255,255,255,.15);
+        }
+
+        .stat:first-child {
+            padding-left: 0;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--gold);
+            font-size: 27px;
+        }
+
+        .stat span {
+            display: block;
+            color: #c6d9ce;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        /* TENTANG */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-box {
+            padding: 35px;
+            background: var(--light-green);
+            border-radius: 18px;
+            border: 1px solid var(--border);
+        }
+
+        .about-box strong {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--green);
+            font-size: 49px;
+            line-height: 1.2;
+        }
+
+        .about-box h3 {
+            font-size: 20px;
+            color: var(--dark-green);
+            margin-top: 12px;
+        }
+
+        .about-box p,
+        .about-content p {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .about-content p {
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .text-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* NILAI */
+
+        .values-section {
+            background: #f5faf6;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+        }
+
+        .values-grid,
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .value-card,
+        .program-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 28px;
+            transition: .25s;
+        }
+
+        .value-card:hover,
+        .program-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(5,46,36,.08);
+        }
+
+        .card-number {
+            color: #b38b38;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+
+        .value-card h3,
+        .program-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark-green);
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        .value-card p,
+        .program-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        /* PROGRAM */
+
+        .program-card.featured {
+            background: linear-gradient(145deg, var(--green), var(--dark-green));
+            border-color: var(--green);
+        }
+
+        .featured .card-number {
+            color: var(--gold);
+        }
+
+        .featured h3 {
+            color: white;
+        }
+
+        .featured p {
+            color: #d0e1d7;
+        }
+
+        .duration {
+            display: inline-block;
+            margin-top: 13px;
+            background: var(--light-green);
+            color: var(--green);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .featured .duration {
+            background: rgba(255,255,255,.12);
+            color: #f4e7bf;
+        }
+
+        .program-link {
+            display: inline-block;
+            margin-top: 23px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+            color: var(--green);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .featured .program-link {
+            color: var(--gold);
+            border-color: rgba(255,255,255,.2);
+        }
+
+        /* PEMBELAJARAN */
+
+        .learning-section {
+            background: #f8fbf9;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .learning-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+        }
+
+        .learning-card::before {
+            content: "";
+            display: block;
+            width: 32px;
+            height: 3px;
+            background: var(--gold);
+            margin-bottom: 17px;
+        }
+
+        .learning-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            color: var(--dark-green);
+        }
+
+        .learning-card p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        /* CTA */
+
+        .cta-section {
+            padding: 20px 0 85px;
+        }
+
+        .cta-box {
+            background:
+                radial-gradient(circle at 90% 10%, rgba(216,182,106,.16), transparent 35%),
+                var(--dark-green);
+            padding: 48px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .cta-box h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: white;
+            font-size: clamp(25px, 3vw, 36px);
+            line-height: 1.35;
+            max-width: 650px;
+        }
+
+        .cta-box p {
+            color: #c6d9ce;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .cta-button {
+            flex-shrink: 0;
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark-green);
+            padding: 14px 19px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #031f18;
+            color: white;
+            padding-top: 45px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr .8fr .8fr;
+            gap: 45px;
+            padding-bottom: 35px;
+        }
+
+        .footer h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 14px;
+            margin-bottom: 13px;
+        }
+
+        .footer p,
+        .footer a {
+            color: #b8cbc0;
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12);
+            padding: 18px 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            color: #9cb4a7;
+            font-size: 11px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1050px) {
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-menu a {
+                font-size: 10px;
+            }
+
+            .nav-container {
+                gap: 12px;
+            }
+
+            .hero-grid {
+                gap: 25px;
+            }
+
+            .floating-two {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                min-height: 75px;
+                flex-wrap: wrap;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .nav-menu {
+                display: none;
+                order: 5;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0 0 15px;
+            }
+
+            .nav-menu.open {
+                display: flex;
+            }
+
+            .nav-menu a {
+                font-size: 13px;
+                padding: 11px 3px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                padding: 60px 0;
+            }
+
+            .hero-content {
+                max-width: 720px;
+            }
+
+            .hero-visual {
+                min-height: 400px;
+            }
+
+            .about-grid {
+                gap: 30px;
+            }
+
+            .learning-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-box {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero-grid {
+                padding: 48px 0 40px;
+            }
+
+            .hero h1 {
+                font-size: clamp(36px, 10vw, 46px);
+                letter-spacing: -1.5px;
+            }
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+            }
+
+            .hero-visual {
+                min-height: 330px;
+            }
+
+            .logo-orbit {
+                width: 270px;
+                height: 270px;
+            }
+
+            .logo-card {
+                width: 220px;
+                padding: 20px 12px;
+            }
+
+            .logo-box {
+                width: 70px;
+                height: 70px;
+                padding: 5px;
+            }
+
+            .logo-pair {
+                gap: 7px;
+            }
+
+            .logo-card h2 {
+                font-size: 12px;
+            }
+
+            .logo-card p {
+                font-size: 7px;
+            }
+
+            .floating-label {
+                padding: 8px 10px;
+                font-size: 9px;
+            }
+
+            .floating-label span {
+                font-size: 8px;
+            }
+
+            .floating-one {
+                top: 20px;
+                left: -3px;
+            }
+
+            .floating-two {
+                top: 65px;
+                right: -3px;
+            }
+
+            .floating-three {
+                bottom: 35px;
+                left: -3px;
+            }
+
+            .floating-four {
+                bottom: 4px;
+                right: -3px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                padding: 15px 12px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,.15);
+            }
+
+            .stat:nth-child(odd) {
+                border-right: 1px solid rgba(255,255,255,.15);
+            }
+
+            .stat:first-child {
+                padding-left: 12px;
+            }
+
+            .stat:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            .stat strong {
+                font-size: 23px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .about-box {
+                padding: 28px;
+            }
+
+            .values-grid,
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .learning-card {
+                padding: 16px;
+            }
+
+            .learning-card h3 {
+                font-size: 12px;
+            }
+
+            .learning-card p {
+                font-size: 11px;
+            }
+
+            .cta-box {
+                padding: 28px 22px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-button {
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-
-<!-- =====================================================
-                    NAVBAR
-===================================================== -->
-
+<!-- NAVIGASI -->
 <header class="navbar">
-
-    <div class="nav-container">
-
-
-        <!-- LOGO -->
+    <div class="container nav-container">
 
         <a href="index.html" class="brand">
+            <img
+                src="Gambar Profil Pondok it/logo pondok it.jpeg"
+                alt="Logo Pondok IT Indonesia">
 
-            <div class="brand-logo">
-
-                <img src="Gambar Profil Pondok it/logo pondok it.jpeg"
-                     alt="Gambar Profil Pondok it/logo pondok it.jpeg">
-
-            </div>
-
-            <div class="brand-text">
-
+            <div class="brand-name">
                 <strong>PONDOK IT</strong>
-
                 <span>INDONESIA</span>
-
             </div>
-
         </a>
 
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Buka menu"
+            aria-expanded="false"
+            aria-controls="navMenu">☰</button>
 
-        <!-- NAVIGATION -->
-
-        <nav class="nav-menu">
-
-            <a href="https://app.rumahitindonesia.online/register" class="active">
-                Beranda
-            </a>
-
-            <a href="Tentang.html">
-                Tentang
-            </a>
-
-            <a href="Program.html">
-                Program
-            </a>
-
-            <a href="kurikulum.html">
-                Kurikulum
-            </a>
-
-            <a href="kegiatan.html">
-                Kegiatan Santri
-            </a>
-
-            <a href="pendaftaran.html">
-                Pendaftaran
-            </a>
-
-            <a href="Biaya.html">
-                Biaya Pendidikan 
-            </a>
-
-             <a href="detailkurikulum.html">
-                Detail Kurikulum
-            </a>
-
-            <a href="Bimbingan.html">
-                Bimbingan
-            </a>
-
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html" class="active">Beranda</a>
+            <a href="Tentang.html">Tentang</a>
+            <a href="Program.html">Program</a>
+            <a href="kurikulum.html">Kurikulum</a>
+            <a href="kegiatan.html">Kegiatan Santri</a>
+            <a href="pendaftaran.html">Pendaftaran</a>
+            <a href="Biaya.html">Biaya Pendidikan</a>
+            <a href="detailkurikulum.html">Detail Kurikulum</a>
+            <a href="Bimbingan.html">Bimbingan</a>
+             <a href="Tatatertib.html">Tatib</a>
         </nav>
 
-
-        <!-- CTA -->
-
-        <a href="https://app.rumahitindonesia.online/register"
-           class="nav-button">
-
-            Daftar Sekarang
-
+        <a class="nav-button"
+           href="https://app.rumahitindonesia.online/register">
+            Daftar Sekarang ↗
         </a>
 
     </div>
-
 </header>
-
-
-
-<!-- =====================================================
-                    HERO SECTION
-===================================================== -->
 
 <main>
 
+    <!-- BAGIAN UTAMA -->
+    <section class="hero" id="beranda">
+        <div class="container hero-grid">
 
-<section class="hero"
-         id="beranda">
+            <div class="hero-content">
 
+                <div class="hero-label">
+                    AL-QUR'AN · KARAKTER · TEKNOLOGI
+                </div>
 
-    <!-- BACKGROUND -->
+                <h1>
+                    Mencetak Generasi IT yang
+                    <span>Amanah dan Kuat.</span>
+                </h1>
 
-    <div class="hero-background">
+                <p class="hero-description">
+                    Pondok IT Indonesia memadukan pendidikan Al-Qur'an,
+                    pembentukan karakter, dan keterampilan teknologi
+                    untuk menyiapkan generasi yang bertakwa, profesional,
+                    mandiri, dan bermanfaat bagi umat.
+                </p>
 
-        <img src="Gambar Profil Pondok it/logo pondok it.jpeg"
-             alt="Lingkungan Pondok IT Indonesia">
+                <div class="hero-buttons">
+                    <a href="pendaftaran.html" class="button-primary">
+                        Informasi Pendaftaran →
+                    </a>
 
-    </div>
+                    <a href="#program" class="button-secondary">
+                        Jelajahi Program
+                    </a>
+                </div>
 
-
-    <!-- OVERLAY -->
-
-    <div class="hero-overlay"></div>
-
-
-    <!-- LIGHT EFFECT -->
-
-    <div class="hero-glow glow-one"></div>
-
-    <div class="hero-glow glow-two"></div>
-
-
-    <!-- CONTENT -->
-
-    <div class="hero-container">
-
-
-        <div class="hero-content">
-
-
-            <!-- BADGE -->
-
-            <div class="hero-badge">
-
-                <span class="badge-dot"></span>
-
-                PENDIDIKAN AL-QUR'AN & TEKNOLOGI
+                <div class="hero-motto">
+                    TAQWA · PROFESIONAL · BERMANFAAT
+                </div>
 
             </div>
 
+            <!-- LOGO PONDOK IT DAN RUMAH IT -->
+            <div class="hero-visual">
 
-            <!-- TITLE -->
+                <div class="logo-orbit">
 
-            <h1>
+                    <div class="logo-card">
 
-                Mencetak
+                        <div class="logo-pair">
 
-                <span>100.000</span>
+                            <div class="logo-box">
+                                <img
+                                    src="Gambar Profil Pondok it/logo pondok it.jpeg"
+                                    alt="Logo Pondok IT Indonesia">
+                            </div>
 
-                <br>
+                            <div class="logo-and">&</div>
 
-                Technopreneur &
+                            <div class="logo-box">
+                                <img
+                                    src="gambar .program/1.png"
+                                    alt="gambar .program/1.png">
+                            </div>
 
-                <br>
+                        </div>
 
-                Software Engineer
+                        <h2>PONDOK IT & RUMAH IT</h2>
+                        <p>AL-QUR'AN · KARAKTER · TEKNOLOGI</p>
 
-                <em>Hafizh Qur'an</em>
+                    </div>
 
-            </h1>
+                    <div class="floating-label floating-one">
+                        Al-Qur'an
+                        <span>Landasan kehidupan</span>
+                    </div>
 
+                    <div class="floating-label floating-two">
+                        Teknologi
+                        <span>Keterampilan masa depan</span>
+                    </div>
 
-            <!-- DESCRIPTION -->
+                    <div class="floating-label floating-three">
+                        Karakter
+                        <span>Amanah dan disiplin</span>
+                    </div>
 
-    
+                    <div class="floating-label floating-four">
+                        Kemandirian
+                        <span>Siap memberi manfaat</span>
+                    </div>
 
-            <!-- BUTTON -->
+                </div>
 
-            <div class="hero-buttons">
+            </div>
 
-                <a href="https://app.rumahitindonesia.online/register"
-                   class="btn-primary">
+        </div>
+    </section>
 
-                    Daftar Sekarang
+    <!-- INFORMASI SINGKAT -->
+    <section class="stats">
+        <div class="container stats-grid">
 
-                    <span>→</span>
+            <div class="stat">
+                <strong>2016</strong>
+                <span>Tahun Berdiri</span>
+            </div>
 
+            <div class="stat">
+                <strong>3</strong>
+                <span>Program Pendidikan</span>
+            </div>
+
+            <div class="stat">
+                <strong>IT + Qur'an</strong>
+                <span>Fokus Pendidikan</span>
+            </div>
+
+            <div class="stat">
+                <strong>1.500</strong>
+                <span>Target SDM IT Tahun 2028</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="section" id="tentang">
+        <div class="container about-grid">
+
+            <div class="about-box">
+                <strong>Sejak<br>2016</strong>
+                <h3>Membangun Generasi Masa Depan</h3>
+                <p>
+                    Pendidikan Al-Qur'an, karakter, dan teknologi
+                    dalam satu proses pengembangan diri.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="section-label">Tentang Kami</div>
+
+                <h2 class="section-title">
+                    Membangun Kompetensi Tanpa Melupakan Nilai Kehidupan.
+                </h2>
+
+                <p>
+                    Pondok IT Indonesia merupakan lembaga pendidikan yang
+                    memadukan pembelajaran Al-Qur'an, pembentukan karakter,
+                    dan keterampilan teknologi informasi.
+                </p>
+
+                <p>
+                    Proses pendidikan diarahkan untuk membangun generasi
+                    yang memiliki kemampuan, integritas, kedisiplinan,
+                    kemandirian, serta kepedulian terhadap umat dan masyarakat.
+                </p>
+
+                <a href="Tentang.html" class="text-link">
+                    Selengkapnya tentang Pondok IT →
                 </a>
+            </div>
 
+        </div>
+    </section>
 
-                <a href="#tentang"
-                   class="btn-secondary">
+    <!-- NILAI PENDIDIKAN -->
+    <section class="section values-section">
+        <div class="container">
 
-                    Jelajahi Pondok
+            <div class="section-label">Budaya Pendidikan</div>
+            <h2 class="section-title">
+                Tiga Nilai Utama Pondok IT Indonesia.
+            </h2>
+            <p class="section-desc">
+                Nilai yang menjadi arah dalam belajar, bekerja,
+                berinteraksi, dan memberikan manfaat.
+            </p>
 
+            <div class="values-grid" style="margin-top:35px;">
+
+                <article class="value-card">
+                    <div class="card-number">01 / TAQWA</div>
+                    <h3>Taqwa</h3>
+                    <p>
+                        Menjadikan Al-Qur'an dan ajaran Islam sebagai
+                        landasan dalam bersikap serta menjalani kehidupan.
+                    </p>
+                </article>
+
+                <article class="value-card">
+                    <div class="card-number">02 / PROFESIONAL</div>
+                    <h3>Profesional</h3>
+                    <p>
+                        Membangun disiplin, tanggung jawab, kesungguhan,
+                        dan kompetensi yang dibutuhkan dalam dunia kerja.
+                    </p>
+                </article>
+
+                <article class="value-card">
+                    <div class="card-number">03 / BERMANFAAT</div>
+                    <h3>Bermanfaat</h3>
+                    <p>
+                        Menggunakan ilmu dan keterampilan untuk
+                        memberikan kontribusi positif kepada masyarakat.
+                    </p>
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="section" id="program">
+        <div class="container">
+
+            <div class="section-label">Program Pendidikan</div>
+            <h2 class="section-title">
+                Temukan Program Pendidikan yang Sesuai.
+            </h2>
+            <p class="section-desc">
+                Tiga jalur pendidikan dengan karakteristik dan
+                tujuan yang berbeda.
+            </p>
+
+            <div class="program-grid" style="margin-top:35px;">
+
+                <article class="program-card featured">
+                    <div class="card-number">PROGRAM 01</div>
+                    <h3>Pondok IT</h3>
+                    <span class="duration">3 Tahun</span>
+                    <p>
+                        Program beasiswa dengan pendidikan yang
+                        memadukan Al-Qur'an, karakter, dan keterampilan IT.
+                        Terdiri dari 1 tahun pendidikan dan 2 tahun
+                        khidmat atau pengabdian.
+                    </p>
+                    <a href="pondok-it.html" class="program-link">
+                        Pelajari Program →
+                    </a>
+                </article>
+
+                <article class="program-card">
+                    <div class="card-number">PROGRAM 02</div>
+                    <h3>Rumah IT</h3>
+                    <span class="duration">1 Tahun</span>
+                    <p>
+                        Program pendidikan berbayar untuk mengembangkan
+                        kemampuan teknologi, karakter, dan nilai agama
+                        melalui proses belajar yang terarah.
+                    </p>
+                    <a href="rumah-it.html" class="program-link">
+                        Pelajari Program →
+                    </a>
+                </article>
+
+                <article class="program-card">
+                    <div class="card-number">PROGRAM 03</div>
+                    <h3>Sekolah IT</h3>
+                    <span class="duration">Pendidikan Formal</span>
+                    <p>
+                        Jalur pendidikan formal yang menggabungkan
+                        pembelajaran akademik, pendidikan agama,
+                        pembentukan karakter, dan keterampilan IT.
+                    </p>
+                    <a href="sekolah-it.html" class="program-link">
+                        Pelajari Program →
+                    </a>
+                </article>
+
+            </div>
+
+            <a href="Program.html" class="text-link">
+                Lihat semua program pendidikan →
+            </a>
+
+        </div>
+    </section>
+
+    <!-- BIDANG PEMBELAJARAN -->
+    <section class="section learning-section" id="pembelajaran">
+        <div class="container">
+
+            <div class="section-label">Fokus Pembelajaran</div>
+            <h2 class="section-title">
+                Mengembangkan Ilmu, Karakter, dan Keterampilan.
+            </h2>
+            <p class="section-desc">
+                Pembelajaran agama dan teknologi didukung oleh
+                pembentukan karakter serta pembiasaan positif.
+            </p>
+
+            <div class="learning-grid" style="margin-top:35px;">
+
+                <article class="learning-card">
+                    <h3>Al-Qur'an dan Agama</h3>
+                    <p>
+                        Tahsin, tahfidz, fiqih, aqidah, akhlak,
+                        dan pembelajaran agama.
+                    </p>
+                </article>
+
+                <article class="learning-card">
+                    <h3>Karakter dan Adab</h3>
+                    <p>
+                        Disiplin, tanggung jawab, kepemimpinan,
+                        kemandirian, dan pembiasaan positif.
+                    </p>
+                </article>
+
+                <article class="learning-card">
+                    <h3>Programmer</h3>
+                    <p>
+                        Pembelajaran pemrograman dan pengembangan
+                        web sesuai kurikulum pendidikan.
+                    </p>
+                </article>
+
+                <article class="learning-card">
+                    <h3>Bisnis Digital</h3>
+                    <p>
+                        Keterampilan konten digital, desain,
+                        pemasaran, dan bisnis berbasis teknologi.
+                    </p>
+                </article>
+
+            </div>
+
+            <a href="kurikulum.html" class="text-link">
+                Lihat kurikulum pendidikan →
+            </a>
+
+        </div>
+    </section>
+
+    <!-- PENDAFTARAN -->
+    <section class="cta-section">
+        <div class="container">
+
+            <div class="cta-box">
+                <div>
+                    <h2>Siapkan Langkahmu Bersama Pondok IT Indonesia.</h2>
+                    <p>
+                        Kenali program, persyaratan, dan biaya pendidikan
+                        sebelum melanjutkan proses pendaftaran.
+                    </p>
+                </div>
+
+                <a href="pendaftaran.html" class="cta-button">
+                    Informasi Pendaftaran →
                 </a>
-
             </div>
 
-
-            <!-- TRUST -->
-
-            <div class="hero-trust">
-
-                <div class="trust-line"></div>
-
-                <span>
-                    Taqwa • Profesional • Bermanfaat
-                </span>
-
-            </div>
-
-
         </div>
+    </section>
 
+</main>
 
-        <!-- HERO SIDE CARD -->
-
-        <div class="hero-card">
-
-
-            <div class="hero-card-top">
-
-                <span class="card-label">
-                    PONDOK IT INDONESIA
-                </span>
-
-                <div class="status-dot"></div>
-
-            </div>
-
-
-            <div class="hero-card-title">
-
-                Pendidikan
-
-                <strong>
-                    Generasi Masa Depan
-                </strong>
-
-            </div>
-
-
-            <div class="hero-pill-wrapper">
-
-                <span>Al-Qur'an</span>
-
-                <span>Technology</span>
-
-                <span>Character</span>
-
-                <span>Entrepreneur</span>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-    <!-- SCROLL -->
-
-    <div class="scroll-indicator">
-
-        <span>
-            SCROLL
-        </span>
-
-        <div class="scroll-line"></div>
-
-    </div>
-
-
-</section>
-
-<!-- =====================================================
-                    QUICK STATS
-===================================================== -->
-
-<section class="quick-stats">
-
-    <div class="stats-container">
-
-
-        <div class="stat-item">
-
-            <strong>
-                2016
-            </strong>
-
-            <span>
-                Tahun Berdiri
-            </span>
-
-        </div>
-
-
-        <div class="stat-divider"></div>
-
-
-        <div class="stat-item">
-
-            <strong>
-                3
-            </strong>
-
-            <span>
-                Program Pendidikan
-            </span>
-
-        </div>
-
-
-        <div class="stat-divider"></div>
-
-
-        <div class="stat-item">
-
-            <strong>
-                IT + Qur'an
-            </strong>
-
-            <span>
-                Fokus Pendidikan
-            </span>
-
-        </div>
-
-
-        <div class="stat-divider"></div>
-
-
-        <div class="stat-item">
-
-            <strong>
-                100.000
-            </strong>
-
-            <span>
-                Target Generasi
-            </span>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-
-
-
-<!-- =====================================================
-                    FOOTER SEMENTARA
-===================================================== -->
-
+<!-- FOOTER -->
 <footer class="footer">
+    <div class="container">
 
-    <div>
+        <div class="footer-grid">
 
-        © 2026 Pondok IT Indonesia
+            <div>
+                <h3>PONDOK IT INDONESIA</h3>
+                <p>
+                    Pendidikan yang memadukan Al-Qur'an, karakter,
+                    dan teknologi untuk menyiapkan generasi yang
+                    amanah, kuat, dan bermanfaat.
+                </p>
+                <p style="margin-top:13px;">
+                    Taqwa · Profesional · Bermanfaat
+                </p>
+            </div>
+
+            <div>
+                <h3>Navigasi</h3>
+                <div class="footer-links">
+                    <a href="Tentang.html">Tentang Kami</a>
+                    <a href="Program.html">Program Pendidikan</a>
+                    <a href="kurikulum.html">Kurikulum</a>
+                    <a href="kegiatan.html">Kegiatan Santri</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Informasi</h3>
+                <div class="footer-links">
+                    <a href="pendaftaran.html">Pendaftaran</a>
+                    <a href="Biaya.html">Biaya Pendidikan</a>
+                    <a href="detailkurikulum.html">Detail Kurikulum</a>
+                    <a href="Bimbingan.html">Bimbingan</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Pondok IT Indonesia</span>
+            <span>Taqwa · Profesional · Bermanfaat</span>
+        </div>
 
     </div>
-
 </footer>
 
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
 
-</body>
+    menuToggle.addEventListener('click', function () {
+        const opened = navMenu.classList.toggle('open');
 
-</html>
+        menuToggle.setAttribute(
+            'aria-expanded',
+            opened ? 'true' : 'false'
+        );
+
+        menuToggle.textContent = opened ? '×' : '☰';
+    });
+
+    navMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            navMenu.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.textContent = '☰';
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -10,356 +10,233 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Silabus Pendidikan Pondok IT Indonesia: Pre Program 2 bulan dan pendidikan inti 1 tahun, agama, Bisnis Digital, dan Programmer.">
-<title>Silabus Pendidikan | Pondok IT Indonesia</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Silabus Kurikulum Pondok IT Indonesia</title>
+<meta name="description" content="Silabus pre-program dan pendidikan 1 tahun Pondok IT Indonesia: Bisnis Digital, Programmer, serta Agama dan Karakter.">
 <style>
+/* Silabus Kurikulum Pondok IT Indonesia */
 :root{
-  --navy:#102a43;--navy2:#183e5b;--teal:#0d9488;--teal-dark:#087f75;
-  --gold:#c9a44c;--gold-light:#f7edcf;--ink:#243746;--muted:#627486;
-  --paper:#ffffff;--bg:#f3f6f8;--line:#dce5eb;--soft:#eaf5f4;
-  --shadow:0 12px 32px rgba(16,42,67,.08);--radius:18px;
+  --green:#0f4c3a; --green-2:#2e7d5b; --gold:#c9a227; --gold-soft:#f6ebc4;
+  --tint:#eaf3ee; --ink:#1b2a22; --muted:#5b6b62; --line:#d5e2da; --white:#fff;
+  --radius:14px; --shadow:0 1px 2px rgba(15,76,58,.08),0 6px 18px rgba(15,76,58,.06);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:92px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65}
-a{color:inherit}
-.topbar{position:sticky;top:0;z-index:20;background:rgba(16,42,67,.97);color:white;box-shadow:0 4px 20px #102a4320;backdrop-filter:blur(12px)}
-.topbar-inner{max-width:1200px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}
-.brand-mark{height:42px;width:42px;border:2px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold);font-size:13px;font-weight:900}
-.brand small{display:block;font-weight:500;letter-spacing:.02em;color:#c8d7e2;font-size:11px}
-.nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.nav a{font-size:12px;text-decoration:none;padding:8px 10px;border-radius:9px;color:#eaf2f7}
-.nav a:hover{background:#ffffff1b;color:#fff}
-.hero{background:linear-gradient(120deg,#102a43 0%,#174b60 60%,#087f75 100%);color:white;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:400px;height:400px;border:1px solid #ffffff18;border-radius:50%;right:-90px;top:-160px;box-shadow:0 0 0 45px #ffffff08,0 0 0 90px #ffffff05}
-.hero-inner{max-width:1200px;margin:auto;padding:68px 24px 60px;position:relative;z-index:1}
-.eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:800;color:var(--gold-light);border:1px solid #c9a44c88;padding:6px 11px;border-radius:99px}
-h1{font-size:clamp(32px,5vw,54px);line-height:1.12;max-width:820px;margin:20px 0 15px;letter-spacing:-.035em}
-.hero p{max-width:720px;color:#dce8ef;font-size:16px;margin:0 0 27px}
-.hero-actions{display:flex;gap:11px;flex-wrap:wrap}
-.btn{border:0;border-radius:11px;padding:12px 17px;font-weight:750;cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.btn-gold{background:var(--gold);color:#132f42}.btn-outline{background:transparent;border:1px solid #ffffff70;color:white}
-.btn:hover{filter:brightness(1.05);transform:translateY(-1px)}
-.wrap{max-width:1200px;margin:auto;padding:28px 22px 60px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:-24px;position:relative;z-index:2}
-.stat{background:white;border:1px solid var(--line);box-shadow:var(--shadow);border-radius:15px;padding:18px}
-.stat strong{display:block;font-size:25px;color:var(--navy);line-height:1.25}
-.stat span{font-size:12px;color:var(--muted)}
-.section{margin-top:42px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:17px}
-.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:850;color:var(--teal-dark)}
-h2{font-size:clamp(24px,3vw,33px);letter-spacing:-.025em;color:var(--navy);margin:4px 0 6px;line-height:1.2}
-.section-head p{margin:0;color:var(--muted);max-width:730px;font-size:14px}
-.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 5px 18px #102a4308}
-.panel h3{margin:0 0 9px;color:var(--navy);font-size:19px}
-.panel p{margin:0;color:var(--muted);font-size:14px}
-.pill{display:inline-block;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:800;background:var(--soft);color:var(--teal-dark);margin-bottom:10px}
-.pill.gold{background:var(--gold-light);color:#7b5a12}
-.objectives{padding-left:20px;margin:12px 0 0}
-.objectives li{margin:6px 0;font-size:14px}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.tab{border:1px solid var(--line);background:white;color:var(--navy);padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:750;font-size:13px}
-.tab.active{background:var(--navy);color:white;border-color:var(--navy)}
-.tab-panel[hidden]{display:none}
-.accordion{display:grid;gap:10px}
-details.unit{border:1px solid var(--line);border-radius:14px;background:white;overflow:hidden}
-details.unit[open]{box-shadow:0 6px 18px #102a430b}
-details.unit summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;align-items:center;gap:13px;font-weight:800;color:var(--navy)}
-details.unit summary::-webkit-details-marker{display:none}
-details.unit summary:after{content:"+";margin-left:auto;font-size:22px;color:var(--teal);font-weight:500}
-details.unit[open] summary:after{content:"−"}
-.unit-no{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:11px;background:var(--soft);color:var(--teal-dark);font-weight:900;font-size:13px}
-.unit-sub{display:block;color:var(--muted);font-size:12px;font-weight:500}
-.unit-body{padding:0 18px 18px}
-.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:white}
-table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
-th{background:var(--navy);color:white;text-align:left;font-size:12px;letter-spacing:.02em}
-th,td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-tbody tr:nth-child(even){background:#f8fafb}
-td:first-child{font-weight:750;color:var(--navy)}
-.note{margin-top:14px;border-left:4px solid var(--gold);background:#fffaf0;padding:13px 15px;border-radius:0 10px 10px 0;font-size:13px;color:#66552d}
-.callout{background:linear-gradient(110deg,#eaf5f4,#f8fbfc);border:1px solid #cde7e4;padding:19px;border-radius:15px;margin-top:15px}
-.callout strong{color:var(--navy)}
-.skill-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.skill-icon{height:45px;width:45px;border-radius:13px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:900;font-size:17px}
-.skill-head h3{margin:0}.skill-head p{font-size:12px;margin:2px 0 0}
-.month-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.month-card{border:1px solid var(--line);border-radius:13px;padding:15px;background:white}
-.month-card .month{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-dark);font-weight:900}
-.month-card h4{font-size:14px;color:var(--navy);margin:5px 0}
-.month-card p{font-size:12px;color:var(--muted);margin:0 0 8px}
-.output{font-size:11px;color:#6c5419;background:#fbf4df;padding:7px 9px;border-radius:8px}
-.weights{display:grid;gap:13px;margin-top:17px}
-.weight-row{display:grid;grid-template-columns:200px 1fr 48px;gap:12px;align-items:center;font-size:13px}
-.bar{height:10px;border-radius:99px;background:#e5edf1;overflow:hidden}
-.bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--teal),#4ab6a8)}
-.weight-row b{text-align:right;color:var(--navy)}
-.footer{background:var(--navy);color:#d8e5ec;margin-top:50px}
-.footer-inner{max-width:1200px;margin:auto;padding:28px 22px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
-.footer strong{color:white}.footer small{font-size:12px}
-.small-muted{font-size:12px;color:var(--muted)}
-@media(max-width:850px){.nav{display:none}.stats{grid-template-columns:repeat(2,1fr)}.grid-2{grid-template-columns:1fr}.month-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero-inner{padding-top:48px}}
-@media(max-width:520px){.wrap{padding:22px 14px 45px}.hero-inner{padding:42px 17px 50px}.stats{gap:9px}.stat{padding:13px}.stat strong{font-size:21px}.section-head{display:block}.month-grid{grid-template-columns:1fr}.weight-row{grid-template-columns:1fr 42px;gap:6px}.weight-row .bar{grid-column:1 / -1;grid-row:2}.panel{padding:17px}details.unit summary{padding:13px}.unit-body{padding:0 12px 14px}}
-@media print{.topbar,.hero-actions,.tabs,.print-hide{display:none!important}body{background:white}.hero{background:white;color:#102a43}.hero p{color:#394d5c}.hero-inner{padding:25px 0}.wrap{padding:0;max-width:none}.stats{margin-top:0}.panel,.stat,details.unit{box-shadow:none;break-inside:avoid}details.unit:not([open]) .unit-body{display:block}details.unit summary:after{display:none}.section{margin-top:24px}a{text-decoration:none}}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:"Segoe UI",Calibri,Arial,sans-serif;line-height:1.6;color:var(--ink);background:var(--white);font-size:16px}
+h1,h2,h3,h4,h5{font-family:Cambria,Georgia,"Times New Roman",serif;line-height:1.25;margin:0 0 .5em;color:var(--green)}
+h1{font-size:clamp(2rem,5vw,3.2rem);color:var(--white)}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+h3{font-size:1.25rem} h4{font-size:1.05rem;margin-top:1.4em} h5{font-size:.95rem;margin:1em 0 .4em;color:var(--green-2)}
+p{margin:0 0 1em}
+a{color:var(--green-2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--ink);padding:8px 14px;z-index:100}
+.skip:focus{left:8px;top:8px}
+
+/* Top bar */
+.topbar{position:sticky;top:0;z-index:50;background:var(--green);color:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--white);text-decoration:none;font-family:Cambria,Georgia,serif;font-weight:700;font-size:1.1rem}
+.logo{height:36px;width:auto}
+.topbar nav{display:flex;gap:6px;flex-wrap:wrap}
+.topbar nav a{color:var(--white);text-decoration:none;padding:8px 12px;border-radius:999px;font-size:.95rem}
+.topbar nav a:hover,.topbar nav a:focus-visible{background:rgba(255,255,255,.15)}
+
+/* Hero */
+.hero{background:var(--green);color:var(--white);padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center}
+.eyebrow{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 .6em}
+.section .eyebrow{color:var(--green-2)}
+.hero-text{font-size:1.15rem;color:var(--tint);max-width:34em}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.6em}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--white);border:2px solid var(--white)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.facts li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:baseline;gap:14px}
+.facts strong{font-family:Cambria,Georgia,serif;font-size:2rem;color:var(--gold)}
+.facts span{color:var(--tint)}
+
+/* Sections */
+.section{padding:64px 0}
+.section.alt{background:var(--tint)}
+.lead{font-size:1.08rem;color:var(--muted);max-width:52em}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.grid3.cols{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start;gap:24px}
+.card{background:var(--tint);border-radius:var(--radius);padding:24px}
+.card h3{margin-bottom:.4em}
+.card p{margin:0;color:var(--ink)}
+.col{background:var(--white);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border-top:5px solid var(--gold)}
+.col>h3{margin-bottom:1em}
+.mini{background:var(--tint);border-radius:var(--radius);padding:18px}
+.mini h5{margin-top:0}
+.mini p{margin:0}
+.mini ul{margin:0}
+
+/* Accordion */
+.acc{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;background:var(--white);overflow:hidden}
+.acc summary{cursor:pointer;padding:12px 16px;font-weight:600;list-style:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative;padding-right:40px;color:var(--green)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--green-2);font-weight:400}
+.acc[open] summary::after{content:"\2212"}
+.acc[open] summary{background:var(--tint)}
+.acc summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.acc-body{padding:6px 16px 16px}
+.tag{display:inline-block;background:var(--green);color:var(--white);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;font-family:"Segoe UI",Calibri,Arial,sans-serif}
+.indikator{background:var(--gold-soft);padding:12px 14px;border-radius:10px;margin:14px 0 0}
+
+/* Lists */
+.rows{margin:0}
+.rows>div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.rows>div:last-child{border-bottom:0}
+.rows dt{font-weight:700;color:var(--green-2);font-size:.92rem}
+.rows dd{margin:0}
+ul{padding-left:1.2em;margin:.3em 0 1em}
+li{margin:.25em 0}
+.tbl{width:100%;border-collapse:collapse;font-size:.93rem}
+.tbl th,.tbl td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.tbl th{background:var(--tint);color:var(--green)}
+.steps{list-style:none;margin:0;padding:0;position:relative}
+.step{display:flex;gap:14px;align-items:flex-start;padding:0 0 22px;position:relative}
+.step:not(.last)::before{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.num{flex:0 0 40px;height:40px;border-radius:50%;background:var(--green);color:var(--white);display:grid;place-items:center;font-weight:700;font-family:Cambria,Georgia,serif}
+.step.last .num{background:var(--gold);color:var(--ink)}
+.step strong{display:block;color:var(--green)}
+.step span:not(.num){color:var(--muted);font-size:.93rem}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 8px}
+.stack div{background:var(--green);color:var(--white);border-radius:var(--radius);padding:14px 16px}
+.stack strong{display:block;font-family:Cambria,Georgia,serif;font-size:1.1rem}
+.stack span{color:var(--gold);font-size:.85rem}
+
+/* Tabs (tanpa JavaScript) */
+.tabs input{position:absolute;opacity:0;pointer-events:none}
+.tabbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 22px}
+.tabbar label{cursor:pointer;padding:11px 20px;border-radius:999px;background:var(--tint);color:var(--green);font-weight:700;border:2px solid transparent}
+.tabbar label:hover{border-color:var(--green-2)}
+.panel{display:none}
+#t-bisnis:checked~.panels .p-bisnis,#t-prog:checked~.panels .p-prog,#t-agama:checked~.panels .p-agama{display:block}
+#t-bisnis:checked~.tabbar label[for=t-bisnis],#t-prog:checked~.tabbar label[for=t-prog],#t-agama:checked~.tabbar label[for=t-agama]{background:var(--green);color:var(--white)}
+#t-bisnis:focus-visible~.tabbar label[for=t-bisnis],#t-prog:focus-visible~.tabbar label[for=t-prog],#t-agama:focus-visible~.tabbar label[for=t-agama]{outline:3px solid var(--gold);outline-offset:2px}
+
+/* Footer */
+.footer{background:var(--green);color:var(--tint);padding:32px 0;text-align:center}
+.footer p{margin:0 0 6px}
+.footer .small{font-size:.88rem;color:#b9d3c6}
+
+@media (max-width:820px){
+  .hero{padding:44px 0 52px}
+  .hero-grid{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(3,1fr)}
+  .facts li{flex-direction:column;align-items:flex-start;gap:2px;padding:12px 14px}
+  .facts strong{font-size:1.4rem}
+  .section{padding:44px 0}
+  .rows>div{grid-template-columns:1fr;gap:2px}
+  .topbar nav a{padding:6px 10px;font-size:.88rem}
+}
+@media (max-width:520px){
+  .facts{grid-template-columns:1fr}
+  .bar{padding-top:6px;padding-bottom:6px}
+}
+@media print{
+  .topbar,.hero-cta,.tabbar,.skip{display:none}
+  .hero{background:none;color:var(--ink);padding:0}
+  h1{color:var(--green)}
+  .panel{display:block !important}
+  .acc{break-inside:avoid}
+  .acc>.acc-body{display:block}
+}
 </style>
 </head>
 <body>
+<a class="skip" href="#jalur">Lewati ke konten</a>
 <header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand"><div class="brand-mark">PIT</div><div>PONDOK IT INDONESIA<small>KURIKULUM PENDIDIKAN</small></div></div>
-    <nav class="nav" aria-label="Navigasi utama">
-      <a href="#gambaran">Gambaran</a><a href="#preprogram">Pre Program</a><a href="#inti">Pendidikan 1 Tahun</a><a href="#penilaian">Penilaian</a>
+  <div class="wrap bar">
+    <a class="brand" href="#beranda">
+      <!-- Logo: letakkan file logo.png di folder yang sama, lalu hapus tanda komentar pada baris di bawah -->
+      <!-- <img src="logo.png" alt="Logo Pondok IT Indonesia" class="logo"> -->
+      <span>Pondok IT Indonesia</span>
+    </a>
+    <nav aria-label="Navigasi utama">
+      <a href="#jalur">Jalur</a>
+      <a href="#pre-program">Pre-Program</a>
+      <a href="#pendidikan">Pendidikan 1 Tahun</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">Kurikulum Terintegrasi</span>
-    <h1>Silabus Pendidikan<br>Agama &amp; Skill IT</h1>
-    <p>Kerangka pendidikan 14 bulan yang memadukan fondasi Al-Qur’an, ilmu agama, pembentukan karakter, dan kompetensi profesional melalui dua jalur spesialisasi: Bisnis Digital dan Programmer.</p>
-    <div class="hero-actions">
-      <a class="btn btn-gold" href="#preprogram">Jelajahi Silabus ↓</a>
-      <button class="btn btn-outline" onclick="window.print()">Cetak / Simpan PDF</button>
+<main>
+<section id="beranda" class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Silabus Kurikulum</p>
+      <h1>Dari Pre-Program hingga Pendidikan 1 Tahun</h1>
+      <p class="hero-text">Gabungan silabus Bisnis Digital, Programmer, serta Agama dan Karakter untuk santri Pondok IT Indonesia.</p>
+      <p class="hero-cta"><a class="btn" href="#pre-program">Lihat Pre-Program</a> <a class="btn ghost" href="#pendidikan">Lihat Pendidikan 1 Tahun</a></p>
+    </div>
+    <ul class="facts" aria-label="Ringkasan">
+      <li><strong>3</strong><span>jalur pendidikan</span></li>
+      <li><strong>2 bulan</strong><span>pre-program</span></li>
+      <li><strong>12 bulan</strong><span>pendidikan inti</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="jalur" class="section">
+  <div class="wrap">
+    <h2>Tiga Jalur Pendidikan</h2>
+    <div class="grid3">
+      <article class="card"><h3>Bisnis Digital</h3><p>Desain grafis, content creator, social media marketing, customer service, Meta Ads, TikTok Affiliate, dan project.</p></article>
+      <article class="card"><h3>Programmer</h3><p>Full-Stack JavaScript dengan project Software House Management Platform, dalam empat fase sekitar 48 minggu.</p></article>
+      <article class="card"><h3>Agama dan Karakter</h3><p>Fiqih, Aqidah, Tadabbur, Adab dan Akhlak, Kajian Kepondokan, Tahsin, dan Tahfidz Quran.</p></article>
     </div>
   </div>
 </section>
 
-<main class="wrap">
-  <div class="stats" id="gambaran">
-    <div class="stat"><strong>2 Bulan</strong><span>Pre Program · 8 pekan</span></div>
-    <div class="stat"><strong>1 Tahun</strong><span>Pendidikan inti · 12 bulan</span></div>
-    <div class="stat"><strong>5 Materi</strong><span>Bidang utama pendidikan agama</span></div>
-    <div class="stat"><strong>2 Jalur</strong><span>Bisnis Digital &amp; Programmer</span></div>
+<section id="pre-program" class="section alt">
+  <div class="wrap">
+    <p class="eyebrow">Tahap 1</p>
+    <h2>Pre-Program · 2 Bulan</h2>
+    <p class="lead">Bekal dasar untuk semua santri baru sebelum masuk pendidikan inti. Tanggal kegiatan menyesuaikan waktu kedatangan santri tiap bulannya, sedangkan materi tetap sama selama 8 pekan.</p>
+    <div class="grid3 cols">
+      <article class="col"><h3>Agama dan Karakter</h3><h4>Program rutin harian</h4><table class="tbl"><thead><tr><th>Kegiatan</th><th>Hari</th><th>Waktu</th></tr></thead><tbody><tr><td>Halaqah Al-Qur&#x27;an (Tahfidz Pagi)</td><td>Senin–Sabtu</td><td>04.45–05.30 WIB</td></tr><tr><td>Kajian Rutin Sore</td><td>Senin–Jumat</td><td>15.50–16.20 WIB</td></tr><tr><td>Halaqah Al-Qur&#x27;an (Tahfidz Malam)</td><td>Selasa, Rabu, Jumat</td><td>18.00–18.45 WIB</td></tr><tr><td>Tasmi&#x27; Pekanan</td><td>Sabtu</td><td>08.00 WIB–selesai</td></tr><tr><td>Libur</td><td>Ahad</td><td>-</td></tr></tbody></table><h4>Jadwal pekanan</h4><details class="acc"><summary><span class="tag">Pekan 1</span> Masa Orientasi Santri (MOS)</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Pembukaan MOS dan sosialisasi program pendidikan (08.00–11.00); seleksi bacaan dan pengelompokan kelas tahsin (13.15–14.00)</dd></div><div><dt>Selasa</dt><dd>Pengenalan budaya santri dan tata tertib pondok (08.00–11.00 dan 13.20–15.00)</dd></div><div><dt>Rabu</dt><dd>Kerja bakti / bersih-bersih (08.00–11.00)</dd></div><div><dt>Kamis</dt><dd>Pengenalan budaya santri dan tata tertib pondok (08.00–11.00 dan 13.20–15.00)</dd></div><div><dt>Jumat</dt><dd>Kerja bakti / bersih-bersih (08.00–11.00)</dd></div><div><dt>Sabtu</dt><dd>Outbound, arahan dan nasihat pimpinan (05.00–13.00)</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 2</span> Pelatihan Thaharah</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Pengertian dan keutamaan thaharah</dd></div><div><dt>Selasa</dt><dd>Macam-macam air dan hukumnya</dd></div><div><dt>Rabu</dt><dd>Najis dan cara mensucikannya</dd></div><div><dt>Kamis</dt><dd>Wudhu dan pembatalnya</dd></div><div><dt>Jumat</dt><dd>Mandi wajib dan tayamum</dd></div><div><dt>Sabtu</dt><dd>Tasmi&#x27; pekanan dan kelas tahsin</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 3</span> Pelatihan Shalat</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Kedudukan dan keutamaan shalat</dd></div><div><dt>Selasa</dt><dd>Syarat sah dan rukun shalat</dd></div><div><dt>Rabu</dt><dd>Praktik shalat sesuai sunnah</dd></div><div><dt>Kamis</dt><dd>Sunnah dan kesalahan dalam shalat</dd></div><div><dt>Jumat</dt><dd>Pembatal shalat dan sujud sahwi</dd></div><div><dt>Sabtu</dt><dd>Tasmi&#x27; pekanan</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 4</span> Pembiasaan Shalat Tahajud</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Keutamaan tahajud</dd></div><div><dt>Selasa</dt><dd>Tahajud jalan mendekatkan diri kepada Allah</dd></div><div><dt>Rabu</dt><dd>Kisah ulama penjaga tahajud</dd></div><div><dt>Kamis</dt><dd>Tahajud melatih disiplin</dd></div><div><dt>Jumat</dt><dd>Tahajud dan kesuksesan Muslim</dd></div><div><dt>Sabtu</dt><dd>Muhasabah dan evaluasi pekanan</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 5</span> Pembiasaan Puasa Sunnah Senin–Kamis</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Keutamaan puasa Senin–Kamis</dd></div><div><dt>Selasa</dt><dd>Adab dan tata cara puasa</dd></div><div><dt>Rabu</dt><dd>Hikmah dan manfaat puasa</dd></div><div><dt>Kamis</dt><dd>Fiqih puasa Senin–Kamis bab 2 (praktik) dan pelaksanaan puasa sunnah</dd></div><div><dt>Jumat</dt><dd>Fiqih puasa Senin–Kamis bab 3 dan evaluasi pelaksanaan puasa</dd></div><div><dt>Sabtu</dt><dd>Tasmi&#x27; pekanan dan kelas tahsin</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 6</span> Latihan Imam Shalat Fardhu (materi harian: Fiqih Jenazah)</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Fiqih jenazah: muqaddimah dan pengantar</dd></div><div><dt>Selasa</dt><dd>Fiqih jenazah: memandikan jenazah</dd></div><div><dt>Rabu</dt><dd>Fiqih jenazah: mengkafankan jenazah</dd></div><div><dt>Kamis</dt><dd>Fiqih jenazah: bab shalat jenazah</dd></div><div><dt>Jumat</dt><dd>Fiqih jenazah: penguburan jenazah</dd></div><div><dt>Sabtu</dt><dd>Kelas tahsin</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 7</span> Kajian Tahsin Quran dan Fiqih Dasar</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Fiqih pengurusan jenazah</dd></div><div><dt>Selasa</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div><div><dt>Rabu</dt><dd>Fiqih pengurusan jenazah</dd></div><div><dt>Kamis</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div><div><dt>Jumat</dt><dd>Fiqih pengurusan jenazah</dd></div><div><dt>Sabtu</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 8</span> Kajian Tahsin Quran dan Fiqih Dasar</summary><div class="acc-body"><dl class="rows"><div><dt>Senin</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div><div><dt>Selasa</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div><div><dt>Rabu</dt><dd>Materi fiqih khutbah</dd></div><div><dt>Kamis</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div><div><dt>Jumat</dt><dd>Materi fiqih khutbah</dd></div><div><dt>Sabtu</dt><dd>Perbaikan bacaan Al-Qur&#x27;an</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Penutup</span> Penutup Pre-Program</summary><div class="acc-body"><dl class="rows"><div><dt>4 hari</dt><dd>Tasmi&#x27; akhir dan ujian hafalan</dd></div><div><dt>1 hari</dt><dd>Evaluasi akhir pre-program</dd></div><div><dt>1 hari</dt><dd>Pengumuman kelulusan dan penutupan pre-program</dd></div></dl></div></details></article>
+      <article class="col"><h3>Bisnis Digital</h3><details class="acc"><summary><span class="tag">Pekan 2</span> Dasar digital marketing dan personal branding</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1</dt><dd>Digital marketing basic. Tugas: membuat akun Instagram dan video resume</dd></div><div><dt>Hari 2</dt><dd>Bisnis digital, personal branding, cara menentukan niche, dasar editing video CapCut. Tugas: menentukan niche akun Instagram</dd></div><div><dt>Hari 3</dt><dd>Public speaking (siap beraksi) dan mindset menjadi sumber solusi. Tugas: video konten sesuai niche, menulis dream</dd></div><div><dt>Hari 4</dt><dd>Belajar powerful: cara belajar efisien dan membangun jiwa eksplor. Tugas: video konten sesuai niche</dd></div><div><dt>Hari 5</dt><dd>Praktik. Tugas: membuat konten</dd></div><div><dt>Hari 6</dt><dd>Ujian digital marketing dan bisnis digital. Tugas: membuat konten</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 3</span> Optimasi Instagram, storytelling, hook</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1</dt><dd>Optimasi profil Instagram. Tugas: memperbaiki profil dan membuat video konten</dd></div><div><dt>Hari 2</dt><dd>Storytelling dalam konten dan strukturnya. Tugas: membuat video konten</dd></div><div><dt>Hari 3</dt><dd>Hook dan jenis hook. Tugas: video konten FYP</dd></div><div><dt>Hari 4</dt><dd>Jenis konten. Tugas: video konten FYP</dd></div><div><dt>Hari 6</dt><dd>Ujian memasarkan produk: membuat video promosi produk</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 4</span> Desain basic dan copywriting</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1</dt><dd>Pengenalan fitur Canva: desain Instagram post</dd></div><div><dt>Hari 2–3</dt><dd>Desain single post dan carousel</dd></div><div><dt>Hari 4</dt><dd>Copywriting</dd></div><div><dt>Hari 6</dt><dd>Ujian pekanan. Tugas harian: konten personal branding</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 5</span> Editing video lanjutan</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1–2</dt><dd>Editing video transisi dasar di CapCut</dd></div><div><dt>Hari 3–4</dt><dd>Membuat intro dengan masking (pengenalan dan praktik)</dd></div><div><dt>Hari 6</dt><dd>Ujian pekanan. Tugas harian: konten personal branding</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 6</span> Praktik intensif</summary><div class="acc-body"><dl class="rows"><div><dt>Fokus</dt><dd>Banyak praktik. Tugas tambahan: membuat dan memposting konten 3 kali dalam 1 hari</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 7</span> Ide konten dan riset kompetitor</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1</dt><dd>Menentukan ide konten</dd></div><div><dt>Hari 2</dt><dd>Mengembangkan satu ide menjadi banyak konten</dd></div><div><dt>Hari 3–4</dt><dd>Riset kompetitor: mempelajari kesalahan kompetitor dan menjadikannya referensi</dd></div><div><dt>Hari 6</dt><dd>Ujian pekanan</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Pekan 8</span> Analisa dan evaluasi performa akun</summary><div class="acc-body"><dl class="rows"><div><dt>Hari 1</dt><dd>Membaca performa akun di dasbor</dd></div><div><dt>Hari 2</dt><dd>Laporan performa akun</dd></div><div><dt>Hari 3–4</dt><dd>Membuat laporan performa akun selama 2 bulan dalam bentuk presentasi</dd></div><div><dt>Hari 6</dt><dd>Ujian pekanan</dd></div></dl></div></details></article>
+      <article class="col"><h3>Programmer · Basic Skill Pemrograman</h3><ol class="steps"><li class="step"><span class="num">1</span><div><strong>HTML Dasar</strong><span>Struktur halaman web</span></div></li><li class="step"><span class="num">2</span><div><strong>CSS Dasar</strong><span>Tampilan dan tata letak</span></div></li><li class="step"><span class="num">3</span><div><strong>Algoritma dan Bahasa Pemrograman Dasar</strong><span>Logika dan dasar pemrograman</span></div></li><li class="step"><span class="num">4</span><div><strong>Git dan GitHub</strong><span>Version control dan kolaborasi</span></div></li><li class="step last"><span class="num">5</span><div><strong>Weather App</strong><span>Project aplikasi cuaca</span></div></li></ol></article>
+    </div>
   </div>
+</section>
 
-  <section class="section">
-    <div class="section-head"><div><span class="kicker">Landasan pendidikan</span><h2>Tujuan &amp; Struktur Program</h2><p>Pendidikan dirancang bertahap: membangun fondasi, menguatkan kompetensi, lalu membuktikan hasil belajar melalui proyek nyata.</p></div></div>
-    <div class="grid-2">
-      <article class="panel">
-        <span class="pill gold">Tahap 01 · 8 Pekan</span>
-        <h3>Pre Program</h3>
-        <p>Masa adaptasi, pembentukan kebiasaan, penguatan dasar agama, pengenalan skill, pemetaan minat, dan evaluasi kesiapan santri.</p>
-        <ul class="objectives"><li>Memahami dasar fikih, akidah, akhlak, dan tadabbur.</li><li>Memperbaiki bacaan Al-Qur’an melalui tahsin.</li><li>Mengenal dua jalur skill sebelum penentuan spesialisasi.</li><li>Menyelesaikan tugas dan mini-project dasar.</li></ul>
-      </article>
-      <article class="panel">
-        <span class="pill">Tahap 02 · 12 Bulan</span>
-        <h3>Pendidikan Inti</h3>
-        <p>Pendalaman ilmu agama dan karakter yang berjalan bersama pembelajaran skill, praktik, mentoring, dan pengembangan portofolio.</p>
-        <ul class="objectives"><li>Menjalankan kurikulum agama dan Al-Qur’an secara berkelanjutan.</li><li>Mendalami satu jalur skill pilihan.</li><li>Menyelesaikan proyek akhir yang dapat diuji.</li><li>Mengembangkan amanah, profesionalitas, dan kemandirian.</li></ul>
-      </article>
-    </div>
-    <div class="callout"><strong>Prinsip kurikulum:</strong> Agama menjadi fondasi dan arah, karakter membentuk kebiasaan, sedangkan skill IT menjadi alat untuk berkarya dan memberi manfaat.</div>
-  </section>
-
-  <section class="section" id="preprogram">
-    <div class="section-head"><div><span class="kicker">Tahap 01</span><h2>Silabus Pre Program · 2 Bulan</h2><p>Materi agama disusun per pekan. Skill IT diberikan melalui pengenalan bersama, kemudian latihan awal untuk Bisnis Digital dan Programmer.</p></div></div>
-    <div class="tabs print-hide" role="tablist" aria-label="Materi Pre Program">
-      <button class="tab active" data-tab="agama-pre" role="tab" aria-selected="true">Agama · 8 Pekan</button>
-      <button class="tab" data-tab="skill-pre" role="tab" aria-selected="false">Skill IT · 8 Pekan</button>
-      <button class="tab" data-tab="hasil-pre" role="tab" aria-selected="false">Target Akhir</button>
-    </div>
-
-    <div class="tab-panel" id="agama-pre">
-      <div class="table-wrap"><table>
-        <thead><tr><th>Pekan</th><th>Fikih</th><th>Akidah</th><th>Akhlak</th><th>Tadabbur Al-Qur’an</th><th>Tahsin Al-Qur’an</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Thaharah: wudhu, mandi wajib, najis</td><td>Tauhid dan tujuan penciptaan manusia</td><td>Adab kepada Allah, Rasul, guru, dan sesama</td><td>Pengenalan tadabbur; QS. Al-Fatihah</td><td>Pemetaan bacaan dan makharijul huruf</td></tr>
-          <tr><td>2</td><td>Shalat: syarat, rukun, pembatal</td><td>Rukun iman dan konsekuensinya</td><td>Adab menuntut ilmu dan niat belajar</td><td>QS. Al-Baqarah: 1–5</td><td>Sifat huruf dan koreksi pengucapan</td></tr>
-          <tr><td>3</td><td>Shalat berjamaah, masbuk, kesalahan shalat</td><td>Rububiyah, uluhiyah, asma wa sifat secara dasar</td><td>Disiplin, tanggung jawab, menjaga waktu</td><td>QS. Al-Mu’minun: 1–11</td><td>Nun sukun dan tanwin</td></tr>
-          <tr><td>4</td><td>Puasa dan hal-hal yang membatalkan</td><td>Qada dan qadar serta ikhtiar</td><td>Kejujuran, kesabaran, pengendalian diri</td><td>QS. Al-‘Asr; QS. Al-Hujurat: 11–12</td><td>Mim sukun dan ghunnah</td></tr>
-          <tr><td>5</td><td>Zakat, infak, sedekah, muamalah dasar</td><td>Syirik dan bentuknya secara dasar</td><td>Kepedulian, kedermawanan, ukhuwah</td><td>QS. Al-Ma’un; QS. Al-Baqarah: 261</td><td>Mad asli dan mad far’i dasar</td></tr>
-          <tr><td>6</td><td>Fikih pergaulan, aurat, adab interaksi</td><td>Iman dan pengaruhnya terhadap perilaku</td><td>Menjaga pandangan, kehormatan, batas pergaulan</td><td>QS. An-Nur: 30–31; QS. Al-Isra’: 32</td><td>Qalqalah, alif lam, ra, waqaf</td></tr>
-          <tr><td>7</td><td>Amanah, hak orang lain, muamalah digital</td><td>Tawakal, ikhtiar, tanggung jawab</td><td>Amanah, privasi, adab media sosial</td><td>QS. Al-Hujurat: 6; QS. Al-Isra’: 36</td><td>Penerapan tajwid pada ayat pilihan</td></tr>
-          <tr><td>8</td><td>Pengurusan Jenazah</td><td>Review pokok akidah</td><td>Muhasabah dan komitmen perbaikan</td><td>Presentasi tadabbur ayat pilihan</td><td>Ujian bacaan, tajwid, kelancaran</td></tr>
-        </tbody>
-      </table></div>
-      <div class="note">Tadabbur menggunakan tafsir tepercaya dan bimbingan pengajar. Target hafalan ditetapkan terpisah dari tahsin dan tadabbur, dengan mempertimbangkan kemampuan awal santri.</div>
-    </div>
-
-    <div class="tab-panel" id="skill-pre" hidden>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Pekan</th><th>Materi Bersama</th><th>Bisnis Digital</th><th>Programmer</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Literasi digital, komputer, manajemen file, etika digital</td><td>Ekosistem bisnis digital</td><td>Dunia pemrograman dan logika komputasi</td></tr>
-          <tr><td>2</td><td>Internet, pencarian informasi, keamanan akun, produktivitas</td><td>Riset pasar dan kebutuhan konsumen</td><td>Algoritma, flowchart, pseudocode</td></tr>
-          <tr><td>3</td><td>Dasar desain, komunikasi, aplikasi produktivitas</td><td>Copywriting dan konten promosi</td><td>HTML dan struktur halaman web</td></tr>
-          <tr><td>4</td><td>Pengenalan AI dan etika penggunaannya</td><td>Desain konten dan identitas merek</td><td>CSS, warna, layout, tipografi</td></tr>
-          <tr><td>5</td><td>Proyek digital dan kerja tim</td><td>Produk, harga, biaya, margin</td><td>JavaScript: variabel, tipe data, operator</td></tr>
-          <tr><td>6</td><td>Presentasi, dokumentasi, problem solving</td><td>Konten media sosial dan kalender konten</td><td>JavaScript: kondisi, perulangan, fungsi</td></tr>
-          <tr><td>7</td><td>Praktik proyek sederhana</td><td>Simulasi kampanye pemasaran</td><td>Halaman web interaktif sederhana</td></tr>
-          <tr><td>8</td><td>Presentasi, evaluasi, penentuan jalur</td><td>Rencana bisnis dan konten promosi</td><td>Mini-project dan demonstrasi website</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-
-    <div class="tab-panel" id="hasil-pre" hidden>
-      <div class="grid-2">
-        <article class="panel"><div class="skill-head"><div class="skill-icon">BD</div><div><h3>Target Bisnis Digital</h3><p>Hasil akhir Pre Program</p></div></div><ul class="objectives"><li>Riset pasar dan profil pelanggan sederhana.</li><li>Konsep identitas merek dasar.</li><li>Minimal 5 konten promosi.</li><li>Kalender konten satu pekan.</li><li>Simulasi biaya, harga jual, dan margin.</li></ul></article>
-        <article class="panel"><div class="skill-head"><div class="skill-icon">&lt;/&gt;</div><div><h3>Target Programmer</h3><p>Hasil akhir Pre Program</p></div></div><ul class="objectives"><li>Memahami logika algoritma dasar.</li><li>Website sederhana menggunakan HTML dan CSS.</li><li>Menerapkan JavaScript dasar.</li><li>Satu mini-project yang bisa didemonstrasikan.</li><li>Menjelaskan proses dan memperbaiki kesalahan sederhana.</li></ul></article>
+<section id="pendidikan" class="section">
+  <div class="wrap">
+    <p class="eyebrow">Tahap 2</p>
+    <h2>Pendidikan 1 Tahun</h2>
+    <p class="lead">Pilih jalur untuk melihat silabus lengkapnya.</p>
+    <div class="tabs">
+      <input type="radio" name="jalur" id="t-bisnis" checked>
+      <input type="radio" name="jalur" id="t-prog">
+      <input type="radio" name="jalur" id="t-agama">
+      <div class="tabbar" role="tablist">
+        <label for="t-bisnis">Bisnis Digital</label>
+        <label for="t-prog">Programmer</label>
+        <label for="t-agama">Agama dan Karakter</label>
       </div>
-      <div class="note">Penetapan jalur mempertimbangkan minat, potensi, kedisiplinan, usaha, perkembangan, dan hasil evaluasi—bukan hanya kemampuan awal.</div>
-    </div>
-  </section>
-
-  <section class="section" id="inti">
-    <div class="section-head"><div><span class="kicker">Tahap 02</span><h2>Pendidikan Inti · 1 Tahun</h2><p>Pendidikan agama dan karakter tetap menjadi kurikulum bersama, sementara skill IT didalami melalui salah satu jalur spesialisasi.</p></div></div>
-    <div class="tabs print-hide" role="tablist" aria-label="Kurikulum Pendidikan Inti">
-      <button class="tab active" data-tab="agama-inti" role="tab" aria-selected="true">Agama · 12 Bulan</button>
-      <button class="tab" data-tab="bisnis-inti" role="tab" aria-selected="false">Jalur Bisnis Digital</button>
-      <button class="tab" data-tab="programmer-inti" role="tab" aria-selected="false">Jalur Programmer</button>
-    </div>
-
-    <div class="tab-panel" id="agama-inti">
-      <div class="table-wrap"><table>
-        <thead><tr><th>Bulan</th><th>Fikih</th><th>Akidah</th><th>Akhlak</th><th>Tadabbur Al-Qur’an</th><th>Tahsin &amp; Tahfidz</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Penguatan thaharah dan shalat</td><td>Tauhid dan rukun iman</td><td>Adab santri dan budaya pondok</td><td>Al-Fatihah dan surat pendek</td><td>Diagnosis bacaan, makhraj, tajwid</td></tr>
-          <tr><td>2</td><td>Puasa, zakat, ibadah harian</td><td>Iman dan pengaruh amal</td><td>Disiplin, tanggung jawab, mujahadah</td><td>Ayat ibadah dan ketakwaan</td><td>Tahsin lanjutan dan kelancaran</td></tr>
-          <tr><td>3</td><td>Muamalah dasar</td><td>Syirik dan penjagaan tauhid</td><td>Kejujuran dan amanah</td><td>Ayat kejujuran dan amanah</td><td>Tahsin dan setoran terstruktur</td></tr>
-          <tr><td>4</td><td>Hak dan kewajiban dalam pergaulan</td><td>Tawakal dan ikhtiar</td><td>Menjaga lisan, pandangan, kehormatan</td><td>Ayat adab dan pergaulan</td><td>Koreksi tajwid individual</td></tr>
-          <tr><td>5</td><td>Fikih keluarga dan tanggung jawab sosial</td><td>Hari akhir dan pertanggungjawaban</td><td>Hormat orang tua, guru, masyarakat</td><td>Birrul walidain dan tanggung jawab</td><td>Tahsin, murajaah, evaluasi hafalan</td></tr>
-          <tr><td>6</td><td>Makanan, pakaian, muamalah digital</td><td>Iman dan perilaku</td><td>Adab media sosial dan privasi</td><td>Tabayyun dan larangan merugikan</td><td>Kelancaran dan waqaf-ibtida</td></tr>
-          <tr><td>7</td><td>Jual beli dan utang piutang</td><td>Rezeki, ikhtiar, tawakal</td><td>Integritas kerja dan bisnis</td><td>Perdagangan yang jujur</td><td>Tahsin dan hafalan sesuai target</td></tr>
-          <tr><td>8</td><td>Praktik fikih dalam kasus sehari-hari</td><td>Istiqamah dalam iman dan amal</td><td>Sabar dan pengendalian diri</td><td>Kesabaran dan ujian</td><td>Evaluasi tengah program dan murajaah</td></tr>
-          <tr><td>9</td><td>Fikih sosial dan hak sesama</td><td>Ukhuwah dan tanggung jawab muslim</td><td>Kepedulian, pelayanan, khidmat</td><td>Tolong-menolong dan sedekah</td><td>Perbaikan bacaan sesuai evaluasi</td></tr>
-          <tr><td>10</td><td>Fikih profesi dan etika muamalah</td><td>Amanah di hadapan Allah</td><td>Etos kerja, profesionalitas, anti-kecurangan</td><td>Memenuhi janji dan amanah</td><td>Tahsin dan hafalan terstruktur</td></tr>
-          <tr><td>11</td><td>Review fikih dan pembahasan kasus</td><td>Review akidah</td><td>Kepemimpinan dan keteladanan</td><td>Proyek tadabbur tematik</td><td>Murajaah, tasmi, persiapan ujian</td></tr>
-          <tr><td>12</td><td>Ujian praktik dan pemahaman fikih</td><td>Evaluasi pemahaman akidah</td><td>Evaluasi karakter dan rencana perbaikan</td><td>Presentasi tadabbur dan refleksi</td><td>Ujian tahsin, tasmi, capaian hafalan</td></tr>
-        </tbody>
-      </table></div>
-      <div class="note">Target hafalan tahunan perlu ditetapkan sesuai kemampuan awal dan standar pondok. Apabila target Pre Program adalah 2 juz, pendidikan inti melanjutkan dengan murajaah, pemantapan bacaan, dan penambahan hafalan sesuai target yang disepakati.</div>
-    </div>
-
-    <div class="tab-panel" id="bisnis-inti" hidden>
-      <div class="panel" style="margin-bottom:14px"><div class="skill-head"><div class="skill-icon">BD</div><div><h3>Spesialisasi Bisnis Digital</h3><p>Riset, branding, konten, pemasaran, analitik, dan pengembangan usaha.</p></div></div><p>Target lulusan: mampu menyusun strategi pemasaran digital, menghasilkan konten, mengelola toko atau kanal digital, membaca data, serta menghitung dasar keuangan usaha.</p></div>
-      <div class="month-grid">
-        <div class="month-card"><span class="month">Bulan 01</span><h4>Riset Pasar</h4><p>Mindset wirausaha, persona pelanggan, validasi masalah.</p><div class="output">Output: laporan riset pasar</div></div>
-        <div class="month-card"><span class="month">Bulan 02</span><h4>Model Bisnis</h4><p>Proposisi nilai, model bisnis, strategi produk.</p><div class="output">Output: Business Model Canvas</div></div>
-        <div class="month-card"><span class="month">Bulan 03</span><h4>Branding</h4><p>Positioning, identitas merek, dasar desain.</p><div class="output">Output: panduan visual sederhana</div></div>
-        <div class="month-card"><span class="month">Bulan 04</span><h4>Copywriting</h4><p>Storytelling, naskah promosi, halaman penawaran.</p><div class="output">Output: kumpulan naskah promosi</div></div>
-        <div class="month-card"><span class="month">Bulan 05</span><h4>Produksi Konten</h4><p>Foto produk, video pendek, editing.</p><div class="output">Output: paket foto dan video</div></div>
-        <div class="month-card"><span class="month">Bulan 06</span><h4>Media Sosial</h4><p>Strategi kanal, kalender konten, komunitas.</p><div class="output">Output: rencana konten 30 hari</div></div>
-        <div class="month-card"><span class="month">Bulan 07</span><h4>Marketplace</h4><p>Toko online, katalog, optimasi produk.</p><div class="output">Output: etalase dan katalog digital</div></div>
-        <div class="month-card"><span class="month">Bulan 08</span><h4>Iklan Digital</h4><p>Target audiens, anggaran, eksperimen kampanye.</p><div class="output">Output: simulasi kampanye iklan</div></div>
-        <div class="month-card"><span class="month">Bulan 09</span><h4>Funnel Penjualan</h4><p>Konversi, layanan pelanggan, optimasi.</p><div class="output">Output: alur penjualan dan SOP layanan</div></div>
-        <div class="month-card"><span class="month">Bulan 10</span><h4>Keuangan Usaha</h4><p>HPP, margin, arus kas, titik impas.</p><div class="output">Output: laporan biaya dan proyeksi</div></div>
-        <div class="month-card"><span class="month">Bulan 11</span><h4>Analitik Digital</h4><p>KPI, evaluasi performa, rekomendasi.</p><div class="output">Output: laporan kinerja pemasaran</div></div>
-        <div class="month-card"><span class="month">Bulan 12</span><h4>Proyek Akhir</h4><p>Pengembangan usaha, presentasi, evaluasi.</p><div class="output">Output: proyek usaha digital</div></div>
+      <div class="panels">
+        <section class="panel p-bisnis" aria-label="Bisnis Digital"><p class="lead">Dari desain grafis hingga Meta Ads, ditutup dengan project nyata. Setiap pekan terdiri atas 6 hari belajar.</p><details class="acc"><summary><span class="tag">Bulan 1</span> Desain Grafis</summary><div class="acc-body"><h5>Pekan 1 · Teori</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Jenis desain grafis dan unsur desain media sosial</dd></div><div><dt>Hari 2</dt><dd>Mata desainer dan persepsi visual</dd></div><div><dt>Hari 3</dt><dd>Selera visual dan teori warna</dd></div><div><dt>Hari 4</dt><dd>Sumber desain (font, foto, ikon, ilustrasi) dan lisensi</dd></div><div><dt>Hari 5</dt><dd>Style desain dan teknik visual (mockup, glassmorphism, 3D text, neumorphism, halftone, dan lainnya)</dd></div><div><dt>Hari 6</dt><dd>Ujian Pekan 1</dd></div></dl><h5>Pekan 2 · Praktik dengan referensi</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Glassmorphism</dd></div><div><dt>Hari 2</dt><dd>Neumorphism</dd></div><div><dt>Hari 3</dt><dd>Halftone</dd></div><div><dt>Hari 4</dt><dd>3D text (food poster)</dd></div><div><dt>Hari 5</dt><dd>Teks tembus objek</dd></div><div><dt>Hari 6</dt><dd>Game ulangan</dd></div></dl><h5>Pekan 3 · Praktik dengan video</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Poster streetwear</dd></div><div><dt>Hari 2</dt><dd>Poster dakwah</dd></div><div><dt>Hari 3</dt><dd>Poster kajian</dd></div><div><dt>Hari 4</dt><dd>Poster makanan</dd></div><div><dt>Hari 5</dt><dd>Poster rumah</dd></div><div><dt>Hari 6</dt><dd>Poster webinar</dd></div></dl><h5>Pekan 4 · Simulasi project</h5><dl class="rows"><div><dt>Project</dt><dd>Tanpa referensi: flyer produk/jasa, flyer promosi, sertifikat, banner</dd></div><div><dt>Brief</dt><dd>Brief poster dibuat dari ChatGPT yang berperan sebagai klien (12 unit usaha)</dd></div><div><dt>Target</dt><dd>Wajib menyelesaikan 12 desain poster dalam 6 hari</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 2</span> Content Creator</summary><div class="acc-body"><h5>Pekan 1 · Teori</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Pengenalan content creator, personal branding, niche</dd></div><div><dt>Hari 2</dt><dd>Storytelling, hook, konsistensi, monetisasi, riset dan strategi konten</dd></div><div><dt>Hari 3</dt><dd>Content plan 1 bulan, produksi foto dan video</dd></div><div><dt>Hari 4</dt><dd>Praktik foto dan video</dd></div><div><dt>Hari 5</dt><dd>Editing hasil videografi</dd></div><div><dt>Hari 6</dt><dd>Ujian tertulis</dd></div></dl><h5>Pekan 2 · CapCut mobile</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Layar, workspace, audio, teks, transisi</dd></div><div><dt>Hari 2</dt><dd>Voice over, efek, overlay</dd></div><div><dt>Hari 3</dt><dd>Filter, adjust, stiker, hapus background</dd></div><div><dt>Hari 4</dt><dd>Teks Arab dan splice</dd></div><div><dt>Hari 5</dt><dd>Keyframe, zoom, blur, vinyet</dd></div><div><dt>Hari 6</dt><dd>Ujian: eksekusi project hari ke-5</dd></div></dl><h5>Pekan 3 · Rank Warrior (CapCut PC)</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Unduh CapCut PC, bahan editing, materi no. 1–5</dd></div><div><dt>Hari 2</dt><dd>Materi no. 6–9</dd></div><div><dt>Hari 3</dt><dd>Materi no. 10–13</dd></div><div><dt>Hari 4</dt><dd>Materi no. 14–17</dd></div><div><dt>Hari 5</dt><dd>Materi no. 18: mengerjakan project pemula</dd></div><div><dt>Hari 6</dt><dd>Ujian</dd></div></dl><h5>Pekan 4 · Rank Elite</h5><dl class="rows"><div><dt>Hari 1–5</dt><dd>Materi Rank Elite sesuai waktu</dd></div><div><dt>Hari 6</dt><dd>Ujian</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 3</span> Social Media Marketing</summary><div class="acc-body"><h5>Pekan 1 · Fondasi dan strategi</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Pengenalan SMM dan tren terkini</dd></div><div><dt>Hari 2</dt><dd>Platform utama dan cara memilihnya</dd></div><div><dt>Hari 3</dt><dd>Buyer persona dan customer journey</dd></div><div><dt>Hari 4</dt><dd>SMART goals, KPI, SMM plan</dd></div><div><dt>Hari 5</dt><dd>Analisis kompetitor, branding, brand guideline</dd></div><div><dt>Hari 6</dt><dd>Ujian: presentasi persona, goal, guideline</dd></div></dl><h5>Pekan 2 · Konten dan komunitas</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Content pillars dan content calendar</dd></div><div><dt>Hari 2</dt><dd>Copywriting (AIDA, PAS, FOMO) dan CTA</dd></div><div><dt>Hari 3</dt><dd>Video marketing short-form</dd></div><div><dt>Hari 4</dt><dd>Storytelling dan brand story</dd></div><div><dt>Hari 5</dt><dd>User-generated content dan komunitas</dd></div><div><dt>Hari 6</dt><dd>Ujian: review dan praktik</dd></div></dl><h5>Pekan 3 · Kolaborasi dan penjualan</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Influencer marketing</dd></div><div><dt>Hari 2</dt><dd>Social commerce dan live shopping</dd></div><div><dt>Hari 4</dt><dd>Manajemen krisis dan etika</dd></div><div><dt>Hari 6</dt><dd>Ujian: simulasi kerja sama influencer dan diskusi studi kasus krisis</dd></div></dl><h5>Pekan 4 · Analitik dan proyek akhir</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Social media analytics dan A/B testing</dd></div><div><dt>Hari 2</dt><dd>AI dan automation dalam SMM</dd></div><div><dt>Hari 3</dt><dd>Reporting dan presentasi hasil</dd></div><div><dt>Hari 4</dt><dd>Strategi jangka panjang dan roadmap</dd></div><div><dt>Hari 5</dt><dd>Studi kasus dan campaign organik lengkap</dd></div><div><dt>Hari 6</dt><dd>Presentasi proyek akhir</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 4</span> Customer Service</summary><div class="acc-body"><h5>Pekan 1 · Orientasi dan closing</h5><dl class="rows"><div><dt>Hari 1–2</dt><dd>Orientasi, rules kelas, challenge penjualan perdana</dd></div><div><dt>Hari 3</dt><dd>Pengenalan CS dan penentuan produk</dd></div><div><dt>Hari 4</dt><dd>Standar kecakapan CS dan optimasi akun</dd></div><div><dt>Hari 5</dt><dd>Pengenalan closing dan mindset</dd></div><div><dt>Hari 6</dt><dd>Teknik dan SOP closing</dd></div></dl><h5>Pekan 2 · Script dan follow up</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Menghadapi penolakan</dd></div><div><dt>Hari 2</dt><dd>Script CS: greeting dan deskripsi produk</dd></div><div><dt>Hari 3</dt><dd>Praktik pola bahasa CS</dd></div><div><dt>Hari 4</dt><dd>Follow up</dd></div><div><dt>Hari 5</dt><dd>Follow up brutal 7 hari dan SOP</dd></div><div><dt>Hari 6</dt><dd>Menangani complain</dd></div></dl><h5>Pekan 3 · WhatsApp dan praktik</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Roleplay complain, praktik harian dimulai</dd></div><div><dt>Hari 2</dt><dd>Broadcast WhatsApp</dd></div><div><dt>Hari 3</dt><dd>WhatsApp Business: profil dan fitur</dd></div><div><dt>Hari 4</dt><dd>Katalog dan pesan otomatis</dd></div><div><dt>Hari 5</dt><dd>Review dan persiapan ujian</dd></div><div><dt>Hari 6</dt><dd>Ujian akhir: praktik, tulis, lisan</dd></div></dl><h5>Pekan 4 · Tugas praktik CS</h5><dl class="rows"><div><dt>Tugas 1</dt><dd>Optimasi akun dan profil CS</dd></div><div><dt>Tugas 2</dt><dd>Menyusun script CS lengkap</dd></div><div><dt>Tugas 3</dt><dd>Praktik harian: minimal 10 percakapan per hari</dd></div><div><dt>Tugas 4</dt><dd>Laporan harian (Report Sheet) sebelum 21.00 WIB</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 5</span> Meta Ads</summary><div class="acc-body"><h5>Pekan 1 · Fundamental dan pra-campaign</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Apa itu Meta dan potensinya</dd></div><div><dt>Hari 2</dt><dd>Organik vs ads, funnel, customer journey</dd></div><div><dt>Hari 3</dt><dd>Format creative, mindset beriklan, konsep omzet</dd></div><div><dt>Hari 4</dt><dd>Akun Facebook dan Instagram, Meta Business Suite</dd></div><div><dt>Hari 5</dt><dd>Business Manager, akun iklan, pixel</dd></div><div><dt>Hari 6</dt><dd>Riset produk, USP, kompetitor, konten</dd></div></dl><h5>Pekan 2 · Pra-campaign dan campaign</h5><dl class="rows"><div><dt>Hari 1</dt><dd>Copywriting dan landing page</dd></div><div><dt>Hari 2</dt><dd>Ujian pra-campaign</dd></div><div><dt>Hari 3</dt><dd>Level, objektif campaign, CBO dan ABO</dd></div><div><dt>Hari 4</dt><dd>Tipe creative, placement, cara membuat kampanye</dd></div><div><dt>Hari 5</dt><dd>Ujian campaign</dd></div><div><dt>Hari 6</dt><dd>Review hasil ujian</dd></div></dl><h5>Pekan 3 · Pasca-campaign</h5><dl class="rows"><div><dt>Hari 1</dt><dd>KPI, metriks, analisis data</dd></div><div><dt>Hari 2</dt><dd>Scale up dan scale out, retargeting</dd></div><div><dt>Hari 3</dt><dd>Ujian pasca-campaign</dd></div><div><dt>Hari 4–6</dt><dd>Praktik pra-campaign</dd></div></dl><h5>Pekan 4 · Praktik running iklan</h5><dl class="rows"><div><dt>Hari 1–4</dt><dd>Praktik running iklan</dd></div><div><dt>Hari 5</dt><dd>Persiapan ujian</dd></div><div><dt>Hari 6</dt><dd>Presentasi proyek akhir (strategi, konten, distribusi, reporting), evaluasi, dan rencana tindak lanjut</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 6</span> TikTok Affiliate</summary><div class="acc-body"><h5>Status</h5><dl class="rows"><div><dt>Silabus</dt><dd>Silabus pekan 1 sudah disiapkan; isi materi akan dilengkapi</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Bulan 7–12</span> Project</summary><div class="acc-body"><h5>Rencana project</h5><dl class="rows"><div><dt>Bulan 7</dt><dd>Orientasi project: mengenal project, memahami product knowledge, memahami alur kerja</dd></div><div><dt>Bulan 8</dt><dd>Latihan project: membantu menyelesaikan project dan membuat laporan evaluasi</dd></div><div><dt>Bulan 9</dt><dd>Project nyata: mengembangkan dan bertanggung jawab atas project, membuat laporan evaluasi</dd></div><div><dt>Bulan 10–12</dt><dd>Silabus akan dilengkapi</dd></div></dl></div></details></section>
+        <section class="panel p-prog" aria-label="Programmer"><p class="lead">Full-Stack JavaScript dengan project Software House Management Platform. Prasyarat: lulus pre-program 2 bulan (HTML, CSS, JavaScript dasar, Git). Belajar pagi konsep, siang implementasi ke project; 4 siswa per batch mengerjakan satu project bersama.</p><div class="stack"><div><strong>Tanstack Start</strong><span>frontend</span></div><div><strong>NestJS</strong><span>backend</span></div><div><strong>Prisma ORM</strong><span>ORM</span></div><div><strong>PostgreSQL</strong><span>database</span></div></div><h4>Empat fase, ±48 minggu</h4><details class="acc"><summary><span class="tag">Fase 1A · ±2 minggu</span> Cara Berpikir</summary><div class="acc-body"><p><strong>Tujuan:</strong> Membangun computational thinking sebelum menyentuh kode: mengurai requirement dan menulis solusi dalam bahasa manusia yang presisi.</p><ul><li>Membaca dan mengklarifikasi requirement yang ambigu</li><li>Dekomposisi masalah besar menjadi sub-masalah kecil</li><li>Pseudocode dan flowchart sebagai alat berpikir</li><li>Latihan &quot;eksekusi pseudocode&quot; antar siswa</li><li>Konteks latihan: skenario software house, tanpa kode</li></ul><p class="indikator"><strong>Indikator keberhasilan:</strong> Siswa bisa menerima requirement lisan, mengajukan pertanyaan klarifikasi yang tepat, memecah satu fitur jadi 5–7 sub-tugas, dan menulis pseudocode untuk proses bercabang.</p></div></details><details class="acc"><summary><span class="tag">Fase 1B · ±4 minggu</span> Orientasi Sistem</summary><div class="acc-body"><p><strong>Tujuan:</strong> Membangun mental model cara kerja aplikasi web sebagai sistem utuh. Project: mini project throwaway, sengaja dibuang setelah selesai.</p><ul><li>Cara kerja web: request-response, client vs server</li><li>Node.js sebagai runtime JavaScript</li><li>Express.js dasar: routing, middleware, REST API</li><li>PostgreSQL dasar: tabel, relasi, SELECT, INSERT, UPDATE, DELETE, JOIN</li><li>Kerja tim di satu repository: branching, pull request, code review dasar</li></ul><p class="indikator"><strong>Indikator keberhasilan:</strong> Siswa bisa menjelaskan alur data dari klik tombol di browser sampai tersimpan di database, dan membuat endpoint API sederhana yang terhubung ke database.</p></div></details><details class="acc"><summary><span class="tag">Fase 2 · ±10 minggu</span> Fondasi Project</summary><div class="acc-body"><p><strong>Tujuan:</strong> Memulai project utama dari titik yang paling terkontrol, sambil membiasakan pola belajar pagi-siang.</p><ul><li>Setup project: struktur folder, environment variables, konvensi tim</li><li>Schema database: users, roles, clients, projects, teams</li><li>Migrasi database dan seeding data</li><li>Autentikasi: login, register, JWT</li><li>RBAC: developer, project manager, finance, admin, client</li><li>Dasar React/Next.js: komponen, props, state, routing</li><li>Modul dibangun: landing page dan onboarding, autentikasi multi-role, Employee &amp; Team Management, Notification &amp; Audit Log</li></ul><p class="indikator"><strong>Indikator keberhasilan:</strong> Auth bekerja, schema database masuk akal, RBAC berfungsi, dan siswa paham kenapa struktur ini dipilih.</p></div></details><details class="acc"><summary><span class="tag">Fase 3 · ±20 minggu</span> Pengembangan Utama</summary><div class="acc-body"><p><strong>Tujuan:</strong> Inti dari program. Siswa mulai mengambil keputusan teknis sendiri; mentor bergeser dari menjelaskan menjadi bertanya dan memandu.</p><ul><li>Modul Tier 1: CRM (klien, proposal dengan status approval, quotation), Project Management (Kanban, milestone, assignment task), Reporting &amp; Dashboard</li><li>Modul Tier 2: Time Tracking, Bug Tracking, Invoice &amp; Payment, Leave &amp; Attendance, Client Portal</li><li>React/Next.js lanjutan: state management, data fetching, optimistic updates</li><li>Real-time notification dengan WebSocket atau SSE</li><li>Struktur data praktis dan algorithmic thinking lewat studi kasus fitur kompleks</li></ul><p class="indikator"><strong>Indikator keberhasilan:</strong> Siswa bisa merancang sendiri pendekatan untuk fitur baru sebelum bertanya ke mentor, dan berdiskusi soal trade-off teknis antar sesama siswa.</p></div></details><details class="acc"><summary><span class="tag">Fase 4 · ±12 minggu</span> Penyelesaian dan Refleksi</summary><div class="acc-body"><p><strong>Tujuan:</strong> Dari membuat fitur baru ke membuat sistem yang layak dipakai. Mentor berperan sebagai konsultan: siswa membawa masalah, mentor mengarahkan cara berpikir.</p><ul><li>Modul Tier 3 (sesuai sisa waktu): File &amp; Asset Management, Requirement &amp; Documentation, Knowledge Base &amp; Wiki, AI features</li><li>Testing: unit testing dan integration testing dasar</li><li>Error handling konsisten di seluruh aplikasi</li><li>Deployment dan dasar CI/CD</li><li>Code review formal antar siswa, refactoring, dokumentasi project</li></ul><p class="indikator"><strong>Indikator keberhasilan:</strong> Platform siap dipresentasikan dan di-demo; siswa bisa menjelaskan keputusan arsitektur dan membaca serta memperbaiki kode siswa lain.</p></div></details><h4>Pembagian modul per tier</h4><div class="grid3"><div class="mini"><h5>Tier 1 · Fondasi</h5><ul><li>Employee &amp; Team Management (RBAC)</li><li>CRM: klien, proposal, quotation</li><li>Project Management: Kanban, milestone</li><li>Notification &amp; Audit Log</li><li>Reporting &amp; Dashboard</li></ul></div><div class="mini"><h5>Tier 2 · Pengembangan</h5><ul><li>Time Tracking</li><li>Bug Tracking</li><li>Invoice &amp; Payment</li><li>Leave &amp; Attendance</li><li>Client Portal</li></ul></div><div class="mini"><h5>Tier 3 · Lanjutan</h5><ul><li>Requirement &amp; Documentation</li><li>File &amp; Asset Management</li><li>Knowledge Base &amp; Wiki</li><li>Deployment Log</li><li>CI/CD Monitoring</li><li>AI features (disisipkan ke modul yang ada)</li></ul></div></div><h4>Catatan implementasi</h4><div class="grid2"><div class="mini"><h5>Database, struktur data, algoritma</h5><p>Tidak diberi blok waktu sendiri. Database sejak Fase 1B, struktur data disisipkan di Fase 3, algoritma sebagai cara berpikir sejak Fase 1A.</p></div><div class="mini"><h5>Tier 3 dan AI features</h5><p>Tidak dijadwalkan kaku, dikerjakan di Fase 4 sesuai sisa waktu dan kematangan tim. AI sebagai pelengkap, bukan inti.</p></div><div class="mini"><h5>Fleksibilitas durasi</h5><p>Estimasi minggu adalah panduan. Fase 1A tidak boleh terburu-buru; perpanjang jika indikator belum tercapai.</p></div><div class="mini"><h5>Evaluasi</h5><p>Tiap akhir fase ada checkpoint: sesi refleksi bersama, bukan ujian formal, agar setiap siswa benar-benar memahami hasil kerjanya.</p></div></div></section>
+        <section class="panel p-agama" aria-label="Agama dan Karakter"><p class="lead">Tujuh bidang pembelajaran dengan pola satu pertemuan tiap pekan dan empat pekan setiap bulan.</p><details class="acc"><summary><span class="tag">24 pertemuan · 6 bulan</span> Fiqih</summary><div class="acc-body"><h5>Bulan 1</h5><dl class="rows"><div><dt>P1</dt><dd>Pengantar kitab fikih Al-Muyassar</dd></div><div><dt>P2</dt><dd>Macam-macam air</dd></div><div><dt>P3</dt><dd>Bab wudhu</dd></div><div><dt>P4</dt><dd>Hukum istinja dan adab buang hajat</dd></div></dl><h5>Bulan 2</h5><dl class="rows"><div><dt>P1</dt><dd>Bab mandi besar</dd></div><div><dt>P2</dt><dd>Bab tayammum</dd></div><div><dt>P3</dt><dd>Sunnah-sunnah fitrah</dd></div><div><dt>P4</dt><dd>Macam-macam najis</dd></div></dl><h5>Bulan 3</h5><dl class="rows"><div><dt>P1</dt><dd>Macam-macam darah dari kemaluan wanita</dd></div><div><dt>P2</dt><dd>Haid dan nifas</dd></div><div><dt>P3</dt><dd>Bab sholat dan tata caranya</dd></div><div><dt>P4</dt><dd>Bab sholat (lanjutan)</dd></div></dl><h5>Bulan 4</h5><dl class="rows"><div><dt>P1</dt><dd>Macam-macam sujud</dd></div><div><dt>P2</dt><dd>Bab sholat Jum&#x27;at</dd></div><div><dt>P3</dt><dd>Macam-macam sholat sunnah</dd></div><div><dt>P4</dt><dd>Sholat Idul Adha dan Idul Fitri</dd></div></dl><h5>Bulan 5</h5><dl class="rows"><div><dt>P1</dt><dd>Merawat dan mengurus jenazah</dd></div><div><dt>P2</dt><dd>Jenazah, dilanjutkan praktik</dd></div><div><dt>P3</dt><dd>Bab puasa</dd></div><div><dt>P4</dt><dd>Bab puasa (lanjutan)</dd></div></dl><h5>Bulan 6</h5><dl class="rows"><div><dt>P1</dt><dd>Kitab haji dan umrah</dd></div><div><dt>P2</dt><dd>Kitab haji dan umrah (lanjutan)</dd></div><div><dt>P3</dt><dd>Kitab haji dan umrah (lanjutan)</dd></div><div><dt>P4</dt><dd>Jama&#x27; dan qashar sholat</dd></div></dl></div></details><details class="acc"><summary><span class="tag">50 Aqaid</span> Aqidah</summary><div class="acc-body"><h5>Bulan 1</h5><dl class="rows"><div><dt>P1</dt><dd>Pendahuluan dan basmalah (bait 1–3)</dd></div><div><dt>P2</dt><dd>Sifat wajib, mustahil, dan jaiz bagi Allah</dd></div><div><dt>P3</dt><dd>20 sifat wajib bagi Allah</dd></div><div><dt>P4</dt><dd>20 sifat mustahil bagi Allah</dd></div></dl><h5>Bulan 2</h5><dl class="rows"><div><dt>P1</dt><dd>1 sifat jaiz bagi Allah</dd></div><div><dt>P2</dt><dd>Sifat wajib, mustahil, dan jaiz bagi Rasul</dd></div><div><dt>P3</dt><dd>4 sifat wajib Rasul</dd></div><div><dt>P4</dt><dd>4 sifat mustahil Rasul</dd></div></dl><h5>Bulan 3</h5><dl class="rows"><div><dt>P1</dt><dd>1 sifat jaiz bagi Rasul</dd></div><div><dt>P2</dt><dd>25 Nabi dan Rasul</dd></div><div><dt>P3</dt><dd>10 malaikat dan tugasnya</dd></div><div><dt>P4</dt><dd>4 kitab suci dan suhuf</dd></div></dl><h5>Bulan 4</h5><dl class="rows"><div><dt>P1</dt><dd>Keluarga dan sejarah Nabi Muhammad SAW</dd></div><div><dt>P2</dt><dd>Ayah, ibu, kakek, paman, tempat lahir, dan tempat hijrah</dd></div><div><dt>P3</dt><dd>Istri-istri dan anak-anak Nabi</dd></div><div><dt>P4</dt><dd>Peristiwa Isra&#x27; dan Mi&#x27;raj</dd></div></dl><h5>Bulan 5</h5><dl class="rows"><div><dt>P1</dt><dd>Kewajiban sholat lima waktu dan penutup kitab</dd></div></dl></div></details><details class="acc"><summary><span class="tag">24 tema · 6 bulan</span> Tadabbur</summary><div class="acc-body"><h5>Bulan 1</h5><dl class="rows"><div><dt>P1</dt><dd>Ikhlas, menerima takdir, dan kiat-kiatnya</dd></div><div><dt>P2</dt><dd>Qanaah dalam pemberian Allah</dd></div><div><dt>P3</dt><dd>Ketaatan dalam beribadah</dd></div><div><dt>P4</dt><dd>Perjuangan sahabat dan Rasulullah dalam dakwah</dd></div></dl><h5>Bulan 2</h5><dl class="rows"><div><dt>P1</dt><dd>Ujian hidup</dd></div><div><dt>P2</dt><dd>Sabar</dd></div><div><dt>P3</dt><dd>Bahaya lisan</dd></div><div><dt>P4</dt><dd>Bahaya ghibah</dd></div></dl><h5>Bulan 3</h5><dl class="rows"><div><dt>P1</dt><dd>Penghuni surga</dd></div><div><dt>P2</dt><dd>Penghuni neraka</dd></div><div><dt>P3</dt><dd>Pentingnya sholat</dd></div><div><dt>P4</dt><dd>Larangan makanan haram</dd></div></dl><h5>Bulan 4</h5><dl class="rows"><div><dt>P1</dt><dd>Bahaya riba</dd></div><div><dt>P2</dt><dd>Mulia dengan Islam</dd></div><div><dt>P3</dt><dd>Dunia sebagai persinggahan sementara</dd></div><div><dt>P4</dt><dd>Bahaya menyia-nyiakan waktu</dd></div></dl><h5>Bulan 5</h5><dl class="rows"><div><dt>P1</dt><dd>Bahaya mencuri dan merampas milik orang lain</dd></div><div><dt>P2</dt><dd>Tolong-menolong dalam kebaikan</dd></div><div><dt>P3</dt><dd>Persahabatan sesama Muslim</dd></div><div><dt>P4</dt><dd>Bahaya fitnah akhir zaman</dd></div></dl><h5>Bulan 6</h5><dl class="rows"><div><dt>P1</dt><dd>Pergaulan dalam Islam</dd></div><div><dt>P2</dt><dd>Bahaya maksiat dan segera bertaubat</dd></div><div><dt>P3</dt><dd>Solusi hidup tenang dan bahagia</dd></div><div><dt>P4</dt><dd>Berlomba-lomba dalam kebaikan</dd></div></dl></div></details><details class="acc"><summary><span class="tag">5 bagian</span> Adab dan Akhlak</summary><div class="acc-body"><h5>Bagian 1 · Dasar akhlak</h5><dl class="rows"><div><dt>•</dt><dd>Pembahasan dasar akhlak</dd></div><div><dt>•</dt><dd>Bab takwa: kedudukan, sebab, buah dan keutamaan</dd></div><div><dt>•</dt><dd>Bab akhlak: pengertian dan urgensinya</dd></div></dl><h5>Bagian 2 · Adab terhadap sesama</h5><dl class="rows"><div><dt>•</dt><dd>Adab guru dan murid</dd></div><div><dt>•</dt><dd>Hak orang tua, kerabat, dan tetangga</dd></div><div><dt>•</dt><dd>Adab pergaulan</dd></div><div><dt>•</dt><dd>Kerukunan</dd></div><div><dt>•</dt><dd>Persaudaraan</dd></div></dl><h5>Bagian 3 · Tata krama harian</h5><dl class="rows"><div><dt>•</dt><dd>Adab majelis</dd></div><div><dt>•</dt><dd>Adab makan dan minum</dd></div><div><dt>•</dt><dd>Adab tidur</dd></div><div><dt>•</dt><dd>Adab di masjid</dd></div><div><dt>•</dt><dd>Kebersihan</dd></div></dl><h5>Bagian 4 · Sifat terpuji</h5><dl class="rows"><div><dt>•</dt><dd>Jujur, amanah, iffah, muru&#x27;ah, hilm, sakho&#x27;</dd></div><div><dt>•</dt><dd>Tawadhu&#x27;, izzatun nafs, sabar, adil, ihsan</dd></div></dl><h5>Bagian 5 · Sifat tercela</h5><dl class="rows"><div><dt>•</dt><dd>Dusta, khianat, dendam (hiqd), hasad (dengki), ghibah, namimah</dd></div><div><dt>•</dt><dd>Kibr (sombong), ghurur, zalim</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Karakter dan isu pergaulan · 6 bulan</span> Kajian Kepondokan</summary><div class="acc-body"><h5>Bulan 1</h5><dl class="rows"><div><dt>P1</dt><dd>Adab di media sosial</dd></div><div><dt>P2</dt><dd>Manajemen layar dan digital detox</dd></div><div><dt>P3</dt><dd>Manajemen waktu anak muda</dd></div><div><dt>P4</dt><dd>Membangun circle yang positif</dd></div></dl><h5>Bulan 2</h5><dl class="rows"><div><dt>P1</dt><dd>Identitas Muslim milenial di tengah budaya global</dd></div><div><dt>P2</dt><dd>Seni komunikasi dan hubungan bersosial</dd></div><div><dt>P3</dt><dd>Merawat kepedulian lingkungan</dd></div><div><dt>P4</dt><dd>Jeratan pornografi dan cybersex</dd></div></dl><h5>Bulan 3</h5><dl class="rows"><div><dt>P1</dt><dd>Judi online dan pinjaman online ilegal</dd></div><div><dt>P2</dt><dd>Budaya cyberbullying dan ujaran kebencian</dd></div><div><dt>P3</dt><dd>Normalisasi pacaran dan zina</dd></div><div><dt>P4</dt><dd>Fenomena LGBT dan krisis identitas gender</dd></div></dl><h5>Bulan 4</h5><dl class="rows"><div><dt>P1</dt><dd>Narkoba, psikotropika, dan miras</dd></div><div><dt>P2</dt><dd>Mengubah rasa insecure menjadi bersyukur</dd></div><div><dt>P3</dt><dd>Etos kerja Islami dan rezeki halal</dd></div><div><dt>P4</dt><dd>Manajemen keuangan dan sedekah kreatif</dd></div></dl><h5>Bulan 5</h5><dl class="rows"><div><dt>P1</dt><dd>Adab ghadhul bashar di era digital</dd></div><div><dt>P2</dt><dd>Menjadi qawwam (pelindung), bukan pemangsa</dd></div><div><dt>P3</dt><dd>Iffah dan hijab: lebih dari sekadar kain penutup</dd></div><div><dt>P4</dt><dd>Menghargai diri sendiri (self-worth)</dd></div></dl><h5>Bulan 6</h5><dl class="rows"><div><dt>P1</dt><dd>Fikih ikhtilat dan khalwat modern</dd></div><div><dt>P2</dt><dd>Konsep la dharara wa la dhirar</dd></div><div><dt>P3</dt><dd>Bahaya kesehatan fisik dan kerusakan akal</dd></div><div><dt>P4</dt><dd>Sedikit tapi halal vs banyak tapi syubhat</dd></div></dl></div></details><details class="acc"><summary><span class="tag">4 tingkat · 28 pertemuan</span> Tahsin Quran</summary><div class="acc-body"><h5>Tingkat 1 · Pertemuan 1–3</h5><dl class="rows"><div><dt>Bab 1</dt><dd>Pengantar ilmu tahsin dan tajwid: pengertian, hukum mempelajarinya, tartil</dd></div><div><dt>Bab 2</dt><dd>Huruf hijaiyah, harakat, dan tanwin</dd></div><div><dt>Bab 3</dt><dd>Etika membaca: isti&#x27;adzah dan basmalah</dd></div></dl><h5>Tingkat 2 · Pertemuan 4–14</h5><dl class="rows"><div><dt>Bab 4</dt><dd>Makharijul huruf: Al-Jauf, Al-Halaq, Al-Lisan, Asy-Syafatain, Al-Khaisyum</dd></div><div><dt>Bab 5</dt><dd>Sifatul huruf: sifat berlawanan dan sifat tunggal</dd></div></dl><h5>Tingkat 3 · Pertemuan 15–20</h5><dl class="rows"><div><dt>Bab 6</dt><dd>Hukum nun sukun dan tanwin</dd></div><div><dt>Bab 7</dt><dd>Hukum mim sukun</dd></div><div><dt>Bab 8</dt><dd>Hukum mim dan nun tasydid</dd></div><div><dt>Bab 9</dt><dd>Idgham berdasarkan kedekatan makhraj</dd></div></dl><h5>Tingkat 4 · Pertemuan 21–28</h5><dl class="rows"><div><dt>Bab 10</dt><dd>Ahkamul mad (mad asli dan mad far&#x27;i)</dd></div><div><dt>Bab 11</dt><dd>Tafkhim dan tarqiq</dd></div><div><dt>Bab 12</dt><dd>Waqaf dan ibtida&#x27;</dd></div><div><dt>Bab 13</dt><dd>Gharib Al-Qur&#x27;an</dd></div></dl></div></details><details class="acc"><summary><span class="tag">Juz 30, 29, 28, 1, 2, 3</span> Tahfidz Quran</summary><div class="acc-body"><h5>Jadwal</h5><dl class="rows"><div><dt>Bulan 1–2</dt><dd>Juz 30</dd></div><div><dt>Bulan 3–4</dt><dd>Juz 29</dd></div><div><dt>Bulan 5–6</dt><dd>Juz 28</dd></div><div><dt>Bulan 7–8</dt><dd>Juz 1</dd></div><div><dt>Bulan 9–10</dt><dd>Juz 2</dd></div><div><dt>Bulan 11–12</dt><dd>Juz 3</dd></div></dl></div></details></section>
       </div>
     </div>
-
-    <div class="tab-panel" id="programmer-inti" hidden>
-      <div class="panel" style="margin-bottom:14px"><div class="skill-head"><div class="skill-icon">&lt;/&gt;</div><div><h3>Spesialisasi Programmer</h3><p>Algoritma, web, database, backend, pengujian, dan deployment.</p></div></div><p>Target lulusan: mampu membangun aplikasi atau website berdasarkan kebutuhan pengguna, mengelola kode, menguji fungsi, mendokumentasikan proses, dan mempresentasikan hasilnya.</p></div>
-      <div class="month-grid">
-        <div class="month-card"><span class="month">Bulan 01</span><h4>Logika Pemrograman</h4><p>Algoritma, flowchart, problem solving.</p><div class="output">Output: latihan algoritma</div></div>
-        <div class="month-card"><span class="month">Bulan 02</span><h4>HTML &amp; CSS</h4><p>Struktur web dan responsive design.</p><div class="output">Output: website profil responsif</div></div>
-        <div class="month-card"><span class="month">Bulan 03</span><h4>JavaScript Dasar</h4><p>Variabel, kondisi, perulangan, fungsi.</p><div class="output">Output: aplikasi interaktif sederhana</div></div>
-        <div class="month-card"><span class="month">Bulan 04</span><h4>DOM &amp; Debugging</h4><p>Event, validasi form, perbaikan error.</p><div class="output">Output: aplikasi web interaktif</div></div>
-        <div class="month-card"><span class="month">Bulan 05</span><h4>Git &amp; GitHub</h4><p>Version control, dokumentasi, kolaborasi.</p><div class="output">Output: repositori terdokumentasi</div></div>
-        <div class="month-card"><span class="month">Bulan 06</span><h4>Database &amp; SQL</h4><p>Relasi data dan operasi CRUD.</p><div class="output">Output: aplikasi dengan database</div></div>
-        <div class="month-card"><span class="month">Bulan 07</span><h4>Backend &amp; API</h4><p>Autentikasi dan pengolahan data.</p><div class="output">Output: aplikasi web dengan backend</div></div>
-        <div class="month-card"><span class="month">Bulan 08</span><h4>Framework</h4><p>Struktur proyek dan komponen framework pilihan.</p><div class="output">Output: aplikasi menggunakan framework</div></div>
-        <div class="month-card"><span class="month">Bulan 09</span><h4>Testing &amp; Keamanan</h4><p>Validasi input, pengujian, keamanan dasar.</p><div class="output">Output: aplikasi teruji dan diperbaiki</div></div>
-        <div class="month-card"><span class="month">Bulan 10</span><h4>Integrasi &amp; Deployment</h4><p>Frontend-backend dan konfigurasi rilis.</p><div class="output">Output: aplikasi online</div></div>
-        <div class="month-card"><span class="month">Bulan 11</span><h4>Pengembangan MVP</h4><p>Proyek sesuai kebutuhan dan uji pengguna.</p><div class="output">Output: MVP dan hasil uji</div></div>
-        <div class="month-card"><span class="month">Bulan 12</span><h4>Proyek Akhir</h4><p>Penyempurnaan, dokumentasi, demo.</p><div class="output">Output: aplikasi dan repositori</div></div>
-      </div>
-      <div class="note">Tim pengajar sebaiknya menetapkan satu stack teknologi utama yang sesuai kemampuan mentor dan kebutuhan pasar. Penguasaan fondasi serta penyelesaian proyek lebih diutamakan daripada mempelajari terlalu banyak framework sekaligus.</div>
-    </div>
-  </section>
-
-  <section class="section" id="penilaian">
-    <div class="section-head"><div><span class="kicker">Evaluasi pembelajaran</span><h2>Sistem Penilaian &amp; Kelulusan</h2><p>Penilaian mengukur pengetahuan, praktik, karakter, dan kemampuan menghasilkan karya.</p></div></div>
-    <div class="grid-2">
-      <article class="panel">
-        <h3>Komposisi Nilai · Usulan</h3>
-        <div class="weights">
-          <div class="weight-row"><span>Agama &amp; Al-Qur’an</span><div class="bar"><span style="width:25%"></span></div><b>25%</b></div>
-          <div class="weight-row"><span>Karakter &amp; amanah</span><div class="bar"><span style="width:25%"></span></div><b>25%</b></div>
-          <div class="weight-row"><span>Kompetensi skill IT</span><div class="bar"><span style="width:30%"></span></div><b>30%</b></div>
-          <div class="weight-row"><span>Proyek &amp; portofolio</span><div class="bar"><span style="width:20%"></span></div><b>20%</b></div>
-        </div>
-        <div class="note">Bobot merupakan usulan awal dan dapat disesuaikan dengan kebijakan resmi pondok.</div>
-      </article>
-      <article class="panel">
-        <h3>Standar Kelulusan yang Disarankan</h3>
-        <ul class="objectives">
-          <li>Nilai akademik dan skill mencapai KKM pondok, misalnya minimal 80.</li>
-          <li>Menunjukkan perkembangan bacaan dan hafalan sesuai target yang ditetapkan.</li>
-          <li>Memenuhi standar kedisiplinan, ketaatan, adab, dan amanah berdasarkan indikator yang jelas.</li>
-          <li>Menyelesaikan proyek akhir sesuai jalur skill.</li>
-          <li>Mampu mempresentasikan hasil belajar dan rencana pengembangan diri.</li>
-        </ul>
-      </article>
-    </div>
-    <div class="section" style="margin-top:22px">
-      <div class="grid-2">
-        <article class="panel"><span class="pill gold">Proyek akhir · Bisnis Digital</span><h3>Proyek Usaha Digital</h3><p>Riset pasar, branding, produksi konten, pemasaran, evaluasi performa, serta laporan kinerja dan keuangan dasar.</p></article>
-        <article class="panel"><span class="pill">Proyek akhir · Programmer</span><h3>Proyek Aplikasi</h3><p>Aplikasi yang menjawab kebutuhan nyata, dilengkapi kode sumber, dokumentasi, pengujian, deployment, dan presentasi.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><div><span class="kicker">Pelaksanaan</span><h2>Pola Kegiatan Pendidikan</h2><p>Ritme pembelajaran yang menjaga keseimbangan antara pembinaan ruhiyah, karakter, teori, dan praktik.</p></div></div>
-    <div class="table-wrap"><table style="min-width:550px">
-      <thead><tr><th>Kegiatan</th><th>Pola Pelaksanaan</th><th>Bukti / Evaluasi</th></tr></thead>
-      <tbody>
-        <tr><td>Tahsin dan tahfidz</td><td>Harian, setoran dan murajaah terjadwal</td><td>Catatan bacaan, setoran, dan tasmi</td></tr>
-        <tr><td>Kajian agama</td><td>Pekanan: fikih, akidah, akhlak, tadabbur</td><td>Kuis, praktik, refleksi, presentasi</td></tr>
-        <tr><td>Skill IT</td><td>Praktik rutin, tugas, mentoring, proyek</td><td>Tugas, repositori, konten, atau hasil proyek</td></tr>
-        <tr><td>Pendidikan karakter</td><td>Pembiasaan ibadah, adab, disiplin, tanggung jawab, khidmat</td><td>Observasi dengan indikator perilaku</td></tr>
-        <tr><td>Evaluasi</td><td>Pekanan, bulanan, tengah program, akhir program</td><td>Rekap nilai dan rencana perbaikan</td></tr>
-        <tr><td>Presentasi karya</td><td>Akhir modul dan proyek akhir</td><td>Presentasi, demonstrasi, umpan balik</td></tr>
-      </tbody>
-    </table></div>
-  </section>
-
-  <section class="section">
-    <div class="panel">
-      <span class="kicker">Profil lulusan</span>
-      <h2>SDM IT yang Amanah, Profesional, dan Bermanfaat</h2>
-      <div class="grid-2">
-        <ul class="objectives"><li>Memiliki dasar agama dan kebiasaan ibadah yang baik.</li><li>Mampu membaca Al-Qur’an sesuai capaian tahsin yang dievaluasi.</li><li>Menunjukkan adab, disiplin, amanah, dan etos kerja.</li></ul>
-        <ul class="objectives"><li>Menguasai kompetensi sesuai jalur Bisnis Digital atau Programmer.</li><li>Memiliki portofolio yang dapat diperiksa dan dipresentasikan.</li><li>Siap belajar mandiri, bekerja, berwirausaha, dan memberi manfaat.</li></ul>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer class="footer">
-  <div class="footer-inner">
-    <div><strong>PONDOK IT INDONESIA</strong><br><small>Silabus Pendidikan Agama &amp; Skill IT</small></div>
-    <small>Taqwa · Profesional · Bermanfaat</small>
+  <div class="wrap">
+    <p><strong>Pondok IT Indonesia</strong> · Silabus Kurikulum Pre-Program dan Pendidikan 1 Tahun</p>
+    <p class="small">Estimasi waktu pada silabus adalah panduan dan dapat menyesuaikan kemampuan santri.</p>
   </div>
 </footer>
-
-<script>
-document.querySelectorAll('.tabs').forEach(function(group){
-  group.querySelectorAll('.tab').forEach(function(button){
-    button.addEventListener('click',function(){
-      var targetId=button.getAttribute('data-tab');
-      var section=group.parentElement;
-      group.querySelectorAll('.tab').forEach(function(tab){
-        var active=tab===button;
-        tab.classList.toggle('active',active);
-        tab.setAttribute('aria-selected',active?'true':'false');
-      });
-      section.querySelectorAll('.tab-panel').forEach(function(panel){
-        panel.hidden=panel.id!==targetId;
-      });
-    });
-  });
-});
-</script>
-</body>
-</html>
 <!-- BACK BUTTON -->
         <div class="back-container">
 
@@ -371,6 +248,7 @@ document.querySelectorAll('.tabs').forEach(function(group){
         </div>
 
     </main>
-
+</body>
+</html>
 </body>
 </html>

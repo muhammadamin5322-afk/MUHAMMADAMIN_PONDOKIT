@@ -1,811 +1,1747 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="pendaftaran.css"> 
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="id">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1830">
+  <meta name="description" content="Informasi pendaftaran santri baru Pondok IT Indonesia tahun 2027, jadwal gelombang, kuota, jurusan, persyaratan, dan alur seleksi.">
+  <title>Pendaftaran Santri Baru 2027 | Pondok IT Indonesia</title>
 
-    <meta charset="UTF-8">
+  <style>
+    :root {
+      --navy: #0b1830;
+      --navy-light: #142b4a;
+      --green: #079b88;
+      --green-dark: #08776b;
+      --gold: #e7b957;
+      --white: #ffffff;
+      --soft: #f4f7fa;
+      --text: #19283e;
+      --muted: #68768a;
+      --border: #e3e9f0;
+      --shadow: 0 14px 40px rgba(11,24,48,.08);
+    }
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <title>
-        Pendaftaran | Pondok IT Indonesia
-    </title>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: white;
+    }
 
-    <link
-        rel="stylesheet"
-        href="css/pendaftaran.css"
-    >
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-heading {
+      max-width: 730px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 span {
+      color: var(--green-dark);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* NAVIGASI */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      color: white;
+      background: rgba(11,24,48,.98);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .brand-mark {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 4px;
+      color: #aebed2;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #dce5f0;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 9px;
+      color: var(--navy) !important;
+      background: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      color: white;
+      background: transparent;
+      border: 1px solid #4c5d75;
+      border-radius: 9px;
+      padding: 6px 11px;
+      cursor: pointer;
+      font-size: 21px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 110px;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(7,155,136,.24), transparent 32%),
+        linear-gradient(125deg, #09152b, #102b4a 64%, #10434b);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 13px;
+      color: #c5f4eb;
+      background: rgba(7,155,136,.12);
+      border: 1px solid rgba(108,223,203,.27);
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      margin: 25px 0 22px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: #cad5e4;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 47px;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      transition: transform .2s;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-gold {
+      color: var(--navy);
+      background: var(--gold);
+    }
+
+    .button-outline {
+      color: white;
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero-note {
+      margin-top: 24px;
+      color: #b8c8dc;
+      font-size: 12px;
+    }
+
+    /* INFORMASI SINGKAT */
+
+    .quick-info {
+      position: relative;
+      z-index: 2;
+      margin-top: -32px;
+    }
+
+    .quick-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .quick-info-item {
+      padding: 25px;
+      text-align: center;
+    }
+
+    .quick-info-item + .quick-info-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .quick-info-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+
+    .quick-info-item span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* JADWAL GELOMBANG 2027 */
+
+    .schedule-section {
+      background: var(--soft);
+    }
+
+    .schedule-notice {
+      max-width: 850px;
+      margin: 0 auto 30px;
+      padding: 20px 24px;
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 5px 20px rgba(11,24,48,.04);
+    }
+
+    .schedule-notice strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .schedule-notice p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .schedule-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      background: white;
+      box-shadow: 0 7px 25px rgba(11,24,48,.04);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .schedule-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .schedule-card.featured {
+      border: 2px solid var(--green);
+    }
+
+    .schedule-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .wave-label {
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.3px;
+    }
+
+    .wave-year {
+      padding: 5px 9px;
+      color: var(--navy);
+      background: #f0f3f7;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .schedule-date {
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -.5px;
+    }
+
+    .schedule-month {
+      margin-top: 4px;
+      color: var(--green-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .schedule-caption {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .quota-box {
+      margin: 23px 0;
+      padding: 17px;
+      border-radius: 12px;
+      background: #f0f8f6;
+    }
+
+    .quota-total {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .quota-total strong {
+      color: var(--green-dark);
+      font-size: 29px;
+      line-height: 1.2;
+    }
+
+    .quota-total span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .quota-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 0;
+      border-top: 1px solid #dcece8;
+      font-size: 12px;
+    }
+
+    .quota-row span {
+      color: var(--muted);
+    }
+
+    .quota-row strong {
+      color: var(--navy);
+      text-align: right;
+    }
+
+    .major-title {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .major-group {
+      margin-bottom: 14px;
+    }
+
+    .major-group:last-of-type {
+      margin-bottom: 22px;
+    }
+
+    .major-group h4 {
+      margin-bottom: 5px;
+      color: var(--green-dark);
+      font-size: 12px;
+    }
+
+    .major-group p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .schedule-button {
+      width: 100%;
+      margin-top: auto;
+      text-align: center;
+    }
+
+    .schedule-footnote {
+      max-width: 850px;
+      margin: 25px auto 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* ALUR PENDAFTARAN */
+
+    .flow-section {
+      background: white;
+    }
+
+    .flow-list {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .flow-list::before {
+      content: "";
+      position: absolute;
+      top: 45px;
+      bottom: 45px;
+      left: 32px;
+      width: 2px;
+      background: linear-gradient(var(--green), #dcece8);
+    }
+
+    .flow-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 66px 1fr;
+      gap: 22px;
+      padding-bottom: 25px;
+    }
+
+    .flow-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .flow-number {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 65px;
+      height: 65px;
+      color: var(--green-dark);
+      background: #e3f6f1;
+      border: 5px solid white;
+      border-radius: 18px;
+      box-shadow: 0 0 0 1px #d8ebe6;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .flow-content {
+      padding: 24px 27px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .flow-content > span {
+      color: var(--green-dark);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+    }
+
+    .flow-content h3 {
+      margin: 7px 0 8px;
+      color: var(--navy);
+      font-size: 19px;
+    }
+
+    .flow-content p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .flow-content strong {
+      color: var(--navy);
+    }
+
+    .small-link {
+      display: inline-flex;
+      gap: 8px;
+      margin-top: 14px;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .final-flow .flow-number {
+      color: #705016;
+      background: #fff3d5;
+      box-shadow: 0 0 0 1px #f0dfb8;
+    }
+
+    .final-flow .flow-content {
+      background: #fffdf7;
+      border-color: #f0dfb8;
+    }
+
+    /* PERSYARATAN */
+
+    .requirements-section {
+      color: white;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(7,155,136,.2), transparent 30%),
+        var(--navy);
+    }
+
+    .section-heading.light h2 {
+      color: white;
+    }
+
+    .section-heading.light p {
+      color: #b8c7d9;
+    }
+
+    .section-heading.light .section-label {
+      color: #8de3d3;
+    }
+
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .requirement-card {
+      min-height: 130px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 15px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .requirement-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 14px;
+      border-radius: 10px;
+      color: #9ae6d9;
+      background: rgba(7,155,136,.17);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .requirement-card h3 {
+      color: white;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .requirement-card.featured {
+      border-color: rgba(231,185,87,.4);
+      background: rgba(231,185,87,.07);
+    }
+
+    .requirement-card.featured .requirement-number {
+      color: var(--gold);
+      background: rgba(231,185,87,.15);
+    }
+
+    .requirements-note {
+      max-width: 850px;
+      margin: 27px auto 0;
+      padding: 16px 20px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255,255,255,.045);
+      color: #c4d0df;
+      font-size: 12px;
+    }
+
+    /* ALASAN MEMILIH */
+
+    .reasons-section {
+      background: var(--soft);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .reason-card {
+      min-height: 185px;
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      background: white;
+      transition: transform .2s;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .reason-number {
+      color: var(--green-dark);
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    .reason-card h3 {
+      margin-top: 18px;
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .reason-card.featured {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+    }
+
+    .reason-card.featured .reason-number,
+    .reason-card.featured h3 {
+      color: white;
+    }
+
+    /* FASILITAS */
+
+    .facility-section {
+      background: white;
+    }
+
+    .facility-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .facility-card {
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .facility-number {
+      display: grid;
+      place-items: center;
+      width: 37px;
+      height: 37px;
+      margin-bottom: 13px;
+      border-radius: 11px;
+      background: #e2f5f0;
+      color: var(--green-dark);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .facility-card h3 {
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .facility-note {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* CTA */
+
+    .cta-section {
+      padding: 75px 0;
+      background: var(--soft);
+    }
+
+    .cta-box {
+      padding: 55px 35px;
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 95% 0%, rgba(231,185,87,.18), transparent 30%),
+        linear-gradient(120deg, #0b1830, #104b50);
+    }
+
+    .cta-label {
+      color: #a2e9dd;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .cta-box h2 {
+      max-width: 730px;
+      margin: 15px auto;
+      font-size: clamp(28px, 4vw, 43px);
+      line-height: 1.2;
+    }
+
+    .cta-box h2 span {
+      color: var(--gold);
+    }
+
+    .cta-box p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: #c5d5e3;
+      font-size: 14px;
+    }
+
+    .cta-box .button {
+      margin-top: 26px;
+    }
+
+    /* FOOTER */
+
+    .back-section {
+      padding: 35px 0;
+      background: white;
+    }
+
+    .back-row {
+      display: flex;
+      justify-content: center;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 19px;
+      color: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: white;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .footer {
+      padding: 27px 0;
+      color: #a8b7c9;
+      background: #071225;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer strong {
+      color: white;
+    }
+
+    /* RESPONSIVE HP DAN TABLET */
+
+    @media (max-width: 950px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 11px;
+      }
+
+      .schedule-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .schedule-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .reasons-grid,
+      .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .requirements-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: none;
+        padding: 12px 20px 20px;
+        background: var(--navy);
+      }
+
+      .nav-links.open {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+        font-size: 13px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .nav-links .nav-cta {
+        margin-top: 12px;
+        padding: 12px;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 72px 0 85px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .quick-info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-info-item {
+        padding: 17px;
+      }
+
+      .quick-info-item + .quick-info-item {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .schedule-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-card:last-child {
+        grid-column: auto;
+      }
+
+      .schedule-card {
+        padding: 23px;
+      }
+
+      .flow-list::before {
+        left: 21px;
+      }
+
+      .flow-item {
+        grid-template-columns: 44px 1fr;
+        gap: 13px;
+        padding-bottom: 18px;
+      }
+
+      .flow-number {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+        font-size: 13px;
+        border-width: 3px;
+      }
+
+      .flow-content {
+        padding: 19px;
+      }
+
+      .flow-content h3 {
+        font-size: 16px;
+      }
+
+      .flow-content p {
+        font-size: 13px;
+      }
+
+      .requirements-grid,
+      .reasons-grid,
+      .facility-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 11px;
+      }
+
+      .requirement-card {
+        min-height: 120px;
+        padding: 16px;
+      }
+
+      .requirement-card h3,
+      .reason-card h3,
+      .facility-card h3 {
+        font-size: 13px;
+      }
+
+      .reason-card {
+        min-height: 165px;
+        padding: 17px;
+      }
+
+      .facility-card {
+        min-height: 125px;
+        padding: 16px;
+      }
+
+      .cta-box {
+        padding: 38px 22px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .requirements-grid,
+      .reasons-grid,
+      .facility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 
-
 <body>
-<!-- =====================================================
-        HERO
-===================================================== -->
 
-<section class="register-hero">
+  <!-- NAVIGASI -->
+  <header class="navbar">
+    <div class="container nav-inner">
 
-    <div class="register-hero-container">
-
-        <span class="register-badge">
-            PENDAFTARAN SANTRI BARU
+      <a href="index.html" class="brand" aria-label="Pondok IT Indonesia">
+        <span class="brand-mark">IT</span>
+        <span>
+          PONDOK IT INDONESIA
+          <small>TAQWA · PROFESIONAL · BERMANFAAT</small>
         </span>
+      </a>
 
-        <h1>
-            Pastikan kamu memahami alur pendaftaran ,sebelum mendaftarkan diri 
-            <span>di Pondok IT.</span>
-        </h1>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Buka navigasi"
+        aria-expanded="false">
+        ☰
+      </button>
 
-       
-        <a href="#alur" class="register-button">
-            Lihat Alur Pendaftaran ↓
-        </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigasi utama">
+        <a href="index.html">Beranda</a>
+        <a href="Tentang.html">Tentang</a>
+        <a href="Program.html">Program</a>
+        <a href="kurikulum.html">Kurikulum</a>
+        <a href="kegiatan.html">Kegiatan Santri</a>
+        <a href="#jadwal">Jadwal 2027</a>
+        <a href="#alur">Alur Pendaftaran</a>
+        <a class="nav-cta" href="#daftar">Daftar Sekarang</a>
+      </nav>
 
     </div>
+  </header>
 
-</section>
+  <main>
 
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-content">
 
+        <span class="hero-badge">PENERIMAAN SANTRI BARU 2027</span>
 
-<!-- =====================================================
-        ALUR PENDAFTARAN
-===================================================== -->
+        <h1>
+          Bangun Masa Depan
+          <span>Bersama Pondok IT.</span>
+        </h1>
 
-<section class="registration-flow" id="alur">
+        <p class="hero-description">
+          Bertumbuh dalam ilmu Al-Qur’an, pembentukan karakter, dan
+          keterampilan teknologi informasi. Pelajari jadwal gelombang,
+          kuota, jurusan, dan persyaratan sebelum bergabung bersama
+          Pondok IT Indonesia.
+        </p>
 
-    <div class="register-container">
+        <div class="hero-actions">
+          <a href="#jadwal" class="button button-gold">
+            Lihat Jadwal 2027 <span aria-hidden="true">→</span>
+          </a>
 
-        <div class="register-section-header">
+          <a href="#persyaratan" class="button button-outline">
+            Lihat Persyaratan
+          </a>
+        </div>
 
-            <span>
-                CARA MENDAFTAR
-            </span>
+        <p class="hero-note">
+          Taqwa · Profesional · Bermanfaat
+        </p>
 
-            <h2>
-                Alur Pendaftaran
-                <strong>Santri Baru</strong>
-            </h2>
+      </div>
+    </section>
 
+    <!-- RINGKASAN -->
+    <div class="container quick-info">
+      <div class="quick-info-grid">
 
+        <div class="quick-info-item">
+          <strong>3 Gelombang</strong>
+          <span>Jadwal penerimaan tahun 2027</span>
+        </div>
+
+        <div class="quick-info-item">
+          <strong>50 Peserta</strong>
+          <span>Kuota setiap gelombang</span>
+        </div>
+
+        <div class="quick-info-item">
+          <strong>150 Peserta</strong>
+          <span>Total kuota rencana tiga gelombang</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JADWAL PENDAFTARAN 2027 -->
+    <section class="section schedule-section" id="jadwal">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Penerimaan Santri Baru</span>
+
+          <h2>
+            Jadwal Pendaftaran
+            <span>Tahun 2027</span>
+          </h2>
+
+          <p>
+            Tersedia tiga gelombang penerimaan santri baru. Perhatikan
+            tanggal masuk dan pembagian kuota setiap gelombang sebelum
+            menentukan program pendidikan yang akan dipilih.
+          </p>
+        </div>
+
+        <div class="schedule-notice">
+          <strong>Informasi Kuota Setiap Gelombang</strong>
+          <p>
+            Setiap gelombang menyediakan kuota 50 peserta, terdiri dari
+            40 peserta Rumah IT dan 10 peserta beasiswa Pondok IT.
+            Total kuota rencana untuk tiga gelombang adalah 150 peserta.
+          </p>
+        </div>
+
+        <div class="schedule-grid">
+
+          <!-- GELOMBANG 1 -->
+          <article class="schedule-card featured">
+
+            <div class="schedule-top">
+              <span class="wave-label">GELOMBANG 01</span>
+              <span class="wave-year">2027</span>
+            </div>
+
+            <div class="schedule-date">28–29</div>
+            <div class="schedule-month">April 2027</div>
+            <p class="schedule-caption">Jadwal masuk santri</p>
+
+            <div class="quota-box">
+              <div class="quota-total">
+                <strong>50</strong>
+                <span>peserta</span>
+              </div>
+
+              <div class="quota-row">
+                <span>Rumah IT</span>
+                <strong>40 orang</strong>
+              </div>
+
+              <div class="quota-row">
+                <span>Beasiswa Pondok IT</span>
+                <strong>10 orang</strong>
+              </div>
+            </div>
+
+            <h3 class="major-title">Jurusan yang Dibuka</h3>
+
+            <div class="major-group">
+              <h4>Ikhwan</h4>
+              <p>Programmer</p>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <div class="major-group">
+              <h4>Akhwat</h4>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <a href="#daftar" class="button button-gold schedule-button">
+              Informasi Pendaftaran
+            </a>
+
+          </article>
+
+          <!-- GELOMBANG 2 -->
+          <article class="schedule-card">
+
+            <div class="schedule-top">
+              <span class="wave-label">GELOMBANG 02</span>
+              <span class="wave-year">2027</span>
+            </div>
+
+            <div class="schedule-date">28–29</div>
+            <div class="schedule-month">Juni 2027</div>
+            <p class="schedule-caption">Jadwal masuk santri</p>
+
+            <div class="quota-box">
+              <div class="quota-total">
+                <strong>50</strong>
+                <span>peserta</span>
+              </div>
+
+              <div class="quota-row">
+                <span>Rumah IT</span>
+                <strong>40 orang</strong>
+              </div>
+
+              <div class="quota-row">
+                <span>Beasiswa Pondok IT</span>
+                <strong>10 orang</strong>
+              </div>
+            </div>
+
+            <h3 class="major-title">Jurusan yang Dibuka</h3>
+
+            <div class="major-group">
+              <h4>Ikhwan</h4>
+              <p>Programmer</p>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <div class="major-group">
+              <h4>Akhwat</h4>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <a href="#daftar" class="button button-gold schedule-button">
+              Informasi Pendaftaran
+            </a>
+
+          </article>
+
+          <!-- GELOMBANG 3 -->
+          <article class="schedule-card">
+
+            <div class="schedule-top">
+              <span class="wave-label">GELOMBANG 03</span>
+              <span class="wave-year">2027</span>
+            </div>
+
+            <div class="schedule-date">28–29</div>
+            <div class="schedule-month">Agustus 2027</div>
+            <p class="schedule-caption">Jadwal masuk santri</p>
+
+            <div class="quota-box">
+              <div class="quota-total">
+                <strong>50</strong>
+                <span>peserta</span>
+              </div>
+
+              <div class="quota-row">
+                <span>Rumah IT</span>
+                <strong>40 orang</strong>
+              </div>
+
+              <div class="quota-row">
+                <span>Beasiswa Pondok IT</span>
+                <strong>10 orang</strong>
+              </div>
+            </div>
+
+            <h3 class="major-title">Jurusan yang Dibuka</h3>
+
+            <div class="major-group">
+              <h4>Ikhwan</h4>
+              <p>Programmer</p>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <div class="major-group">
+              <h4>Akhwat</h4>
+              <p>Bisnis Digital</p>
+            </div>
+
+            <a href="#daftar" class="button button-gold schedule-button">
+              Informasi Pendaftaran
+            </a>
+
+          </article>
 
         </div>
 
+        <p class="schedule-footnote">
+          Catatan: tanggal di atas merupakan jadwal masuk yang direncanakan
+          untuk setiap gelombang. Informasi teknis pendaftaran, seleksi,
+          dan konfirmasi kuota mengikuti pengumuman resmi Pondok IT Indonesia.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ALUR PENDAFTARAN -->
+    <section class="section flow-section" id="alur">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Cara Mendaftar</span>
+
+          <h2>
+            Alur Pendaftaran
+            <span>Santri Baru</span>
+          </h2>
+
+          <p>
+            Ikuti setiap tahapan pendaftaran dan seleksi secara berurutan.
+          </p>
+        </div>
 
         <div class="flow-list">
 
-
-            <!-- STEP 01 -->
-
-            <div class="flow-item">
-
-                <div class="flow-number">
-                    01
-                </div>
-
-                <div class="flow-content">
-
-                    <span>
-                        TAHAP PERTAMA
-                    </span>
-
-                    <h3>
-                        Membayar Biaya Pendaftaran
-                    </h3>
-
-                    <p>
-                        Calon santri melakukan pembayaran
-                        biaya pendaftaran sebesar
-                        <strong>Rp250.000</strong>.
-                    </p>
-
-                </div>
-
+          <article class="flow-item">
+            <div class="flow-number">01</div>
+            <div class="flow-content">
+              <span>TAHAP PERTAMA</span>
+              <h3>Membayar Biaya Pendaftaran</h3>
+              <p>
+                Calon santri melakukan pembayaran biaya pendaftaran sebesar
+                <strong>Rp250.000</strong>. Simpan bukti pembayaran untuk
+                keperluan proses pendaftaran.
+              </p>
             </div>
+          </article>
 
-
-
-            <!-- STEP 02 -->
-
-            <div class="flow-item">
-
-                <div class="flow-number">
-                    02
-                </div>
-
-                <div class="flow-content">
-
-                    <span>
-                        TAHAP KEDUA
-                    </span>
-
-                    <h3>
-                        Mengisi Google Form
-                    </h3>
-
-                    <p>
-                        Setelah melakukan pembayaran,
-                        calon santri mengisi formulir
-                        pendaftaran secara lengkap.
-                    </p>
-
-                    <a href="#" class="small-link">
-                        Isi Formulir Pendaftaran →
-                    </a>
-
-                </div>
-
+          <article class="flow-item">
+            <div class="flow-number">02</div>
+            <div class="flow-content">
+              <span>TAHAP KEDUA</span>
+              <h3>Mengisi Formulir Pendaftaran</h3>
+              <p>
+                Isi formulir pendaftaran dengan data yang lengkap dan benar
+                sesuai petunjuk panitia penerimaan santri baru.
+              </p>
+              <a href="URL_FORMULIR"
+                 class="small-link"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Isi Formulir Pendaftaran →
+              </a>
             </div>
+          </article>
 
-
-
-            <!-- STEP 03 -->
-
-            <div class="flow-item">
-
-                <div class="flow-number">
-                    03
-                </div>
-
-                <div class="flow-content">
-
-                    <span>
-                        TAHAP KETIGA
-                    </span>
-
-                    <h3>
-                        Wawancara Online
-                    </h3>
-
-                    <p>
-                        Calon santri mengikuti proses
-                        wawancara secara online sebagai
-                        bagian dari proses seleksi awal.
-                    </p>
-
-                </div>
-
+          <article class="flow-item">
+            <div class="flow-number">03</div>
+            <div class="flow-content">
+              <span>TAHAP KETIGA</span>
+              <h3>Mengikuti Wawancara Online</h3>
+              <p>
+                Calon santri mengikuti wawancara secara online sebagai
+                bagian dari proses seleksi awal. Siapkan perangkat dan
+                koneksi internet yang memadai.
+              </p>
             </div>
+          </article>
 
-
-
-            <!-- STEP 04 -->
-
-            <div class="flow-item">
-
-                <div class="flow-number">
-                    04
-                </div>
-
-                <div class="flow-content">
-
-                    <span>
-                        TAHAP KEEMPAT
-                    </span>
-
-                    <h3>
-                        Mengikuti Program Matrikulasi 2 Bulan di Pondok IT
-                    </h3>
-
-                    <p>
-                        Calon santri mengikuti program
-                        matrikulasi selama kurang lebih
-                        <strong>2 bulan secara offline</strong>
-                        sebagai tahap pembinaan dan seleksi Tahp 2.
-                    </p>
-
-                </div>
-
+          <article class="flow-item">
+            <div class="flow-number">04</div>
+            <div class="flow-content">
+              <span>TAHAP KEEMPAT</span>
+              <h3>Mengikuti Program Matrikulasi</h3>
+              <p>
+                Calon santri mengikuti program matrikulasi selama kurang
+                lebih <strong>2 bulan secara offline</strong> di Pondok IT.
+                Tahap ini menjadi bagian dari pembinaan dan seleksi lanjutan.
+              </p>
             </div>
+          </article>
 
-
-
-            <!-- STEP 05 -->
-
-            <div class="flow-item final-flow">
-
-                <div class="flow-number">
-                    05
-                </div>
-
-                <div class="flow-content">
-
-                    <span>
-                        TAHAP UTAMA
-                    </span>
-
-                    <h3>
-                        Dinyatakan untuk lanjut ke Pendidikan Reguler 1-3 Tahun
-                    </h3>
-
-                    <p>
-                        Setelah menyelesaikan proses
-                        matrikulasi dan dinyatakan lolos,
-                        santri melanjutkan ke pendidikan
-                        reguler  selama
-                        <strong>1-3tahun</strong>.
-                    </p>
-
-                </div>
-
+          <article class="flow-item final-flow">
+            <div class="flow-number">05</div>
+            <div class="flow-content">
+              <span>TAHAP KELIMA</span>
+              <h3>Melanjutkan ke Pendidikan Reguler</h3>
+              <p>
+                Calon santri yang menyelesaikan matrikulasi dan dinyatakan
+                lolos dapat melanjutkan pendidikan reguler sesuai ketentuan
+                program yang dipilih.
+              </p>
             </div>
-
+          </article>
 
         </div>
+      </div>
+    </section>
 
-    </div>
+    <!-- PERSYARATAN -->
+    <section class="section requirements-section" id="persyaratan">
+      <div class="container">
 
-</section>
+        <div class="section-heading light">
+          <span class="section-label">Persyaratan Pendaftaran</span>
 
+          <h2>
+            Siapkan Dirimu
+            <span>Sebelum Mendaftar</span>
+          </h2>
 
-
-<!-- =====================================================
-        PERSYARATAN
-===================================================== -->
-
-<section class="requirements-section">
-
-    <div class="register-container">
-
-
-        <div class="register-section-header light">
-
-            <span>
-                PERSYARATAN
-            </span>
-
-            <h2>
-                Siapkan Dirimu
-                <strong>Sebelum Mendaftar</strong>
-            </h2>
-
-           
-
+          <p>
+            Pahami persyaratan umum dan ketentuan program pendidikan
+            yang akan dipilih sebelum mengikuti proses seleksi.
+          </p>
         </div>
-
 
         <div class="requirements-grid">
 
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    01
-                </div>
-
-                <h3>
-                    Muslim & Muslimah
-                </h3>
-
-               
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    02
-                </div>
-
-                <h3>
-                    Lulusan SMA
-                </h3>
-
-             
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    03
-                </div>
-
-                <h3>
-                    Usia 17–26 Tahun
-                </h3>
-
-               
-
-            </div>
-
-
-            <div class="requirement-card school-requirement">
-
-                <div class="requirement-number">
-                    04
-                </div>
-
-                <h3>
-                    Khusus Sekolah IT memiliki ijazah SMP untuk lanjut jenjenag berikutnya 
-                </h3>
-
-                
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    05
-                </div>
-
-                <h3>
-                    Berperilaku Baik
-                </h3>
-
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    06
-                </div>
-
-                <h3>
-                    Tidak Merokok
-                </h3>
-
-                
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    07
-                </div>
-
-                <h3>
-                    Tidak Pacaran
-                </h3>
-
-             
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    08
-                </div>
-
-                <h3>
-                    Bisa Membaca Al-Qur'an dengan baik (diutamakan)
-                </h3>
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    09
-                </div>
-
-                <h3>
-                    Mau Belajar dengan serius hingga selesai
-                </h3>
-
-              
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    10
-                </div>
-
-                <h3>
-                    Siap Taat Aturan yang ada di pondok 
-                </h3>
-
-                
-
-            </div>
-
-
-            <div class="requirement-card">
-
-                <div class="requirement-number">
-                    11
-                </div>
-
-                <h3>
-                    Mau Menghafal Al-Qur'an
-                </h3>
-
-            </div>
-
-
-            <div class="requirement-card featured-requirement">
-
-                <div class="requirement-number">
-                    12
-                </div>
-
-                <h3>
-                    Siap Berkhidmat setelah pendidikan khusus program biasiswa 
-                </h3>
-
-
-            </div>
-
+          <article class="requirement-card">
+            <div class="requirement-number">01</div>
+            <h3>Muslim dan Muslimah</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">02</div>
+            <h3>Lulusan SMA atau Sederajat untuk Program yang Mensyaratkannya</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">03</div>
+            <h3>Berusia 17–26 Tahun</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">04</div>
+            <h3>Khusus Sekolah IT, Memenuhi Persyaratan Jenjang Pendidikan yang Dituju</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">05</div>
+            <h3>Berperilaku Baik</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">06</div>
+            <h3>Tidak Merokok</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">07</div>
+            <h3>Tidak Berpacaran</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">08</div>
+            <h3>Mampu Membaca Al-Qur’an dengan Baik (Diutamakan)</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">09</div>
+            <h3>Bersedia Belajar dengan Serius hingga Selesai</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">10</div>
+            <h3>Bersedia Menaati Peraturan Pondok</h3>
+          </article>
+
+          <article class="requirement-card">
+            <div class="requirement-number">11</div>
+            <h3>Bersedia Menghafal Al-Qur’an</h3>
+          </article>
+
+          <article class="requirement-card featured">
+            <div class="requirement-number">12</div>
+            <h3>Bersedia Berkhidmat setelah Pendidikan, Khusus Program Beasiswa</h3>
+          </article>
 
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-        7 ALASAN
-===================================================== -->
-
-<section class="reasons-section">
-
-    <div class="register-container">
-
-        <div class="register-section-header">
-
-            <span>
-                KENAPA PONDOK IT?
-            </span>
-
-            <h2>
-                7 Alasan
-                <strong>Memilih Pondok IT</strong>
-            </h2>
-
-      
-
+        <div class="requirements-note">
+          Ketentuan dapat berbeda sesuai program yang dipilih.
+          Pastikan membaca informasi resmi Pondok IT Indonesia
+          sebelum menyelesaikan pendaftaran.
         </div>
 
+      </div>
+    </section>
+
+    <!-- ALASAN MEMILIH PONDOK IT -->
+    <section class="section reasons-section" id="alasan">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Kenapa Pondok IT?</span>
+
+          <h2>
+            Alasan Memilih
+            <span>Pondok IT Indonesia</span>
+          </h2>
+
+          <p>
+            Pendidikan yang berfokus pada pembentukan karakter,
+            pembelajaran teknologi, dan pengembangan diri.
+          </p>
+        </div>
 
         <div class="reasons-grid">
 
+          <article class="reason-card">
+            <div class="reason-number">01</div>
+            <h3>Lingkungan Islami untuk Mendukung Pembentukan Karakter</h3>
+          </article>
 
-            <div class="reason-card">
+          <article class="reason-card">
+            <div class="reason-number">02</div>
+            <h3>Belajar IT dengan Pendekatan Praktik</h3>
+          </article>
 
-                <div class="reason-number">
-                    01
-                </div>
+          <article class="reason-card">
+            <div class="reason-number">03</div>
+            <h3>Membentuk Pribadi yang Produktif dan Bermanfaat</h3>
+          </article>
 
-                <h3>
-                    Lingkungan yang islami dan terjaga 
-                </h3>
+          <article class="reason-card">
+            <div class="reason-number">04</div>
+            <h3>Membangun Kemandirian dan Keterampilan Ekonomi</h3>
+          </article>
 
+          <article class="reason-card">
+            <div class="reason-number">05</div>
+            <h3>Belajar Bersama Lingkungan yang Mendukung</h3>
+          </article>
 
-            </div>
+          <article class="reason-card">
+            <div class="reason-number">06</div>
+            <h3>Mempersiapkan Diri Menghadapi Peluang Kerja</h3>
+          </article>
 
-
-            <div class="reason-card">
-
-                <div class="reason-number">
-                    02
-                </div>
-
-                <h3>
-                    Belajar IT dengan metode Langsung Praktik
-                </h3>
-
-                
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <div class="reason-number">
-                    03
-                </div>
-
-                <h3>
-                    Menjadi Pemuda yang lebih baik, produktif dan bermanfaat 
-                </h3>
-
-               
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <div class="reason-number">
-                    04
-                </div>
-
-                <h3>
-                    dapat memperbaiki ekonomi keluarga dan lebih mandiri
-                </h3>
-
-            
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <div class="reason-number">
-                    05
-                </div>
-
-                <h3>
-                    Teman teman yang baik dan punya semangat yang tinggi 
-                </h3>
-
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <div class="reason-number">
-                    06
-                </div>
-
-                <h3>
-                    Peluang Kerja yang Layak 
-                </h3>
-
-            
-        
-
-            </div>
-
-
-            <div class="reason-card featured-reason">
-
-                <div class="reason-number">
-                    07
-                </div>
-
-                <h3>
-                    Menghafal Quran dan Taat dalam ibadah
-                </h3>
-
-               
-
-            </div>
-
+          <article class="reason-card featured">
+            <div class="reason-number">07</div>
+            <h3>Menghafal Al-Qur’an dan Membiasakan Diri Taat Beribadah</h3>
+          </article>
 
         </div>
+      </div>
+    </section>
 
-    </div>
+    <!-- FASILITAS -->
+    <section class="section facility-section" id="fasilitas">
+      <div class="container">
 
-</section>
+        <div class="section-heading">
+          <span class="section-label">Fasilitas Pondok</span>
 
+          <h2>
+            Fasilitas untuk
+            <span>Mendukung Pendidikan</span>
+          </h2>
 
-
-<!-- =====================================================
-        FASILITAS
-===================================================== -->
-
-<section class="facility-section">
-
-    <div class="register-container">
-
-
-        <div class="register-section-header light">
-
-            <span>
-                FASILITAS PONDOK
-            </span>
-
-            <h2>
-                Fasilitas yang di sediakan
-                <strong>Oleh Pondok IT</strong>
-            </h2>
-
-
+          <p>
+            Fasilitas untuk menunjang kehidupan sehari-hari dan kegiatan
+            belajar santri di lingkungan pondok.
+          </p>
         </div>
-
-
 
         <div class="facility-grid">
 
+          <article class="facility-card">
+            <div class="facility-number">01</div>
+            <h3>Kasur</h3>
+          </article>
 
-            <div class="facility-card">
+          <article class="facility-card">
+            <div class="facility-number">02</div>
+            <h3>Lemari</h3>
+          </article>
 
-                <div class="facility-icon">
-                    01
-                </div>
+          <article class="facility-card">
+            <div class="facility-number">03</div>
+            <h3>Bantal</h3>
+          </article>
 
-                <h3>
-                    Kasur
-                </h3>
+          <article class="facility-card">
+            <div class="facility-number">04</div>
+            <h3>Ranjang untuk Kebutuhan Tidur Santri</h3>
+          </article>
 
-              
+          <article class="facility-card">
+            <div class="facility-number">05</div>
+            <h3>Ember dan Hanger</h3>
+          </article>
 
-            </div>
+          <article class="facility-card">
+            <div class="facility-number">06</div>
+            <h3>Akses Wi-Fi 24 Jam</h3>
+          </article>
 
+          <article class="facility-card">
+            <div class="facility-number">07</div>
+            <h3>Makan 3 Kali Sehari</h3>
+          </article>
 
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    02
-                </div>
-
-                <h3>
-                  Lemari
-                </h3>
-
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    03
-                </div>
-
-                <h3>
-                   Bantal
-                </h3>
-
-
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    04
-                </div>
-
-                <h3>
-                    Ranjang bagi beberapa
-                </h3>
-
-               
-
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    05
-                </div>
-
-                <h3>
-                    Ember hangger
-                </h3>
-
-
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    06
-                </div>
-
-                <h3>
-                    Wifi 24 jam
-                </h3>
-
-              
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    07
-                </div>
-
-                <h3>
-                   Makan 3 kali sehari
-                </h3>
-
-
-
-            </div>
-
-
-            <div class="facility-card">
-
-                <div class="facility-icon">
-                    08
-                </div>
-
-                <h3>
-                    dan hal lainya
-
-                </h3>
-            </div>
-
+          <article class="facility-card">
+            <div class="facility-number">08</div>
+            <h3>Fasilitas Pendukung Lainnya Sesuai Ketentuan Pondok</h3>
+          </article>
 
         </div>
 
-    </div>
+        <p class="facility-note">
+          Ketersediaan dan ketentuan penggunaan fasilitas mengikuti
+          kebijakan Pondok IT Indonesia.
+        </p>
 
-</section>
+      </div>
+    </section>
 
+    <!-- CTA PENDAFTARAN -->
+    <section class="cta-section" id="daftar">
+      <div class="container">
 
+        <div class="cta-box">
+          <span class="cta-label">PENERIMAAN SANTRI BARU 2027</span>
 
-<!-- =====================================================
-        CTA
-===================================================== -->
+          <h2>
+            Persiapkan Langkahmu untuk
+            <span>Masa Depan yang Lebih Baik.</span>
+          </h2>
 
-<section class="register-cta">
+          <p>
+            Tentukan gelombang yang sesuai, pelajari persyaratannya,
+            lalu lanjutkan ke formulir pendaftaran resmi.
+          </p>
 
-    <div class="register-cta-container">
+          <a
+            href="URL_FORMULIR"
+            class="button button-gold"
+            target="_blank"
+            rel="noopener noreferrer">
+            Mulai Pendaftaran <span aria-hidden="true">→</span>
+          </a>
+        </div>
 
-        <span>
-            SIAP BERGABUNG?
-        </span>
+      </div>
+    </section>
 
-        <h2>
-         apakah kamu sudah siap 
-            <strong>Untuk Mendaftar?.</strong>
-        </h2>
-
-      
-
-        <a href="#" class="cta-register-button">
-            DAFTAR SEKARANG →
+    <!-- KEMBALI KE BERANDA -->
+    <section class="back-section">
+      <div class="container back-row">
+        <a href="index.html" class="back-button">
+          <span aria-hidden="true">←</span>
+          Kembali ke Halaman Utama
         </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div>
+        <strong>Pondok IT Indonesia</strong>
+        <br>
+        Taqwa · Profesional · Bermanfaat
+      </div>
+
+      <div>
+        &copy; <span id="currentYear"></span> Pondok IT Indonesia.
+        Semua hak dilindungi.
+      </div>
 
     </div>
+  </footer>
 
-</section>
-<!-- BACK BUTTON -->
-        <div class="back-container">
+  <script>
+    // Menu navigasi untuk tampilan HP
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-            <a href="index.html" class="back-button">
-                <span>←</span>
-                Kembali ke Halaman Utama
-            </a>
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
 
-        </div>
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Tutup navigasi" : "Buka navigasi"
+      );
 
-    </main>
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
 
+    // Tutup menu setelah tautan dipilih
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Buka navigasi");
+        menuToggle.textContent = "☰";
+      });
+    });
 
+    // Tahun footer otomatis
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
 
-<!-- =====================================================
-        FOOTER
-===================================================== -->
-
-<footer>
-
-    <p>
-        © 2026 Pondok IT Indonesia
-    </p>
-
-</footer>
-
-
-</body>
-
-</html>
 </body>
 </html>
