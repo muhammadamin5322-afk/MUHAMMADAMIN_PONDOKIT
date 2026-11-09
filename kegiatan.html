@@ -1,645 +1,433 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="theme-color" content="#080b14">
 <title>Kegiatan & Budaya Santri | Pondok IT Indonesia</title>
 <meta name="description" content="Jadwal kegiatan harian dan budaya pembiasaan santri Pondok IT Indonesia.">
 
 <style>
 :root {
-    --green: #075b46;
-    --green-dark: #063b30;
-    --green-light: #e9f5ef;
-    --gold: #d9ad54;
-    --cream: #fbfaf5;
-    --text: #26352f;
-    --muted: #6b7972;
-    --white: #ffffff;
-    --border: #e3eae5;
-    --shadow: 0 12px 35px rgba(10, 58, 43, .08);
+    --red: #e1182d;
+    --red-2: #ff4a3d;
+    --blue: #1b4fd8;
+    --blue-2: #3d8bff;
+    --chrome: #cfd8e6;
+    --chrome-2: #8f9db5;
+    --gun: #080b14;
+    --gun-2: #101626;
+    --gun-3: #172036;
+    --hazard: #ffd23f;
+    --text: #dfe6f3;
+    --muted: #8c99b3;
+    --line: rgba(160,185,235,.16);
+    --head: Bahnschrift, "Arial Black", Impact, "Segoe UI", Arial, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 24px;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     color: var(--text);
-    background: var(--cream);
-    line-height: 1.7;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button {
-    font: inherit;
-}
-
-/* HEADER */
-
-.kegiatan-header {
-    position: relative;
-    overflow: hidden;
     background:
-        radial-gradient(ellipse at 90% 10%, rgba(217,173,84,.19), transparent 35%),
-        linear-gradient(135deg, var(--green-dark), var(--green) 65%, #0d7054);
-    color: var(--white);
-    padding: 66px 22px 75px;
+        linear-gradient(rgba(61,139,255,.045) 1px, transparent 1px) 0 0 / 44px 44px,
+        linear-gradient(90deg, rgba(61,139,255,.045) 1px, transparent 1px) 0 0 / 44px 44px,
+        var(--gun);
+    line-height: 1.7;
+    overflow-x: hidden;
 }
 
-.kegiatan-header::after {
-    content: "";
-    position: absolute;
-    width: 340px;
-    height: 340px;
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 50%;
-    right: -130px;
-    bottom: -210px;
-    box-shadow: 0 0 0 35px rgba(255,255,255,.025),
-                0 0 0 70px rgba(255,255,255,.02);
+body::after {
+    content: ""; position: fixed; inset: 0; z-index: 400; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,.018) 0 1px, transparent 1px 3px);
 }
 
-.header-container {
-    position: relative;
-    z-index: 1;
-    max-width: 1120px;
-    margin: auto;
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+#fx { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+.progress {
+    position: fixed; top: 0; left: 0; height: 4px; width: 0; z-index: 500;
+    background: linear-gradient(90deg, var(--red), var(--blue-2));
+    box-shadow: 0 0 14px var(--red-2);
 }
+
+.hazard { height: 10px; background: repeating-linear-gradient(135deg, var(--hazard) 0 12px, #0b0f1a 12px 24px); }
+
+/* ---------- HERO ---------- */
+.kegiatan-header {
+    position: relative; overflow: hidden; z-index: 1;
+    padding: 56px 22px 70px;
+    background:
+        radial-gradient(ellipse at 82% 40%, rgba(27,79,216,.5), transparent 45%),
+        radial-gradient(ellipse at 6% 95%, rgba(225,24,45,.3), transparent 40%),
+        linear-gradient(160deg, #0a1022, #0b1328 60%, #130a14);
+}
+
+.header-container { position: relative; z-index: 1; max-width: 1180px; margin: auto; display: grid; grid-template-columns: 1.05fr .95fr; gap: 20px; align-items: center; }
 
 .header-badge {
-    display: inline-block;
-    color: #f2d99e;
-    border: 1px solid rgba(242,217,158,.4);
-    background: rgba(255,255,255,.06);
-    padding: 7px 15px;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    display: inline-block; padding: 7px 18px; margin-bottom: 22px;
+    background: var(--red); color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: 3px;
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
+    box-shadow: 0 0 22px rgba(225,24,45,.55);
 }
 
 .kegiatan-header h1 {
-    font-size: clamp(32px, 5vw, 54px);
-    line-height: 1.16;
-    letter-spacing: -1.3px;
-    max-width: 760px;
-    margin-bottom: 18px;
+    font-family: var(--head);
+    font-size: clamp(36px, 5.6vw, 70px);
+    line-height: 1.02; letter-spacing: -1.5px; text-transform: uppercase;
+    max-width: 640px; margin-bottom: 20px;
+    background: linear-gradient(180deg, #fff 10%, var(--chrome-2) 90%);
+    background-clip: text; -webkit-background-clip: text; color: transparent;
+    filter: drop-shadow(0 4px 0 rgba(0,0,0,.5));
 }
 
-.kegiatan-header p {
-    max-width: 650px;
-    color: #d7e8df;
-    font-size: 16px;
+.kegiatan-header p { max-width: 560px; color: #b6c3de; font-size: 16px; }
+
+.header-line { width: 100%; max-width: 320px; margin-top: 26px; height: 8px; background: repeating-linear-gradient(135deg, var(--hazard) 0 10px, #0b0f1a 10px 20px); }
+
+/* panel status live */
+.now-panel {
+    position: relative; margin-top: 28px; max-width: 520px; padding: 18px 20px 16px;
+    background: linear-gradient(145deg, rgba(23,32,54,.95), rgba(10,15,30,.95));
+    border: 1px solid var(--line);
 }
+.now-panel::before, .now-panel::after { content: ""; position: absolute; width: 22px; height: 22px; }
+.now-panel::before { left: -1px; top: -1px; border-top: 3px solid var(--red-2); border-left: 3px solid var(--red-2); }
+.now-panel::after { right: -1px; bottom: -1px; border-bottom: 3px solid var(--blue-2); border-right: 3px solid var(--blue-2); }
+.now-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 10px; letter-spacing: 3px; font-weight: 800; color: var(--blue-2); }
+.live-dot { display: inline-flex; align-items: center; gap: 7px; color: var(--red-2); }
+.live-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--red-2); box-shadow: 0 0 10px var(--red-2); animation: blink 1.2s infinite; }
+@keyframes blink { 50% { opacity: .25; } }
+.now-clock { margin: 8px 0 2px; font-family: "Courier New", monospace; font-size: 38px; font-weight: 800; letter-spacing: 2px; color: #fff; text-shadow: 0 0 14px rgba(61,139,255,.8); }
+.now-clock small { font-size: 13px; color: var(--chrome-2); letter-spacing: 3px; margin-left: 6px; }
+.now-activity { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.45; }
+.now-next { margin-top: 6px; font-size: 12px; color: var(--muted); }
+.now-next strong { color: var(--hazard); }
 
-.header-line {
-    width: 68px;
-    height: 4px;
-    border-radius: 10px;
-    background: var(--gold);
-    margin-top: 27px;
+/* panggung 3D */
+.stage { position: relative; height: 540px; perspective: 1200px; display: grid; place-items: center; cursor: grab; touch-action: pan-y; user-select: none; }
+.stage.drag { cursor: grabbing; }
+
+.floorgrid {
+    position: absolute; bottom: 20px; width: 560px; height: 560px; border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle, rgba(61,139,255,.3) 0 1px, transparent 1px 26px),
+        radial-gradient(circle, rgba(225,24,45,.3), rgba(27,79,216,.18) 45%, transparent 68%);
+    transform: rotateX(76deg); animation: floorPulse 4s ease-in-out infinite;
 }
+@keyframes floorPulse { 50% { opacity: .6; } }
 
-/* NAVIGASI */
+.rig { position: relative; width: 0; height: 0; transform-style: preserve-3d; }
+.rig > * { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
 
-.page-nav {
-    max-width: 1120px;
-    margin: -25px auto 0;
-    padding: 0 22px;
-    position: relative;
-    z-index: 2;
+.core {
+    width: 112px; height: 112px; margin: -56px 0 0 -56px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff 0 7%, #9cc6ff 20%, var(--blue) 55%, #071443 100%);
+    box-shadow: 0 0 40px var(--blue-2), 0 0 120px rgba(61,139,255,.75), inset -14px -14px 34px rgba(0,0,0,.55);
+    animation: corePulse 2.4s ease-in-out infinite;
 }
+@keyframes corePulse { 50% { box-shadow: 0 0 60px var(--blue-2), 0 0 160px rgba(61,139,255,.95), inset -14px -14px 34px rgba(0,0,0,.55); transform: scale(1.06); } }
+.stage.over .core { animation: hot .22s infinite alternate; }
+@keyframes hot { from { filter: hue-rotate(0); transform: scale(1); } to { filter: hue-rotate(150deg) brightness(1.35); transform: scale(1.12); } }
 
-.nav-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-    background: white;
-    padding: 14px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+.ring { border-radius: 50%; border: 5px solid transparent; }
+.ring.r1 { width: 300px; height: 300px; margin: -150px 0 0 -150px; border-top-color: var(--red-2); border-bottom-color: rgba(255,74,61,.18); filter: drop-shadow(0 0 8px var(--red)); animation: gyroA 8s linear infinite; }
+.ring.r2 { width: 366px; height: 366px; margin: -183px 0 0 -183px; border-left-color: var(--blue-2); border-right-color: rgba(61,139,255,.18); filter: drop-shadow(0 0 8px var(--blue-2)); animation: gyroB 11s linear infinite; }
+.ring.r3 { width: 440px; height: 440px; margin: -220px 0 0 -220px; border: 2px dashed rgba(207,216,230,.5); animation: gyroC 18s linear infinite; }
+@keyframes gyroA { from { transform: rotateX(75deg) rotateZ(0); } to { transform: rotateX(75deg) rotateZ(360deg); } }
+@keyframes gyroB { from { transform: rotateY(75deg) rotateZ(0); } to { transform: rotateY(75deg) rotateZ(-360deg); } }
+@keyframes gyroC { from { transform: rotateX(35deg) rotateY(35deg) rotateZ(0); } to { transform: rotateX(35deg) rotateY(35deg) rotateZ(360deg); } }
+.stage.over .ring { animation-duration: 1.8s !important; }
+
+.plates { animation: orbitY 38s linear infinite; }
+@keyframes orbitY { to { transform: rotateY(360deg); } }
+.stage.over .plates { animation-duration: 6s; }
+
+.plate {
+    position: absolute; width: 112px; height: 58px; margin: -29px 0 0 -56px;
+    transform: rotateY(var(--a)) translateZ(250px);
+    backface-visibility: hidden;
+    padding: 7px 10px;
+    background: linear-gradient(145deg, #1b2644, #0b1022);
+    border: 1px solid var(--chrome-2);
+    border-left: 4px solid var(--red-2);
+    clip-path: polygon(0 0, 92% 0, 100% 28%, 100% 100%, 8% 100%, 0 72%);
 }
+.plate:nth-child(even) { border-left-color: var(--blue-2); }
+.plate b { display: block; font-family: "Courier New", monospace; font-size: 14px; color: var(--hazard); line-height: 1.2; }
+.plate span { display: block; font-size: 10px; letter-spacing: 1.5px; color: #fff; font-weight: 800; text-transform: uppercase; }
 
+.shock { position: absolute; bottom: 40px; width: 60px; height: 60px; border-radius: 50%; border: 3px solid var(--red-2); opacity: 0; transform: rotateX(76deg) scale(.2); pointer-events: none; }
+.stage.over .shock { animation: shock .9s ease-out; }
+@keyframes shock { 0% { opacity: 1; transform: rotateX(76deg) scale(.2); } 100% { opacity: 0; transform: rotateX(76deg) scale(10); } }
+.flash { position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,74,61,.35), transparent 60%); opacity: 0; pointer-events: none; }
+.stage.over .flash { animation: flash .6s ease-out; }
+@keyframes flash { from { opacity: 1; } to { opacity: 0; } }
+.stage-hint { position: absolute; bottom: 0; font-size: 10px; letter-spacing: 3px; color: var(--muted); font-weight: 800; }
+
+/* ---------- NAVIGASI ---------- */
+.page-nav { position: sticky; top: 0; z-index: 300; background: rgba(8,11,20,.85); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+.nav-inner { max-width: 1180px; margin: auto; padding: 10px 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .nav-inner a {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--green);
-    padding: 9px 13px;
-    border-radius: 6px;
-    transition: .2s ease;
+    font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--chrome); padding: 10px 16px;
+    border: 1px solid var(--line); background: rgba(255,255,255,.03);
+    clip-path: polygon(0 0, 92% 0, 100% 30%, 100% 100%, 8% 100%, 0 70%);
+    transition: .2s;
 }
+.nav-inner a:hover { color: #fff; border-color: var(--blue-2); background: rgba(61,139,255,.18); }
+.nav-inner .nav-home { margin-left: auto; background: var(--red); border-color: var(--red); color: #fff; }
+.nav-inner .nav-home:hover { background: var(--red-2); }
 
-.nav-inner a:hover {
-    background: var(--green-light);
-}
+/* ---------- LAYOUT ---------- */
+main { position: relative; z-index: 1; max-width: 1180px; margin: auto; padding: 70px 22px 80px; }
+.section-block { margin-bottom: 84px; }
+.section-heading { margin-bottom: 30px; }
 
-.nav-inner .nav-home {
-    margin-left: auto;
-    background: var(--green);
-    color: white;
-}
-
-.nav-inner .nav-home:hover {
-    background: var(--green-dark);
-}
-
-/* LAYOUT */
-
-main {
-    max-width: 1164px;
-    margin: auto;
-    padding: 62px 22px 80px;
-}
-
-.section-block {
-    margin-bottom: 76px;
-}
-
-.section-heading {
-    margin-bottom: 28px;
-}
-
-.eyebrow {
-    display: block;
-    color: #a27b2f;
-    font-size: 11px;
-    letter-spacing: 2px;
-    font-weight: 800;
-    margin-bottom: 9px;
-}
+.eyebrow { display: block; color: var(--red-2); font-size: 11px; letter-spacing: 4px; font-weight: 900; margin-bottom: 10px; }
+.eyebrow::before { content: "// "; color: var(--blue-2); }
 
 .section-heading h2 {
-    font-size: clamp(25px, 3.5vw, 36px);
-    line-height: 1.3;
-    color: var(--green-dark);
-    letter-spacing: -.6px;
-    margin-bottom: 10px;
+    font-family: var(--head);
+    font-size: clamp(27px, 4vw, 44px); line-height: 1.1; letter-spacing: -1px; text-transform: uppercase;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #fff, var(--chrome-2));
+    background-clip: text; -webkit-background-clip: text; color: transparent;
 }
+.section-heading p { max-width: 730px; color: var(--muted); font-size: 14.5px; }
 
-.section-heading p {
-    max-width: 730px;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* INFORMASI PROGRAM */
-
-.schedule-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
+/* ---------- INFO ---------- */
+.schedule-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px; }
 .info-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 19px 21px;
+    position: relative; padding: 20px 22px;
+    background: linear-gradient(145deg, var(--gun-3), var(--gun-2));
+    border: 1px solid var(--line); border-top: 3px solid var(--red-2);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 94% 100%, 0 100%);
+    transition: transform .2s, border-color .2s;
+}
+.info-card:nth-child(2) { border-top-color: var(--blue-2); }
+.info-card:nth-child(3) { border-top-color: var(--hazard); }
+.info-card:hover { transform: translateY(-4px); }
+.info-card span { display: block; color: var(--muted); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; font-weight: 700; }
+.info-card strong { color: #fff; font-family: var(--head); font-size: 17px; }
+
+/* ---------- TABEL ---------- */
+.table-card { position: relative; background: linear-gradient(160deg, var(--gun-3), var(--gun-2)); border: 1px solid var(--line); }
+.table-card::before, .table-card::after { content: ""; position: absolute; width: 26px; height: 26px; z-index: 2; pointer-events: none; }
+.table-card::before { left: -2px; top: -2px; border-top: 4px solid var(--red-2); border-left: 4px solid var(--red-2); }
+.table-card::after { right: -2px; bottom: -2px; border-bottom: 4px solid var(--blue-2); border-right: 4px solid var(--blue-2); }
+
+.table-title { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 15px; border-bottom: 1px solid var(--line); background: linear-gradient(90deg, rgba(225,24,45,.18), transparent 70%); }
+.table-title h3 { color: #fff; font-family: var(--head); font-size: 18px; text-transform: uppercase; letter-spacing: .5px; }
+.table-title span { color: var(--hazard); font-size: 12px; font-weight: 800; letter-spacing: 1px; }
+
+.table-wrapper { width: 100%; overflow-x: auto; }
+.schedule-table { width: 100%; border-collapse: collapse; min-width: 700px; }
+.schedule-table thead { background: linear-gradient(90deg, var(--red), #8f0f1e); color: #fff; }
+.schedule-table th { text-align: left; padding: 15px 18px; font-size: 11px; letter-spacing: 2px; font-weight: 900; }
+.schedule-table td { padding: 14px 18px; border-bottom: 1px solid rgba(160,185,235,.1); font-size: 13.5px; vertical-align: top; color: #d3dcee; transition: background .2s; }
+.schedule-table tbody tr:nth-child(even) { background: rgba(255,255,255,.022); }
+.schedule-table tbody tr:hover { background: rgba(61,139,255,.12); }
+.schedule-table tbody tr:last-child td { border-bottom: none; }
+.number-cell { width: 65px; color: var(--chrome-2); font-weight: 800; font-family: "Courier New", monospace; }
+.time { color: var(--hazard); white-space: nowrap; font-weight: 800; font-family: "Courier New", monospace; font-variant-numeric: tabular-nums; }
+.location { color: var(--muted); white-space: nowrap; }
+
+.schedule-table tbody tr.live { background: linear-gradient(90deg, rgba(225,24,45,.3), rgba(27,79,216,.28)); box-shadow: inset 4px 0 0 var(--red-2); }
+.schedule-table tbody tr.live td { color: #fff; }
+.schedule-table tbody tr.live .number-cell::after {
+    content: "LIVE"; display: block; margin-top: 3px; padding: 1px 6px; width: max-content;
+    background: var(--red-2); color: #fff; font-size: 9px; letter-spacing: 1px; border-radius: 2px; animation: blink 1.2s infinite;
 }
 
-.info-card span {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 4px;
-}
+.schedule-note { margin-top: 20px; padding: 18px 22px; background: rgba(255,210,63,.07); border: 1px solid rgba(255,210,63,.3); border-left: 6px solid var(--hazard); }
+.schedule-note strong { display: block; color: var(--hazard); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+.schedule-note p { color: #d6cfae; font-size: 13.5px; }
 
-.info-card strong {
-    color: var(--green-dark);
-    font-size: 15px;
-}
-
-/* TABEL JADWAL */
-
-.table-card {
-    overflow: hidden;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-}
-
-.table-title {
-    padding: 20px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    border-bottom: 1px solid var(--border);
-}
-
-.table-title h3 {
-    color: var(--green-dark);
-    font-size: 17px;
-}
-
-.table-title span {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-}
-
-.schedule-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 690px;
-}
-
-.schedule-table thead {
-    background: var(--green);
-    color: white;
-}
-
-.schedule-table th {
-    text-align: left;
-    padding: 15px 17px;
-    font-size: 11px;
-    letter-spacing: .8px;
-    font-weight: 800;
-}
-
-.schedule-table td {
-    padding: 14px 17px;
-    border-bottom: 1px solid #edf1ee;
-    font-size: 13px;
-    vertical-align: top;
-}
-
-.schedule-table tbody tr:nth-child(even) {
-    background: #f8fbf8;
-}
-
-.schedule-table tbody tr:hover {
-    background: #edf7f0;
-}
-
-.schedule-table tbody tr:last-child td {
-    border-bottom: none;
-}
-
-.number-cell {
-    width: 65px;
-    color: #9b7a39;
-    font-weight: 800;
-}
-
-.time {
-    color: var(--green);
-    white-space: nowrap;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-}
-
-.location {
-    color: var(--muted);
-    white-space: nowrap;
-}
-
-.schedule-note {
-    margin-top: 18px;
-    padding: 18px 20px;
-    background: #f5f0e3;
-    border-left: 4px solid var(--gold);
-    border-radius: 6px;
-}
-
-.schedule-note strong {
-    display: block;
-    color: #745722;
-    font-size: 13px;
-    margin-bottom: 4px;
-}
-
-.schedule-note p {
-    color: #6e6654;
-    font-size: 13px;
-}
-
-/* BUDAYA SANTRI */
-
-.habits-section {
-    position: relative;
-}
-
-.habits-intro {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 25px;
-    margin-bottom: 27px;
-}
-
+/* ---------- BUDAYA ---------- */
+.habits-intro { display: flex; align-items: flex-start; justify-content: space-between; gap: 25px; margin-bottom: 14px; }
 .habits-target {
-    flex-shrink: 0;
-    background: var(--green);
-    color: white;
-    padding: 13px 17px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 700;
+    flex-shrink: 0; padding: 13px 20px; color: #fff; font-family: var(--head); font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    background: linear-gradient(135deg, var(--blue), #0e2c8a);
+    clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+    box-shadow: 0 0 24px rgba(27,79,216,.6);
 }
+.habits-hint { margin-bottom: 24px; font-size: 11px; letter-spacing: 3px; color: var(--blue-2); font-weight: 800; }
 
-.habits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 17px;
-}
+.habits-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 
-.habit-card {
-    position: relative;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 23px;
-    box-shadow: 0 5px 20px rgba(10,58,43,.035);
-    transition: transform .2s ease, box-shadow .2s ease;
-    overflow: hidden;
-}
+.habit-card { perspective: 1000px; outline: none; cursor: pointer; }
+.habit-tilt { transform-style: preserve-3d; transition: transform .15s ease-out; height: 100%; }
+.habit-inner { display: grid; height: 100%; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2,.8,.2,1); }
+.habit-card.flipped .habit-inner { transform: rotateY(180deg); }
+.habit-card:focus-visible .habit-front { outline: 3px solid var(--hazard); outline-offset: 2px; }
 
-.habit-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
+.habit-front, .habit-back { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; position: relative; padding: 24px; border: 1px solid var(--line); overflow: hidden; }
 
-.habit-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gold);
-}
+.habit-front { background: linear-gradient(160deg, var(--gun-3), var(--gun-2)); display: flex; flex-direction: column; }
+.habit-front::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--red-2), var(--blue-2)); }
+.habit-front::after { content: ""; position: absolute; right: -30px; bottom: -30px; width: 100px; height: 100px; border: 1px solid rgba(207,216,230,.12); border-radius: 50%; box-shadow: 0 0 0 16px rgba(207,216,230,.04); }
 
 .habit-number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 8px;
-    background: var(--green-light);
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 16px;
+    display: inline-grid; place-items: center; width: 42px; height: 42px; margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--red), #8f0f1e); color: #fff;
+    font-family: var(--head); font-size: 14px;
+    clip-path: polygon(25% 0, 75% 0, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0 75%, 0 25%);
 }
+.habit-card:nth-child(even) .habit-number { background: linear-gradient(135deg, var(--blue), #0e2c8a); }
 
-.habit-card h3 {
-    color: var(--green-dark);
-    font-size: 17px;
-    line-height: 1.4;
-    margin-bottom: 10px;
+.habit-card h3 { color: #fff; font-size: 17px; line-height: 1.4; margin-bottom: 10px; font-family: var(--head); }
+.habit-card p { color: #a9b6d0; font-size: 13.5px; line-height: 1.8; }
+.flip-hint { margin-top: auto; padding-top: 16px; font-size: 10px; letter-spacing: 2px; font-weight: 800; color: var(--blue-2); }
+
+.habit-back {
+    transform: rotateY(180deg);
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 2px, transparent 2px 14px),
+        linear-gradient(145deg, var(--red), #6a0a17 55%, var(--blue));
+    border-color: rgba(255,255,255,.3);
 }
-
-.habit-card p {
-    color: #65736b;
-    font-size: 13px;
-    line-height: 1.8;
-}
-
-.habit-target {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 6px 10px;
-    background: #f6f1e4;
-    color: #806126;
-    font-size: 11px;
-    line-height: 1.5;
-    font-weight: 800;
-    border-radius: 5px;
-}
-
-/* PRINSIP PEMBIASAAN */
+.back-label { font-size: 11px; letter-spacing: 4px; font-weight: 900; color: var(--hazard); margin-bottom: 14px; }
+.habit-target { font-family: var(--head); font-size: 22px; line-height: 1.3; color: #fff; text-transform: uppercase; text-shadow: 0 3px 0 rgba(0,0,0,.35); }
+.back-title { margin-top: 18px; font-size: 12px; letter-spacing: 1.5px; color: rgba(255,255,255,.8); font-weight: 700; text-transform: uppercase; }
 
 .habit-principle {
-    margin-top: 25px;
-    padding: 25px;
-    border-radius: 12px;
-    background: linear-gradient(125deg, var(--green-dark), var(--green));
-    color: white;
+    position: relative; margin-top: 30px; padding: 28px;
+    background: linear-gradient(125deg, #14224a, #0b1130 60%, #2a0c16);
+    border: 1px solid var(--line); border-left: 6px solid var(--red-2);
 }
+.habit-principle h3 { font-family: var(--head); font-size: 20px; text-transform: uppercase; color: #fff; margin-bottom: 8px; }
+.habit-principle p { max-width: 860px; font-size: 14px; color: #b9c6df; }
 
-.habit-principle h3 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
+.general-note { padding: 22px 26px; background: linear-gradient(145deg, var(--gun-3), var(--gun-2)); border: 1px solid var(--line); border-left: 6px solid var(--blue-2); margin-top: 28px; }
+.general-note h3 { font-family: var(--head); font-size: 16px; text-transform: uppercase; color: #fff; margin-bottom: 6px; }
+.general-note p { color: var(--muted); font-size: 14px; }
 
-.habit-principle p {
-    max-width: 850px;
-    font-size: 13px;
-    color: #dcebe4;
-}
-
-/* CATATAN UMUM */
-
-.general-note {
-    padding: 22px 24px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-top: 28px;
-}
-
-.general-note h3 {
-    font-size: 15px;
-    color: var(--green-dark);
-    margin-bottom: 6px;
-}
-
-.general-note p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-/* TOMBOL KEMBALI */
-
-.back-home {
-    text-align: center;
-    margin-top: 48px;
-}
-
+.back-home { text-align: center; margin-top: 52px; }
 .back-home a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    background: var(--green);
-    color: white;
-    padding: 13px 23px;
-    border-radius: 7px;
-    font-size: 13px;
-    font-weight: 800;
-    transition: .2s ease;
+    display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px;
+    background: linear-gradient(135deg, var(--red), #a3101f); color: #fff;
+    font-size: 13px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase;
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
+    box-shadow: 0 0 30px rgba(225,24,45,.5);
+    transition: transform .2s, filter .2s;
 }
+.back-home a:hover { transform: translateY(-3px); filter: brightness(1.2); }
 
-.back-home a:hover {
-    background: var(--green-dark);
-    transform: translateY(-2px);
-}
+footer { position: relative; z-index: 1; padding: 30px 20px; text-align: center; background: #04060c; border-top: 4px solid var(--red); color: var(--muted); font-size: 12px; }
+footer strong { color: #fff; }
 
-/* FOOTER */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s, transform .8s; }
+.reveal.show { opacity: 1; transform: none; }
 
-footer {
-    padding: 28px 20px;
-    text-align: center;
-    background: #042f26;
-    color: #c4d9ce;
-    font-size: 12px;
-}
-
-footer strong {
-    color: white;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-    .habits-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .schedule-info {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .info-card {
-        padding: 15px 18px;
-    }
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 960px) {
+    .header-container { grid-template-columns: 1fr; }
+    .stage { height: 500px; transform: scale(.9); margin-top: -10px; }
+    .habits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .schedule-info { grid-template-columns: 1fr; gap: 10px; }
 }
 
 @media (max-width: 600px) {
-    .kegiatan-header {
-        padding: 48px 20px 62px;
-    }
+    .kegiatan-header { padding: 40px 18px 50px; }
+    .kegiatan-header p { font-size: 14px; }
+    .now-clock { font-size: 30px; }
+    .stage { height: 430px; transform: scale(.66); margin: -50px 0 -60px; }
+    .nav-inner { padding: 8px 12px; gap: 5px; }
+    .nav-inner a { font-size: 10.5px; padding: 8px 10px; }
+    .nav-inner .nav-home { margin-left: 0; }
+    main { padding: 48px 15px 58px; }
+    .section-block { margin-bottom: 58px; }
+    .habits-intro { flex-direction: column; gap: 12px; }
+    .habits-grid { grid-template-columns: 1fr; gap: 16px; }
+    .table-title { align-items: flex-start; flex-direction: column; gap: 4px; }
+    .schedule-table td, .schedule-table th { padding: 12px; }
+    .habit-principle, .general-note { padding: 20px; }
+}
 
-    .kegiatan-header h1 {
-        font-size: 34px;
-    }
-
-    .kegiatan-header p {
-        font-size: 14px;
-    }
-
-    .page-nav {
-        padding: 0 14px;
-    }
-
-    .nav-inner {
-        gap: 5px;
-        padding: 10px;
-    }
-
-    .nav-inner a {
-        font-size: 11px;
-        padding: 8px 9px;
-    }
-
-    .nav-inner .nav-home {
-        margin-left: 0;
-    }
-
-    main {
-        padding: 45px 15px 58px;
-    }
-
-    .section-block {
-        margin-bottom: 55px;
-    }
-
-    .section-heading h2 {
-        font-size: 27px;
-    }
-
-    .habits-intro {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .habits-grid {
-        grid-template-columns: 1fr;
-        gap: 13px;
-    }
-
-    .habit-card {
-        padding: 21px;
-    }
-
-    .table-title {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .schedule-table td,
-    .schedule-table th {
-        padding: 12px;
-    }
-
-    .habit-principle,
-    .general-note {
-        padding: 20px;
-    }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
 }
 
 @media print {
-    .page-nav,
-    .back-home {
-        display: none;
-    }
-
-    body {
-        background: white;
-    }
-
-    .table-card,
-    .habit-card {
-        box-shadow: none;
-        break-inside: avoid;
-    }
+    #fx, .progress, .page-nav, .back-home, .stage, .now-panel, body::after { display: none; }
+    body { background: #fff; color: #111; }
+    .kegiatan-header { background: #fff; padding: 20px 0; }
+    .kegiatan-header h1, .section-heading h2 { background: none; color: #111; filter: none; }
+    .kegiatan-header p, .section-heading p, .habit-card p, .info-card strong, .schedule-table td { color: #222; }
+    .table-card, .habit-front, .info-card, .habit-principle, .general-note { background: #fff; border-color: #bbb; }
+    .schedule-table thead { background: #ddd; color: #111; }
+    .habit-inner { display: block; transform: none !important; }
+    .habit-front, .habit-back { position: static; transform: none; backface-visibility: visible; background: #fff; color: #111; }
+    .habit-back { padding: 0 24px 16px; border: 0; }
+    .habit-target, .back-label, .back-title { color: #111; text-shadow: none; }
+    .habit-card, .table-card { break-inside: avoid; }
+    .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
+<canvas id="fx"></canvas>
+<div class="progress" id="progress"></div>
 
 <!-- HEADER -->
 <header class="kegiatan-header">
     <div class="header-container">
-        <div class="header-badge">PONDOK IT INDONESIA</div>
-        <h1>Kegiatan & Budaya Santri</h1>
-        <p>
-            Membangun santri yang bertaqwa, disiplin, berkarakter,
-            profesional, dan bermanfaat melalui kegiatan harian
-            serta pembiasaan ibadah yang terarah.
-        </p>
-        <div class="header-line"></div>
+        <div>
+            <div class="header-badge">PONDOK IT INDONESIA</div>
+            <h1>Kegiatan &amp; Budaya Santri</h1>
+            <p>
+                Membangun santri yang bertaqwa, disiplin, berkarakter,
+                profesional, dan bermanfaat melalui kegiatan harian
+                serta pembiasaan ibadah yang terarah.
+            </p>
+            <div class="header-line"></div>
+
+            <div class="now-panel" aria-live="off">
+                <div class="now-top"><span>STATUS KEGIATAN SANTRI</span><span class="live-dot">LIVE</span></div>
+                <div class="now-clock"><span id="clock">--:--:--</span><small>WIB</small></div>
+                <div class="now-activity" id="nowActivity">Memuat jadwal…</div>
+                <div class="now-next" id="nowNext"></div>
+            </div>
+        </div>
+
+        <!-- INTI ENERGI 3D -->
+        <div class="stage" id="stage" aria-hidden="true">
+            <div class="floorgrid"></div>
+            <div class="shock"></div>
+            <div class="rig" id="rig">
+                <div class="core"></div>
+                <div class="ring r3"></div>
+                <div class="ring r2"></div>
+                <div class="ring r1"></div>
+                <div class="plates">
+                    <div class="plate" style="--a:0deg"><b>03.30</b><span>Tahajud</span></div>
+                    <div class="plate" style="--a:45deg"><b>05.00</b><span>Tahfidz</span></div>
+                    <div class="plate" style="--a:90deg"><b>08.00</b><span>Skill IT</span></div>
+                    <div class="plate" style="--a:135deg"><b>11.30</b><span>STW</span></div>
+                    <div class="plate" style="--a:180deg"><b>15.20</b><span>Kajian</span></div>
+                    <div class="plate" style="--a:225deg"><b>16.20</b><span>Olahraga</span></div>
+                    <div class="plate" style="--a:270deg"><b>19.50</b><span>Evaluasi</span></div>
+                    <div class="plate" style="--a:315deg"><b>22.00</b><span>Istirahat</span></div>
+                </div>
+            </div>
+            <div class="flash"></div>
+            <span class="stage-hint">SERET UNTUK MEMUTAR · KLIK UNTUK OVERDRIVE</span>
+        </div>
     </div>
 </header>
+<div class="hazard" aria-hidden="true"></div>
 
 <!-- NAVIGASI -->
 <nav class="page-nav" aria-label="Navigasi halaman">
@@ -656,7 +444,7 @@ footer strong {
     <!-- BAGIAN JADWAL -->
     <section class="section-block" id="jadwal">
 
-        <div class="section-heading">
+        <div class="section-heading reveal">
             <span class="eyebrow">RUTINITAS PENDIDIKAN</span>
             <h2>Jadwal Kegiatan Harian Santri</h2>
             <p>
@@ -666,7 +454,7 @@ footer strong {
             </p>
         </div>
 
-        <div class="schedule-info">
+        <div class="schedule-info reveal">
             <div class="info-card">
                 <span>Program</span>
                 <strong>Pendidikan Santri 1–3 Tahun</strong>
@@ -674,7 +462,7 @@ footer strong {
 
             <div class="info-card">
                 <span>Sistem Pembinaan</span>
-                <strong>Pendidikan, Ibadah & Pengabdian</strong>
+                <strong>Pendidikan, Ibadah &amp; Pengabdian</strong>
             </div>
 
             <div class="info-card">
@@ -683,14 +471,14 @@ footer strong {
             </div>
         </div>
 
-        <div class="table-card">
+        <div class="table-card reveal">
             <div class="table-title">
                 <h3>Agenda Kegiatan Harian</h3>
                 <span>17 agenda terjadwal</span>
             </div>
 
             <div class="table-wrapper">
-                <table class="schedule-table">
+                <table class="schedule-table" id="scheduleTable">
                     <thead>
                         <tr>
                             <th>NO.</th>
@@ -833,7 +621,7 @@ footer strong {
             </div>
         </div>
 
-        <div class="schedule-note">
+        <div class="schedule-note reveal">
             <strong>Perhatian terhadap jadwal</strong>
             <p>
                 Jadwal kegiatan dapat menyesuaikan dengan kebutuhan
@@ -848,9 +636,9 @@ footer strong {
     <!-- BAGIAN BUDAYA SANTRI -->
     <section class="section-block habits-section" id="budaya">
 
-        <div class="habits-intro">
-            <div class="section-heading">
-                <span class="eyebrow">PEMBIASAAN & PEMBENTUKAN KARAKTER</span>
+        <div class="habits-intro reveal">
+            <div class="section-heading" style="margin-bottom:0">
+                <span class="eyebrow">PEMBIASAAN &amp; PEMBENTUKAN KARAKTER</span>
                 <h2>Budaya / Habits Santri</h2>
                 <p>
                     Kebiasaan yang dibangun secara konsisten untuk
@@ -864,128 +652,193 @@ footer strong {
             </div>
         </div>
 
+        <p class="habits-hint reveal">▸ KLIK ATAU SENTUH KARTU UNTUK MELIHAT TARGET</p>
+
         <div class="habits-grid">
 
-            <article class="habit-card">
-                <div class="habit-number">01</div>
-                <h3>STW — Sholat Tepat Waktu</h3>
-                <p>
-                    Menjaga kehadiran dalam sholat Subuh, Zuhur, Asar,
-                    Magrib, dan Isya secara tepat waktu serta tanpa
-                    masbuk. Pelaksanaan dipantau secara rutin setiap pekan.
-                </p>
-                <span class="habit-target">
-                    Target kehadiran 90–100% per pekan
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">01</div>
+                        <h3>STW — Sholat Tepat Waktu</h3>
+                        <p>
+                            Menjaga kehadiran dalam sholat Subuh, Zuhur, Asar,
+                            Magrib, dan Isya secara tepat waktu serta tanpa
+                            masbuk. Pelaksanaan dipantau secara rutin setiap pekan.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target kehadiran 90–100% per pekan</div>
+                        <div class="back-title">01 · STW — Sholat Tepat Waktu</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">02</div>
-                <h3>Dzikir Pagi dan Petang</h3>
-                <p>
-                    Membiasakan membaca dzikir pagi setelah sholat
-                    Subuh dan dzikir petang pada waktu sore sebagai
-                    bagian dari rutinitas ibadah harian.
-                </p>
-                <span class="habit-target">
-                    Target: 2 kali sehari
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">02</div>
+                        <h3>Dzikir Pagi dan Petang</h3>
+                        <p>
+                            Membiasakan membaca dzikir pagi setelah sholat
+                            Subuh dan dzikir petang pada waktu sore sebagai
+                            bagian dari rutinitas ibadah harian.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: 2 kali sehari</div>
+                        <div class="back-title">02 · Dzikir Pagi dan Petang</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">03</div>
-                <h3>Puasa Senin–Kamis</h3>
-                <p>
-                    Membiasakan puasa sunnah setiap hari Senin dan
-                    Kamis untuk melatih kedisiplinan, pengendalian diri,
-                    dan kesungguhan dalam beribadah.
-                </p>
-                <span class="habit-target">
-                    Target: 2 hari setiap pekan
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">03</div>
+                        <h3>Puasa Senin–Kamis</h3>
+                        <p>
+                            Membiasakan puasa sunnah setiap hari Senin dan
+                            Kamis untuk melatih kedisiplinan, pengendalian diri,
+                            dan kesungguhan dalam beribadah.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: 2 hari setiap pekan</div>
+                        <div class="back-title">03 · Puasa Senin–Kamis</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">04</div>
-                <h3>Tilawah Al-Qur’an</h3>
-                <p>
-                    Membaca Al-Qur’an secara konsisten setiap hari.
-                    Tilawah dibiasakan sebanyak 2 lembar setiap selesai
-                    sholat fardhu agar bacaan menjadi rutinitas harian.
-                </p>
-                <span class="habit-target">
-                    Target: 1 juz per hari
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">04</div>
+                        <h3>Tilawah Al-Qur’an</h3>
+                        <p>
+                            Membaca Al-Qur’an secara konsisten setiap hari.
+                            Tilawah dibiasakan sebanyak 2 lembar setiap selesai
+                            sholat fardhu agar bacaan menjadi rutinitas harian.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: 1 juz per hari</div>
+                        <div class="back-title">04 · Tilawah Al-Qur’an</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">05</div>
-                <h3>Memperbanyak Doa</h3>
-                <p>
-                    Membiasakan berdoa pada waktu-waktu yang diharapkan
-                    mustajab, di antaranya antara adzan dan iqamah,
-                    saat qiyamullail, hari Jumat, dan waktu lainnya.
-                </p>
-                <span class="habit-target">
-                    Target: rutin setiap hari
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">05</div>
+                        <h3>Memperbanyak Doa</h3>
+                        <p>
+                            Membiasakan berdoa pada waktu-waktu yang diharapkan
+                            mustajab, di antaranya antara adzan dan iqamah,
+                            saat qiyamullail, hari Jumat, dan waktu lainnya.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: rutin setiap hari</div>
+                        <div class="back-title">05 · Memperbanyak Doa</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">06</div>
-                <h3>Sholat Tahajud</h3>
-                <p>
-                    Melaksanakan sholat tahajud setiap malam sebagai
-                    pembiasaan ibadah malam, melatih kesungguhan,
-                    dan mendekatkan diri kepada Allah.
-                </p>
-                <span class="habit-target">
-                    Target: minimal 4 rakaat + 1 witir
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">06</div>
+                        <h3>Sholat Tahajud</h3>
+                        <p>
+                            Melaksanakan sholat tahajud setiap malam sebagai
+                            pembiasaan ibadah malam, melatih kesungguhan,
+                            dan mendekatkan diri kepada Allah.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: minimal 4 rakaat + 1 witir</div>
+                        <div class="back-title">06 · Sholat Tahajud</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">07</div>
-                <h3>Sholat Dhuha</h3>
-                <p>
-                    Membiasakan sholat Dhuha pada pagi hari sebelum
-                    memulai aktivitas produktif, belajar skill IT,
-                    atau menjalankan tugas pengabdian.
-                </p>
-                <span class="habit-target">
-                    Target: minimal 4 rakaat setiap pagi
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">07</div>
+                        <h3>Sholat Dhuha</h3>
+                        <p>
+                            Membiasakan sholat Dhuha pada pagi hari sebelum
+                            memulai aktivitas produktif, belajar skill IT,
+                            atau menjalankan tugas pengabdian.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: minimal 4 rakaat setiap pagi</div>
+                        <div class="back-title">07 · Sholat Dhuha</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">08</div>
-                <h3>Sholat Sunnah Rawatib</h3>
-                <p>
-                    Membiasakan sholat sunnah qabliyah dan ba’diyah
-                    yang mengiringi sholat fardhu sebagai bagian
-                    dari penguatan kualitas ibadah harian.
-                </p>
-                <span class="habit-target">
-                    Target: 12 rakaat setiap hari
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">08</div>
+                        <h3>Sholat Sunnah Rawatib</h3>
+                        <p>
+                            Membiasakan sholat sunnah qabliyah dan ba’diyah
+                            yang mengiringi sholat fardhu sebagai bagian
+                            dari penguatan kualitas ibadah harian.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: 12 rakaat setiap hari</div>
+                        <div class="back-title">08 · Sholat Sunnah Rawatib</div>
+                    </div>
+                </div></div>
             </article>
 
-            <article class="habit-card">
-                <div class="habit-number">09</div>
-                <h3>Sedekah Harian</h3>
-                <p>
-                    Menanamkan kebiasaan berbagi dan kepedulian kepada
-                    sesama melalui sedekah rutin, sesuai kemampuan,
-                    sebagai latihan membangun karakter yang bermanfaat.
-                </p>
-                <span class="habit-target">
-                    Target: minimal Rp500 per hari
-                </span>
+            <article class="habit-card reveal" tabindex="0" role="button" aria-pressed="false">
+                <div class="habit-tilt"><div class="habit-inner">
+                    <div class="habit-front">
+                        <div class="habit-number">09</div>
+                        <h3>Sedekah Harian</h3>
+                        <p>
+                            Menanamkan kebiasaan berbagi dan kepedulian kepada
+                            sesama melalui sedekah rutin, sesuai kemampuan,
+                            sebagai latihan membangun karakter yang bermanfaat.
+                        </p>
+                        <div class="flip-hint">↻ LIHAT TARGET</div>
+                    </div>
+                    <div class="habit-back">
+                        <div class="back-label">TARGET</div>
+                        <div class="habit-target">Target: minimal Rp500 per hari</div>
+                        <div class="back-title">09 · Sedekah Harian</div>
+                    </div>
+                </div></div>
             </article>
 
         </div>
 
-        <div class="habit-principle">
+        <div class="habit-principle reveal">
             <h3>Dari Kebiasaan Menjadi Karakter</h3>
             <p>
                 Budaya santri tidak berhenti pada daftar aktivitas.
@@ -1001,7 +854,7 @@ footer strong {
 
     <!-- CATATAN -->
     <section class="section-block" id="catatan">
-        <div class="section-heading">
+        <div class="section-heading reveal">
             <span class="eyebrow">KETENTUAN PELAKSANAAN</span>
             <h2>Catatan Pembinaan Santri</h2>
             <p>
@@ -1010,7 +863,7 @@ footer strong {
             </p>
         </div>
 
-        <div class="general-note">
+        <div class="general-note reveal">
             <h3>Evaluasi dan Penyesuaian</h3>
             <p>
                 Pelaksanaan budaya santri dapat dipantau melalui
@@ -1037,6 +890,153 @@ footer strong {
     </p>
     <p>Taqwa – Profesional – Bermanfaat</p>
 </footer>
+
+<script>
+var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- Jam WIB + penanda kegiatan yang sedang berjalan ---------- */
+var rows = Array.prototype.slice.call(document.querySelectorAll("#scheduleTable tbody tr"));
+var agenda = rows.map(function (tr) {
+    var t = tr.querySelector(".time").textContent.trim().split("–");
+    function toMin(s) { var p = s.split("."); return parseInt(p[0], 10) * 60 + parseInt(p[1], 10); }
+    return {
+        tr: tr, start: toMin(t[0]), end: toMin(t[1]), startText: t[0],
+        text: tr.children[2].textContent.replace(/\s+/g, " ").trim()
+    };
+});
+
+var fmt = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+
+function wibNow() {
+    var parts = fmt.formatToParts(new Date()), o = {};
+    parts.forEach(function (p) { o[p.type] = p.value; });
+    return { h: parseInt(o.hour, 10) % 24, m: parseInt(o.minute, 10), s: parseInt(o.second, 10) };
+}
+
+function isActive(a, now) {
+    return a.end > a.start ? (now >= a.start && now < a.end) : (now >= a.start || now < a.end);
+}
+
+function updateClock() {
+    var n = wibNow();
+    var pad = function (x) { return x < 10 ? "0" + x : "" + x; };
+    document.getElementById("clock").textContent = pad(n.h) + ":" + pad(n.m) + ":" + pad(n.s);
+    var now = n.h * 60 + n.m;
+
+    var active = agenda.filter(function (a) { return isActive(a, now); });
+    agenda.forEach(function (a) { a.tr.classList.toggle("live", active.indexOf(a) !== -1); });
+
+    var actEl = document.getElementById("nowActivity");
+    var nextEl = document.getElementById("nowNext");
+    actEl.textContent = active.length
+        ? active.map(function (a) { return a.text; }).join(" · ")
+        : "Waktu transisi antar kegiatan";
+
+    var upcoming = null, best = 1e9;
+    agenda.forEach(function (a) {
+        var d = (a.start - now + 1440) % 1440;
+        if (d > 0 && d < best) { best = d; upcoming = a; }
+    });
+    nextEl.innerHTML = upcoming
+        ? "Berikutnya: <strong>" + upcoming.startText + "</strong> · " + upcoming.text
+        : "";
+}
+updateClock();
+setInterval(updateClock, 1000);
+
+/* ---------- Inti energi 3D: seret, kursor, klik overdrive ---------- */
+var stage = document.getElementById("stage");
+var rig = document.getElementById("rig");
+var dragging = false, lastX = 0, moved = 0, ry = 20, vel = 0, mx = 0, my = 0, tx = 0, ty = 0, overT = null;
+
+stage.addEventListener("pointerdown", function (e) { dragging = true; moved = 0; lastX = e.clientX; stage.classList.add("drag"); });
+window.addEventListener("pointermove", function (e) {
+    var r = stage.getBoundingClientRect();
+    mx = ((e.clientX - (r.left + r.width / 2)) / window.innerWidth) * 2;
+    my = ((e.clientY - (r.top + r.height / 2)) / window.innerHeight) * 2;
+    if (dragging) { var dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx); ry += dx * .6; vel = dx * .6; }
+});
+window.addEventListener("pointerup", function () {
+    if (!dragging) return;
+    dragging = false; stage.classList.remove("drag");
+    if (moved < 6) {
+        stage.classList.remove("over"); void stage.offsetWidth; stage.classList.add("over");
+        clearTimeout(overT); overT = setTimeout(function () { stage.classList.remove("over"); }, 2500);
+    }
+});
+
+function frame(t) {
+    if (!dragging) { vel *= .94; ry += vel + (reduce ? 0 : .18); }
+    tx += (mx - tx) * .06; ty += (my - ty) * .06;
+    var bob = reduce ? 0 : Math.sin(t / 1000 * 1.5) * 8;
+    rig.style.transform = "translateY(" + bob + "px) rotateX(" + (-12 - ty * 14) + "deg) rotateY(" + (ry + tx * 18) + "deg)";
+    requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ---------- Kartu budaya: balik (transform) + miring 3D ---------- */
+document.querySelectorAll(".habit-card").forEach(function (card) {
+    var tilt = card.querySelector(".habit-tilt");
+    function toggle() {
+        var on = card.classList.toggle("flipped");
+        card.setAttribute("aria-pressed", String(on));
+    }
+    card.addEventListener("click", toggle);
+    card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+    });
+    card.addEventListener("mousemove", function (e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        tilt.style.transform = "rotateY(" + (px * 10) + "deg) rotateX(" + (-py * 10) + "deg)";
+    });
+    card.addEventListener("mouseleave", function () { tilt.style.transform = ""; });
+});
+
+/* ---------- Percikan latar ---------- */
+var cv = document.getElementById("fx"), cx = cv.getContext("2d"), W, H, pts = [];
+function resize() {
+    W = cv.width = window.innerWidth; H = cv.height = window.innerHeight;
+    var n = Math.min(60, Math.floor(W / 24)); pts = [];
+    for (var i = 0; i < n; i++) pts.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+        r: Math.random() * 1.8 + .6, c: Math.random() > .5 ? "225,24,45" : "61,139,255"
+    });
+}
+resize(); window.addEventListener("resize", resize);
+function drawFx() {
+    cx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+        var p = pts[i]; p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        cx.beginPath(); cx.arc(p.x, p.y, p.r, 0, 6.283); cx.fillStyle = "rgba(" + p.c + ",.75)"; cx.fill();
+        for (var j = i + 1; j < pts.length; j++) {
+            var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = dx * dx + dy * dy;
+            if (d < 11000) {
+                cx.strokeStyle = "rgba(" + p.c + "," + (.13 * (1 - d / 11000)) + ")";
+                cx.beginPath(); cx.moveTo(p.x, p.y); cx.lineTo(q.x, q.y); cx.stroke();
+            }
+        }
+    }
+    if (!reduce) requestAnimationFrame(drawFx);
+}
+drawFx();
+
+/* ---------- Muncul saat scroll + progress ---------- */
+var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("show"); io.unobserve(en.target); } });
+}, { threshold: .1 });
+document.querySelectorAll(".reveal").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * .08 + "s"; io.observe(el);
+});
+var bar = document.getElementById("progress");
+window.addEventListener("scroll", function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+}, { passive: true });
+</script>
 
 </body>
 </html>

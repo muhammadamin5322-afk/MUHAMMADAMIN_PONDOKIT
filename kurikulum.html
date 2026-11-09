@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -9,59 +8,64 @@
 
 <style>
 :root {
-    --dark: #15132e;
-    --dark-2: #211d47;
-    --purple: #7965e8;
-    --purple-light: #eeeaff;
-    --blue: #3978ed;
-    --blue-light: #eaf2ff;
-    --orange: #e69b48;
-    --orange-light: #fff3e3;
-    --teal: #21a99a;
-    --teal-light: #e3f8f4;
-    --gold: #f2ce79;
-    --text: #252943;
-    --muted: #747990;
-    --line: #e8e9f0;
-    --bg: #f7f7fc;
-    --white: #ffffff;
+    --bg: #060914;
+    --bg-2: #0b1122;
+    --panel: rgba(255,255,255,.045);
+    --line: rgba(255,255,255,.1);
+    --steel: #c7d2e2;
+    --steel-dark: #5b6780;
+    --cyan: #19e3ff;
+    --cyan-soft: rgba(25,227,255,.14);
+    --orange: #ff7a1a;
+    --orange-soft: rgba(255,122,26,.14);
+    --gold: #ffc542;
+    --gold-soft: rgba(255,197,66,.14);
+    --text: #e8edf7;
+    --muted: #8d99b3;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 85px;
-}
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+
+#fx {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
 }
 
-button {
-    font: inherit;
+.progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    z-index: 200;
+    background: linear-gradient(90deg, var(--cyan), var(--orange));
+    box-shadow: 0 0 12px var(--cyan);
 }
 
 /* NAVIGASI */
 .navbar {
-    background: rgba(255,255,255,.96);
+    background: rgba(6,9,20,.72);
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
 }
 
 .nav-container {
@@ -74,65 +78,40 @@ button {
     gap: 20px;
 }
 
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 11px;
-}
+.brand { display: flex; align-items: center; gap: 11px; }
 
 .brand-logo {
-    width: 43px;
-    height: 43px;
-    display: grid;
-    place-items: center;
-    border-radius: 13px;
-    color: white;
-    font-weight: 900;
-    font-size: 13px;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, #7965e8, #3e55be);
+    width: 43px; height: 43px;
+    display: grid; place-items: center;
+    border-radius: 11px;
+    color: #06101c;
+    font-weight: 900; font-size: 13px; letter-spacing: 1px;
+    background: linear-gradient(135deg, var(--cyan), #6af0ff 55%, var(--orange));
+    clip-path: polygon(12% 0, 88% 0, 100% 28%, 100% 72%, 88% 100%, 12% 100%, 0 72%, 0 28%);
+    box-shadow: 0 0 20px rgba(25,227,255,.5);
 }
 
-.brand-name strong {
-    display: block;
-    color: var(--dark);
-    font-size: 13px;
-    line-height: 1.4;
-}
+.brand-name strong { display: block; color: #fff; font-size: 13px; line-height: 1.4; letter-spacing: .5px; }
+.brand-name small { display: block; font-size: 10px; color: var(--muted); }
 
-.brand-name small {
-    display: block;
-    font-size: 10px;
-    color: var(--muted);
-}
+.nav-links { display: flex; align-items: center; gap: 23px; }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 23px;
-}
-
-.nav-links a {
-    font-size: 12px;
-    font-weight: 700;
-    color: #5d6078;
-    transition: .2s;
-}
-
-.nav-links a:hover {
-    color: var(--purple);
-}
+.nav-links a { font-size: 12px; font-weight: 700; color: var(--steel); transition: .2s; }
+.nav-links a:hover { color: var(--cyan); text-shadow: 0 0 10px var(--cyan); }
 
 .nav-links .nav-button {
     padding: 10px 15px;
-    background: var(--dark);
-    color: white;
+    background: linear-gradient(135deg, var(--orange), #ff9d3d);
+    color: #1b0d00;
     border-radius: 8px;
+    box-shadow: 0 0 18px rgba(255,122,26,.4);
 }
+.nav-links .nav-button:hover { color: #1b0d00; text-shadow: none; transform: translateY(-1px); }
 
 .menu-toggle {
     display: none;
-    background: white;
+    background: var(--panel);
+    color: #fff;
     border: 1px solid var(--line);
     border-radius: 8px;
     padding: 7px 12px;
@@ -143,394 +122,437 @@ button {
 /* HERO */
 .hero {
     position: relative;
+    z-index: 1;
+    padding: 70px 0 120px;
     overflow: hidden;
-    background:
-        radial-gradient(ellipse at 85% 20%, rgba(121,101,232,.35), transparent 35%),
-        radial-gradient(ellipse at 5% 100%, rgba(33,169,154,.19), transparent 35%),
-        linear-gradient(125deg, #131127, #211d47 65%, #292454);
-    color: white;
-    padding: 95px 0 110px;
 }
 
 .hero::before {
     content: "";
     position: absolute;
-    width: 400px;
-    height: 400px;
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 50%;
-    right: -100px;
-    top: -160px;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 78% 40%, rgba(25,227,255,.16), transparent 45%),
+        radial-gradient(ellipse at 10% 90%, rgba(255,122,26,.12), transparent 40%);
 }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    width: 290px;
-    height: 290px;
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 50%;
-    right: -45px;
-    top: -105px;
-}
+.container { width: min(1150px, 92%); margin: auto; position: relative; z-index: 1; }
 
-.container {
-    width: min(1150px, 92%);
-    margin: auto;
-}
-
-.hero-content {
+.hero-grid {
     position: relative;
     z-index: 1;
-    max-width: 780px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 20px;
 }
 
 .hero-tag {
     display: inline-block;
-    padding: 7px 13px;
-    border: 1px solid rgba(242,206,121,.4);
-    background: rgba(242,206,121,.08);
-    color: var(--gold);
-    border-radius: 30px;
+    padding: 7px 14px;
+    border: 1px solid rgba(25,227,255,.4);
+    background: var(--cyan-soft);
+    color: var(--cyan);
+    border-radius: 4px;
     font-size: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 800;
     margin-bottom: 23px;
+    clip-path: polygon(0 0, 94% 0, 100% 30%, 100% 100%, 6% 100%, 0 70%);
 }
 
 .hero h1 {
-    font-size: clamp(37px, 5.5vw, 65px);
-    line-height: 1.12;
-    letter-spacing: -1.8px;
-    margin-bottom: 23px;
+    font-size: clamp(36px, 5.2vw, 64px);
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 22px;
+    text-transform: none;
 }
 
 .hero h1 span {
-    background: linear-gradient(90deg, #b8a8ff, #79d9d0);
+    background: linear-gradient(90deg, var(--cyan), #9ff4ff 40%, var(--orange));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    filter: drop-shadow(0 0 18px rgba(25,227,255,.35));
 }
 
-.hero p {
-    color: #d0cee5;
-    font-size: 15px;
-    max-width: 650px;
-    line-height: 1.9;
-}
+.hero p { color: #b3bdd3; font-size: 15px; max-width: 560px; line-height: 1.9; }
 
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 
 .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 19px;
-    border-radius: 9px;
-    font-size: 12px;
-    font-weight: 800;
-    transition: .2s;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 13px 22px;
+    border-radius: 6px;
+    font-size: 12px; font-weight: 800; letter-spacing: .5px;
+    transition: .25s;
 }
 
 .button-primary {
-    background: var(--purple);
-    color: white;
+    background: linear-gradient(135deg, var(--cyan), #5fefff);
+    color: #031018;
+    box-shadow: 0 0 24px rgba(25,227,255,.45);
+}
+.button-primary:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(25,227,255,.7); }
+
+.button-outline { border: 1px solid rgba(255,255,255,.28); color: #fff; }
+.button-outline:hover { background: rgba(255,255,255,.08); border-color: var(--orange); color: var(--orange); }
+
+.hero-stats { display: flex; gap: 30px; margin-top: 38px; }
+.hero-stats div strong { display: block; font-size: 26px; color: #fff; line-height: 1.1; }
+.hero-stats div span { font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+/* PANGGUNG 3D */
+.stage {
+    position: relative;
+    height: 560px;
+    perspective: 1100px;
+    display: grid;
+    place-items: center;
 }
 
-.button-primary:hover {
-    background: #6550d0;
-    transform: translateY(-2px);
+.floor {
+    position: absolute;
+    bottom: 36px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle, rgba(25,227,255,.22) 0 1px, transparent 1px 22px),
+        radial-gradient(circle, rgba(25,227,255,.25), transparent 65%);
+    transform: rotateX(72deg);
+    animation: pulseFloor 4s ease-in-out infinite;
 }
 
-.button-outline {
-    border: 1px solid rgba(255,255,255,.3);
-    color: white;
+@keyframes pulseFloor {
+    0%, 100% { opacity: .65; }
+    50% { opacity: 1; }
 }
 
-.button-outline:hover {
-    background: rgba(255,255,255,.08);
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transform-style: preserve-3d;
+}
+
+.ring.r1 {
+    width: 440px; height: 440px;
+    border-top-color: var(--cyan);
+    border-bottom-color: rgba(25,227,255,.15);
+    animation: spinA 9s linear infinite;
+    filter: drop-shadow(0 0 8px var(--cyan));
+}
+.ring.r2 {
+    width: 500px; height: 500px;
+    border-left-color: var(--orange);
+    border-right-color: rgba(255,122,26,.12);
+    animation: spinB 13s linear infinite;
+    filter: drop-shadow(0 0 8px var(--orange));
+}
+.ring.r3 {
+    width: 370px; height: 370px;
+    border: 1px dashed rgba(255,255,255,.28);
+    animation: spinC 20s linear infinite;
+}
+
+@keyframes spinA { from { transform: rotateX(68deg) rotateZ(0); } to { transform: rotateX(68deg) rotateZ(360deg); } }
+@keyframes spinB { from { transform: rotateX(62deg) rotateY(18deg) rotateZ(360deg); } to { transform: rotateX(62deg) rotateY(18deg) rotateZ(0); } }
+@keyframes spinC { from { transform: rotateY(70deg) rotateZ(0); } to { transform: rotateY(70deg) rotateZ(360deg); } }
+
+.robot-wrap {
+    position: relative;
+    width: 0; height: 0;
+    transform-style: preserve-3d;
+}
+
+.robot {
+    position: absolute;
+    left: 0; top: 0;
+    transform-style: preserve-3d;
+    transform: scale(.98);
+}
+
+/* kubus */
+.cube {
+    position: absolute;
+    transform-style: preserve-3d;
+}
+.cube .f {
+    position: absolute;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.14);
+}
+
+.steel .f { background: linear-gradient(145deg, #dbe3ef, #8e9bb2 55%, #5f6b82); }
+.steel .f.top { background: linear-gradient(180deg, #f2f6fb, #b9c4d6); }
+.steel .f.bottom { background: #3a4458; }
+.steel .f.left, .steel .f.right { background: linear-gradient(160deg, #98a5bb, #4d586e); }
+.steel .f.back { background: #4a556b; }
+
+.dark .f { background: linear-gradient(145deg, #2a3348, #121828); border-color: rgba(25,227,255,.2); }
+.dark .f.top { background: #1d2538; }
+
+.fire .f { background: linear-gradient(145deg, #ffb25e, #ff7a1a 55%, #b83f00); }
+.fire .f.top { background: linear-gradient(180deg, #ffd29a, #ff8c33); }
+.fire .f.bottom { background: #7a2b00; }
+.fire .f.left, .fire .f.right { background: linear-gradient(160deg, #e96a10, #8c3200); }
+.fire .f.back { background: #8c3200; }
+
+.gold .f { background: linear-gradient(145deg, #ffe08a, #ffc542); }
+
+.visor {
+    width: 88%; height: 46%;
+    border-radius: 6px;
+    background: #04101a;
+    display: flex; align-items: center; justify-content: space-evenly;
+    box-shadow: inset 0 0 12px #000;
+}
+.visor i {
+    display: block;
+    width: 34%; height: 28%;
+    border-radius: 3px;
+    background: var(--cyan);
+    box-shadow: 0 0 14px var(--cyan), 0 0 30px var(--cyan);
+    animation: blink 5s infinite;
+}
+@keyframes blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+
+.core {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    border: 4px solid #1b2234;
+    background: radial-gradient(circle, #fff 0 12%, var(--cyan) 30%, #0a6f83 75%);
+    box-shadow: 0 0 22px var(--cyan), 0 0 55px rgba(25,227,255,.7), inset 0 0 10px #fff;
+    animation: corePulse 2.2s ease-in-out infinite;
+}
+@keyframes corePulse {
+    0%, 100% { box-shadow: 0 0 18px var(--cyan), 0 0 40px rgba(25,227,255,.5), inset 0 0 8px #fff; }
+    50% { box-shadow: 0 0 30px var(--cyan), 0 0 80px rgba(25,227,255,.9), inset 0 0 14px #fff; }
+}
+
+.chest-code {
+    font: 800 12px/1 "Courier New", monospace;
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+    margin-top: 6px;
+}
+
+.stripe {
+    width: 80%; height: 6px;
+    background: repeating-linear-gradient(90deg, #1b2234 0 8px, var(--orange) 8px 16px);
+    border-radius: 3px;
+}
+
+.vent {
+    width: 70%; height: 60%;
+    background: repeating-linear-gradient(0deg, #05080f 0 6px, #1c2538 6px 12px);
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(25,227,255,.3);
+}
+
+.shard {
+    position: absolute;
+    width: 16px; height: 16px;
+    background: linear-gradient(135deg, var(--cyan), transparent);
+    border: 1px solid var(--cyan);
+    opacity: .75;
+    animation: shardFloat 6s ease-in-out infinite;
+}
+.shard.s2 { background: linear-gradient(135deg, var(--orange), transparent); border-color: var(--orange); }
+
+@keyframes shardFloat {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-26px) rotate(180deg); }
+}
+
+.stage-hint {
+    position: absolute;
+    bottom: 0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
 }
 
 /* RINGKASAN PILAR */
+main { position: relative; z-index: 1; }
+
 .pillar-overview {
     position: relative;
     z-index: 2;
-    margin-top: -40px;
+    margin-top: -50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
 .overview-card {
-    background: white;
+    background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
     border: 1px solid var(--line);
-    border-radius: 15px;
+    border-radius: 14px;
     padding: 26px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 12px 35px rgba(30,25,70,.06);
+    display: flex; align-items: center; gap: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
 }
 
 .overview-symbol {
     flex-shrink: 0;
-    width: 58px;
-    height: 58px;
-    border-radius: 15px;
-    display: grid;
-    place-items: center;
-    font-size: 16px;
-    font-weight: 900;
+    width: 58px; height: 58px;
+    border-radius: 12px;
+    display: grid; place-items: center;
+    font-size: 16px; font-weight: 900;
 }
+.overview-it .overview-symbol { background: var(--cyan-soft); color: var(--cyan); box-shadow: 0 0 20px rgba(25,227,255,.3); }
+.overview-religion .overview-symbol { background: var(--orange-soft); color: var(--orange); box-shadow: 0 0 20px rgba(255,122,26,.3); }
 
-.overview-it .overview-symbol {
-    background: var(--purple-light);
-    color: var(--purple);
-}
-
-.overview-religion .overview-symbol {
-    background: var(--teal-light);
-    color: #168c80;
-}
-
-.overview-card small {
-    font-size: 10px;
-    color: var(--muted);
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.overview-card h3 {
-    font-size: 20px;
-    color: var(--dark);
-    margin: 3px 0;
-}
-
-.overview-card p {
-    font-size: 12px;
-    color: var(--muted);
-}
+.overview-card small { font-size: 10px; color: var(--muted); font-weight: 800; letter-spacing: 1.5px; }
+.overview-card h3 { font-size: 20px; color: #fff; margin: 3px 0; }
+.overview-card p { font-size: 12px; color: var(--muted); }
 
 /* BAGIAN UMUM */
-.section {
-    padding-top: 82px;
-}
+.section { padding-top: 90px; }
 
-.section-header {
-    max-width: 720px;
-    margin-bottom: 32px;
-}
+.section-header { max-width: 720px; margin-bottom: 34px; }
 
 .section-kicker {
     display: inline-block;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 900;
-    color: var(--purple);
+    font-size: 10px; letter-spacing: 3px; font-weight: 900;
+    color: var(--cyan);
     margin-bottom: 10px;
 }
 
 .section-header h2 {
-    color: var(--dark);
-    font-size: clamp(27px, 3.5vw, 39px);
-    line-height: 1.3;
+    color: #fff;
+    font-size: clamp(27px, 3.5vw, 40px);
+    line-height: 1.25;
     margin-bottom: 13px;
     letter-spacing: -.7px;
 }
 
-.section-header p {
-    font-size: 14px;
-    color: var(--muted);
-}
+.section-header p { font-size: 14px; color: var(--muted); }
 
-/* KURIKULUM IT */
+/* KARTU JALUR */
 .track-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 21px;
+    gap: 22px;
     align-items: stretch;
+    perspective: 1200px;
 }
 
 .track-card {
     border-radius: 16px;
-    background: white;
+    background: linear-gradient(160deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
     border: 1px solid var(--line);
     overflow: hidden;
-    transition: transform .25s, box-shadow .25s;
+    transform-style: preserve-3d;
+    transition: transform .15s ease-out, box-shadow .3s, border-color .3s;
+    will-change: transform;
 }
 
-.track-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(32,28,75,.08);
-}
+.track-card:hover { border-color: rgba(255,255,255,.28); box-shadow: 0 25px 60px rgba(0,0,0,.5); }
+.digital:hover { box-shadow: 0 25px 60px rgba(255,122,26,.18); }
+.programmer:hover { box-shadow: 0 25px 60px rgba(25,227,255,.2); }
+.religion:hover { box-shadow: 0 25px 60px rgba(255,197,66,.18); }
 
 .track-header {
     padding: 27px 25px 25px;
-    color: white;
+    color: #fff;
     position: relative;
     overflow: hidden;
+    transform: translateZ(30px);
 }
 
 .track-header::after {
     content: "";
     position: absolute;
-    width: 125px;
-    height: 125px;
-    border: 1px solid rgba(255,255,255,.18);
+    width: 125px; height: 125px;
+    border: 1px solid rgba(255,255,255,.22);
     border-radius: 50%;
-    right: -35px;
-    top: -45px;
+    right: -35px; top: -45px;
 }
 
-.digital .track-header {
-    background: linear-gradient(130deg, #5542b5, #8871ef);
-}
-
-.programmer .track-header {
-    background: linear-gradient(130deg, #2058bd, #5297fa);
-}
-
-.religion .track-header {
-    background: linear-gradient(130deg, #087e75, #35bca5);
-}
+.digital .track-header { background: linear-gradient(130deg, #a43d00, #ff7a1a); }
+.programmer .track-header { background: linear-gradient(130deg, #04586b, #12bfe0); }
+.religion .track-header { background: linear-gradient(130deg, #8a5d00, #f0b429); }
 
 .track-top {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative; z-index: 1;
+    display: flex; justify-content: space-between; align-items: center;
     margin-bottom: 24px;
 }
 
-.track-code {
-    font-size: 27px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
+.track-code { font-size: 27px; font-weight: 900; letter-spacing: 1px; }
 
 .track-number {
-    border: 1px solid rgba(255,255,255,.35);
-    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.4);
+    background: rgba(0,0,0,.18);
     padding: 5px 9px;
-    border-radius: 6px;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    border-radius: 4px;
+    font-size: 9px; font-weight: 800; letter-spacing: 1px;
 }
 
-.track-header h3 {
-    position: relative;
-    z-index: 1;
-    font-size: 23px;
-    margin-bottom: 7px;
-}
+.track-header h3 { position: relative; z-index: 1; font-size: 23px; margin-bottom: 7px; }
+.track-header p { position: relative; z-index: 1; color: rgba(255,255,255,.88); font-size: 11px; }
 
-.track-header p {
-    position: relative;
-    z-index: 1;
-    color: rgba(255,255,255,.82);
-    font-size: 11px;
-}
-
-.track-body {
-    padding: 23px 25px 26px;
-}
+.track-body { padding: 23px 25px 26px; }
 
 .track-body h4 {
     color: var(--muted);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     font-size: 10px;
     margin-bottom: 15px;
 }
 
-/* DAFTAR MATERI */
-.skill-list {
-    list-style: none;
-}
+.skill-list { list-style: none; }
 
 .skill-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid #eff0f5;
+    border-bottom: 1px solid var(--line);
+    transition: transform .2s;
 }
-
-.skill-item:last-child {
-    border-bottom: none;
-}
+.skill-item:hover { transform: translateX(6px); }
+.skill-item:last-child { border-bottom: none; }
 
 .skill-num {
     flex-shrink: 0;
-    width: 29px;
-    height: 29px;
-    display: grid;
-    place-items: center;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 900;
+    width: 29px; height: 29px;
+    display: grid; place-items: center;
+    border-radius: 7px;
+    font-size: 10px; font-weight: 900;
 }
+.digital .skill-num { color: var(--orange); background: var(--orange-soft); }
+.programmer .skill-num { color: var(--cyan); background: var(--cyan-soft); }
+.religion .skill-num { color: var(--gold); background: var(--gold-soft); }
 
-.digital .skill-num {
-    color: var(--purple);
-    background: var(--purple-light);
-}
+.skill-item strong { font-size: 12px; line-height: 1.6; color: var(--text); font-weight: 700; }
 
-.programmer .skill-num {
-    color: var(--blue);
-    background: var(--blue-light);
-}
-
-.religion .skill-num {
-    color: #138d80;
-    background: var(--teal-light);
-}
-
-.skill-item strong {
-    font-size: 12px;
-    line-height: 1.6;
-    color: #353952;
-    font-weight: 700;
-}
-
-/* METODE PENDIDIKAN */
+/* METODE */
 .method-box {
     display: grid;
     grid-template-columns: .9fr 1.1fr;
-    border-radius: 17px;
+    border-radius: 18px;
     overflow: hidden;
-    background: var(--dark);
-    color: white;
+    border: 1px solid var(--line);
+    background: var(--bg-2);
 }
 
 .method-intro {
-    padding: 36px;
+    padding: 38px;
     background:
-        radial-gradient(circle at 0% 100%, rgba(33,169,154,.25), transparent 45%),
-        linear-gradient(145deg, #1a1739, #2b2656);
+        radial-gradient(circle at 0% 100%, rgba(255,122,26,.22), transparent 45%),
+        linear-gradient(145deg, #0e1730, #131c36);
 }
 
-.method-intro .section-kicker {
-    color: var(--gold);
-}
-
-.method-intro h3 {
-    font-size: 27px;
-    line-height: 1.35;
-    margin-bottom: 14px;
-}
-
-.method-intro p {
-    color: #d0cee5;
-    font-size: 13px;
-}
+.method-intro .section-kicker { color: var(--orange); }
+.method-intro h3 { font-size: 27px; line-height: 1.35; margin-bottom: 14px; color: #fff; }
+.method-intro p { color: #aab5cc; font-size: 13px; }
 
 .method-content {
     padding: 30px;
@@ -542,213 +564,127 @@ button {
 
 .method-item {
     padding: 20px;
-    border-radius: 11px;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    transition: .25s;
 }
+.method-item:hover { transform: translateY(-4px); border-color: var(--cyan); box-shadow: 0 0 22px rgba(25,227,255,.15); }
 
-.method-item span {
-    display: block;
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 900;
-    margin-bottom: 8px;
-}
+.method-item span { display: block; color: var(--cyan); font-size: 11px; font-weight: 900; margin-bottom: 8px; letter-spacing: 1px; }
+.method-item h4 { font-size: 13px; margin-bottom: 6px; color: #fff; }
+.method-item p { font-size: 11px; color: var(--muted); }
 
-.method-item h4 {
-    font-size: 13px;
-    margin-bottom: 6px;
-}
-
-.method-item p {
-    font-size: 11px;
-    color: #c4c5dc;
-}
-
-/* KURIKULUM DETAIL */
+/* DETAIL */
 .detail-panel {
-    background: white;
+    background: var(--panel);
     border: 1px solid var(--line);
     border-radius: 14px;
     overflow: hidden;
+    backdrop-filter: blur(8px);
 }
 
-.detail-panel details {
-    border-bottom: 1px solid var(--line);
-}
-
-.detail-panel details:last-child {
-    border-bottom: none;
-}
+.detail-panel details { border-bottom: 1px solid var(--line); }
+.detail-panel details:last-child { border-bottom: none; }
 
 .detail-panel summary {
     cursor: pointer;
     list-style: none;
     padding: 21px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    font-size: 13px;
-    font-weight: 800;
-    color: var(--dark);
+    display: flex; align-items: center; justify-content: space-between; gap: 15px;
+    font-size: 13px; font-weight: 800; color: #fff;
+    transition: background .2s;
 }
+.detail-panel summary:hover { background: rgba(255,255,255,.04); }
+.detail-panel summary::-webkit-details-marker { display: none; }
 
-.detail-panel summary::-webkit-details-marker {
-    display: none;
-}
-
-.summary-title {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
+.summary-title { display: flex; align-items: center; gap: 13px; }
 
 .summary-code {
-    display: grid;
-    place-items: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 9px;
-    background: var(--purple-light);
-    color: var(--purple);
-    font-size: 10px;
-    font-weight: 900;
+    display: grid; place-items: center;
+    width: 35px; height: 35px;
+    border-radius: 8px;
+    background: var(--orange-soft); color: var(--orange);
+    font-size: 10px; font-weight: 900;
 }
+.detail-panel details:nth-child(2) .summary-code { background: var(--cyan-soft); color: var(--cyan); }
+.detail-panel details:nth-child(3) .summary-code { background: var(--gold-soft); color: var(--gold); }
 
-.detail-panel details:nth-child(2) .summary-code {
-    background: var(--blue-light);
-    color: var(--blue);
-}
+.summary-plus { font-size: 20px; color: var(--muted); transition: transform .2s; }
+.detail-panel details[open] .summary-plus { transform: rotate(45deg); color: var(--cyan); }
 
-.detail-panel details:nth-child(3) .summary-code {
-    background: var(--teal-light);
-    color: #168c80;
-}
+.detail-content { padding: 0 24px 24px 72px; }
+.detail-content p { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
 
-.summary-plus {
-    font-size: 20px;
-    color: var(--muted);
-    transition: transform .2s;
-}
-
-.detail-panel details[open] .summary-plus {
-    transform: rotate(45deg);
-}
-
-.detail-content {
-    padding: 0 24px 24px 72px;
-}
-
-.detail-content p {
-    font-size: 12px;
-    color: var(--muted);
-    margin-bottom: 12px;
-}
-
-.detail-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+.detail-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .detail-tags span {
     font-size: 11px;
     padding: 7px 11px;
-    border-radius: 7px;
-    background: #f1efff;
-    color: #5b4ab2;
+    border-radius: 5px;
+    background: var(--orange-soft);
+    color: #ffb270;
+    border: 1px solid rgba(255,122,26,.25);
 }
-
-.detail-panel details:nth-child(2) .detail-tags span {
-    background: var(--blue-light);
-    color: #285bb1;
-}
-
-.detail-panel details:nth-child(3) .detail-tags span {
-    background: var(--teal-light);
-    color: #137c72;
-}
+.detail-panel details:nth-child(2) .detail-tags span { background: var(--cyan-soft); color: #8aefff; border-color: rgba(25,227,255,.25); }
+.detail-panel details:nth-child(3) .detail-tags span { background: var(--gold-soft); color: #ffe08a; border-color: rgba(255,197,66,.25); }
 
 /* CTA */
 .cta {
     position: relative;
     overflow: hidden;
-    margin-top: 80px;
-    border-radius: 17px;
-    padding: 43px;
+    margin-top: 90px;
+    border-radius: 18px;
+    padding: 46px;
+    border: 1px solid rgba(25,227,255,.25);
     background:
-        radial-gradient(circle at 90% 0%, rgba(121,101,232,.32), transparent 35%),
-        linear-gradient(120deg, #17142f, #30285f);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
+        radial-gradient(circle at 90% 0%, rgba(25,227,255,.25), transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(255,122,26,.2), transparent 40%),
+        #0c1426;
+    display: flex; align-items: center; justify-content: space-between; gap: 25px;
 }
 
-.cta-content {
-    max-width: 680px;
+.cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(115deg, transparent 0 40px, rgba(255,255,255,.025) 40px 41px);
 }
 
-.cta small {
-    color: var(--gold);
-    font-size: 10px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.cta h2 {
-    font-size: clamp(23px, 3vw, 32px);
-    line-height: 1.35;
-    margin: 10px 0;
-}
-
-.cta p {
-    font-size: 12px;
-    color: #d0cee5;
-}
+.cta-content { position: relative; max-width: 680px; }
+.cta small { color: var(--orange); font-size: 10px; font-weight: 900; letter-spacing: 3px; }
+.cta h2 { font-size: clamp(23px, 3vw, 32px); line-height: 1.35; margin: 10px 0; color: #fff; }
+.cta p { font-size: 12px; color: #aab5cc; }
 
 .cta .button {
-    background: white;
-    color: var(--dark);
+    position: relative;
+    background: linear-gradient(135deg, var(--orange), #ff9d3d);
+    color: #1b0d00;
     flex-shrink: 0;
+    box-shadow: 0 0 26px rgba(255,122,26,.45);
 }
+.cta .button:hover { transform: translateY(-3px); box-shadow: 0 0 40px rgba(255,122,26,.7); }
 
-.cta .button:hover {
-    background: var(--gold);
-}
-
-/* KEMBALI */
-.back-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 32px;
-}
+.back-container { display: flex; justify-content: center; margin-top: 32px; }
 
 .back-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid #ddddea;
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line);
     padding: 11px 18px;
     border-radius: 8px;
-    color: #51556f;
-    background: white;
-    font-size: 12px;
-    font-weight: 800;
+    color: var(--steel);
+    background: var(--panel);
+    font-size: 12px; font-weight: 800;
     transition: .2s;
 }
-
-.back-button:hover {
-    color: var(--purple);
-    border-color: var(--purple);
-}
+.back-button:hover { color: var(--cyan); border-color: var(--cyan); }
 
 /* FOOTER */
 footer {
+    position: relative; z-index: 1;
     margin-top: 80px;
-    background: #111025;
+    background: #04060e;
+    border-top: 1px solid var(--line);
     color: white;
     padding: 33px 0;
 }
@@ -756,162 +692,63 @@ footer {
 .footer-inner {
     width: min(1150px, 92%);
     margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
 }
+.footer-inner strong { font-size: 12px; letter-spacing: 1px; }
+.footer-inner p, .footer-inner span { color: var(--muted); font-size: 11px; }
+.footer-inner p { margin-top: 4px; }
 
-.footer-inner strong {
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.footer-inner p,
-.footer-inner span {
-    color: #a9a9c3;
-    font-size: 11px;
-}
-
-.footer-inner p {
-    margin-top: 4px;
-}
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s, transform .8s; }
+.reveal.show { opacity: 1; transform: none; }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-    .track-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .religion {
-        grid-column: 1 / -1;
-    }
-
-    .method-box {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .stage { height: 480px; transform: scale(.85); margin-top: -20px; }
+    .track-grid { grid-template-columns: 1fr 1fr; }
+    .religion { grid-column: 1 / -1; }
+    .method-box { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 650px) {
-    .nav-container {
-        min-height: 66px;
-        flex-wrap: wrap;
-        padding: 10px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding-bottom: 8px;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 12px 4px;
-        border-bottom: 1px solid var(--line);
-    }
-
-    .nav-links .nav-button {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .hero {
-        padding: 68px 0 82px;
-    }
-
-    .hero h1 {
-        letter-spacing: -1px;
-    }
-
-    .hero p {
-        font-size: 13px;
-    }
-
-    .pillar-overview {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: -28px;
-    }
-
-    .overview-card {
-        padding: 19px;
-    }
-
-    .section {
-        padding-top: 60px;
-    }
-
-    .track-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .religion {
-        grid-column: auto;
-    }
-
-    .track-header {
-        padding: 23px;
-    }
-
-    .track-body {
-        padding: 21px 23px;
-    }
-
-    .method-intro {
-        padding: 27px;
-    }
-
-    .method-content {
-        grid-template-columns: 1fr;
-        padding: 20px;
-    }
-
-    .detail-panel summary {
-        padding: 17px;
-        font-size: 12px;
-    }
-
-    .detail-content {
-        padding: 0 17px 20px;
-    }
-
-    .cta {
-        margin-top: 60px;
-        padding: 28px 23px;
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+    .nav-container { min-height: 66px; flex-wrap: wrap; padding: 10px 0; }
+    .menu-toggle { display: block; }
+    .nav-links { display: none; width: 100%; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: 8px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 12px 4px; border-bottom: 1px solid var(--line); }
+    .nav-links .nav-button { text-align: center; margin-top: 10px; }
+    .hero { padding: 50px 0 80px; }
+    .hero h1 { letter-spacing: -1px; }
+    .hero p { font-size: 13px; }
+    .stage { height: 420px; transform: scale(.68); margin: -40px 0 -50px; }
+    .pillar-overview { grid-template-columns: 1fr; gap: 12px; margin-top: -28px; }
+    .overview-card { padding: 19px; }
+    .section { padding-top: 60px; }
+    .track-grid { grid-template-columns: 1fr; }
+    .religion { grid-column: auto; }
+    .track-header { padding: 23px; }
+    .track-body { padding: 21px 23px; }
+    .method-intro { padding: 27px; }
+    .method-content { grid-template-columns: 1fr; padding: 20px; }
+    .detail-panel summary { padding: 17px; font-size: 12px; }
+    .detail-content { padding: 0 17px 20px; }
+    .cta { margin-top: 60px; padding: 28px 23px; align-items: flex-start; flex-direction: column; }
+    .footer-inner { align-items: flex-start; flex-direction: column; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *, *::before, *::after {
-        transition-duration: .01ms !important;
-    }
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 
 <body>
+
+<canvas id="fx"></canvas>
+<div class="progress" id="progress"></div>
 
 <!-- NAVIGASI -->
 <nav class="navbar">
@@ -933,7 +770,7 @@ footer {
             <a href="#pilar">Konsep Pendidikan</a>
             <a href="#kurikulum">Materi Kurikulum</a>
             <a href="#detail">Detail Materi</a>
-            <a href="https://kurikulum-pendidikan-pit-rit.vercel.app/"
+            <a href="detailkurikulum.html"
                class="nav-button">Kurikulum Lengkap</a>
         </div>
     </div>
@@ -942,28 +779,48 @@ footer {
 <!-- HERO -->
 <header class="hero">
     <div class="container">
-        <div class="hero-content">
-            <span class="hero-tag">KURIKULUM PENDIDIKAN</span>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <span class="hero-tag">KURIKULUM PENDIDIKAN</span>
 
-            <h1>
-                Membangun Skill IT.<br>
-                <span>Menguatkan Fondasi Agama.</span>
-            </h1>
+                <h1>
+                    Membangun Skill IT.<br>
+                    <span>Menguatkan Fondasi Agama.</span>
+                </h1>
 
-            <p>
-                Kurikulum Pondok IT, Rumah IT, dan Sekolah IT memadukan
-                keterampilan teknologi dengan pendidikan agama. Santri
-                dibekali ilmu sesuai jalur pembelajaran sekaligus
-                menjadikan agama sebagai pedoman dalam kehidupan.
-            </p>
+                <p>
+                    Kurikulum Pondok IT, Rumah IT, dan Sekolah IT memadukan
+                    keterampilan teknologi dengan pendidikan agama. Santri
+                    dibekali ilmu sesuai jalur pembelajaran sekaligus
+                    menjadikan agama sebagai pedoman dalam kehidupan.
+                </p>
 
-            <div class="hero-actions">
-                <a href="#kurikulum" class="button button-primary">
-                    Jelajahi Materi
-                </a>
-                <a href="#pilar" class="button button-outline">
-                    Konsep Pendidikan
-                </a>
+                <div class="hero-actions">
+                    <a href="#kurikulum" class="button button-primary">Jelajahi Materi</a>
+                    <a href="#pilar" class="button button-outline">Konsep Pendidikan</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><strong>3</strong><span>BIDANG UTAMA</span></div>
+                    <div><strong>18</strong><span>MATERI INTI</span></div>
+                    <div><strong>2</strong><span>PILAR: IT &amp; AGAMA</span></div>
+                </div>
+            </div>
+
+            <!-- ROBOT 3D (karakter orisinal) -->
+            <div class="stage" id="stage" aria-hidden="true">
+                <div class="floor"></div>
+                <div class="ring r2"></div>
+                <div class="ring r1"></div>
+                <div class="ring r3"></div>
+                <div class="robot-wrap" id="robotWrap">
+                    <div class="robot" id="robot"></div>
+                </div>
+                <i class="shard" style="left:8%;top:18%"></i>
+                <i class="shard s2" style="right:10%;top:26%;animation-delay:-2s"></i>
+                <i class="shard" style="left:16%;bottom:24%;animation-delay:-4s"></i>
+                <i class="shard s2" style="right:14%;bottom:20%;animation-delay:-1s"></i>
+                <span class="stage-hint">GERAKKAN KURSOR UNTUK MEMUTAR</span>
             </div>
         </div>
     </div>
@@ -973,7 +830,7 @@ footer {
 
     <!-- DUA PILAR -->
     <section class="pillar-overview" id="pilar">
-        <article class="overview-card overview-it">
+        <article class="overview-card overview-it reveal">
             <div class="overview-symbol">IT</div>
             <div>
                 <small>BIDANG PERTAMA</small>
@@ -982,7 +839,7 @@ footer {
             </div>
         </article>
 
-        <article class="overview-card overview-religion">
+        <article class="overview-card overview-religion reveal">
             <div class="overview-symbol">AG</div>
             <div>
                 <small>BIDANG KEDUA</small>
@@ -994,7 +851,7 @@ footer {
 
     <!-- KURIKULUM -->
     <section class="section" id="kurikulum">
-        <div class="section-header">
+        <div class="section-header reveal">
             <span class="section-kicker">PETA PEMBELAJARAN</span>
             <h2>Tiga Bidang Utama Kurikulum</h2>
             <p>
@@ -1007,7 +864,7 @@ footer {
         <div class="track-grid">
 
             <!-- BISNIS DIGITAL -->
-            <article class="track-card digital">
+            <article class="track-card digital reveal">
                 <div class="track-header">
                     <div class="track-top">
                         <div class="track-code">BD</div>
@@ -1020,36 +877,18 @@ footer {
                 <div class="track-body">
                     <h4>Daftar Materi</h4>
                     <ul class="skill-list">
-                        <li class="skill-item">
-                            <span class="skill-num">01</span>
-                            <strong>Media Sosial Spesialis</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">02</span>
-                            <strong>Content Creator</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">03</span>
-                            <strong>Desain</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">04</span>
-                            <strong>Meta Ads</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">05</span>
-                            <strong>TikTok Affiliate</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">06</span>
-                            <strong>CS & Admin</strong>
-                        </li>
+                        <li class="skill-item"><span class="skill-num">01</span><strong>Media Sosial Spesialis</strong></li>
+                        <li class="skill-item"><span class="skill-num">02</span><strong>Content Creator</strong></li>
+                        <li class="skill-item"><span class="skill-num">03</span><strong>Desain</strong></li>
+                        <li class="skill-item"><span class="skill-num">04</span><strong>Meta Ads</strong></li>
+                        <li class="skill-item"><span class="skill-num">05</span><strong>TikTok Affiliate</strong></li>
+                        <li class="skill-item"><span class="skill-num">06</span><strong>CS &amp; Admin</strong></li>
                     </ul>
                 </div>
             </article>
 
             <!-- PROGRAMMER -->
-            <article class="track-card programmer">
+            <article class="track-card programmer reveal">
                 <div class="track-header">
                     <div class="track-top">
                         <div class="track-code">PG</div>
@@ -1062,72 +901,36 @@ footer {
                 <div class="track-body">
                     <h4>Daftar Materi</h4>
                     <ul class="skill-list">
-                        <li class="skill-item">
-                            <span class="skill-num">01</span>
-                            <strong>Dasar HTML</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">02</span>
-                            <strong>Dasar CSS</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">03</span>
-                            <strong>Frontend Development</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">04</span>
-                            <strong>Backend Development</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">05</span>
-                            <strong>Web Development</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">06</span>
-                            <strong>Mobile Development</strong>
-                        </li>
+                        <li class="skill-item"><span class="skill-num">01</span><strong>Dasar HTML</strong></li>
+                        <li class="skill-item"><span class="skill-num">02</span><strong>Dasar CSS</strong></li>
+                        <li class="skill-item"><span class="skill-num">03</span><strong>Frontend Development</strong></li>
+                        <li class="skill-item"><span class="skill-num">04</span><strong>Backend Development</strong></li>
+                        <li class="skill-item"><span class="skill-num">05</span><strong>Web Development</strong></li>
+                        <li class="skill-item"><span class="skill-num">06</span><strong>Mobile Development</strong></li>
                     </ul>
                 </div>
             </article>
 
             <!-- AGAMA -->
-            <article class="track-card religion">
+            <article class="track-card religion reveal">
                 <div class="track-header">
                     <div class="track-top">
                         <div class="track-code">AG</div>
                         <span class="track-number">JALUR 03</span>
                     </div>
-                    <h3>Agama & Karakter</h3>
+                    <h3>Agama &amp; Karakter</h3>
                     <p>Fondasi keilmuan agama dan pembentukan karakter santri.</p>
                 </div>
 
                 <div class="track-body">
                     <h4>Daftar Materi</h4>
                     <ul class="skill-list">
-                        <li class="skill-item">
-                            <span class="skill-num">01</span>
-                            <strong>Dasar Ilmu Fiqih</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">02</span>
-                            <strong>Dasar Ilmu Aqidah</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">03</span>
-                            <strong>Ilmu Akhlak dan Adab</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">04</span>
-                            <strong>Ilmu Tadabbur Al-Qur'an</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">05</span>
-                            <strong>Ilmu Tahsin dan Tajwid Al-Qur'an</strong>
-                        </li>
-                        <li class="skill-item">
-                            <span class="skill-num">06</span>
-                            <strong>Ilmu Karakter Leadership / Kepemimpinan</strong>
-                        </li>
+                        <li class="skill-item"><span class="skill-num">01</span><strong>Dasar Ilmu Fiqih</strong></li>
+                        <li class="skill-item"><span class="skill-num">02</span><strong>Dasar Ilmu Aqidah</strong></li>
+                        <li class="skill-item"><span class="skill-num">03</span><strong>Ilmu Akhlak dan Adab</strong></li>
+                        <li class="skill-item"><span class="skill-num">04</span><strong>Ilmu Tadabbur Al-Qur'an</strong></li>
+                        <li class="skill-item"><span class="skill-num">05</span><strong>Ilmu Tahsin dan Tajwid Al-Qur'an</strong></li>
+                        <li class="skill-item"><span class="skill-num">06</span><strong>Ilmu Karakter Leadership / Kepemimpinan</strong></li>
                     </ul>
                 </div>
             </article>
@@ -1137,7 +940,7 @@ footer {
 
     <!-- PENDEKATAN PENDIDIKAN -->
     <section class="section">
-        <div class="method-box">
+        <div class="method-box reveal">
             <div class="method-intro">
                 <span class="section-kicker">ARAH PENDIDIKAN</span>
                 <h3>Keahlian Teknologi dengan Landasan Nilai Agama</h3>
@@ -1154,19 +957,16 @@ footer {
                     <h4>Kompetensi IT</h4>
                     <p>Mengembangkan kemampuan sesuai bidang Bisnis Digital atau Programmer.</p>
                 </div>
-
                 <div class="method-item">
                     <span>02 / ILMU</span>
                     <h4>Pemahaman Agama</h4>
                     <p>Mempelajari fiqih, aqidah, akhlak, Al-Qur'an, dan tajwid.</p>
                 </div>
-
                 <div class="method-item">
                     <span>03 / KARAKTER</span>
                     <h4>Adab dan Akhlak</h4>
                     <p>Menguatkan adab, akhlak, dan karakter dalam kehidupan sehari-hari.</p>
                 </div>
-
                 <div class="method-item">
                     <span>04 / LEADERSHIP</span>
                     <h4>Kepemimpinan</h4>
@@ -1178,7 +978,7 @@ footer {
 
     <!-- DETAIL MATERI INTERAKTIF -->
     <section class="section" id="detail">
-        <div class="section-header">
+        <div class="section-header reveal">
             <span class="section-kicker">EKSPLORASI MATERI</span>
             <h2>Kenali Setiap Bidang Lebih Dekat</h2>
             <p>
@@ -1187,17 +987,13 @@ footer {
             </p>
         </div>
 
-        <div class="detail-panel">
+        <div class="detail-panel reveal">
 
             <details>
                 <summary>
-                    <span class="summary-title">
-                        <span class="summary-code">BD</span>
-                        Bisnis Digital
-                    </span>
+                    <span class="summary-title"><span class="summary-code">BD</span>Bisnis Digital</span>
                     <span class="summary-plus">+</span>
                 </summary>
-
                 <div class="detail-content">
                     <p>Materi pembelajaran Bisnis Digital meliputi:</p>
                     <div class="detail-tags">
@@ -1206,20 +1002,16 @@ footer {
                         <span>Desain</span>
                         <span>Meta Ads</span>
                         <span>TikTok Affiliate</span>
-                        <span>CS & Admin</span>
+                        <span>CS &amp; Admin</span>
                     </div>
                 </div>
             </details>
 
             <details>
                 <summary>
-                    <span class="summary-title">
-                        <span class="summary-code">PG</span>
-                        Programmer
-                    </span>
+                    <span class="summary-title"><span class="summary-code">PG</span>Programmer</span>
                     <span class="summary-plus">+</span>
                 </summary>
-
                 <div class="detail-content">
                     <p>Materi pembelajaran Programmer meliputi:</p>
                     <div class="detail-tags">
@@ -1235,13 +1027,9 @@ footer {
 
             <details>
                 <summary>
-                    <span class="summary-title">
-                        <span class="summary-code">AG</span>
-                        Agama & Karakter
-                    </span>
+                    <span class="summary-title"><span class="summary-code">AG</span>Agama &amp; Karakter</span>
                     <span class="summary-plus">+</span>
                 </summary>
-
                 <div class="detail-content">
                     <p>Materi pembelajaran Agama dan Karakter meliputi:</p>
                     <div class="detail-tags">
@@ -1259,7 +1047,7 @@ footer {
     </section>
 
     <!-- CTA -->
-    <section class="cta">
+    <section class="cta reveal">
         <div class="cta-content">
             <small>LANGKAH BERIKUTNYA</small>
             <h2>Siap Mempelajari dan Menguasai Materi Kurikulum?</h2>
@@ -1270,17 +1058,14 @@ footer {
             </p>
         </div>
 
-        <a href="https://kurikulum-pendidikan-pit-rit.vercel.app/"
-           class="button">
+        <a href="detailkurikulum.html" class="button">
             Lihat Kurikulum Lengkap →
         </a>
     </section>
 
     <!-- KEMBALI KE BERANDA -->
     <div class="back-container">
-        <a href="index.html" class="back-button">
-            ← Kembali ke Halaman Utama
-        </a>
+        <a href="index.html" class="back-button">← Kembali ke Halaman Utama</a>
     </div>
 
 </main>
@@ -1297,6 +1082,7 @@ footer {
 </footer>
 
 <script>
+/* ---------- Menu mobile ---------- */
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
@@ -1314,8 +1100,206 @@ document.querySelectorAll("#navLinks a").forEach(function (link) {
     });
 });
 
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ---------- Robot 3D orisinal (kubus CSS) ---------- */
+function cube(parent, o) {
+    const w = o.w, h = o.h, d = o.d;
+    const c = document.createElement("div");
+    c.className = "cube " + (o.cls || "steel");
+    c.style.width = w + "px";
+    c.style.height = h + "px";
+    c.style.marginLeft = (-w / 2) + "px";
+    c.style.marginTop = (-h / 2) + "px";
+    c.style.transform = "translate3d(" + (o.x || 0) + "px," + (o.y || 0) + "px," + (o.z || 0) + "px)";
+
+    const faces = {
+        front:  { w: w, h: h, t: "translateZ(" + d / 2 + "px)", l: 0, tp: 0 },
+        back:   { w: w, h: h, t: "rotateY(180deg) translateZ(" + d / 2 + "px)", l: 0, tp: 0 },
+        right:  { w: d, h: h, t: "rotateY(90deg) translateZ(" + w / 2 + "px)", l: (w - d) / 2, tp: 0 },
+        left:   { w: d, h: h, t: "rotateY(-90deg) translateZ(" + w / 2 + "px)", l: (w - d) / 2, tp: 0 },
+        top:    { w: w, h: d, t: "rotateX(90deg) translateZ(" + h / 2 + "px)", l: 0, tp: (h - d) / 2 },
+        bottom: { w: w, h: d, t: "rotateX(-90deg) translateZ(" + h / 2 + "px)", l: 0, tp: (h - d) / 2 }
+    };
+
+    Object.keys(faces).forEach(function (k) {
+        const f = faces[k];
+        const el = document.createElement("div");
+        el.className = "f " + k;
+        el.style.width = f.w + "px";
+        el.style.height = f.h + "px";
+        el.style.left = f.l + "px";
+        el.style.top = f.tp + "px";
+        el.style.transform = f.t;
+        if (k === "front" && o.front) el.innerHTML = o.front;
+        if (k === "back" && o.back) el.innerHTML = o.back;
+        c.appendChild(el);
+    });
+
+    parent.appendChild(c);
+    return c;
+}
+
+const robot = document.getElementById("robot");
+const parts = {};
+
+/* tubuh */
+cube(robot, { w: 150, h: 140, d: 90, x: 0, y: 0, z: 0,
+    front: '<div style="text-align:center"><div class="core" style="margin:auto"></div><div class="chest-code">&lt;/&gt;</div></div>' });
+cube(robot, { w: 120, h: 28, d: 84, cls: "fire", x: 0, y: 84, z: 0,
+    front: '<div class="stripe"></div>' });
+/* ransel energi */
+cube(robot, { w: 112, h: 112, d: 34, cls: "dark", x: 0, y: -4, z: -62, back: '<div class="vent"></div>' });
+/* leher + kepala */
+cube(robot, { w: 30, h: 22, d: 30, cls: "dark", x: 0, y: -80, z: 0 });
+parts.head = document.createElement("div");
+parts.head.style.cssText = "position:absolute;transform-style:preserve-3d;transition:transform .1s";
+robot.appendChild(parts.head);
+cube(parts.head, { w: 86, h: 72, d: 78, x: 0, y: -120, z: 0,
+    front: '<div class="visor"><i></i><i></i></div>' });
+cube(parts.head, { w: 100, h: 14, d: 62, cls: "fire", x: 0, y: -152, z: -4 });
+cube(parts.head, { w: 8, h: 34, d: 8, cls: "gold", x: -30, y: -172, z: 0 });
+cube(parts.head, { w: 8, h: 34, d: 8, cls: "gold", x: 30, y: -172, z: 0 });
+cube(parts.head, { w: 14, h: 30, d: 40, cls: "dark", x: -50, y: -120, z: 0 });
+cube(parts.head, { w: 14, h: 30, d: 40, cls: "dark", x: 50, y: -120, z: 0 });
+/* bahu, lengan, kepalan */
+[-1, 1].forEach(function (s) {
+    const arm = document.createElement("div");
+    arm.style.cssText = "position:absolute;transform-style:preserve-3d";
+    arm.dataset.side = s;
+    robot.appendChild(arm);
+    parts["arm" + s] = arm;
+    cube(arm, { w: 58, h: 58, d: 64, cls: "fire", x: s * 106, y: -48, z: 0 });
+    cube(arm, { w: 40, h: 110, d: 44, x: s * 108, y: 32, z: 0 });
+    cube(arm, { w: 52, h: 48, d: 52, cls: "fire", x: s * 108, y: 104, z: 0 });
+    cube(arm, { w: 20, h: 10, d: 20, cls: "gold", x: s * 108, y: 134, z: 0 });
+});
+/* kaki */
+[-1, 1].forEach(function (s) {
+    cube(robot, { w: 56, h: 112, d: 62, x: s * 38, y: 128, z: 0 });
+    cube(robot, { w: 60, h: 20, d: 64, cls: "dark", x: s * 38, y: 150, z: 0 });
+    cube(robot, { w: 72, h: 26, d: 92, cls: "fire", x: s * 38, y: 196, z: 12 });
+});
+
+/* ---------- Gerak robot: kursor + otomatis ---------- */
+const robotWrap = document.getElementById("robotWrap");
+const stage = document.getElementById("stage");
+let mx = 0, my = 0, tx = 0, ty = 0;
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+window.addEventListener("mousemove", function (e) {
+    const r = stage.getBoundingClientRect();
+    mx = ((e.clientX - (r.left + r.width / 2)) / window.innerWidth) * 2;
+    my = ((e.clientY - (r.top + r.height / 2)) / window.innerHeight) * 2;
+});
+window.addEventListener("touchmove", function (e) {
+    const t = e.touches[0];
+    mx = (t.clientX / window.innerWidth - .5) * 2;
+    my = (t.clientY / window.innerHeight - .5) * 2;
+}, { passive: true });
+
+function frame(t) {
+    const s = t / 1000;
+    tx += (mx - tx) * .06;
+    ty += (my - ty) * .06;
+    const ry = (reduce ? 0 : Math.sin(s * .8) * 18) + tx * 38 - 10;
+    const rx = -6 - ty * 14;
+    const bob = reduce ? 0 : Math.sin(s * 1.6) * 8;
+    robotWrap.style.transform = "translateY(" + (bob - 10) + "px) rotateX(" + rx + "deg) rotateY(" + ry + "deg)";
+
+    /* ayun lengan & kepala */
+    [-1, 1].forEach(function (sd) {
+        const a = reduce ? 0 : Math.sin(s * 1.6 + (sd > 0 ? 0 : Math.PI)) * 7;
+        parts["arm" + sd].style.transform = "rotateX(" + a + "deg)";
+    });
+    parts.head.style.transform = "rotateY(" + (tx * 22) + "deg) rotateX(" + (ty * 8) + "deg)";
+    requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+/* ---------- Partikel latar ---------- */
+const cv = document.getElementById("fx");
+const cx = cv.getContext("2d");
+let W, H, pts = [];
+
+function resize() {
+    W = cv.width = window.innerWidth;
+    H = cv.height = window.innerHeight;
+    const n = Math.min(70, Math.floor(W / 22));
+    pts = [];
+    for (let i = 0; i < n; i++) {
+        pts.push({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+            r: Math.random() * 1.8 + .6,
+            c: Math.random() > .75 ? "255,122,26" : "25,227,255"
+        });
+    }
+}
+resize();
+window.addEventListener("resize", resize);
+
+function drawFx() {
+    cx.clearRect(0, 0, W, H);
+    for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+        cx.beginPath();
+        cx.arc(p.x, p.y, p.r, 0, 6.283);
+        cx.fillStyle = "rgba(" + p.c + ",.8)";
+        cx.fill();
+        for (let j = i + 1; j < pts.length; j++) {
+            const q = pts[j];
+            const dx = p.x - q.x, dy = p.y - q.y;
+            const dist = dx * dx + dy * dy;
+            if (dist < 12000) {
+                cx.strokeStyle = "rgba(25,227,255," + (.12 * (1 - dist / 12000)) + ")";
+                cx.beginPath();
+                cx.moveTo(p.x, p.y);
+                cx.lineTo(q.x, q.y);
+                cx.stroke();
+            }
+        }
+    }
+    if (!reduce) requestAnimationFrame(drawFx);
+}
+drawFx();
+
+/* ---------- Kartu miring 3D ---------- */
+document.querySelectorAll(".track-card").forEach(function (card) {
+    card.addEventListener("mousemove", function (e) {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - .5;
+        const py = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = "rotateY(" + (px * 10) + "deg) rotateX(" + (-py * 10) + "deg) translateY(-6px)";
+    });
+    card.addEventListener("mouseleave", function () {
+        card.style.transform = "";
+    });
+});
+
+/* ---------- Muncul saat scroll ---------- */
+const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+        if (en.isIntersecting) {
+            en.target.classList.add("show");
+            io.unobserve(en.target);
+        }
+    });
+}, { threshold: .12 });
+document.querySelectorAll(".reveal").forEach(function (el, i) {
+    el.style.transitionDelay = (i % 3) * 0.1 + "s";
+    io.observe(el);
+});
+
+/* ---------- Progress scroll ---------- */
+const bar = document.getElementById("progress");
+window.addEventListener("scroll", function () {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+}, { passive: true });
 </script>
 
 </body>

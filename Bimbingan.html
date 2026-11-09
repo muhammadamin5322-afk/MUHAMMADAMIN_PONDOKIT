@@ -1,196 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="Bimbingan.css"
-</head>
-<body>
-    
-<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bimbingan Kedatangan | Pondok IT Indonesia</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #10243a;
-  --teal: #087f70;
-  --gold: #d6ad57;
-  --bg: #f3f6f8;
-  --text: #243244;
+:root{
+  --red:#e0141f; --red2:#8e0a12; --blue:#1f5fff; --cyan:#4fd3ff;
+  --steel:#aab6c6; --dark:#070b14; --panel:#0e1626; --text:#dbe6f3;
+  --head:'Orbitron','Arial Black',sans-serif;
+  --body:'Rajdhani',Arial,sans-serif;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.65;
-}
-header {
-  background: var(--navy);
-  color: white;
-  padding: 18px 7%;
-  font-weight: bold;
-}
-header small {
-  display: block;
-  color: #d6e2eb;
-  font-weight: normal;
-}
-.hero {
-  background: linear-gradient(120deg, #10243a, #087f70);
-  color: white;
-  padding: 55px 7%;
-}
-.hero h1 {
-  font-size: clamp(30px, 5vw, 46px);
-  line-height: 1.15;
-  margin: 10px 0;
-}
-.hero p { max-width: 700px; color: #e2e8f0; }
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 28px 20px 50px;
-}
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-bottom: 28px;
-}
-nav a {
-  background: white;
-  padding: 10px 13px;
-  border: 1px solid #dce5ec;
-  border-radius: 8px;
-  color: var(--navy);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 13px;
-}
-section {
-  margin-bottom: 28px;
-  scroll-margin-top: 15px;
-}
-.panel {
-  background: white;
-  border: 1px solid #dce5ec;
-  border-radius: 14px;
-  padding: 22px;
-}
-h2 { color: var(--navy); margin-top: 0; }
-h3 { color: var(--teal); }
-.note {
-  background: #fff8e6;
-  border-left: 5px solid var(--gold);
-  padding: 14px 17px;
-  border-radius: 8px;
-  margin-bottom: 18px;
-}
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-button, .button {
-  cursor: pointer;
-  border: 0;
-  padding: 11px 15px;
-  border-radius: 8px;
-  background: var(--teal);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-}
-.tab {
-  background: #edf2f5;
-  color: var(--navy);
-}
-.tab.active {
-  background: var(--navy);
-  color: white;
-}
-.program { display: none; }
-.program.active { display: block; }
-.checklist {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px 18px;
-}
-.checklist li {
-  border-bottom: 1px dashed #dce5ec;
-  padding: 8px 0;
-}
-.checklist input { accent-color: var(--teal); }
-.columns {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
-}
-.card {
-  border: 1px solid #dce5ec;
-  padding: 17px;
-  border-radius: 10px;
-}
-.card h3 { margin-top: 0; }
-.steps {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 12px;
-}
-.step {
-  background: white;
-  border: 1px solid #dce5ec;
-  border-radius: 10px;
-  padding: 15px;
-}
-.step b { color: var(--teal); }
-.step h3 { font-size: 16px; }
-.form-card {
-  border: 1px solid #dce5ec;
-  border-radius: 10px;
-  padding: 18px;
-  background: white;
-}
-.form-card p { color: #64748b; }
-footer {
-  background: #0b1928;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 13px;
-}
-@media (max-width: 800px) {
-  .steps { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 580px) {
-  .columns, .checklist, .steps {
-    grid-template-columns: 1fr;
-  }
-  .hero { padding: 35px 20px; }
-  .container { padding: 20px 13px; }
-}
-@media print {
-  header, nav, .tabs, .no-print { display: none; }
-  .program { display: block !important; }
-  body { background: white; }
-  .panel, .card, .step { break-inside: avoid; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);font-size:18px;color:var(--text);background:var(--dark);line-height:1.55;overflow-x:hidden}
+
+/* ===== Latar kota Cybertron ===== */
+.city{position:fixed;inset:0;z-index:-2;overflow:hidden;perspective:900px;background:radial-gradient(ellipse at 50% 0%,#14315a 0%,#070b14 70%)}
+.city i{position:absolute;top:-10%;bottom:-10%;background:linear-gradient(180deg,#0c1424,#1a2a45 50%,#0a101c);border:1px solid rgba(79,211,255,.15);box-shadow:0 0 30px rgba(31,95,255,.25) inset}
+.city i:nth-child(odd){animation:sway 14s ease-in-out infinite alternate}
+.city i:nth-child(even){animation:sway 18s ease-in-out infinite alternate-reverse}
+@keyframes sway{from{transform:translateZ(-60px) rotateY(-6deg)}to{transform:translateZ(60px) rotateY(6deg)}}
+.city::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg at 50% 0%,transparent 0 20deg,rgba(255,255,255,.08) 28deg,transparent 40deg 100deg,rgba(79,211,255,.1) 110deg,transparent 125deg 360deg);animation:rays 26s linear infinite;mix-blend-mode:screen}
+@keyframes rays{to{transform:rotate(360deg)}}
+.vignette{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 30%,rgba(3,6,12,.85) 100%);pointer-events:none}
+
+/* ===== Header ===== */
+header{position:relative;padding:16px 7%;font-family:var(--head);font-weight:800;letter-spacing:.12em;color:#fff;background:linear-gradient(90deg,var(--red2),var(--red) 40%,#2a0508);border-bottom:3px solid var(--cyan);box-shadow:0 0 25px rgba(224,20,31,.6)}
+header small{display:block;font-family:var(--body);font-weight:600;letter-spacing:.2em;color:#ffd9dc;font-size:14px}
+
+/* ===== Hero 3D ===== */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;padding:50px 7% 40px;min-height:520px}
+.hero .tag{font-family:var(--head);color:var(--cyan);letter-spacing:.18em;font-size:14px;margin:0}
+.hero h1{font-family:var(--head);font-size:clamp(32px,5.5vw,62px);line-height:1.05;margin:12px 0 18px;text-transform:uppercase;background:linear-gradient(180deg,#fff 10%,#9fb2c8 50%,#e0141f 52%,#ff7a80);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(224,20,31,.55))}
+.hero p{max-width:560px}
+.stage{height:380px;perspective:900px;display:grid;place-items:center;position:relative}
+.rig{position:relative;width:180px;height:180px;transform-style:preserve-3d;animation:spin 16s linear infinite}
+.stage:hover .rig{animation-duration:5s}
+@keyframes spin{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(-20deg) rotateY(360deg)}}
+.face{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:22px;color:#fff;letter-spacing:.1em;text-shadow:0 0 12px var(--cyan);border:2px solid var(--cyan);background:linear-gradient(145deg,rgba(224,20,31,.85),rgba(31,95,255,.75));box-shadow:0 0 30px rgba(79,211,255,.7),inset 0 0 40px rgba(255,255,255,.2)}
+.f1{transform:translateZ(90px)}.f2{transform:rotateY(180deg) translateZ(90px)}
+.f3{transform:rotateY(90deg) translateZ(90px)}.f4{transform:rotateY(-90deg) translateZ(90px)}
+.f5{transform:rotateX(90deg) translateZ(90px)}.f6{transform:rotateX(-90deg) translateZ(90px)}
+.core{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px;border-radius:50%;background:radial-gradient(circle,#fff,var(--cyan) 40%,transparent 70%);box-shadow:0 0 60px 20px rgba(79,211,255,.8);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.35);opacity:.7}}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:3px solid;transform-style:preserve-3d}
+.r1{width:300px;height:300px;margin:-150px;border-color:var(--red) transparent var(--red) transparent;box-shadow:0 0 18px var(--red);animation:ring1 7s linear infinite}
+.r2{width:360px;height:360px;margin:-180px;border-color:transparent var(--cyan) transparent var(--cyan);box-shadow:0 0 18px var(--cyan);animation:ring2 9s linear infinite}
+@keyframes ring1{from{transform:rotateX(70deg) rotateZ(0)}to{transform:rotateX(70deg) rotateZ(360deg)}}
+@keyframes ring2{from{transform:rotateY(70deg) rotateZ(360deg)}to{transform:rotateY(70deg) rotateZ(0)}}
+
+/* ===== Tombol ===== */
+button,.button{cursor:pointer;border:0;padding:12px 22px;font-family:var(--head);font-size:13px;font-weight:800;letter-spacing:.1em;color:#fff;text-decoration:none;display:inline-block;text-transform:uppercase;background:linear-gradient(180deg,#ff3b46,var(--red2));clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:0 0 18px rgba(224,20,31,.8);transition:transform .2s,filter .2s}
+button:hover,.button:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.25)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+
+/* ===== Layout ===== */
+.container{max-width:1100px;margin:auto;padding:10px 20px 50px}
+nav{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;padding:12px 0;margin-bottom:26px;backdrop-filter:blur(8px);background:rgba(7,11,20,.7)}
+nav a{font-family:var(--head);font-size:12px;font-weight:600;letter-spacing:.06em;color:#fff;text-decoration:none;padding:10px 16px;background:linear-gradient(180deg,#1b2d4d,#0e1626);border:1px solid var(--blue);clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:.25s}
+nav a:hover{background:linear-gradient(180deg,var(--blue),#0b2a8a);box-shadow:0 0 20px var(--blue);transform:translateY(-3px)}
+section{margin-bottom:30px;scroll-margin-top:70px;perspective:1100px}
+.panel{position:relative;padding:26px;background:linear-gradient(160deg,rgba(24,40,70,.92),rgba(10,16,30,.95));border:1px solid rgba(79,211,255,.35);clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,28px 100%,0 calc(100% - 28px));box-shadow:0 0 40px rgba(31,95,255,.25);transform-style:preserve-3d;transition:transform .15s ease-out}
+.panel::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),var(--blue),var(--cyan));background-size:200% 100%;animation:flow 4s linear infinite}
+@keyframes flow{to{background-position:200% 0}}
+h2{font-family:var(--head);font-size:22px;color:#fff;margin-top:0;text-shadow:0 0 14px rgba(79,211,255,.7)}
+h3{font-family:var(--head);font-size:16px;color:var(--cyan);margin-top:0}
+.note{background:rgba(224,20,31,.12);border-left:5px solid var(--red);padding:14px 18px;margin:0 0 20px;box-shadow:0 0 20px rgba(224,20,31,.2)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.tab{background:linear-gradient(180deg,#26385a,#101a2e);box-shadow:none}
+.tab.active{background:linear-gradient(180deg,var(--blue),#0b2a8a);box-shadow:0 0 22px var(--blue)}
+.program{display:none}.program.active{display:block;animation:flip .5s ease-out}
+@keyframes flip{from{opacity:0;transform:rotateX(-70deg)}to{opacity:1;transform:none}}
+ul{padding-left:20px}li::marker{color:var(--red)}
+.checklist{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.checklist li{border-bottom:1px dashed rgba(79,211,255,.3);padding:8px 0}
+.checklist input{accent-color:var(--red);width:16px;height:16px;margin-right:6px}
+.columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card,.form-card,.step{background:rgba(8,14,26,.85);border:1px solid rgba(170,182,198,.35);padding:18px;border-top:3px solid var(--red);transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s}
+.card:hover,.step:hover,.form-card:hover{box-shadow:0 0 28px rgba(79,211,255,.45)}
+.card:nth-child(even){border-top-color:var(--blue)}
+.form-card p{color:var(--steel)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.step b{font-family:var(--head);font-size:12px;color:var(--red)}
+.step h3{font-size:14px;margin:6px 0}
+.step p{font-size:16px;margin:0}
+.reveal{opacity:0;transform:perspective(900px) rotateX(18deg) translateY(40px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+.back-container{text-align:center;margin-top:10px}
+.back-button{display:inline-block;color:#fff;text-decoration:none;font-family:var(--head);font-size:13px;padding:12px 24px;border:1px solid var(--cyan);background:rgba(31,95,255,.25);transition:.25s;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%)}
+.back-button:hover{background:var(--blue);box-shadow:0 0 22px var(--cyan)}
+footer{text-align:center;padding:28px 15px;font-size:15px;color:var(--steel);background:linear-gradient(180deg,#060a12,#2a0508);border-top:3px solid var(--red);box-shadow:0 -10px 30px rgba(224,20,31,.35)}
+footer strong{font-family:var(--head);color:#fff;letter-spacing:.1em}
+
+@media(max-width:900px){.hero{grid-template-columns:1fr}.stage{height:320px}.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.columns,.checklist,.steps{grid-template-columns:1fr}.hero{padding:30px 20px}.container{padding:10px 13px}.rig{transform:scale(.8)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media print{
+  .city,.vignette,.stage,header,nav,.tabs,.no-print,.back-container{display:none!important}
+  .program{display:block!important;animation:none}
+  body{background:#fff;color:#000}.panel,.card,.step,.form-card{background:#fff;color:#000;clip-path:none;box-shadow:none;break-inside:avoid}
+  h1,h2,h3{color:#000;-webkit-text-fill-color:#000;text-shadow:none;filter:none}.reveal{opacity:1;transform:none}
 }
 </style>
 </head>
-
 <body>
+
+<div class="city" id="city" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
 <header>
   PONDOK IT INDONESIA
@@ -198,24 +117,28 @@ footer {
 </header>
 
 <div class="hero">
-  <p>PANDUAN CALON SANTRI DAN WALI SANTRI</p>
-  <h1>Bimbingan Kedatangan Santri</h1>
-  <p>
-    Panduan persiapan dokumen, barang bawaan, konfirmasi kedatangan,
-    dan proses penerimaan santri di Pondok IT Indonesia.
-  </p>
-  <button class="no-print" onclick="window.print()">
-    Cetak / Simpan PDF
-  </button>
+  <div>
+    <p class="tag">PANDUAN CALON SANTRI DAN WALI SANTRI</p>
+    <h1>Bimbingan Kedatangan Santri</h1>
+    <p>Panduan persiapan dokumen, barang bawaan, konfirmasi kedatangan, dan proses penerimaan santri di Pondok IT Indonesia.</p>
+    <button class="no-print" onclick="window.print()">Cetak / Simpan PDF</button>
+  </div>
+  <div class="stage" aria-hidden="true">
+    <div class="ring r1"></div><div class="ring r2"></div>
+    <div class="rig">
+      <div class="core"></div>
+      <div class="face f1">PONDOK</div><div class="face f2">IT</div>
+      <div class="face f3">TAQWA</div><div class="face f4">PRO</div>
+      <div class="face f5">IT</div><div class="face f6">IT</div>
+    </div>
+  </div>
 </div>
 
 <main class="container">
 
-<div class="note">
+<div class="note reveal">
   <strong>Perhatian:</strong>
-  Pastikan calon santri dan wali santri membaca seluruh panduan
-  sebelum berangkat. Persyaratan final mengikuti informasi resmi
-  dari panitia penerimaan masing-masing program.
+  Pastikan calon santri dan wali santri membaca seluruh panduan sebelum berangkat. Persyaratan final mengikuti informasi resmi dari panitia penerimaan masing-masing program.
 </div>
 
 <nav>
@@ -226,18 +149,14 @@ footer {
   <a href="#wali">05. Kontak Wali</a>
 </nav>
 
-<section id="dokumen">
-  <div class="panel">
+<section id="dokumen" class="reveal">
+  <div class="panel tilt">
     <h2>1. Persiapan Berkas dan Dokumen</h2>
     <p>Pilih program untuk melihat daftar persiapan dokumen.</p>
-
     <div class="tabs">
-      <button class="tab active"
-        onclick="pilihProgram('pondok',this)">Pondok IT</button>
-      <button class="tab"
-        onclick="pilihProgram('rumah',this)">Rumah IT</button>
-      <button class="tab"
-        onclick="pilihProgram('sekolah',this)">Sekolah IT</button>
+      <button class="tab active" onclick="pilihProgram('pondok',this)">Pondok IT</button>
+      <button class="tab" onclick="pilihProgram('rumah',this)">Rumah IT</button>
+      <button class="tab" onclick="pilihProgram('sekolah',this)">Sekolah IT</button>
     </div>
 
     <div class="program active" id="pondok">
@@ -245,11 +164,11 @@ footer {
       <p>Daftar awal yang perlu dipersiapkan:</p>
       <ul class="checklist">
         <li><label><input type="checkbox"> Fotokopi KTP atau identitas</label></li>
-        <li><label><input type="checkbox"> MOU Pendidikan dan Pre rpogram bertanda tangan </label></li>
-        <li><label><input type="checkbox"> Ijazah Asli /Akte Asli</label></li>
+        <li><label><input type="checkbox"> MOU Pendidikan dan Pre program bertanda tangan</label></li>
+        <li><label><input type="checkbox"> Ijazah Asli / Akte Asli</label></li>
         <li><label><input type="checkbox"> Pas foto terbaru</label></li>
-        <li><label><input type="checkbox"> Surat Keterangan Tidak Mampu </label></li>
-        <li><label><input type="checkbox"> Surat Penyataan orang tua</label></li>
+        <li><label><input type="checkbox"> Surat Keterangan Tidak Mampu</label></li>
+        <li><label><input type="checkbox"> Surat Pernyataan orang tua</label></li>
         <li><label><input type="checkbox"> Map</label></li>
       </ul>
     </div>
@@ -258,9 +177,9 @@ footer {
       <h3>Dokumen Rumah IT</h3>
       <ul class="checklist">
         <li><label><input type="checkbox"> Fotokopi KTP atau identitas</label></li>
-        <li><label><input type="checkbox"> Mou Pendidikan dan pre program  bertanda tanggan </label></li>
-        <li><label><input type="checkbox"> Surat Penyataan orang tua</label></li>
-        <li><label><input type="checkbox"> Kartu Bpjs jika ada</label></li>
+        <li><label><input type="checkbox"> MOU Pendidikan dan Pre program bertanda tangan</label></li>
+        <li><label><input type="checkbox"> Surat Pernyataan orang tua</label></li>
+        <li><label><input type="checkbox"> Kartu BPJS jika ada</label></li>
         <li><label><input type="checkbox"> Map</label></li>
       </ul>
     </div>
@@ -272,51 +191,48 @@ footer {
         <li><label><input type="checkbox"> Fotokopi Kartu Keluarga</label></li>
         <li><label><input type="checkbox"> Fotokopi KTP santri dan orang tua/wali</label></li>
         <li><label><input type="checkbox"> Fotokopi Ijazah / SKL / ASPD (3 lembar)</label></li>
-        <li><label><input type="checkbox"> Fotokopi Rapor VIII & IX (1 lembar)</label></li>
+        <li><label><input type="checkbox"> Fotokopi Rapor VIII &amp; IX (1 lembar)</label></li>
         <li><label><input type="checkbox"> Fotokopi Kartu NISN (1 lembar)</label></li>
         <li><label><input type="checkbox"> Dokumen perpindahan jika diperlukan</label></li>
-        <li><label><input type="checkbox"> Pas Foto Hitam Putih 3×4 & 4×6 (2 lembar)</la~bel></li>
-             <li><label><input type="checkbox"> Surat penyataan orang tua, MOU Pendidikan dan Map</la~bel></li>
+        <li><label><input type="checkbox"> Pas Foto Hitam Putih 3×4 &amp; 4×6 (2 lembar)</label></li>
+        <li><label><input type="checkbox"> Surat pernyataan orang tua, MOU Pendidikan dan Map</label></li>
       </ul>
     </div>
 
-    <div class="note">
-      Masukkan dokumen ke dalam map yang rapi dan tuliskan nama lengkap
-      calon santri. Ikuti ketentuan warna folder dari panitia jika ada.
-    </div>
+    <div class="note">Masukkan dokumen ke dalam map yang rapi dan tuliskan nama lengkap calon santri. Ikuti ketentuan warna folder dari panitia jika ada.</div>
   </div>
 </section>
 
-<section id="barang">
-  <div class="panel">
+<section id="barang" class="reveal">
+  <div class="panel tilt">
     <h2>2. Persiapan Barang Bawaan</h2>
     <div class="columns">
-      <div class="card">
+      <div class="card tilt">
         <h3>Pakaian dan kebutuhan pribadi</h3>
         <ul>
-          <li>Pakaian harian yang sopan kaos mak 4, Celana 4</li>
-          <li>Pakaian ibadah ,koko jubah,gamis jilbab, dan lain" dan lainya maks 4/li>
-          <li>Pakaian tidur dan pakaian dalam secukupnya </li>
+          <li>Pakaian harian yang sopan: kaos maks 4, celana 4</li>
+          <li>Pakaian ibadah (koko, jubah, gamis, jilbab, dan lainnya) maks 4</li>
+          <li>Pakaian tidur dan pakaian dalam secukupnya</li>
           <li>Sandal dan sepatu</li>
           <li>Handuk, sabun, sampo, sikat dan pasta gigi</li>
           <li>Perlengkapan mencuci pakaian</li>
-          <li>obat pribadi</li>
+          <li>Obat pribadi</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card tilt">
         <h3>Perlengkapan ibadah dan belajar</h3>
         <ul>
           <li>Al-Qur’an jika diperlukan</li>
           <li>Perlengkapan shalat</li>
           <li>Buku catatan dan alat tulis</li>
-          <li>Laptop, Hp  dan charger</li>
+          <li>Laptop, HP dan charger</li>
           <li>Mouse atau headset jika dibutuhkan</li>
           <li>Botol minum</li>
-          <li>khusus ikhwan Serangam koko/kemeja hitam,putih dan Batik </li>
+          <li>Khusus ikhwan: seragam koko/kemeja hitam, putih dan batik</li>
           <li>Obat pribadi dengan keterangan penggunaan</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card tilt">
         <h3>Hal yang perlu diperhatikan</h3>
         <ul>
           <li>Beri label nama pada barang.</li>
@@ -326,34 +242,31 @@ footer {
           <li>Konfirmasikan kebutuhan khusus kepada admin.</li>
         </ul>
       </div>
-      <div class="card">
+      <div class="card tilt">
         <h3>Barang yang dilarang</h3>
         <ul>
-          <li>Rokok dan vape dan sejinisnya.</li>
+          <li>Rokok, vape dan sejenisnya.</li>
           <li>Minuman keras dan zat terlarang.</li>
           <li>Senjata tajam atau barang berbahaya.</li>
-          <li>zimat,alat sihir.alat pusaka</li>
-           <li>Koper.</li>
-            <li>motor/mobil</li>
-            <li>Perhiasan atau barang berharga berlebihan </li>
-            <li>alat perjudian atau barang mengandung perjudian</li>
-            <li>pakain yang melanggar syariat</li>
-             <li>Binatang peliharaan berbahaya</li>
-          <li>majalah pornografi,.</li>
+          <li>Jimat, alat sihir, alat pusaka.</li>
+          <li>Koper.</li>
+          <li>Motor/mobil.</li>
+          <li>Perhiasan atau barang berharga berlebihan.</li>
+          <li>Alat perjudian atau barang mengandung perjudian.</li>
+          <li>Pakaian yang melanggar syariat.</li>
+          <li>Binatang peliharaan berbahaya.</li>
+          <li>Majalah pornografi.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="konfirmasi">
-  <div class="panel">
+<section id="konfirmasi" class="reveal">
+  <div class="panel tilt">
     <h2>3. Konfirmasi Kedatangan melalui Google Form</h2>
-    <p>
-      Calon santri atau wali santri wajib mengisi formulir konfirmasi
-      sebelum keberangkatan sesuai jadwal yang ditentukan panitia.
-    </p>
-    <div class="form-card">
+    <p>Calon santri atau wali santri wajib mengisi formulir konfirmasi sebelum keberangkatan sesuai jadwal yang ditentukan panitia.</p>
+    <div class="form-card tilt">
       <h3>Form Konfirmasi Kedatangan</h3>
       <p>Siapkan informasi berikut sebelum mengisi formulir:</p>
       <ul>
@@ -364,82 +277,51 @@ footer {
         <li>Moda transportasi dan jumlah pengantar</li>
         <li>Kebutuhan penjemputan jika diperlukan</li>
       </ul>
-      <!-- GANTI URL DI BAWAH DENGAN LINK GOOGLE FORM -->
-      <a class="button" href="https://forms.gle/1Cjminp5g4FJowTJ8"
-         rel="https://forms.gle/1Cjminp5g4FJowTJ8">Buka Google Form Konfirmasi</a>
-      <p><small>Catatan: ganti tautan di kode dengan Google Form resmi Pondok IT.</small></p>
+      <a class="button" href="https://forms.gle/1Cjminp5g4FJowTJ8">Buka Google Form Konfirmasi</a>
     </div>
   </div>
 </section>
 
-<section id="alur">
-  <div class="panel">
+<section id="alur" class="reveal">
+  <div class="panel tilt">
     <h2>4. Teknis Kedatangan di Lokasi</h2>
     <p>Setibanya di lokasi, santri mengikuti urutan proses berikut.</p>
     <div class="steps">
-      <div class="step">
-        <b>TAHAP 01</b>
-        <h3>Penjemputan / Penerimaan</h3>
-        <p>Hubungi petugas dan ikuti arahan menuju titik penerimaan.</p>
-      </div>
-      <div class="step">
-        <b>TAHAP 02</b>
-        <h3>Administrasi</h3>
-        <p>Verifikasi identitas, kelengkapan dokumen, dan administrasi.</p>
-      </div>
-      <div class="step">
-        <b>TAHAP 03</b>
-        <h3>Pemeriksaan Barang</h3>
-        <p>Barang bawaan diperiksa sesuai ketentuan pondok.</p>
-      </div>
-      <div class="step">
-        <b>TAHAP 04</b>
-        <h3>Penataan Kamar</h3>
-        <p>Santri diarahkan ke kamar dan menata barang pribadi.</p>
-      </div>
-      <div class="step">
-        <b>TAHAP 05</b>
-        <h3>Sosialisasi dan MOS</h3>
-        <p>Pengenalan aturan, jadwal, pengurus, dan kegiatan MOS.</p>
-      </div>
+      <div class="step tilt"><b>TAHAP 01</b><h3>Penjemputan / Penerimaan</h3><p>Hubungi petugas dan ikuti arahan menuju titik penerimaan.</p></div>
+      <div class="step tilt"><b>TAHAP 02</b><h3>Administrasi</h3><p>Verifikasi identitas, kelengkapan dokumen, dan administrasi.</p></div>
+      <div class="step tilt"><b>TAHAP 03</b><h3>Pemeriksaan Barang</h3><p>Barang bawaan diperiksa sesuai ketentuan pondok.</p></div>
+      <div class="step tilt"><b>TAHAP 04</b><h3>Penataan Kamar</h3><p>Santri diarahkan ke kamar dan menata barang pribadi.</p></div>
+      <div class="step tilt"><b>TAHAP 05</b><h3>Sosialisasi dan MOS</h3><p>Pengenalan aturan, jadwal, pengurus, dan kegiatan MOS.</p></div>
     </div>
-    <div class="note" style="margin-top:18px">
-      Wali atau pengantar dimohon mengikuti arahan panitia dan menjaga
-      ketertiban selama proses penerimaan. Informasi waktu kedatangan
-      serta titik penjemputan akan disampaikan oleh panitia.
-    </div>
+    <div class="note" style="margin-top:18px">Wali atau pengantar dimohon mengikuti arahan panitia dan menjaga ketertiban selama proses penerimaan. Informasi waktu kedatangan serta titik penjemputan akan disampaikan oleh panitia.</div>
   </div>
 </section>
 
-<section id="wali">
-  <div class="panel">
+<section id="wali" class="reveal">
+  <div class="panel tilt">
     <h2>5. Pengisian Google Form Kontak Wali Santri</h2>
-    <p>
-      Setiap santri wajib memastikan data orang tua atau wali telah
-      diisi dengan benar agar komunikasi pendidikan dan keadaan darurat
-      dapat ditangani dengan baik.
-    </p>
-    <div class="form-card">
+    <p>Setiap santri wajib memastikan data orang tua atau wali telah diisi dengan benar agar komunikasi pendidikan dan keadaan darurat dapat ditangani dengan baik.</p>
+    <div class="form-card tilt">
       <h3>Data yang perlu disiapkan</h3>
+      <ul>
         <li>Nama lengkap orang tua/wali</li>
         <li>Hubungan dengan santri</li>
         <li>Nomor WhatsApp utama yang aktif</li>
         <li>Program Pendidikan</li>
         <li>Nama Santri</li>
       </ul>
-      <!-- GANTI URL DI BAWAH DENGAN LINK GOOGLE FORM -->
-      <a class="button" href="https://forms.gle/YRJYDxQikCcmFscv7"
-         rel="https://forms.gle/YRJYDxQikCcmFscv7">Buka Form Kontak Wali Santri</a>
-      <p><small>Ganti tautan dengan Google Form resmi kontak wali santri.</small></p>
+      <a class="button" href="https://forms.gle/YRJYDxQikCcmFscv7">Buka Form Kontak Wali Santri</a>
     </div>
   </div>
 </section>
 
-<div class="panel">
+<div class="panel reveal tilt">
   <h2>Penutup</h2>
-  Mohon seluruh calon santri dan wali santri mempersiapkan kedatangan
-  dengan baik, membawa dokumen yang diperlukan, serta mengikuti arahan
-  resmi panitia Pondok IT Indonesia.
+  Mohon seluruh calon santri dan wali santri mempersiapkan kedatangan dengan baik, membawa dokumen yang diperlukan, serta mengikuti arahan resmi panitia Pondok IT Indonesia.
+</div>
+
+<div class="back-container">
+  <a href="index.html" class="back-button">← Kembali ke Halaman Utama</a>
 </div>
 
 </main>
@@ -452,31 +334,44 @@ footer {
 
 <script>
 function pilihProgram(id, tombol) {
-  document.querySelectorAll('.program').forEach(function(el) {
-    el.classList.remove('active');
-  });
-  document.querySelectorAll('.tab').forEach(function(el) {
-    el.classList.remove('active');
-  });
+  document.querySelectorAll('.program').forEach(function(el){ el.classList.remove('active'); });
+  document.querySelectorAll('.tab').forEach(function(el){ el.classList.remove('active'); });
   document.getElementById(id).classList.add('active');
   tombol.classList.add('active');
 }
+
+// Gedung-gedung Cybertron di latar belakang
+(function(){
+  var c = document.getElementById('city');
+  for (var i = 0; i < 18; i++) {
+    var b = document.createElement('i');
+    b.style.left = (i * 5.8 - 2) + '%';
+    b.style.width = (3 + (i * 7) % 5) + '%';
+    b.style.top = (-10 - (i * 13) % 35) + '%';
+    b.style.animationDelay = (-i * 1.3) + 's';
+    c.appendChild(b);
+  }
+})();
+
+// Muncul saat di-scroll
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold: .08});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+// Efek miring 3D mengikuti kursor (hanya untuk perangkat dengan mouse)
+if (window.matchMedia('(hover:hover)').matches) {
+  document.querySelectorAll('.tilt').forEach(function(el){
+    var max = el.classList.contains('panel') ? 1.5 : 7;
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5;
+      var y = (e.clientY - r.top) / r.height - .5;
+      el.style.transform = 'perspective(900px) rotateX(' + (-y * max) + 'deg) rotateY(' + (x * max * 1.6) + 'deg)';
+    });
+    el.addEventListener('mouseleave', function(){ el.style.transform = ''; });
+  });
+}
 </script>
-<!-- BACK BUTTON -->
-        <div class="back-container">
-
-            <a href="index.html" class="back-button">
-                <span>←</span>
-                Kembali ke Halaman Utama
-            </a>
-
-        </div>
-
-    </main>
-
-
-</body>
-</html>
-
 </body>
 </html>

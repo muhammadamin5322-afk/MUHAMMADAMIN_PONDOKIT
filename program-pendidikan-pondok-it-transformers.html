@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d16">
+<title>Program Pendidikan | Pondok IT Indonesia</title>
+<meta name="description" content="Tiga jalur pendidikan Pondok IT Indonesia.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+:root{--bg:#080d16;--panel:#111a28;--panel2:#172335;--steel:#aebdca;--white:#f3f7fb;--muted:#a1afbf;--red:#e3343d;--blue:#1976d2;--cyan:#43d9ff;--gold:#f0b84b;--line:#ffffff20;--shadow:0 24px 70px #0009}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Rajdhani',sans-serif;background:var(--bg);color:var(--white);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 80% 10%,#174a7138,transparent 35%),radial-gradient(ellipse at 5% 80%,#a51d2a20,transparent 32%),linear-gradient(135deg,#080d16,#0b1421 55%,#080d16)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-image:linear-gradient(120deg,transparent 48%,#8eb8d0 49%,transparent 50%),linear-gradient(30deg,transparent 48%,#8eb8d0 49%,transparent 50%);background-size:180px 180px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+.site-header{position:absolute;z-index:10;top:0;left:0;width:100%;padding:20px clamp(18px,5vw,76px);display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-family:Orbitron,sans-serif;font-size:13px;font-weight:900;letter-spacing:1px}
+.brand-mark{width:43px;height:43px;display:grid;place-items:center;border:1px solid #e3343d;border-radius:11px;color:white;background:linear-gradient(145deg,#26384d,#0b111b);box-shadow:inset 0 0 15px #43d9ff35,0 0 20px #1976d233;clip-path:polygon(12% 0,88% 0,100% 18%,100% 82%,85% 100%,15% 100%,0 82%,0 18%)}
+.brand small{display:block;font:700 9px Rajdhani,sans-serif;letter-spacing:3px;color:var(--cyan)}
+.header-link{font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:10px 17px;border:1px solid #43d9ff80;background:#101d2b99;clip-path:polygon(8% 0,100% 0,100% 75%,92% 100%,0 100%,0 25%);transition:.3s}
+.header-link:hover{background:var(--red);border-color:var(--red);box-shadow:0 0 25px #e3343d70}
+.hero{min-height:720px;position:relative;overflow:hidden;display:flex;align-items:center;padding:130px clamp(22px,8vw,120px) 140px;background:linear-gradient(90deg,#080d16 0%,#080d16eF 42%,#080d1670 100%),radial-gradient(ellipse at 77% 48%,#1a4c72 0%,#0a1727 48%,#080d16 75%)}
+.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 70px,#9db5c20c 71px 72px,transparent 73px 140px);mask-image:linear-gradient(90deg,transparent,#000)}
+.hero:after{content:"";position:absolute;right:-9%;top:8%;width:min(62vw,760px);height:min(62vw,760px);border:1px solid #43d9ff35;border-radius:50%;box-shadow:0 0 0 24px #43d9ff08,0 0 0 60px #43d9ff06,0 0 80px #1976d230;animation:reactor 16s linear infinite}
+@keyframes reactor{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;z-index:3;max-width:1150px;width:100%;margin:auto}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font:700 11px Orbitron,sans-serif;letter-spacing:3px;color:var(--cyan);margin-bottom:25px}
+.hero-kicker:before{content:"";width:35px;height:2px;background:var(--red);box-shadow:0 0 10px var(--red)}
+.hero h1{font:900 clamp(40px,7vw,82px)/.98 Orbitron,sans-serif;letter-spacing:-3px;text-transform:uppercase;max-width:800px;text-shadow:0 7px 30px #000}
+.hero h1 span{display:block;margin-top:12px;color:transparent;-webkit-text-stroke:1.5px var(--steel);text-shadow:0 0 28px #43d9ff35}
+.hero-copy{max-width:610px;color:#c3cfdb;font-size:19px;font-weight:600;margin:27px 0 34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 22px;font:700 13px Orbitron,sans-serif;letter-spacing:.5px;text-transform:uppercase;clip-path:polygon(9% 0,100% 0,100% 72%,91% 100%,0 100%,0 28%);transition:.3s}
+.btn-primary{background:linear-gradient(110deg,#e3343d,#a91e2b);color:white;box-shadow:0 0 24px #e3343d40}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 0 35px #e3343d90}
+.btn-ghost{border:1px solid #43d9ff88;background:#0e1c2b;color:#dff8ff}
+.btn-ghost:hover{background:#153b54;transform:translateY(-4px);box-shadow:0 0 25px #43d9ff40}
+.mech-figure{position:absolute;z-index:2;right:8%;top:17%;width:clamp(210px,29vw,390px);height:490px;opacity:.72;pointer-events:none;filter:drop-shadow(0 20px 35px #000)}
+.mech-head{position:absolute;top:3%;left:40%;width:20%;height:12%;background:linear-gradient(135deg,#d9e4eb,#35485c 45%,#111d2a);clip-path:polygon(50% 0,83% 27%,100% 85%,50% 100%,0 85%,17% 27%);border:1px solid #43d9ff}
+.mech-torso{position:absolute;top:17%;left:22%;width:58%;height:34%;background:linear-gradient(145deg,#f1f3f5 0 12%,#b92531 13% 45%,#172b42 46% 75%,#8295a7 76%);clip-path:polygon(20% 0,80% 0,100% 28%,86% 100%,14% 100%,0 28%);border:2px solid #91dff7;box-shadow:inset 0 0 25px #0009}
+.mech-core{position:absolute;top:29%;left:43%;width:14%;height:14%;background:radial-gradient(circle,#b8f8ff,#1483c6 48%,#06172a 70%);border:2px solid #9defff;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);box-shadow:0 0 25px #43d9ff}
+.mech-arm{position:absolute;top:22%;width:20%;height:34%;background:linear-gradient(90deg,#17283c,#d7e0e7 45%,#a91f2d 48%,#263c54);clip-path:polygon(20% 0,100% 14%,78% 100%,0 85%);border:1px solid #8bbbd1}
+.mech-arm.left{left:2%;transform:rotate(12deg)}.mech-arm.right{right:0;transform:rotate(-12deg) scaleX(-1)}
+.mech-leg{position:absolute;top:51%;width:25%;height:43%;background:linear-gradient(90deg,#18283b,#9aaab8 38%,#263e5a 70%,#0b1420);clip-path:polygon(15% 0,90% 0,100% 100%,0 100%);border:1px solid #43d9ff66}
+.mech-leg.left{left:23%;transform:skew(-5deg)}.mech-leg.right{right:18%;transform:skew(5deg)}
+.mech-foot{position:absolute;bottom:0;width:32%;height:12%;background:linear-gradient(135deg,#aebdca,#172b40);clip-path:polygon(15% 0,100% 20%,90% 100%,0 100%);border:1px solid #43d9ff}
+.mech-foot.left{left:14%}.mech-foot.right{right:9%}
+.hero-caption{position:absolute;right:5%;bottom:55px;z-index:3;font:700 9px Orbitron,sans-serif;letter-spacing:3px;color:#8da8bd;writing-mode:vertical-rl}
+.nav-wrap{position:relative;z-index:5;max-width:1160px;margin:-35px auto 0;padding:0 20px}
+.navbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:13px 16px 13px 22px;background:linear-gradient(145deg,#1a293a,#0e1826);border:1px solid #8da8bd44;box-shadow:0 18px 50px #0009;clip-path:polygon(1.5% 0,100% 0,100% 75%,98.5% 100%,0 100%,0 25%)}
+.nav-links{display:flex;gap:5px;flex-wrap:wrap}
+.nav-links a{padding:9px 13px;color:#b9c7d5;font-size:14px;font-weight:700;transition:.2s}
+.nav-links a:hover{color:var(--cyan);text-shadow:0 0 12px #43d9ff}
+.nav-home{padding:10px 17px;background:linear-gradient(100deg,#b71f2b,#e3343d);font:700 11px Orbitron,sans-serif;clip-path:polygon(10% 0,100% 0,100% 75%,90% 100%,0 100%,0 25%)}
+.section{padding:100px 22px}
+.container{max-width:1160px;margin:auto}
+.section-head{text-align:center;max-width:750px;margin:0 auto 48px}
+.kicker{font:700 10px Orbitron,sans-serif;letter-spacing:3px;color:var(--cyan)}
+.section-head h2{font:800 clamp(28px,4vw,45px)/1.15 Orbitron,sans-serif;letter-spacing:-1.5px;color:#f4f7fa;margin:14px 0}
+.section-head h2 span{color:var(--red)}
+.section-head p{font-size:16px;color:var(--muted)}
+.program-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;perspective:1300px}
+.program-card{position:relative;min-width:0;overflow:hidden;background:linear-gradient(145deg,#1a293a,#0e1724 75%);border:1px solid #8197a833;box-shadow:0 15px 40px #0006;clip-path:polygon(0 0,93% 0,100% 5%,100% 100%,7% 100%,0 95%);transform-style:preserve-3d;transition:transform .4s,border-color .3s,box-shadow .3s;opacity:0;translate:0 35px}
+.program-card.visible{opacity:1;translate:0 0}
+.program-card:hover{transform:translateY(-10px) rotateX(2deg) rotateY(-2deg);border-color:#43d9ff99;box-shadow:0 25px 55px #000b,0 0 25px #1976d225}
+.card-visual{height:210px;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 45%,#35516b,#152438 60%,#0c1521)}
+.rumah-card .card-visual{background:radial-gradient(circle at 50% 45%,#244c68,#14263a 60%,#0c1521)}
+.sekolah-card .card-visual{background:radial-gradient(circle at 50% 45%,#514438,#252a32 60%,#0c1521)}
+.card-visual:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 24px,#ffffff0b 25px 26px,transparent 27px 50px)}
+.card-index{position:absolute;top:15px;left:15px;z-index:2;background:#d52c37;color:white;padding:7px 10px;font:700 9px Orbitron,sans-serif;letter-spacing:1px;clip-path:polygon(8% 0,100% 0,100% 75%,90% 100%,0 100%,0 25%)}
+.energy-ring{position:absolute;width:155px;height:155px;border:1px solid #43d9ff88;border-radius:50%;box-shadow:0 0 0 17px #43d9ff0b,0 0 35px #43d9ff24;transform:rotateX(65deg);animation:ring 9s linear infinite}
+@keyframes ring{to{transform:rotateX(65deg) rotateZ(360deg)}}
+.card-emblem{position:relative;z-index:1;width:105px;height:105px;display:grid;place-items:center;background:linear-gradient(145deg,#e7edf1,#52677b 45%,#142438 80%);color:#102035;font:900 42px Orbitron,sans-serif;clip-path:polygon(25% 0,75% 0,100% 25%,85% 85%,50% 100%,15% 85%,0 25%);border:2px solid #9eeaff;box-shadow:0 0 35px #43d9ff55,inset 0 0 22px #071321;transform:translateZ(35px)}
+.rumah-card .card-emblem{background:linear-gradient(145deg,#d9e9f2,#28618c 50%,#10233a);color:#eafaff}
+.sekolah-card .card-emblem{background:linear-gradient(145deg,#f1dfb8,#927143 50%,#302719);color:#fff6e3}
+.card-content{padding:25px 25px 24px;display:flex;flex-direction:column;min-height:390px}
+.program-type{font:700 9px Orbitron,sans-serif;letter-spacing:1.6px;color:var(--cyan)}
+.card-content h3{font:700 19px/1.35 Orbitron,sans-serif;margin:12px 0;color:#f5f7fa}
+.duration{align-self:flex-start;padding:6px 10px;margin-bottom:15px;background:#263a50;color:#f1c66f;border-left:3px solid var(--red);font-size:13px;font-weight:700}
+.card-content>p{color:#b2bfcc;font-size:15px;line-height:1.65}
+.features{list-style:none;margin:19px 0 22px;padding-top:16px;border-top:1px solid #ffffff1c}
+.features li{display:flex;gap:9px;margin-bottom:9px;color:#c4cfda;font-size:14px;font-weight:600}
+.check{flex:0 0 17px;height:17px;display:grid;place-items:center;background:#173f55;color:var(--cyan);font-size:11px;clip-path:polygon(25% 0,75% 0,100% 25%,75% 100%,25% 100%,0 25%)}
+.card-link{margin-top:auto;display:flex;justify-content:space-between;align-items:center;padding:13px 15px;background:linear-gradient(100deg,#b51f2b,#e3343d);font:700 11px Orbitron,sans-serif;clip-path:polygon(5% 0,100% 0,100% 75%,95% 100%,0 100%,0 25%);transition:.3s}
+.card-link:hover{filter:brightness(1.2);box-shadow:0 0 25px #e3343d66;padding-left:20px}
+.card-link b{font-size:18px}
+.comparison{padding:95px 22px;background:linear-gradient(180deg,#0b1420,#111e2c);border-top:1px solid #ffffff16;border-bottom:1px solid #ffffff16}
+.table-shell{overflow-x:auto;border:1px solid #8da8bd55;box-shadow:var(--shadow);background:#111c2a}
+table{width:100%;min-width:680px;border-collapse:collapse}
+th{padding:17px 19px;text-align:left;background:linear-gradient(100deg,#172c42,#263b50);color:#f3f7fb;font:700 10px Orbitron,sans-serif;letter-spacing:1px;border-bottom:2px solid var(--red)}
+th:not(:first-child){color:var(--cyan)}
+td{padding:16px 19px;border-bottom:1px solid #ffffff14;color:#b5c1ce;font-size:14px}
+tbody tr:nth-child(even){background:#ffffff06}
+tbody tr:hover{background:#43d9ff0c}
+td:first-child{color:#fff;font-weight:700}
+.detail-link{color:var(--cyan);font-weight:700}
+.cta{position:relative;overflow:hidden;text-align:center;padding:95px 22px;background:radial-gradient(ellipse at 50% 0%,#17446a,#0a1421 65%)}
+.cta:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(120deg,transparent 0 90px,#ffffff08 91px 92px,transparent 93px 180px)}
+.cta-inner{position:relative;max-width:760px;margin:auto}
+.cta h2{font:800 clamp(29px,5vw,48px)/1.15 Orbitron,sans-serif;margin:15px 0}
+.cta h2 span{color:var(--red);text-shadow:0 0 25px #e3343d55}
+.cta p{max-width:620px;margin:0 auto 27px;color:#b9c7d4;font-size:16px}
+.cta-secondary{display:block;margin-top:19px;color:var(--cyan);font-weight:700;font-size:13px;text-decoration:underline;text-underline-offset:5px}
+footer{padding:27px 18px;text-align:center;background:#050a11;color:#8998a8;font-size:13px}
+footer strong{color:#fff}
+footer p+p{margin-top:4px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.program-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.program-card:last-child{grid-column:1/-1}.mech-figure{right:1%;opacity:.36}}
+@media(max-width:620px){.site-header{padding:15px}.brand{font-size:11px}.header-link{font-size:9px;padding:9px}.hero{min-height:660px;padding:120px 22px 110px}.hero h1{font-size:clamp(37px,10vw,58px);letter-spacing:-2px}.hero-copy{font-size:16px;max-width:500px}.mech-figure{right:-13%;top:32%;width:240px;height:360px;opacity:.2}.hero-caption{display:none}.nav-wrap{padding:0 12px}.navbar{padding:10px}.nav-links a{font-size:12px;padding:8px}.nav-home{font-size:9px}.section{padding:70px 15px}.program-grid{grid-template-columns:1fr}.program-card:last-child{grid-column:auto}.card-content{min-height:0}.comparison{padding:70px 14px}.cta{padding:72px 18px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.program-card,.reveal{opacity:1;transform:none;translate:0 0}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">P</span><span>PONDOK IT<small>INDONESIA</small></span></a>
+  <a class="header-link" href="pendaftaran.html">Pendaftaran ↗</a>
+</header>
+
+<section class="hero">
+  <div class="mech-figure" aria-hidden="true">
+    <div class="mech-head"></div><div class="mech-arm left"></div><div class="mech-arm right"></div>
+    <div class="mech-torso"></div><div class="mech-core"></div>
+    <div class="mech-leg left"></div><div class="mech-leg right"></div><div class="mech-foot left"></div><div class="mech-foot right"></div>
+  </div>
+  <div class="hero-caption">CYBER EDUCATION · NEXT GENERATION</div>
+  <div class="hero-inner">
+    <div class="hero-kicker">PONDOK IT INDONESIA · EDUCATION SYSTEM</div>
+    <h1>TIGA JALUR <span>PENDIDIKAN IT</span></h1>
+    <p class="hero-copy">Bangun masa depan dengan ilmu, karakter, dan teknologi. Temukan jalur pendidikan yang sesuai dengan potensi serta tujuan masa depanmu.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#daftar-program">Jelajahi Program ↓</a>
+      <a class="btn btn-ghost" href="#perbandingan">Bandingkan Program</a>
+    </div>
+  </div>
+</section>
+
+<div class="nav-wrap"><nav class="navbar" aria-label="Navigasi program">
+  <div class="nav-links"><a href="#daftar-program">Tiga Program</a><a href="#perbandingan">Perbandingan</a><a href="#pendaftaran">Pendaftaran</a></div>
+  <a class="nav-home" href="index.html">← HALAMAN UTAMA</a>
+</nav></div>
+
+<main>
+<section class="section" id="daftar-program"><div class="container">
+  <div class="section-head reveal"><div class="kicker">/// Pilih Misi Pendidikanmu</div><h2>TEMUKAN PROGRAM <span>TERBAIK</span></h2><p>Tiga jalur pendidikan dengan skema dan durasi berbeda. Kenali setiap program sebelum menentukan pilihan.</p></div>
+  <div class="program-grid">
+    <article class="program-card">
+      <div class="card-visual"><span class="card-index">PROGRAM 01</span><span class="energy-ring"></span><div class="card-emblem">P</div></div>
+      <div class="card-content"><span class="program-type">PROGRAM BEASISWA</span><h3>Pendidikan Beasiswa Pondok IT</h3><span class="duration">DURASI · 3 TAHUN</span><p>Program pendidikan dengan beasiswa selama tiga tahun, terdiri atas satu tahun masa pembelajaran dan dua tahun masa khidmat atau pengabdian.</p>
+        <ul class="features"><li><span class="check">✓</span>Beasiswa pendidikan selama 3 tahun</li><li><span class="check">✓</span>1 tahun pembelajaran</li><li><span class="check">✓</span>2 tahun khidmat atau pengabdian</li></ul>
+        <a class="card-link" href="pondok-it.html">JELAJAHI PROGRAM <b>↗</b></a></div>
+    </article>
+    <article class="program-card">
+      <div class="card-visual"><span class="card-index">PROGRAM 02</span><span class="energy-ring"></span><div class="card-emblem">R</div></div>
+      <div class="card-content"><span class="program-type">PROGRAM BERBAYAR</span><h3>Pendidikan Berbayar Rumah IT</h3><span class="duration">DURASI · 1 TAHUN</span><p>Program pendidikan berbayar dengan masa pembelajaran satu tahun. Program ini tidak memiliki kewajiban pengabdian setelah menyelesaikan masa pendidikan.</p>
+        <ul class="features"><li><span class="check">✓</span>Masa pembelajaran 1 tahun</li><li><span class="check">✓</span>Berbasis pendidikan dan keterampilan IT</li><li><span class="check">✓</span>Tidak wajib menjalani pengabdian setelah lulus</li></ul>
+        <a class="card-link" href="rumah-it.html">JELAJAHI PROGRAM <b>↗</b></a></div>
+    </article>
+    <article class="program-card">
+      <div class="card-visual"><span class="card-index">PROGRAM 03</span><span class="energy-ring"></span><div class="card-emblem">S</div></div>
+      <div class="card-content"><span class="program-type">PROGRAM FORMAL</span><h3>Sekolah IT</h3><span class="duration">JENJANG · FORMAL</span><p>Program pendidikan formal dengan jenjang kelas sesuai pendidikan yang telah ditempuh. Pendidikan dilengkapi pembelajaran keagamaan, pembinaan karakter, dan keterampilan IT.</p>
+        <ul class="features"><li><span class="check">✓</span>Jenjang pendidikan formal</li><li><span class="check">✓</span>Pembelajaran keagamaan dan karakter</li><li><span class="check">✓</span>Keterampilan IT sebagai bagian pendidikan</li></ul>
+        <a class="card-link" href="sekolah-it.html">JELAJAHI PROGRAM <b>↗</b></a></div>
+    </article>
+  </div>
+</div></section>
+
+<section class="comparison" id="perbandingan"><div class="container">
+  <div class="section-head reveal"><div class="kicker">/// Data Perbandingan</div><h2>KENALI PERBEDAAN <span>PROGRAM</span></h2><p>Ringkasan karakteristik setiap jalur pendidikan Pondok IT Indonesia.</p></div>
+  <div class="table-shell reveal"><table>
+    <thead><tr><th>ASPEK</th><th>PONDOK IT</th><th>RUMAH IT</th><th>SEKOLAH IT</th></tr></thead>
+    <tbody>
+      <tr><td>Jenis Program</td><td>Beasiswa</td><td>Berbayar</td><td>Formal</td></tr>
+      <tr><td>Durasi</td><td>3 tahun</td><td>1 tahun</td><td>Sesuai jenjang pendidikan</td></tr>
+      <tr><td>Masa Pembelajaran</td><td>1 tahun</td><td>1 tahun</td><td>Sesuai jenjang yang ditempuh</td></tr>
+      <tr><td>Pengabdian</td><td>2 tahun</td><td>Tidak diwajibkan setelah pendidikan</td><td>Ketentuan mengikuti program</td></tr>
+      <tr><td>Fokus</td><td>Agama, karakter, dan skill IT</td><td>Agama, karakter, dan skill IT</td><td>Pendidikan formal, agama, karakter, dan IT</td></tr>
+      <tr><td>Informasi Lanjut</td><td><a class="detail-link" href="pondok-it.html">Detail Pondok IT ↗</a></td><td><a class="detail-link" href="rumah-it.html">Detail Rumah IT ↗</a></td><td><a class="detail-link" href="sekolah-it.html">Detail Sekolah IT ↗</a></td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="cta" id="pendaftaran"><div class="cta-inner reveal">
+  <div class="kicker">/// Your Future Starts Here</div><h2>SIAPKAN LANGKAH <span>MASA DEPANMU</span></h2>
+  <p>Pelajari persyaratan, biaya pendidikan, dan ketentuan program yang dipilih sebelum memulai proses pendaftaran di Pondok IT Indonesia.</p>
+  <a class="btn btn-primary" href="pendaftaran.html">MULAI PENDAFTARAN ↗</a>
+  <a class="cta-secondary" href="biaya.html">Lihat informasi biaya pendidikan</a>
+</div></section>
+</main>
+<footer><p>© 2026 <strong>Pondok IT Indonesia</strong>. Semua hak dilindungi.</p><p>Taqwa – Profesional – Bermanfaat</p></footer>
+<script>
+const observer=new IntersectionObserver((entries,obs)=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');obs.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal,.program-card').forEach((el,i)=>{el.style.transitionDelay=`${(i%3)*100}ms`;observer.observe(el)});
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+ document.querySelectorAll('.program-card').forEach(card=>{
+  card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-9px) rotateX(${-y*5}deg) rotateY(${x*6}deg)`});
+  card.addEventListener('pointerleave',()=>card.style.removeProperty('transform'));
+ });
+}
+</script>
+</body>
+</html>

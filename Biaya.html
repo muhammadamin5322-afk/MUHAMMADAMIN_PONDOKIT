@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,1166 +5,340 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Informasi biaya pendidikan, fasilitas, dan ketentuan program Pondok IT Indonesia.">
 <title>Biaya Pendidikan | Pondok IT Indonesia</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-    --navy: #10253f;
-    --navy-light: #183a5b;
-    --green: #087f5b;
-    --green-light: #e8f6ef;
-    --gold: #d7ae58;
-    --text: #273449;
-    --muted: #697789;
-    --line: #e3e9ef;
-    --white: #ffffff;
-    --bg: #f5f8fb;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    width: min(1120px, 92%);
-    margin: auto;
-}
-
-/* NAVBAR */
-.navbar {
-    background: var(--white);
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-inner {
-    width: min(1120px, 92%);
-    margin: auto;
-    min-height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--navy);
-}
-
-.brand-mark {
-    width: 42px;
-    height: 42px;
-    background: var(--green);
-    color: white;
-    border-radius: 11px;
-    display: grid;
-    place-items: center;
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.brand-text strong {
-    display: block;
-    font-size: 14px;
-    line-height: 1.4;
-}
-
-.brand-text span {
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-links a {
-    font-size: 13px;
-    font-weight: 700;
-    color: #46556a;
-    transition: .2s;
-}
-
-.nav-links a:hover {
-    color: var(--green);
-}
-
-.nav-cta {
-    background: var(--green);
-    color: white !important;
-    padding: 11px 17px;
-    border-radius: 8px;
-}
-
-.menu-toggle {
-    display: none;
-    border: 1px solid var(--line);
-    background: white;
-    padding: 8px 12px;
-    border-radius: 7px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(125deg, #0b1d32, #183e5c 72%, #116c55);
-    color: white;
-    padding: 90px 0 105px;
-}
-
-.hero::before,
-.hero::after {
-    content: "";
-    position: absolute;
-    border: 1px solid rgba(255,255,255,.09);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-.hero::before {
-    width: 420px;
-    height: 420px;
-    right: -100px;
-    top: -200px;
-}
-
-.hero::after {
-    width: 290px;
-    height: 290px;
-    right: 30px;
-    top: -130px;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-}
-
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    color: #e7c778;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-.eyebrow::before {
-    content: "";
-    width: 27px;
-    height: 2px;
-    background: var(--gold);
-}
-
-.hero h1 {
-    font-size: clamp(36px, 5vw, 58px);
-    line-height: 1.12;
-    letter-spacing: -1.5px;
-    margin-bottom: 22px;
-}
-
-.hero h1 span {
-    color: #e7c778;
-}
-
-.hero p {
-    max-width: 650px;
-    color: #d6e1eb;
-    font-size: 16px;
-    line-height: 1.9;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 13px 20px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 800;
-    transition: .2s;
-}
-
-.btn-primary {
-    background: var(--green);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: #06684b;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    border: 1px solid rgba(255,255,255,.35);
-    color: white;
-}
-
-.btn-outline:hover {
-    background: rgba(255,255,255,.08);
-}
-
-/* QUICK INFO */
-.quick-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-top: -38px;
-    position: relative;
-    z-index: 2;
-}
-
-.info-card {
-    background: white;
-    padding: 25px;
-    border: 1px solid var(--line);
-    border-radius: 13px;
-    box-shadow: 0 10px 30px rgba(16,37,63,.05);
-}
-
-.info-card small {
-    display: block;
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 5px;
-}
-
-.info-card strong {
-    display: block;
-    color: var(--navy);
-    font-size: 25px;
-    line-height: 1.4;
-}
-
-.info-card p {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 5px;
-}
-
-/* SECTION */
-.section {
-    padding: 78px 0 0;
-}
-
-.section-heading {
-    max-width: 700px;
-    margin-bottom: 30px;
-}
-
-.section-label {
-    display: inline-block;
-    color: var(--green);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.section-heading h2 {
-    color: var(--navy);
-    font-size: clamp(26px, 3vw, 36px);
-    line-height: 1.3;
-    margin-bottom: 13px;
-}
-
-.section-heading p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* PROGRAM CARDS */
-.program-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    align-items: stretch;
-}
-
-.program-card {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform .25s, box-shadow .25s;
-}
-
-.program-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(16,37,63,.09);
-}
-
-.program-top {
-    padding: 25px 24px 22px;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-}
-
-.program-type {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--green);
-    background: var(--green-light);
-    border-radius: 5px;
-    padding: 6px 9px;
-    margin-bottom: 15px;
-}
-
-.program-top h3 {
-    color: var(--navy);
-    font-size: 23px;
-    margin-bottom: 6px;
-}
-
-.program-top p {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.program-body {
-    padding: 23px 24px 25px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
-
-.program-body h4 {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    margin-bottom: 14px;
-}
-
-.cost-list {
-    list-style: none;
-    margin-bottom: 22px;
-}
-
-.cost-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #edf0f4;
-    font-size: 12px;
-}
-
-.cost-list li:last-child {
-    border-bottom: none;
-}
-
-.cost-name {
-    color: #526176;
-    max-width: 55%;
-}
-
-.cost-value {
-    color: var(--navy);
-    font-weight: 800;
-    text-align: right;
-}
-
-.cost-value small {
-    display: block;
-    color: var(--muted);
-    font-size: 10px;
-    font-weight: 400;
-}
-
-.program-note {
-    background: #f5f8fb;
-    border-radius: 8px;
-    padding: 13px;
-    color: #5b687a;
-    font-size: 11px;
-    line-height: 1.8;
-    margin-top: auto;
-}
-
-.program-button {
-    display: block;
-    margin-top: 18px;
-    text-align: center;
-    padding: 12px;
-    background: var(--navy);
-    color: white;
-    font-size: 12px;
-    font-weight: 800;
-    border-radius: 7px;
-    transition: .2s;
-}
-
-.program-button:hover {
-    background: var(--green);
-}
-
-/* FACILITIES */
-.facility-box {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.facility-box h3 {
-    color: var(--navy);
-    font-size: 19px;
-    margin-bottom: 12px;
-}
-
-.facility-box p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.facility-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 13px;
-}
-
-.facility-list li {
-    font-size: 12px;
-    color: #46556a;
-    padding-left: 18px;
-    position: relative;
-}
-
-.facility-list li::before {
-    content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--green);
-    position: absolute;
-    left: 0;
-    top: 8px;
-}
-
-/* PAYMENT FLOW */
-.payment-flow {
-    background: #edf4f2;
-    border: 1px solid #dcebe5;
-    border-radius: 14px;
-    padding: 30px;
-}
-
-.flow-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 25px;
-}
-
-.flow-step {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid #dcebe5;
-}
-
-.flow-number {
-    display: inline-grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: var(--green);
-    color: white;
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 13px;
-}
-
-.flow-step h4 {
-    color: var(--navy);
-    font-size: 13px;
-    margin-bottom: 7px;
-}
-
-.flow-step p {
-    color: var(--muted);
-    font-size: 11px;
-}
-
-.payment-flow > p {
-    color: #506276;
-    font-size: 13px;
-    margin-top: 18px;
-}
-
-/* NOTE */
-.note-box {
-    border-left: 4px solid var(--gold);
-    background: #fffaf0;
-    padding: 23px 25px;
-    border-radius: 0 10px 10px 0;
-    margin-top: 28px;
-}
-
-.note-box h3 {
-    color: #78571b;
-    font-size: 15px;
-    margin-bottom: 8px;
-}
-
-.note-box p,
-.note-box li {
-    color: #786b53;
-    font-size: 12px;
-}
-
-.note-box ul {
-    padding-left: 18px;
-    margin-top: 8px;
-}
-
-/* CTA */
-.cta {
-    margin-top: 80px;
-    background: linear-gradient(120deg, var(--navy), #174b59);
-    padding: 45px;
-    border-radius: 16px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-}
-
-.cta h2 {
-    font-size: 25px;
-    margin-bottom: 8px;
-}
-
-.cta p {
-    color: #d5e0e9;
-    font-size: 13px;
-}
-
-.cta .btn {
-    background: white;
-    color: var(--navy);
-    flex-shrink: 0;
-}
-
-/* FOOTER */
-footer {
-    margin-top: 80px;
-    background: #0b1b2d;
-    color: white;
-    padding: 35px 0;
-}
-
-.footer-inner {
-    width: min(1120px, 92%);
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.footer-inner strong {
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-.footer-inner p,
-.footer-inner span {
-    color: #aebdcb;
-    font-size: 11px;
-}
-
-.footer-inner p {
-    margin-top: 5px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .program-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .program-card:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .flow-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .nav-links {
-        gap: 15px;
-    }
-}
-
-@media (max-width: 650px) {
-    .nav-inner {
-        min-height: 65px;
-        flex-wrap: wrap;
-        padding: 11px 0;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 5px 0 10px;
-    }
-
-    .nav-links.open {
-        display: flex;
-    }
-
-    .nav-links a {
-        padding: 12px 5px;
-        border-bottom: 1px solid var(--line);
-    }
-
-    .nav-links .nav-cta {
-        text-align: center;
-        margin-top: 10px;
-    }
-
-    .hero {
-        padding: 65px 0 80px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .quick-info {
-        grid-template-columns: 1fr;
-        margin-top: -25px;
-        gap: 10px;
-    }
-
-    .info-card {
-        padding: 19px;
-    }
-
-    .info-card strong {
-        font-size: 22px;
-    }
-
-    .section {
-        padding-top: 58px;
-    }
-
-    .program-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .program-card:last-child {
-        grid-column: auto;
-    }
-
-    .facility-box {
-        grid-template-columns: 1fr;
-        padding: 23px;
-    }
-
-    .facility-list {
-        grid-template-columns: 1fr;
-    }
-
-    .flow-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .payment-flow {
-        padding: 20px;
-    }
-
-    .cta {
-        margin-top: 55px;
-        padding: 28px 23px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .cta h2 {
-        font-size: 22px;
-    }
-
-    .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-}
+:root{--red:#e0141f;--red2:#8e0a12;--blue:#1f5fff;--cyan:#4fd3ff;--gold:#ffd04f;--steel:#aab6c6;--dark:#070b14;--text:#dbe6f3;--line:rgba(79,211,255,.3);--head:'Orbitron','Arial Black',sans-serif;--body:'Rajdhani',Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--body);font-size:18px;background:var(--dark);color:var(--text);line-height:1.55;overflow-x:hidden}
+a{text-decoration:none;color:inherit}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.container{width:min(1120px,92%);margin:auto}
+
+/* latar kota */
+.city{position:fixed;inset:0;z-index:-2;overflow:hidden;perspective:900px;background:radial-gradient(ellipse at 50% 0%,#14315a,#070b14 70%)}
+.city i{position:absolute;top:-10%;bottom:-10%;background:linear-gradient(180deg,#0c1424,#1a2a45 50%,#0a101c);border:1px solid rgba(79,211,255,.15);box-shadow:0 0 30px rgba(31,95,255,.25) inset;animation:sway 16s ease-in-out infinite alternate}
+.city i:nth-child(even){animation-direction:alternate-reverse;animation-duration:20s}
+@keyframes sway{from{transform:translateZ(-60px) rotateY(-6deg)}to{transform:translateZ(60px) rotateY(6deg)}}
+.city::after{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg at 50% 0%,transparent 0 20deg,rgba(255,255,255,.08) 28deg,transparent 40deg 100deg,rgba(79,211,255,.1) 110deg,transparent 125deg);animation:rays 26s linear infinite;mix-blend-mode:screen}
+@keyframes rays{to{transform:rotate(360deg)}}
+.vig{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 30%,rgba(3,6,12,.85));pointer-events:none}
+
+/* navbar */
+.navbar{position:sticky;top:0;z-index:100;background:rgba(7,11,20,.85);backdrop-filter:blur(8px);border-bottom:2px solid var(--red);box-shadow:0 0 22px rgba(224,20,31,.45)}
+.nav-inner{width:min(1120px,92%);margin:auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:44px;height:48px;display:grid;place-items:center;font-family:var(--head);font-size:13px;font-weight:800;color:#fff;background:linear-gradient(160deg,var(--red),var(--blue));clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.brand-text strong{display:block;font-family:var(--head);font-size:13px;letter-spacing:.08em;color:#fff}.brand-text span{color:var(--steel);font-size:13px}
+.nav-links{display:flex;align-items:center;gap:22px}
+.nav-links a{font-family:var(--head);font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--steel);transition:.2s}.nav-links a:hover{color:var(--cyan);text-shadow:0 0 10px var(--cyan)}
+.nav-cta{color:#fff!important;padding:11px 20px;background:linear-gradient(180deg,#ff3b46,var(--red2));clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);box-shadow:0 0 18px rgba(224,20,31,.8)}
+.menu-toggle{display:none;border:1px solid var(--cyan);background:rgba(31,95,255,.25);color:#fff;padding:6px 12px;font-size:20px;cursor:pointer}
+
+/* hero */
+.hero{padding:60px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:center}
+.eyebrow{font-family:var(--head);font-size:13px;letter-spacing:.16em;color:var(--cyan)}
+.hero h1{font-family:var(--head);font-size:clamp(32px,5vw,56px);line-height:1.08;margin:14px 0 20px;text-transform:uppercase;background:linear-gradient(180deg,#fff 10%,#9fb2c8 50%,#e0141f 52%,#ff7a80);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(224,20,31,.55))}
+.hero p{max-width:600px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 24px;font-family:var(--head);font-size:12px;font-weight:800;letter-spacing:.08em;color:#fff;text-transform:uppercase;background:linear-gradient(180deg,#ff3b46,var(--red2));clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);box-shadow:0 0 18px rgba(224,20,31,.8);transition:.2s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.25)}
+.btn-outline{background:linear-gradient(180deg,#1b2d4d,#0e1626);box-shadow:0 0 14px rgba(31,95,255,.7)}
+.stage{height:360px;perspective:900px;display:grid;place-items:center;position:relative}
+.scene{position:relative;width:0;height:0;transform-style:preserve-3d}
+.coin{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;animation:flipcoin 7s linear infinite}
+.stage:hover .coin{animation-duration:2.5s}
+@keyframes flipcoin{from{transform:rotateX(-12deg) rotateY(0)}to{transform:rotateX(-12deg) rotateY(360deg)}}
+.cl{position:absolute;left:-95px;top:-95px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,#ffe9a0,#d9a21b 70%,#8a5d08);border:3px solid #fff3c4;box-shadow:0 0 26px rgba(255,208,79,.55)}
+.cf{display:grid;place-items:center;font-family:var(--head);font-weight:800;font-size:46px;color:#7a4f05;text-shadow:0 2px 0 #fff3c4,0 0 18px #fff;backface-visibility:hidden;background:radial-gradient(circle,#ffe9a0,#e8b52c 65%,#a8730c);box-shadow:inset 0 0 0 10px rgba(122,79,5,.25),0 0 40px rgba(255,208,79,.8)}
+.cf small{display:block;font-size:12px;letter-spacing:.2em}
+.ring{position:absolute;left:0;top:0;border-radius:50%;border:3px solid;transform-style:preserve-3d}
+.r1{width:330px;height:330px;margin:-165px;border-color:var(--red) transparent var(--red) transparent;box-shadow:0 0 18px var(--red);animation:ring1 7s linear infinite}
+.r2{width:390px;height:390px;margin:-195px;border-color:transparent var(--cyan) transparent var(--cyan);box-shadow:0 0 18px var(--cyan);animation:ring2 9s linear infinite}
+@keyframes ring1{from{transform:rotateX(72deg) rotateZ(0)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+@keyframes ring2{from{transform:rotateY(72deg) rotateZ(360deg)}to{transform:rotateY(72deg) rotateZ(0)}}
+
+/* kartu ringkasan */
+.quick-info{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:2}
+.info-card{padding:24px;background:linear-gradient(160deg,rgba(24,40,70,.95),rgba(10,16,30,.95));border:1px solid var(--line);border-top:3px solid var(--red);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);box-shadow:0 0 30px rgba(31,95,255,.25)}
+.info-card small{display:block;color:var(--steel);font-weight:600}
+.info-card strong{display:block;font-family:var(--head);font-size:26px;color:#fff;text-shadow:0 0 14px rgba(79,211,255,.7);margin:4px 0}
+.info-card p{font-size:15px;color:var(--steel)}
+
+/* section */
+.section{padding-top:76px}
+.section-heading{max-width:720px;margin-bottom:30px}
+.section-label{display:inline-block;font-family:var(--head);font-size:12px;letter-spacing:.16em;color:var(--red);margin-bottom:8px}
+.section-heading h2{font-family:var(--head);font-size:clamp(24px,3vw,34px);line-height:1.25;color:#fff;margin-bottom:12px;text-shadow:0 0 16px rgba(79,211,255,.5)}
+.section-heading p{color:var(--steel)}
+
+/* program */
+.program-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch;perspective:1200px}
+.program-card{--c:var(--blue);position:relative;display:flex;flex-direction:column;background:linear-gradient(165deg,rgba(24,40,70,.96),rgba(8,14,26,.97));border:1px solid var(--c);box-shadow:0 0 28px color-mix(in srgb,var(--c) 45%,transparent);clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));transform-style:preserve-3d;transition:transform .15s ease-out}
+.program-card.gold{--c:var(--gold)}.program-card.red{--c:var(--red)}
+.program-card::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--c);box-shadow:0 0 16px var(--c)}
+.program-top{padding:26px 24px 18px;border-bottom:1px dashed var(--line)}
+.program-type{display:inline-block;font-family:var(--head);font-size:10px;font-weight:800;letter-spacing:.1em;color:#fff;background:var(--c);padding:5px 10px;margin-bottom:14px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.program-card.gold .program-type{color:#3a2800}
+.program-top h3{font-family:var(--head);font-size:21px;color:#fff;margin-bottom:6px}.program-top p{color:var(--steel);font-size:16px}
+.program-body{padding:20px 24px 26px;display:flex;flex-direction:column;flex:1}
+.program-body h4{font-family:var(--head);font-size:11px;color:var(--cyan);letter-spacing:.12em;margin-bottom:10px}
+.cost-list{list-style:none;margin-bottom:18px}
+.cost-list li{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(170,182,198,.2);font-size:16px}
+.cost-list li:last-child{border-bottom:none}
+.cost-name{color:var(--steel);max-width:52%}
+.cost-value{font-family:var(--head);font-weight:600;font-size:13px;color:#fff;text-align:right}
+.cost-value small{display:block;font-family:var(--body);color:var(--steel);font-size:14px;font-weight:500}
+.program-note{background:rgba(79,211,255,.08);border-left:3px solid var(--c);padding:12px;font-size:15px;margin-top:auto}
+.program-button{display:block;margin-top:18px;text-align:center;padding:12px;font-family:var(--head);font-size:12px;font-weight:800;letter-spacing:.08em;color:#fff;text-transform:uppercase;background:linear-gradient(180deg,var(--c),#0b1630);transition:.2s}
+.program-card.gold .program-button{color:#fff;background:linear-gradient(180deg,#b88a14,#4a3300)}
+.program-button:hover{filter:brightness(1.35);box-shadow:0 0 22px var(--c)}
+.ribbon{position:absolute;right:30px;top:14px;font-family:var(--head);font-size:10px;font-weight:800;color:#3a2800;background:var(--gold);padding:4px 10px;box-shadow:0 0 14px var(--gold);animation:pulse 1.6s ease-in-out infinite alternate}
+@keyframes pulse{to{box-shadow:0 0 26px var(--gold);transform:scale(1.06)}}
+
+/* fasilitas */
+.facility-box{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:30px;background:rgba(10,18,34,.92);border:1px solid var(--line);border-left:4px solid var(--blue);box-shadow:0 0 30px rgba(31,95,255,.25)}
+.facility-box h3{font-family:var(--head);font-size:18px;color:#fff;margin-bottom:10px}.facility-box p{color:var(--steel)}
+.facility-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.facility-list li{padding:12px 12px 12px 34px;position:relative;font-weight:700;background:rgba(79,211,255,.08);border:1px solid var(--line)}
+.facility-list li::before{content:"";position:absolute;left:12px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+
+/* alur */
+.payment-flow{padding:30px;background:rgba(10,18,34,.92);border:1px solid var(--line);clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%)}
+.flow-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.flow-grid::before{content:"";position:absolute;left:5%;right:5%;top:42px;height:3px;background:linear-gradient(90deg,var(--red),var(--blue),var(--cyan));background-size:200% 100%;animation:flow 3s linear infinite;box-shadow:0 0 12px var(--cyan)}
+@keyframes flow{to{background-position:200% 0}}
+.flow-step{position:relative;padding:20px;background:rgba(8,14,26,.95);border:1px solid rgba(170,182,198,.3);border-top:3px solid var(--red);transition:transform .15s ease-out}
+.flow-number{display:grid;place-items:center;width:44px;height:50px;margin-bottom:12px;font-family:var(--head);font-size:13px;font-weight:800;color:#fff;background:linear-gradient(160deg,var(--red),var(--blue));clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.flow-step h4{font-family:var(--head);font-size:13px;color:var(--cyan);margin-bottom:6px}.flow-step p{font-size:16px;color:var(--steel)}
+.payment-flow>p{margin-top:20px}
+.note-box{margin-top:26px;padding:22px 25px;background:rgba(214,173,87,.1);border-left:5px solid var(--gold);box-shadow:0 0 24px rgba(255,208,79,.15)}
+.note-box h3{font-family:var(--head);font-size:15px;color:var(--gold);margin-bottom:8px}
+.note-box ul{padding-left:20px;margin-top:8px}.note-box li::marker{color:var(--gold)}
+
+/* CTA + footer */
+.cta{position:relative;overflow:hidden;margin-top:76px;padding:42px;display:flex;justify-content:space-between;align-items:center;gap:25px;background:linear-gradient(120deg,var(--red2),#12306b 70%);border:1px solid var(--cyan);box-shadow:0 0 40px rgba(31,95,255,.5);clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,34px 100%,0 calc(100% - 34px))}
+.cta::after{content:"";position:absolute;top:0;bottom:0;width:80px;left:-120px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:sheen 4s ease-in-out infinite}
+@keyframes sheen{to{left:120%}}
+.cta h2{font-family:var(--head);font-size:23px;color:#fff;margin-bottom:8px;position:relative}.cta p{position:relative;color:#e2ecf7}
+.cta .btn{flex-shrink:0;position:relative;background:#fff;color:#10243a;box-shadow:0 0 24px #fff}
+footer{margin-top:76px;padding:32px 0;text-align:center;background:linear-gradient(180deg,#060a12,#2a0508);border-top:3px solid var(--red);box-shadow:0 -10px 30px rgba(224,20,31,.35)}
+.footer-inner{width:min(1120px,92%);margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--steel);font-size:15px}
+.footer-inner strong{font-family:var(--head);color:#fff;letter-spacing:.1em;font-size:13px}.footer-inner p{margin-top:4px}
+
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.stage{height:330px}.program-grid{grid-template-columns:1fr 1fr}.program-card:last-child{grid-column:1/-1}.flow-grid{grid-template-columns:1fr 1fr}.flow-grid::before{display:none}.nav-links{gap:14px}}
+@media(max-width:650px){.nav-inner{flex-wrap:wrap;padding:10px 0}.menu-toggle{display:block}.nav-links{display:none;width:100%;flex-direction:column;align-items:stretch;gap:0;padding:5px 0 10px}.nav-links.open{display:flex}.nav-links a{padding:12px 5px;border-bottom:1px solid var(--line)}.nav-cta{text-align:center;margin-top:10px}.quick-info,.program-grid,.flow-grid,.facility-box,.facility-list{grid-template-columns:1fr}.program-card:last-child{grid-column:auto}.facility-box,.payment-flow{padding:20px}.cta{flex-direction:column;align-items:flex-start;padding:28px 22px}.footer-inner{flex-direction:column;align-items:flex-start}.scene{transform:scale(.75)}.hero{padding-top:36px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{.city,.vig,.navbar,.stage,.hero-actions,.cta{display:none!important}body{background:#fff;color:#000}.hero h1{-webkit-text-fill-color:#000;filter:none}.info-card,.program-card,.facility-box,.payment-flow,.flow-step{background:#fff;clip-path:none;box-shadow:none;break-inside:avoid}h2,h3,h4,.cost-value,.info-card strong{color:#000;text-shadow:none}.program-top p,.cost-name,.info-card p,.flow-step p{color:#333}}
 </style>
 </head>
-
 <body>
+<div class="city" id="city" aria-hidden="true"></div><div class="vig" aria-hidden="true"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="nav-inner">
-        <a href="index.html" class="brand">
-            <div class="brand-mark">PIT</div>
-            <div class="brand-text">
-                <strong>PONDOK IT INDONESIA</strong>
-                <span>Taqwa – Profesional – Bermanfaat</span>
-            </div>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle"
-                aria-label="Buka menu navigasi"
-                aria-expanded="false">☰</button>
-
-        <div class="nav-links" id="navLinks">
-            <a href="index.html">Beranda</a>
-            <a href="#program">Program & Biaya</a>
-            <a href="#fasilitas">Fasilitas</a>
-            <a href="#ketentuan">Ketentuan</a>
-            <a href="URL_FORMULIR" class="nav-cta">Daftar Sekarang</a>
-        </div>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">PIT</div>
+      <div class="brand-text"><strong>PONDOK IT INDONESIA</strong><span>Taqwa – Profesional – Bermanfaat</span></div>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu navigasi" aria-expanded="false">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Beranda</a>
+      <a href="#program">Program &amp; Biaya</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#ketentuan">Ketentuan</a>
+      <a href="URL_FORMULIR" class="nav-cta">Daftar Sekarang</a>
     </div>
+  </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <span class="eyebrow">Informasi Pendidikan</span>
-
-            <h1>Biaya Pendidikan<br>
-                <span>Pondok IT Indonesia</span>
-            </h1>
-
-            <p>
-                Transparansi biaya merupakan bagian dari komitmen kami
-                dalam memberikan informasi pendidikan yang jelas kepada
-                calon santri dan wali santri. Pelajari rincian biaya,
-                fasilitas, serta ketentuan setiap program sebelum mendaftar.
-            </p>
-
-            <div class="hero-actions">
-                <a href="#program" class="btn btn-primary">
-                    Lihat Rincian Biaya
-                </a>
-                <a href="#ketentuan" class="btn btn-outline">
-                    Pelajari Ketentuan
-                </a>
-            </div>
-        </div>
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">INFORMASI PENDIDIKAN</span>
+      <h1>Biaya Pendidikan<br>Pondok IT Indonesia</h1>
+      <p>Transparansi biaya merupakan bagian dari komitmen kami dalam memberikan informasi pendidikan yang jelas kepada calon santri dan wali santri. Pelajari rincian biaya, fasilitas, serta ketentuan setiap program sebelum mendaftar.</p>
+      <div class="hero-actions">
+        <a href="#program" class="btn">Lihat Rincian Biaya</a>
+        <a href="#ketentuan" class="btn btn-outline">Pelajari Ketentuan</a>
+      </div>
     </div>
+    <div class="stage" aria-hidden="true">
+      <div class="scene"><div class="ring r1"></div><div class="ring r2"></div><div class="coin" id="coin"></div></div>
+    </div>
+  </div>
 </header>
 
 <main class="container">
 
-    <!-- RINGKASAN -->
-    <section class="quick-info" aria-label="Ringkasan biaya">
-        <div class="info-card">
-            <small>Biaya Pendaftaran</small>
-            <strong>Rp250.000</strong>
-            <p>Dibayarkan pada tahap pendaftaran.</p>
+  <!-- RINGKASAN -->
+  <section class="quick-info" aria-label="Ringkasan biaya">
+    <div class="info-card tilt"><small>Biaya Pendaftaran</small><strong>Rp250.000</strong><p>Dibayarkan pada tahap pendaftaran.</p></div>
+    <div class="info-card tilt"><small>Biaya Pre-Program 2026</small><strong>Rp2.500.000</strong><p>Untuk masa Pre-Program selama 2 bulan.</p></div>
+    <div class="info-card tilt"><small>Biaya Pre-Program 2027</small><strong>Rp3.000.000</strong><p>Untuk masa Pre-Program selama 2 bulan.</p></div>
+  </section>
+
+  <!-- PROGRAM -->
+  <section class="section" id="program">
+    <div class="section-heading">
+      <span class="section-label">PROGRAM PENDIDIKAN</span>
+      <h2>Pilih Program Sesuai Kebutuhan</h2>
+      <p>Pondok IT Indonesia memiliki tiga pilihan program pendidikan dengan skema pembiayaan yang berbeda. Silakan pelajari rincian masing-masing program berikut.</p>
+    </div>
+    <div class="program-grid">
+
+      <!-- RUMAH IT -->
+      <article class="program-card tilt">
+        <div class="program-top"><span class="program-type">PROGRAM 1 TAHUN</span><h3>Rumah IT</h3><p>Program pendidikan intensif selama 1 tahun.</p></div>
+        <div class="program-body">
+          <h4>RINCIAN BIAYA</h4>
+          <ul class="cost-list">
+            <li><span class="cost-name">Pendaftaran</span><span class="cost-value">Rp250.000</span></li>
+            <li><span class="cost-name">Pre-Program 2026</span><span class="cost-value">Rp2.500.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Pre-Program 2027</span><span class="cost-value">Rp3.000.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Wakaf Bangunan</span><span class="cost-value">Rp8.500.000<small>Wajib, sekali</small></span></li>
+            <li><span class="cost-name">SPP Bulanan</span><span class="cost-value">Rp2.000.000<small>Per bulan</small></span></li>
+          </ul>
+          <div class="program-note">Wakaf bangunan dapat dicicil 3 kali dalam 2 bulan sesuai ketentuan yang tercantum. Wakaf dan SPP berlaku setelah lulus Pre-Program.</div>
+          <a href="URL_FORMULIR" class="program-button">Daftar Rumah IT</a>
         </div>
+      </article>
 
-        <div class="info-card">
-            <small>Biaya Pre-Program 2026</small>
-            <strong>Rp2.500.000</strong>
-            <p>Untuk masa Pre-Program selama 2 bulan.</p>
+      <!-- BEASISWA PONDOK IT -->
+      <article class="program-card gold tilt">
+        <span class="ribbon">SPP GRATIS</span>
+        <div class="program-top"><span class="program-type">PROGRAM BEASISWA</span><h3>Beasiswa Pondok IT</h3><p>Program pendidikan selama 3 tahun.</p></div>
+        <div class="program-body">
+          <h4>RINCIAN BIAYA</h4>
+          <ul class="cost-list">
+            <li><span class="cost-name">Pendaftaran</span><span class="cost-value">Rp250.000</span></li>
+            <li><span class="cost-name">Pre-Program 2026</span><span class="cost-value">Rp2.500.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Pre-Program 2027</span><span class="cost-value">Rp3.000.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Wakaf Bangunan</span><span class="cost-value">Sukarela<small>Sesuai kemampuan</small></span></li>
+            <li><span class="cost-name">SPP Bulanan</span><span class="cost-value">Gratis<small>Program beasiswa</small></span></li>
+          </ul>
+          <div class="program-note">Wakaf bangunan tidak wajib dan diberikan secara sukarela sesuai kemampuan. SPP bulanan gratis sesuai skema beasiswa yang tercantum.</div>
+          <a href="URL_FORMULIR" class="program-button">Daftar Beasiswa</a>
         </div>
+      </article>
 
-        <div class="info-card">
-            <small>Biaya Pre-Program 2027</small>
-            <strong>Rp3.000.000</strong>
-            <p>Untuk masa Pre-Program selama 2 bulan.</p>
+      <!-- SEKOLAH IT -->
+      <article class="program-card red tilt">
+        <div class="program-top"><span class="program-type">PROGRAM 3 TAHUN</span><h3>Sekolah IT</h3><p>Program pendidikan selama 3 tahun.</p></div>
+        <div class="program-body">
+          <h4>RINCIAN BIAYA</h4>
+          <ul class="cost-list">
+            <li><span class="cost-name">Pendaftaran</span><span class="cost-value">Rp250.000</span></li>
+            <li><span class="cost-name">Pre-Program 2026</span><span class="cost-value">Rp2.500.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Pre-Program 2027</span><span class="cost-value">Rp3.000.000<small>Untuk 2 bulan</small></span></li>
+            <li><span class="cost-name">Wakaf Bangunan</span><span class="cost-value">Rp20.000.000<small>Wajib</small></span></li>
+            <li><span class="cost-name">SPP Bulanan</span><span class="cost-value">Rp2.000.000<small>Per bulan</small></span></li>
+          </ul>
+          <div class="program-note">Wakaf bangunan dapat dicicil selama 3 tahun sesuai ketentuan program. Wakaf dan SPP berlaku setelah lulus Pre-Program.</div>
+          <a href="URL_FORMULIR" class="program-button">Daftar Sekolah IT</a>
         </div>
-    </section>
+      </article>
 
-    <!-- PROGRAM -->
-    <section class="section" id="program">
-        <div class="section-heading">
-            <span class="section-label">Program Pendidikan</span>
-            <h2>Pilih Program Sesuai Kebutuhan</h2>
-            <p>
-                Pondok IT Indonesia memiliki tiga pilihan program
-                pendidikan dengan skema pembiayaan yang berbeda.
-                Silakan pelajari rincian masing-masing program berikut.
-            </p>
-        </div>
+    </div>
+  </section>
 
-        <div class="program-grid">
+  <!-- FASILITAS -->
+  <section class="section" id="fasilitas">
+    <div class="section-heading">
+      <span class="section-label">FASILITAS PENDIDIKAN</span>
+      <h2>Dukungan untuk Aktivitas Santri</h2>
+      <p>Biaya Pre-Program dan SPP pada program berbayar mencakup fasilitas sesuai ketentuan masing-masing program.</p>
+    </div>
+    <div class="facility-box">
+      <div>
+        <h3>Fasilitas yang Termasuk</h3>
+        <p>Pondok IT Indonesia menyediakan dukungan kebutuhan dasar santri agar dapat menjalani proses pendidikan, pembinaan karakter, dan pengembangan keterampilan IT.</p>
+      </div>
+      <ul class="facility-list">
+        <li>Makan 3 kali sehari</li><li>Asrama</li><li>Akses Wi-Fi</li><li>Bimbingan mentor</li>
+      </ul>
+    </div>
+  </section>
 
-            <!-- RUMAH IT -->
-            <article class="program-card">
-                <div class="program-top">
-                    <span class="program-type">PROGRAM 1 TAHUN</span>
-                    <h3>Rumah IT</h3>
-                    <p>Program pendidikan intensif selama 1 tahun.</p>
-                </div>
+  <!-- ALUR PEMBAYARAN -->
+  <section class="section" id="ketentuan">
+    <div class="section-heading">
+      <span class="section-label">ALUR PEMBIAYAAN</span>
+      <h2>Pahami Tahapan Sebelum Melanjutkan</h2>
+      <p>Untuk program Rumah IT dan Sekolah IT, biaya wakaf bangunan dan SPP bulanan berlaku setelah santri dinyatakan lulus Pre-Program.</p>
+    </div>
+    <div class="payment-flow">
+      <div class="flow-grid">
+        <div class="flow-step tilt"><span class="flow-number">01</span><h4>Pendaftaran</h4><p>Biaya pendaftaran sebesar Rp250.000.</p></div>
+        <div class="flow-step tilt"><span class="flow-number">02</span><h4>Pre-Program</h4><p>Pendidikan awal selama 2 bulan dengan biaya sesuai tahun pendaftaran.</p></div>
+        <div class="flow-step tilt"><span class="flow-number">03</span><h4>Evaluasi Kelulusan</h4><p>Santri mengikuti evaluasi untuk menentukan kelulusan Pre-Program.</p></div>
+        <div class="flow-step tilt"><span class="flow-number">04</span><h4>Program Lanjutan</h4><p>Santri yang lulus melanjutkan ke program sesuai jalur pendidikan yang dipilih.</p></div>
+      </div>
+      <p><strong>Perhatian:</strong> Kelulusan Pre-Program menjadi dasar untuk melanjutkan ke program berikutnya. Ketentuan pembiayaan lanjutan mengikuti jenis program yang dipilih.</p>
+    </div>
+    <div class="note-box">
+      <h3>Catatan Penting Pembiayaan</h3>
+      <p>Mohon perhatikan hal-hal berikut sebelum melakukan pembayaran:</p>
+      <ul>
+        <li>Biaya pendaftaran adalah Rp250.000.</li>
+        <li>Biaya Pre-Program tahun 2026 adalah Rp2.500.000 untuk 2 bulan.</li>
+        <li>Biaya Pre-Program tahun 2027 adalah Rp3.000.000 untuk 2 bulan.</li>
+        <li>Rumah IT memiliki wakaf bangunan Rp8.500.000 dan SPP Rp2.000.000 per bulan setelah lulus Pre-Program.</li>
+        <li>Beasiswa Pondok IT memiliki wakaf sukarela dan SPP gratis sesuai ketentuan program.</li>
+        <li>Sekolah IT memiliki wakaf bangunan Rp20.000.000 dan SPP Rp2.000.000 per bulan setelah lulus Pre-Program.</li>
+      </ul>
+    </div>
+  </section>
 
-                <div class="program-body">
-                    <h4>Rincian Biaya</h4>
-
-                    <ul class="cost-list">
-                        <li>
-                            <span class="cost-name">Pendaftaran</span>
-                            <span class="cost-value">Rp250.000</span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2026</span>
-                            <span class="cost-value">
-                                Rp2.500.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2027</span>
-                            <span class="cost-value">
-                                Rp3.000.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Wakaf Bangunan</span>
-                            <span class="cost-value">
-                                Rp8.500.000
-                                <small>Wajib, sekali</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">SPP Bulanan</span>
-                            <span class="cost-value">
-                                Rp2.000.000
-                                <small>Per bulan</small>
-                            </span>
-                        </li>
-                    </ul>
-
-                    <div class="program-note">
-                        Wakaf bangunan dapat dicicil 3 kali dalam
-                        2 bulan sesuai ketentuan yang tercantum.
-                        Wakaf dan SPP berlaku setelah lulus Pre-Program.
-                    </div>
-
-                    <a href="URL_FORMULIR" class="program-button">
-                        Daftar Rumah IT
-                    </a>
-                </div>
-            </article>
-
-            <!-- BEASISWA PONDOK IT -->
-            <article class="program-card">
-                <div class="program-top">
-                    <span class="program-type">PROGRAM BEASISWA</span>
-                    <h3>Beasiswa Pondok IT</h3>
-                    <p>Program pendidikan selama 3 tahun.</p>
-                </div>
-
-                <div class="program-body">
-                    <h4>Rincian Biaya</h4>
-
-                    <ul class="cost-list">
-                        <li>
-                            <span class="cost-name">Pendaftaran</span>
-                            <span class="cost-value">Rp250.000</span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2026</span>
-                            <span class="cost-value">
-                                Rp2.500.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2027</span>
-                            <span class="cost-value">
-                                Rp3.000.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Wakaf Bangunan</span>
-                            <span class="cost-value">
-                                Sukarela
-                                <small>Sesuai kemampuan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">SPP Bulanan</span>
-                            <span class="cost-value">
-                                Gratis
-                                <small>Program beasiswa</small>
-                            </span>
-                        </li>
-                    </ul>
-
-                    <div class="program-note">
-                        Wakaf bangunan tidak wajib dan diberikan
-                        secara sukarela sesuai kemampuan.
-                        SPP bulanan gratis sesuai skema beasiswa
-                        yang tercantum.
-                    </div>
-
-                    <a href="URL_FORMULIR" class="program-button">
-                        Daftar Beasiswa
-                    </a>
-                </div>
-            </article>
-
-            <!-- SEKOLAH IT -->
-            <article class="program-card">
-                <div class="program-top">
-                    <span class="program-type">PROGRAM 3 TAHUN</span>
-                    <h3>Sekolah IT</h3>
-                    <p>Program pendidikan selama 3 tahun.</p>
-                </div>
-
-                <div class="program-body">
-                    <h4>Rincian Biaya</h4>
-
-                    <ul class="cost-list">
-                        <li>
-                            <span class="cost-name">Pendaftaran</span>
-                            <span class="cost-value">Rp250.000</span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2026</span>
-                            <span class="cost-value">
-                                Rp2.500.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Pre-Program 2027</span>
-                            <span class="cost-value">
-                                Rp3.000.000
-                                <small>Untuk 2 bulan</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">Wakaf Bangunan</span>
-                            <span class="cost-value">
-                                Rp20.000.000
-                                <small>Wajib</small>
-                            </span>
-                        </li>
-                        <li>
-                            <span class="cost-name">SPP Bulanan</span>
-                            <span class="cost-value">
-                                Rp2.000.000
-                                <small>Per bulan</small>
-                            </span>
-                        </li>
-                    </ul>
-
-                    <div class="program-note">
-                        Wakaf bangunan dapat dicicil selama 3 tahun
-                        sesuai ketentuan program. Wakaf dan SPP berlaku
-                        setelah lulus Pre-Program.
-                    </div>
-
-                    <a href="URL_FORMULIR" class="program-button">
-                        Daftar Sekolah IT
-                    </a>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- FASILITAS -->
-    <section class="section" id="fasilitas">
-        <div class="section-heading">
-            <span class="section-label">Fasilitas Pendidikan</span>
-            <h2>Dukungan untuk Aktivitas Santri</h2>
-            <p>
-                Biaya Pre-Program dan SPP pada program berbayar
-                mencakup fasilitas sesuai ketentuan masing-masing program.
-            </p>
-        </div>
-
-        <div class="facility-box">
-            <div>
-                <h3>Fasilitas yang Termasuk</h3>
-                <p>
-                    Pondok IT Indonesia menyediakan dukungan kebutuhan
-                    dasar santri agar dapat menjalani proses pendidikan,
-                    pembinaan karakter, dan pengembangan keterampilan IT.
-                </p>
-            </div>
-
-            <ul class="facility-list">
-                <li>Makan 3 kali sehari</li>
-                <li>Asrama</li>
-                <li>Akses Wi-Fi</li>
-                <li>Bimbingan mentor</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- ALUR PEMBAYARAN -->
-    <section class="section" id="ketentuan">
-        <div class="section-heading">
-            <span class="section-label">Alur Pembiayaan</span>
-            <h2>Pahami Tahapan Sebelum Melanjutkan</h2>
-            <p>
-                Untuk program Rumah IT dan Sekolah IT, biaya wakaf
-                bangunan dan SPP bulanan berlaku setelah santri
-                dinyatakan lulus Pre-Program.
-            </p>
-        </div>
-
-        <div class="payment-flow">
-            <div class="flow-grid">
-                <div class="flow-step">
-                    <span class="flow-number">01</span>
-                    <h4>Pendaftaran</h4>
-                    <p>Biaya pendaftaran sebesar Rp250.000.</p>
-                </div>
-
-                <div class="flow-step">
-                    <span class="flow-number">02</span>
-                    <h4>Pre-Program</h4>
-                    <p>Pendidikan awal selama 2 bulan dengan biaya sesuai tahun pendaftaran.</p>
-                </div>
-
-                <div class="flow-step">
-                    <span class="flow-number">03</span>
-                    <h4>Evaluasi Kelulusan</h4>
-                    <p>Santri mengikuti evaluasi untuk menentukan kelulusan Pre-Program.</p>
-                </div>
-
-                <div class="flow-step">
-                    <span class="flow-number">04</span>
-                    <h4>Program Lanjutan</h4>
-                    <p>Santri yang lulus melanjutkan ke program sesuai jalur pendidikan yang dipilih.</p>
-                </div>
-            </div>
-
-            <p>
-                <strong>Perhatian:</strong> Kelulusan Pre-Program menjadi
-                dasar untuk melanjutkan ke program berikutnya. Ketentuan
-                pembiayaan lanjutan mengikuti jenis program yang dipilih.
-            </p>
-        </div>
-
-        <div class="note-box">
-            <h3>Catatan Penting Pembiayaan</h3>
-            <p>Mohon perhatikan hal-hal berikut sebelum melakukan pembayaran:</p>
-            <ul>
-                <li>Biaya pendaftaran adalah Rp250.000.</li>
-                <li>Biaya Pre-Program tahun 2026 adalah Rp2.500.000 untuk 2 bulan.</li>
-                <li>Biaya Pre-Program tahun 2027 adalah Rp3.000.000 untuk 2 bulan.</li>
-                <li>Rumah IT memiliki wakaf bangunan Rp8.500.000 dan SPP Rp2.000.000 per bulan setelah lulus Pre-Program.</li>
-                <li>Beasiswa Pondok IT memiliki wakaf sukarela dan SPP gratis sesuai ketentuan program.</li>
-                <li>Sekolah IT memiliki wakaf bangunan Rp20.000.000 dan SPP Rp2.000.000 per bulan setelah lulus Pre-Program.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <div>
-            <h2>Siap Memulai Perjalanan Pendidikan?</h2>
-            <p>
-                Pelajari program yang sesuai dengan kebutuhan dan
-                persiapkan diri untuk bergabung bersama Pondok IT Indonesia.
-            </p>
-        </div>
-
-        <a href="URL_FORMULIR" class="btn">
-            Informasi Pendaftaran
-        </a>
-    </section>
+  <!-- CTA -->
+  <section class="cta">
+    <div>
+      <h2>Siap Memulai Perjalanan Pendidikan?</h2>
+      <p>Pelajari program yang sesuai dengan kebutuhan dan persiapkan diri untuk bergabung bersama Pondok IT Indonesia.</p>
+    </div>
+    <a href="URL_FORMULIR" class="btn">Informasi Pendaftaran</a>
+  </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-    <div class="footer-inner">
-        <div>
-            <strong>PONDOK IT INDONESIA</strong>
-            <p>Mencetak SDM IT yang Amanah, Kompeten, dan Mandiri.</p>
-        </div>
-
-        <span>© <span id="year"></span> Pondok IT Indonesia</span>
-    </div>
+  <div class="footer-inner">
+    <div><strong>PONDOK IT INDONESIA</strong><p>Mencetak SDM IT yang Amanah, Kompeten, dan Mandiri.</p></div>
+    <span>© <span id="year"></span> Pondok IT Indonesia</span>
+  </div>
 </footer>
 
 <script>
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
+/* menu mobile */
+const menuToggle=document.getElementById("menuToggle"),navLinks=document.getElementById("navLinks");
+menuToggle.addEventListener("click",function(){const o=navLinks.classList.toggle("open");menuToggle.setAttribute("aria-expanded",o);menuToggle.textContent=o?"×":"☰"});
+document.querySelectorAll("#navLinks a").forEach(function(l){l.addEventListener("click",function(){navLinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰"})});
+document.getElementById("year").textContent=new Date().getFullYear();
 
-menuToggle.addEventListener("click", function () {
-    const isOpen = navLinks.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", isOpen);
-    menuToggle.textContent = isOpen ? "×" : "☰";
-});
+/* koin emas 3D: sisi depan, belakang, dan ketebalan */
+(function(){
+  var c=document.getElementById('coin'),i,d;
+  for(i=-7;i<=7;i++){d=document.createElement('div');d.className='cl';d.style.transform='translateZ('+(i*2)+'px)';c.appendChild(d)}
+  d=document.createElement('div');d.className='cl cf';d.style.transform='translateZ(16px)';d.innerHTML='<span>Rp<small>PONDOK IT</small></span>';c.appendChild(d);
+  d=document.createElement('div');d.className='cl cf';d.style.transform='rotateY(180deg) translateZ(16px)';d.innerHTML='<span>IT<small>TAQWA</small></span>';c.appendChild(d);
+})();
 
-document.querySelectorAll("#navLinks a").forEach(function (link) {
-    link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+/* gedung latar */
+(function(){var c=document.getElementById('city');for(var i=0;i<18;i++){var b=document.createElement('i');b.style.left=(i*5.8-2)+'%';b.style.width=(3+(i*7)%5)+'%';b.style.top=(-10-(i*13)%35)+'%';b.style.animationDelay=(-i*1.3)+'s';c.appendChild(b)}})();
+
+/* miring 3D mengikuti kursor */
+if(window.matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.tilt').forEach(function(el){
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      el.style.transform='perspective(900px) rotateX('+(-y*9)+'deg) rotateY('+(x*12)+'deg) translateZ(8px)';
     });
-});
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
+    el.addEventListener('mouseleave',function(){el.style.transform=''});
+  });
+}
 </script>
-
 </body>
 </html>
